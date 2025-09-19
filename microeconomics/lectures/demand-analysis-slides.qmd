@@ -1,0 +1,317 @@
+---
+title: "Deriving Demand for Rum and Swords"
+format: 
+  revealjs:
+    theme: dark
+    transition: slide
+    background-transition: fade
+    highlight-style: zenburn
+    center: true
+    fig-width: 10
+    fig-height: 6
+---
+
+## Introduction {.center}
+
+🎯 **Learning Objective**
+
+Derive individual demand curves from utility maximization theory
+
+**Our Example:** Two goods
+- 🍺 **Rum** (x-axis) 
+- ⚔️ **Swords** (y-axis)
+
+## The Budget Constraint {.smaller}
+
+### Basic Setup
+
+Consumer income: $M$ to spend on two goods:
+- **Rum** ($R$) with price $p_R$
+- **Swords** ($S$) with price $p_S$
+
+### Budget Constraint Equation
+
+$$p_R \cdot R + p_S \cdot S = M$$
+
+### Slope-Intercept Form
+
+$$S = \frac{M}{p_S} - \frac{p_R}{p_S} \cdot R$$
+
+## Initial Scenario {.center}
+
+### Our Assumptions
+
+- **Income:** $M = \$120$
+- **Price of Rum:** $p_R = \$4$ per bottle  
+- **Price of Swords:** $p_S = \$6$ per sword
+
+### Initial Budget Constraint
+
+$$4R + 6S = 120$$
+
+### Slope-Intercept Form
+
+$$S = 20 - \frac{2}{3}R$$
+
+## Utility Function {.center}
+
+### Cobb-Douglas Utility Function
+
+$$U(R,S) = R^{0.6} \cdot S^{0.4}$$
+
+**Why Cobb-Douglas?**
+- Mathematically tractable
+- Realistic diminishing marginal utility
+- Widely used in economics
+
+## Utility Maximization {.smaller}
+
+### The Key Condition
+
+Marginal Rate of Substitution = Price Ratio
+
+$$MRS_{R,S} = \frac{MU_R}{MU_S} = \frac{p_R}{p_S}$$
+
+### For Cobb-Douglas Function
+
+- $MU_R = 0.6 \cdot R^{-0.4} \cdot S^{0.4}$
+- $MU_S = 0.4 \cdot R^{0.6} \cdot S^{-0.6}$
+
+### Therefore:
+
+$$MRS_{R,S} = 1.5 \cdot \frac{S}{R}$$
+
+## Finding the Optimal Bundle {.center}
+
+### Setting MRS = Price Ratio
+
+$$1.5 \cdot \frac{S}{R} = \frac{4}{6} = \frac{2}{3}$$
+
+### Solving for S in terms of R
+
+$$S = \frac{4}{9}R$$
+
+### Substituting into Budget Constraint
+
+$$4R + 6 \cdot \frac{4}{9}R = 120$$
+
+### **Result:** $(R^*, S^*) = (18, 8)$
+
+## Price Changes: Rum = $3 {.center}
+
+### New Price Ratio
+
+$$1.5 \cdot \frac{S}{R} = \frac{3}{6} = \frac{1}{2}$$
+
+### New Relationship
+
+$$S = \frac{1}{3}R$$
+
+### New Budget Constraint
+
+$$3R + 6S = 120$$
+
+### **New Optimum:** $(R^*, S^*) = (24, 8)$
+
+## Price Changes: Rum = $6 {.center}
+
+### New Price Ratio
+
+$$1.5 \cdot \frac{S}{R} = \frac{6}{6} = 1$$
+
+### New Relationship
+
+$$S = \frac{2}{3}R$$
+
+### **New Optimum:** $(R^*, S^*) = (12, 8)$
+
+## Price Changes: Rum = $2 {.center}
+
+### Following the same process...
+
+### **New Optimum:** $(R^*, S^*) = (36, 8)$
+
+**Notice:** Swords consumption stays constant at 8!
+
+## Demand Schedule {.center}
+
+| Price of Rum | Quantity of Rum | Quantity of Swords | Total Utility |
+|:-------------|:----------------|:-------------------|:--------------|
+| $6           | 12 bottles      | 8 swords          | 57.9          |
+| $4           | 18 bottles      | 8 swords          | 67.2          |
+| $3           | 24 bottles      | 8 swords          | 73.8          |
+| $2           | 36 bottles      | 8 swords          | 85.7          |
+
+## Mathematical Demand Function {.center}
+
+### General Cobb-Douglas Result
+
+For $a = 0.6, b = 0.4, M = 120, p_S = 6$:
+
+### **Rum Demand Function:**
+
+$$R^*(p_R) = \frac{72}{p_R}$$
+
+### **Swords Demand Function:**
+
+$$S^* = 8$$
+
+## Demand Curve Visualization {.center}
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(ggplot2)
+
+# Create data for demand curve
+price_range <- seq(1, 8, 0.1)
+quantity_demanded <- 72 / price_range
+
+demand_curve_data <- data.frame(
+  Price = price_range,
+  Quantity = quantity_demanded
+)
+
+# Specific points from our analysis
+points_data <- data.frame(
+  Price = c(6, 4, 3, 2),
+  Quantity = c(12, 18, 24, 36)
+)
+
+# Create the plot
+ggplot() +
+  geom_line(data = demand_curve_data, aes(x = Quantity, y = Price), 
+            color = "#4ECDC4", linewidth = 2) +
+  geom_point(data = points_data, aes(x = Quantity, y = Price), 
+             color = "#FF6B6B", size = 6) +
+  geom_text(data = points_data, aes(x = Quantity, y = Price, 
+                                    label = paste("($", Price, ",", Quantity, ")")), 
+            vjust = -1, hjust = 0.5, size = 4, color = "white") +
+  labs(title = "Demand Curve for Rum",
+       subtitle = "R* = 72/p_R",
+       x = "Quantity of Rum (bottles)",
+       y = "Price of Rum ($)") +
+  theme_dark() +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 20, face = "bold", color = "white"),
+    plot.subtitle = element_text(hjust = 0.5, size = 14, color = "#4ECDC4"),
+    axis.title = element_text(size = 14, color = "white"),
+    axis.text = element_text(size = 12, color = "white"),
+    panel.background = element_rect(fill = "transparent"),
+    plot.background = element_rect(fill = "transparent")
+  ) +
+  scale_x_continuous(breaks = seq(0, 40, 5), limits = c(0, 40)) +
+  scale_y_continuous(breaks = seq(0, 8, 1), limits = c(0, 8))
+```
+
+## Budget Lines Visualization {.center}
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+# Create budget line data
+rum_range <- seq(0, 40, 1)
+
+# Budget lines for different prices
+budget_long <- data.frame(
+  Rum = rep(rum_range, 4),
+  Swords = c(20 - rum_range, 20 - (2/3) * rum_range, 
+             20 - (1/2) * rum_range, 20 - (1/3) * rum_range),
+  Price = rep(c("$6", "$4", "$3", "$2"), each = length(rum_range))
+)
+
+# Filter valid points
+budget_long <- budget_long[budget_long$Swords >= 0, ]
+
+# Optimal points
+optimal_points <- data.frame(
+  Rum = c(12, 18, 24, 36),
+  Swords = c(8, 8, 8, 8),
+  Price = c("$6", "$4", "$3", "$2")
+)
+
+# Create the plot
+ggplot() +
+  geom_line(data = budget_long, aes(x = Rum, y = Swords, color = Price), 
+            linewidth = 2) +
+  geom_point(data = optimal_points, aes(x = Rum, y = Swords, color = Price), 
+             size = 6) +
+  labs(title = "Budget Constraints and Optimal Consumption",
+       subtitle = "Income = $120, Price of Swords = $6",
+       x = "Rum (bottles)",
+       y = "Swords (quantity)",
+       color = "Price of Rum") +
+  theme_dark() +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 18, face = "bold", color = "white"),
+    plot.subtitle = element_text(hjust = 0.5, size = 14, color = "#4ECDC4"),
+    axis.title = element_text(size = 14, color = "white"),
+    axis.text = element_text(size = 12, color = "white"),
+    legend.title = element_text(color = "white"),
+    legend.text = element_text(color = "white"),
+    panel.background = element_rect(fill = "transparent"),
+    plot.background = element_rect(fill = "transparent")
+  ) +
+  scale_x_continuous(breaks = seq(0, 40, 5), limits = c(0, 40)) +
+  scale_y_continuous(breaks = seq(0, 25, 5), limits = c(0, 25)) +
+  scale_color_manual(values = c("$2" = "#1f77b4", "$3" = "#ff7f0e", 
+                                "$4" = "#2ca02c", "$6" = "#d62728"))
+```
+
+## Key Economic Insights {.smaller}
+
+### 📊 Elasticity Analysis
+
+For demand function $R = \frac{72}{p_R}$:
+
+$$\varepsilon_{R,p_R} = -1$$
+
+**Unit Elastic Demand** at all points!
+
+### 💡 Income and Substitution Effects
+
+When price decreases from $4 to $3:
+- **Total Effect:** $\Delta R = 24 - 18 = 6$ bottles
+- Both effects reinforce the law of demand
+
+## Applications {.center}
+
+### 🏪 Business Applications
+- **Pricing strategies**
+- **Revenue optimization**  
+- **Market analysis**
+
+### 🏛️ Policy Applications
+- **Tax policy effects**
+- **Subsidy programs**
+- **Market regulation**
+
+## Key Takeaways {.center}
+
+### ✅ What We Learned
+
+1. **Budget constraints** limit consumer choices
+2. **Utility maximization** determines optimal bundles  
+3. **Price changes** create predictable demand responses
+4. **Mathematical functions** can be derived analytically
+5. **Elasticity** provides insights into behavior
+
+### 🎯 **The Framework**
+Essential tools for economic analysis and policy evaluation
+
+## Questions? {.center}
+
+### 🤔 **Discussion Topics**
+
+- What happens with different utility function parameters?
+- How do income changes affect demand?
+- What about substitute and complement goods?
+
+### 📚 **Next Steps**
+- Practice with problem sets
+- Explore interactive simulations
+- Apply to real-world examples

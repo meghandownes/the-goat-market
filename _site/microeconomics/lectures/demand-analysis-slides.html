@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Deriving Demand for Rum and Swords – The Economics Experience</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../about.html" rel="prev">
+<link href="../../nofreelunch.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-697313df19b4b029016be603f33abac8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Deriving Demand for Rum and Swords – The Economics Experience">
+<meta property="og:description" content="">
+<meta property="og:image" content="demand-analysis-slides_files/figure-html/unnamed-chunk-1-1.png">
+<meta property="og:site_name" content="The Economics Experience">
+<meta name="twitter:title" content="Deriving Demand for Rum and Swords – The Economics Experience">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="demand-analysis-slides_files/figure-html/unnamed-chunk-1-1.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">The Economics Experience</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../microeconomics.qmd"> 
+<span class="menu-text">Microeconomics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../macroeconomics.qmd"> 
+<span class="menu-text">Macroeconomics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../downloads.qmd"> 
+<span class="menu-text">Downloads</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Microeconomics</li><li class="breadcrumb-item"><a href="../../microeconomics/lectures/demand-analysis-slides.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../microeconomics/lectures/demand-analysis-slides.html">Deriving Demand for Rum and Swords</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+  <div id="quarto-announcement" data-announcement-id="9616bfb5c47a60811ea96e08f2ae1bd0" class="alert alert-primary hidden"><i class="bi bi-info-circle quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p><strong>Alert</strong> - this is some information that you should pay attention to</p>
+</div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Microeconomics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Lectures</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../microeconomics/lectures/demand-analysis-slides.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Deriving Demand for Rum and Swords</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#the-budget-constraint" id="toc-the-budget-constraint" class="nav-link" data-scroll-target="#the-budget-constraint">The Budget Constraint</a>
+  <ul class="collapse">
+  <li><a href="#basic-setup" id="toc-basic-setup" class="nav-link" data-scroll-target="#basic-setup">Basic Setup</a></li>
+  <li><a href="#budget-constraint-equation" id="toc-budget-constraint-equation" class="nav-link" data-scroll-target="#budget-constraint-equation">Budget Constraint Equation</a></li>
+  <li><a href="#slope-intercept-form" id="toc-slope-intercept-form" class="nav-link" data-scroll-target="#slope-intercept-form">Slope-Intercept Form</a></li>
+  </ul></li>
+  <li><a href="#initial-scenario" id="toc-initial-scenario" class="nav-link" data-scroll-target="#initial-scenario">Initial Scenario</a>
+  <ul class="collapse">
+  <li><a href="#our-assumptions" id="toc-our-assumptions" class="nav-link" data-scroll-target="#our-assumptions">Our Assumptions</a></li>
+  <li><a href="#initial-budget-constraint" id="toc-initial-budget-constraint" class="nav-link" data-scroll-target="#initial-budget-constraint">Initial Budget Constraint</a></li>
+  <li><a href="#slope-intercept-form-1" id="toc-slope-intercept-form-1" class="nav-link" data-scroll-target="#slope-intercept-form-1">Slope-Intercept Form</a></li>
+  </ul></li>
+  <li><a href="#utility-function" id="toc-utility-function" class="nav-link" data-scroll-target="#utility-function">Utility Function</a>
+  <ul class="collapse">
+  <li><a href="#cobb-douglas-utility-function" id="toc-cobb-douglas-utility-function" class="nav-link" data-scroll-target="#cobb-douglas-utility-function">Cobb-Douglas Utility Function</a></li>
+  </ul></li>
+  <li><a href="#utility-maximization" id="toc-utility-maximization" class="nav-link" data-scroll-target="#utility-maximization">Utility Maximization</a>
+  <ul class="collapse">
+  <li><a href="#the-key-condition" id="toc-the-key-condition" class="nav-link" data-scroll-target="#the-key-condition">The Key Condition</a></li>
+  <li><a href="#for-cobb-douglas-function" id="toc-for-cobb-douglas-function" class="nav-link" data-scroll-target="#for-cobb-douglas-function">For Cobb-Douglas Function</a></li>
+  <li><a href="#therefore" id="toc-therefore" class="nav-link" data-scroll-target="#therefore">Therefore:</a></li>
+  </ul></li>
+  <li><a href="#finding-the-optimal-bundle" id="toc-finding-the-optimal-bundle" class="nav-link" data-scroll-target="#finding-the-optimal-bundle">Finding the Optimal Bundle</a>
+  <ul class="collapse">
+  <li><a href="#setting-mrs-price-ratio" id="toc-setting-mrs-price-ratio" class="nav-link" data-scroll-target="#setting-mrs-price-ratio">Setting MRS = Price Ratio</a></li>
+  <li><a href="#solving-for-s-in-terms-of-r" id="toc-solving-for-s-in-terms-of-r" class="nav-link" data-scroll-target="#solving-for-s-in-terms-of-r">Solving for S in terms of R</a></li>
+  <li><a href="#substituting-into-budget-constraint" id="toc-substituting-into-budget-constraint" class="nav-link" data-scroll-target="#substituting-into-budget-constraint">Substituting into Budget Constraint</a></li>
+  <li><a href="#result-r-s-18-8" id="toc-result-r-s-18-8" class="nav-link" data-scroll-target="#result-r-s-18-8"><strong>Result:</strong> <span class="math inline">\((R^*, S^*) = (18, 8)\)</span></a></li>
+  </ul></li>
+  <li><a href="#price-changes-rum-3" id="toc-price-changes-rum-3" class="nav-link" data-scroll-target="#price-changes-rum-3">Price Changes: Rum = $3</a>
+  <ul class="collapse">
+  <li><a href="#new-price-ratio" id="toc-new-price-ratio" class="nav-link" data-scroll-target="#new-price-ratio">New Price Ratio</a></li>
+  <li><a href="#new-relationship" id="toc-new-relationship" class="nav-link" data-scroll-target="#new-relationship">New Relationship</a></li>
+  <li><a href="#new-budget-constraint" id="toc-new-budget-constraint" class="nav-link" data-scroll-target="#new-budget-constraint">New Budget Constraint</a></li>
+  <li><a href="#new-optimum-r-s-24-8" id="toc-new-optimum-r-s-24-8" class="nav-link" data-scroll-target="#new-optimum-r-s-24-8"><strong>New Optimum:</strong> <span class="math inline">\((R^*, S^*) = (24, 8)\)</span></a></li>
+  </ul></li>
+  <li><a href="#price-changes-rum-6" id="toc-price-changes-rum-6" class="nav-link" data-scroll-target="#price-changes-rum-6">Price Changes: Rum = $6</a>
+  <ul class="collapse">
+  <li><a href="#new-price-ratio-1" id="toc-new-price-ratio-1" class="nav-link" data-scroll-target="#new-price-ratio-1">New Price Ratio</a></li>
+  <li><a href="#new-relationship-1" id="toc-new-relationship-1" class="nav-link" data-scroll-target="#new-relationship-1">New Relationship</a></li>
+  <li><a href="#new-optimum-r-s-12-8" id="toc-new-optimum-r-s-12-8" class="nav-link" data-scroll-target="#new-optimum-r-s-12-8"><strong>New Optimum:</strong> <span class="math inline">\((R^*, S^*) = (12, 8)\)</span></a></li>
+  </ul></li>
+  <li><a href="#price-changes-rum-2" id="toc-price-changes-rum-2" class="nav-link" data-scroll-target="#price-changes-rum-2">Price Changes: Rum = $2</a>
+  <ul class="collapse">
+  <li><a href="#following-the-same-process" id="toc-following-the-same-process" class="nav-link" data-scroll-target="#following-the-same-process">Following the same process…</a></li>
+  <li><a href="#new-optimum-r-s-36-8" id="toc-new-optimum-r-s-36-8" class="nav-link" data-scroll-target="#new-optimum-r-s-36-8"><strong>New Optimum:</strong> <span class="math inline">\((R^*, S^*) = (36, 8)\)</span></a></li>
+  </ul></li>
+  <li><a href="#demand-schedule" id="toc-demand-schedule" class="nav-link" data-scroll-target="#demand-schedule">Demand Schedule</a></li>
+  <li><a href="#mathematical-demand-function" id="toc-mathematical-demand-function" class="nav-link" data-scroll-target="#mathematical-demand-function">Mathematical Demand Function</a>
+  <ul class="collapse">
+  <li><a href="#general-cobb-douglas-result" id="toc-general-cobb-douglas-result" class="nav-link" data-scroll-target="#general-cobb-douglas-result">General Cobb-Douglas Result</a></li>
+  <li><a href="#rum-demand-function" id="toc-rum-demand-function" class="nav-link" data-scroll-target="#rum-demand-function"><strong>Rum Demand Function:</strong></a></li>
+  <li><a href="#swords-demand-function" id="toc-swords-demand-function" class="nav-link" data-scroll-target="#swords-demand-function"><strong>Swords Demand Function:</strong></a></li>
+  </ul></li>
+  <li><a href="#demand-curve-visualization" id="toc-demand-curve-visualization" class="nav-link" data-scroll-target="#demand-curve-visualization">Demand Curve Visualization</a></li>
+  <li><a href="#budget-lines-visualization" id="toc-budget-lines-visualization" class="nav-link" data-scroll-target="#budget-lines-visualization">Budget Lines Visualization</a></li>
+  <li><a href="#key-economic-insights" id="toc-key-economic-insights" class="nav-link" data-scroll-target="#key-economic-insights">Key Economic Insights</a>
+  <ul class="collapse">
+  <li><a href="#elasticity-analysis" id="toc-elasticity-analysis" class="nav-link" data-scroll-target="#elasticity-analysis">📊 Elasticity Analysis</a></li>
+  <li><a href="#income-and-substitution-effects" id="toc-income-and-substitution-effects" class="nav-link" data-scroll-target="#income-and-substitution-effects">💡 Income and Substitution Effects</a></li>
+  </ul></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a>
+  <ul class="collapse">
+  <li><a href="#business-applications" id="toc-business-applications" class="nav-link" data-scroll-target="#business-applications">🏪 Business Applications</a></li>
+  <li><a href="#policy-applications" id="toc-policy-applications" class="nav-link" data-scroll-target="#policy-applications">🏛️ Policy Applications</a></li>
+  </ul></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a>
+  <ul class="collapse">
+  <li><a href="#what-we-learned" id="toc-what-we-learned" class="nav-link" data-scroll-target="#what-we-learned">✅ What We Learned</a></li>
+  <li><a href="#the-framework" id="toc-the-framework" class="nav-link" data-scroll-target="#the-framework">🎯 <strong>The Framework</strong></a></li>
+  </ul></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions?</a>
+  <ul class="collapse">
+  <li><a href="#discussion-topics" id="toc-discussion-topics" class="nav-link" data-scroll-target="#discussion-topics">🤔 <strong>Discussion Topics</strong></a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">📚 <strong>Next Steps</strong></a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="demand-analysis-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Microeconomics</li><li class="breadcrumb-item"><a href="../../microeconomics/lectures/demand-analysis-slides.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../microeconomics/lectures/demand-analysis-slides.html">Deriving Demand for Rum and Swords</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Deriving Demand for Rum and Swords</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2 center">
+<h2 class="center anchored" data-anchor-id="introduction">Introduction</h2>
+<p>🎯 <strong>Learning Objective</strong></p>
+<p>Derive individual demand curves from utility maximization theory</p>
+<p><strong>Our Example:</strong> Two goods - 🍺 <strong>Rum</strong> (x-axis) - ⚔️ <strong>Swords</strong> (y-axis)</p>
+</section>
+<section id="the-budget-constraint" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="the-budget-constraint">The Budget Constraint</h2>
+<section id="basic-setup" class="level3">
+<h3 class="anchored" data-anchor-id="basic-setup">Basic Setup</h3>
+<p>Consumer income: <span class="math inline">\(M\)</span> to spend on two goods: - <strong>Rum</strong> (<span class="math inline">\(R\)</span>) with price <span class="math inline">\(p_R\)</span> - <strong>Swords</strong> (<span class="math inline">\(S\)</span>) with price <span class="math inline">\(p_S\)</span></p>
+</section>
+<section id="budget-constraint-equation" class="level3">
+<h3 class="anchored" data-anchor-id="budget-constraint-equation">Budget Constraint Equation</h3>
+<p><span class="math display">\[p_R \cdot R + p_S \cdot S = M\]</span></p>
+</section>
+<section id="slope-intercept-form" class="level3">
+<h3 class="anchored" data-anchor-id="slope-intercept-form">Slope-Intercept Form</h3>
+<p><span class="math display">\[S = \frac{M}{p_S} - \frac{p_R}{p_S} \cdot R\]</span></p>
+</section>
+</section>
+<section id="initial-scenario" class="level2 center">
+<h2 class="center anchored" data-anchor-id="initial-scenario">Initial Scenario</h2>
+<section id="our-assumptions" class="level3">
+<h3 class="anchored" data-anchor-id="our-assumptions">Our Assumptions</h3>
+<ul>
+<li><strong>Income:</strong> <span class="math inline">\(M = \$120\)</span></li>
+<li><strong>Price of Rum:</strong> <span class="math inline">\(p_R = \$4\)</span> per bottle<br>
+</li>
+<li><strong>Price of Swords:</strong> <span class="math inline">\(p_S = \$6\)</span> per sword</li>
+</ul>
+</section>
+<section id="initial-budget-constraint" class="level3">
+<h3 class="anchored" data-anchor-id="initial-budget-constraint">Initial Budget Constraint</h3>
+<p><span class="math display">\[4R + 6S = 120\]</span></p>
+</section>
+<section id="slope-intercept-form-1" class="level3">
+<h3 class="anchored" data-anchor-id="slope-intercept-form-1">Slope-Intercept Form</h3>
+<p><span class="math display">\[S = 20 - \frac{2}{3}R\]</span></p>
+</section>
+</section>
+<section id="utility-function" class="level2 center">
+<h2 class="center anchored" data-anchor-id="utility-function">Utility Function</h2>
+<section id="cobb-douglas-utility-function" class="level3">
+<h3 class="anchored" data-anchor-id="cobb-douglas-utility-function">Cobb-Douglas Utility Function</h3>
+<p><span class="math display">\[U(R,S) = R^{0.6} \cdot S^{0.4}\]</span></p>
+<p><strong>Why Cobb-Douglas?</strong> - Mathematically tractable - Realistic diminishing marginal utility - Widely used in economics</p>
+</section>
+</section>
+<section id="utility-maximization" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="utility-maximization">Utility Maximization</h2>
+<section id="the-key-condition" class="level3">
+<h3 class="anchored" data-anchor-id="the-key-condition">The Key Condition</h3>
+<p>Marginal Rate of Substitution = Price Ratio</p>
+<p><span class="math display">\[MRS_{R,S} = \frac{MU_R}{MU_S} = \frac{p_R}{p_S}\]</span></p>
+</section>
+<section id="for-cobb-douglas-function" class="level3">
+<h3 class="anchored" data-anchor-id="for-cobb-douglas-function">For Cobb-Douglas Function</h3>
+<ul>
+<li><span class="math inline">\(MU_R = 0.6 \cdot R^{-0.4} \cdot S^{0.4}\)</span></li>
+<li><span class="math inline">\(MU_S = 0.4 \cdot R^{0.6} \cdot S^{-0.6}\)</span></li>
+</ul>
+</section>
+<section id="therefore" class="level3">
+<h3 class="anchored" data-anchor-id="therefore">Therefore:</h3>
+<p><span class="math display">\[MRS_{R,S} = 1.5 \cdot \frac{S}{R}\]</span></p>
+</section>
+</section>
+<section id="finding-the-optimal-bundle" class="level2 center">
+<h2 class="center anchored" data-anchor-id="finding-the-optimal-bundle">Finding the Optimal Bundle</h2>
+<section id="setting-mrs-price-ratio" class="level3">
+<h3 class="anchored" data-anchor-id="setting-mrs-price-ratio">Setting MRS = Price Ratio</h3>
+<p><span class="math display">\[1.5 \cdot \frac{S}{R} = \frac{4}{6} = \frac{2}{3}\]</span></p>
+</section>
+<section id="solving-for-s-in-terms-of-r" class="level3">
+<h3 class="anchored" data-anchor-id="solving-for-s-in-terms-of-r">Solving for S in terms of R</h3>
+<p><span class="math display">\[S = \frac{4}{9}R\]</span></p>
+</section>
+<section id="substituting-into-budget-constraint" class="level3">
+<h3 class="anchored" data-anchor-id="substituting-into-budget-constraint">Substituting into Budget Constraint</h3>
+<p><span class="math display">\[4R + 6 \cdot \frac{4}{9}R = 120\]</span></p>
+</section>
+<section id="result-r-s-18-8" class="level3">
+<h3 class="anchored" data-anchor-id="result-r-s-18-8"><strong>Result:</strong> <span class="math inline">\((R^*, S^*) = (18, 8)\)</span></h3>
+</section>
+</section>
+<section id="price-changes-rum-3" class="level2 center">
+<h2 class="center anchored" data-anchor-id="price-changes-rum-3">Price Changes: Rum = $3</h2>
+<section id="new-price-ratio" class="level3">
+<h3 class="anchored" data-anchor-id="new-price-ratio">New Price Ratio</h3>
+<p><span class="math display">\[1.5 \cdot \frac{S}{R} = \frac{3}{6} = \frac{1}{2}\]</span></p>
+</section>
+<section id="new-relationship" class="level3">
+<h3 class="anchored" data-anchor-id="new-relationship">New Relationship</h3>
+<p><span class="math display">\[S = \frac{1}{3}R\]</span></p>
+</section>
+<section id="new-budget-constraint" class="level3">
+<h3 class="anchored" data-anchor-id="new-budget-constraint">New Budget Constraint</h3>
+<p><span class="math display">\[3R + 6S = 120\]</span></p>
+</section>
+<section id="new-optimum-r-s-24-8" class="level3">
+<h3 class="anchored" data-anchor-id="new-optimum-r-s-24-8"><strong>New Optimum:</strong> <span class="math inline">\((R^*, S^*) = (24, 8)\)</span></h3>
+</section>
+</section>
+<section id="price-changes-rum-6" class="level2 center">
+<h2 class="center anchored" data-anchor-id="price-changes-rum-6">Price Changes: Rum = $6</h2>
+<section id="new-price-ratio-1" class="level3">
+<h3 class="anchored" data-anchor-id="new-price-ratio-1">New Price Ratio</h3>
+<p><span class="math display">\[1.5 \cdot \frac{S}{R} = \frac{6}{6} = 1\]</span></p>
+</section>
+<section id="new-relationship-1" class="level3">
+<h3 class="anchored" data-anchor-id="new-relationship-1">New Relationship</h3>
+<p><span class="math display">\[S = \frac{2}{3}R\]</span></p>
+</section>
+<section id="new-optimum-r-s-12-8" class="level3">
+<h3 class="anchored" data-anchor-id="new-optimum-r-s-12-8"><strong>New Optimum:</strong> <span class="math inline">\((R^*, S^*) = (12, 8)\)</span></h3>
+</section>
+</section>
+<section id="price-changes-rum-2" class="level2 center">
+<h2 class="center anchored" data-anchor-id="price-changes-rum-2">Price Changes: Rum = $2</h2>
+<section id="following-the-same-process" class="level3">
+<h3 class="anchored" data-anchor-id="following-the-same-process">Following the same process…</h3>
+</section>
+<section id="new-optimum-r-s-36-8" class="level3">
+<h3 class="anchored" data-anchor-id="new-optimum-r-s-36-8"><strong>New Optimum:</strong> <span class="math inline">\((R^*, S^*) = (36, 8)\)</span></h3>
+<p><strong>Notice:</strong> Swords consumption stays constant at 8!</p>
+</section>
+</section>
+<section id="demand-schedule" class="level2 center">
+<h2 class="center anchored" data-anchor-id="demand-schedule">Demand Schedule</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Price of Rum</th>
+<th style="text-align: left;">Quantity of Rum</th>
+<th style="text-align: left;">Quantity of Swords</th>
+<th style="text-align: left;">Total Utility</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">$6</td>
+<td style="text-align: left;">12 bottles</td>
+<td style="text-align: left;">8 swords</td>
+<td style="text-align: left;">57.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">$4</td>
+<td style="text-align: left;">18 bottles</td>
+<td style="text-align: left;">8 swords</td>
+<td style="text-align: left;">67.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">$3</td>
+<td style="text-align: left;">24 bottles</td>
+<td style="text-align: left;">8 swords</td>
+<td style="text-align: left;">73.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">$2</td>
+<td style="text-align: left;">36 bottles</td>
+<td style="text-align: left;">8 swords</td>
+<td style="text-align: left;">85.7</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mathematical-demand-function" class="level2 center">
+<h2 class="center anchored" data-anchor-id="mathematical-demand-function">Mathematical Demand Function</h2>
+<section id="general-cobb-douglas-result" class="level3">
+<h3 class="anchored" data-anchor-id="general-cobb-douglas-result">General Cobb-Douglas Result</h3>
+<p>For <span class="math inline">\(a = 0.6, b = 0.4, M = 120, p_S = 6\)</span>:</p>
+</section>
+<section id="rum-demand-function" class="level3">
+<h3 class="anchored" data-anchor-id="rum-demand-function"><strong>Rum Demand Function:</strong></h3>
+<p><span class="math display">\[R^*(p_R) = \frac{72}{p_R}\]</span></p>
+</section>
+<section id="swords-demand-function" class="level3">
+<h3 class="anchored" data-anchor-id="swords-demand-function"><strong>Swords Demand Function:</strong></h3>
+<p><span class="math display">\[S^* = 8\]</span></p>
+</section>
+</section>
+<section id="demand-curve-visualization" class="level2 center">
+<h2 class="center anchored" data-anchor-id="demand-curve-visualization">Demand Curve Visualization</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="demand-analysis-slides_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="budget-lines-visualization" class="level2 center">
+<h2 class="center anchored" data-anchor-id="budget-lines-visualization">Budget Lines Visualization</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="demand-analysis-slides_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="key-economic-insights" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="key-economic-insights">Key Economic Insights</h2>
+<section id="elasticity-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="elasticity-analysis">📊 Elasticity Analysis</h3>
+<p>For demand function <span class="math inline">\(R = \frac{72}{p_R}\)</span>:</p>
+<p><span class="math display">\[\varepsilon_{R,p_R} = -1\]</span></p>
+<p><strong>Unit Elastic Demand</strong> at all points!</p>
+</section>
+<section id="income-and-substitution-effects" class="level3">
+<h3 class="anchored" data-anchor-id="income-and-substitution-effects">💡 Income and Substitution Effects</h3>
+<p>When price decreases from $4 to $3: - <strong>Total Effect:</strong> <span class="math inline">\(\Delta R = 24 - 18 = 6\)</span> bottles - Both effects reinforce the law of demand</p>
+</section>
+</section>
+<section id="applications" class="level2 center">
+<h2 class="center anchored" data-anchor-id="applications">Applications</h2>
+<section id="business-applications" class="level3">
+<h3 class="anchored" data-anchor-id="business-applications">🏪 Business Applications</h3>
+<ul>
+<li><strong>Pricing strategies</strong></li>
+<li><strong>Revenue optimization</strong><br>
+</li>
+<li><strong>Market analysis</strong></li>
+</ul>
+</section>
+<section id="policy-applications" class="level3">
+<h3 class="anchored" data-anchor-id="policy-applications">🏛️ Policy Applications</h3>
+<ul>
+<li><strong>Tax policy effects</strong></li>
+<li><strong>Subsidy programs</strong></li>
+<li><strong>Market regulation</strong></li>
+</ul>
+</section>
+</section>
+<section id="key-takeaways" class="level2 center">
+<h2 class="center anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
+<section id="what-we-learned" class="level3">
+<h3 class="anchored" data-anchor-id="what-we-learned">✅ What We Learned</h3>
+<ol type="1">
+<li><strong>Budget constraints</strong> limit consumer choices</li>
+<li><strong>Utility maximization</strong> determines optimal bundles<br>
+</li>
+<li><strong>Price changes</strong> create predictable demand responses</li>
+<li><strong>Mathematical functions</strong> can be derived analytically</li>
+<li><strong>Elasticity</strong> provides insights into behavior</li>
+</ol>
+</section>
+<section id="the-framework" class="level3">
+<h3 class="anchored" data-anchor-id="the-framework">🎯 <strong>The Framework</strong></h3>
+<p>Essential tools for economic analysis and policy evaluation</p>
+</section>
+</section>
+<section id="questions" class="level2 center">
+<h2 class="center anchored" data-anchor-id="questions">Questions?</h2>
+<section id="discussion-topics" class="level3">
+<h3 class="anchored" data-anchor-id="discussion-topics">🤔 <strong>Discussion Topics</strong></h3>
+<ul>
+<li>What happens with different utility function parameters?</li>
+<li>How do income changes affect demand?</li>
+<li>What about substitute and complement goods?</li>
+</ul>
+</section>
+<section id="next-steps" class="level3">
+<h3 class="anchored" data-anchor-id="next-steps">📚 <strong>Next Steps</strong></h3>
+<ul>
+<li>Practice with problem sets</li>
+<li>Explore interactive simulations</li>
+<li>Apply to real-world examples</li>
+</ul>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../about.html" class="pagination-link" aria-label="About">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">About</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright 2025, Meghan Downes</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/meghandownes">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
