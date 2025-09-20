@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "the-goat-market",
     "section": "",
-    "text": "The Economics Experience\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n Back to top"
+    "text": "The Economics Experience\nThe answer is always to double it and double it again!\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "about.html",
@@ -249,6 +249,50 @@
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
+    ]
+  },
+  {
+    "objectID": "Microeconomics.html",
+    "href": "Microeconomics.html",
+    "title": "Mircoreconomics",
+    "section": "",
+    "text": "Start your journey in economics here. From a Scavenger Hunt to Pirate Treasure. We will encounter lots of thought provoking ideas along the way! Ahoy Mateys!\n\n\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "Mircoreconomics"
+    ]
+  },
+  {
+    "objectID": "microeconomics-splash.html",
+    "href": "microeconomics-splash.html",
+    "title": "Mircoreconomics",
+    "section": "",
+    "text": "Start your journey in economics here. From a Scavenger Hunt to Pirate Treasure. We will encounter lots of thought provoking ideas along the way! Ahoy Mateys!\n\n\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "Mircoreconomics"
+    ]
+  },
+  {
+    "objectID": "macroeconomics-splash.html",
+    "href": "macroeconomics-splash.html",
+    "title": "macroeconomics-splash",
+    "section": "",
+    "text": "Here is the splash page for the experience through macroeconomics! Its a whale of a time :)\n\n\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "macroeconomics-splash"
+    ]
+  },
+  {
+    "objectID": "downoads-splash.html",
+    "href": "downoads-splash.html",
+    "title": "Downlaods",
+    "section": "",
+    "text": "The splash page for downloads! :)\n\n\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "Downlaods"
     ]
   }
 ]

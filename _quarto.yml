@@ -10,11 +10,11 @@ website:
       - text: "Home"
         href: index.qmd
       - text: "Microeconomics"
-        href: microeconomics.qmd
+        href: microeconomics-splash.qmd
       - text: "Macroeconomics"
-        href: macroeconomics.qmd
+        href: macroeconomics-splash.qmd
       - text: "Downloads"
-        href: downloads.qmd
+        href: downloads-splash.qmd
   
   sidebar:
     style: "docked"
