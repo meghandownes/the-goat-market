@@ -1,4 +1,4 @@
-project:
+project: 
   type: website
 
 website:
@@ -15,6 +15,7 @@ website:
         href: macroeconomics.qmd
       - text: "Downloads"
         href: downloads.qmd
+  
   sidebar:
     style: "docked"
     search: true
@@ -38,13 +39,11 @@ website:
   open-graph: true
   twitter-card: true
   favicon: nofreelunch.png
+
 format:
   html:
-    theme:
-      - lux
-      - brand
+    theme: lux
     css: styles.css
     toc: true
-
-editor: visual
+ 
 

@@ -4,6 +4,7 @@ title: "About"
 
 About this site
 
+
 This site is authored and maintained by Meghan Downes. All content is the sole responsibility of Dr. Downes, and does not represent New Mexico State University. This site and its contents are for non-commercial purposes and are covered under the MIT Open Source License. Code snippets and other materials may be found at /github/meghandownes/the-goat-market.
 
 This material is intended for student use, and is free and open source. Commercial re-use is not allowed, as is scraping by AI-bots without attribution to the source. Thank you for reading.
@@ -19,4 +20,8 @@ library(leaflet)
 leaflet() %>%
   addTiles() %>%  # Add default OpenStreetMap map tiles
   addMarkers(lng=-106.74894874460624, lat=32.27994064289398, popup="The birthplace of the Goat Market")
+```
+
+```{r}
+1 + 1
 ```

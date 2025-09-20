@@ -1,5 +1,5 @@
 #Basic Installs
-install.packages("devtools")
+#install.packages("devtools")
 
 
 #munging packages
@@ -44,10 +44,34 @@ using<-function(...) {
 }
 
 #---Now apply to lists of packages
-
+install.packages("tidyverse")
 #using(tidyverse_pkgs)
 using(data_pkgs)
 using(format_pkgs)
 using(plot_pkgs)
 using(geospatial_pkgs)
 using(shiny_pkgs)
+
+install.packages("chron")
+install.packages("formattable")
+install.packages("xts")
+install.packages("zoo")
+
+install.packages("leaflet")
+install.packages("raster")
+install.packages("tmap")
+install.packages("rmapshaper")
+install.packages("ggmap")
+install.packages("geosphere")
+install.packages("stars")
+install.packages("terra")
+
+
+
+
+
+
+
+
+
+
