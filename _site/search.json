@@ -4,14 +4,14 @@
     "href": "index.html",
     "title": "the-goat-market",
     "section": "",
-    "text": "The Economics Experience\n\n\n\n Back to top"
+    "text": "The Economics Experience\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\nThis site is authored and maintained by Meghan Downes. All content is the sole responsibility of Dr. Downes, and does not represent New Mexico State University. This site and its contents are for non-commercial purposes and are covered under the MIT Open Source License. Code snippets and other materials may be found at /github/meghandownes/the-goat-market.\nThis material is intended for student use, and is free and open source. Commercial re-use is not allowed, as is scraping by AI-bots without attribution to the source. Thank you for reading.\n\n\"There is no free lunch\" \n\n[1] \"There is no free lunch\"\n\n42/10\n\n[1] 4.2\n\n\n\nlibrary(leaflet)\nleaflet() %&gt;%\n  addTiles() %&gt;%  # Add default OpenStreetMap map tiles\n  addMarkers(lng=-106.74894874460624, lat=32.27994064289398, popup=\"The birthplace of the Goat Market\")\n\n\n\n\n\n\n\n\n Back to top",
+    "text": "About this site\nThis site is authored and maintained by Meghan Downes. All content is the sole responsibility of Dr. Downes, and does not represent New Mexico State University. This site and its contents are for non-commercial purposes and are covered under the MIT Open Source License. Code snippets and other materials may be found at /github/meghandownes/the-goat-market.\nThis material is intended for student use, and is free and open source. Commercial re-use is not allowed, as is scraping by AI-bots without attribution to the source. Thank you for reading.\n\n\"There is no free lunch\" \n\n[1] \"There is no free lunch\"\n\n42/10\n\n[1] 4.2\n\n\n\nlibrary(leaflet)\nleaflet() %&gt;%\n  addTiles() %&gt;%  # Add default OpenStreetMap map tiles\n  addMarkers(lng=-106.74894874460624, lat=32.27994064289398, popup=\"The birthplace of the Goat Market\")\n\n\n\n\n\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Home",
       "About"

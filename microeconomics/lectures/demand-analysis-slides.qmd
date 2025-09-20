@@ -1,14 +1,5 @@
 ---
 title: "Deriving Demand for Rum and Swords"
-format: 
-  revealjs:
-    theme: dark
-    transition: slide
-    background-transition: fade
-    highlight-style: zenburn
-    center: true
-    fig-width: 10
-    fig-height: 6
 ---
 
 ## Introduction {.center}
@@ -17,17 +8,13 @@ format:
 
 Derive individual demand curves from utility maximization theory
 
-**Our Example:** Two goods
-- 🍺 **Rum** (x-axis) 
-- ⚔️ **Swords** (y-axis)
+**Our Example:** Two goods - 🍺 **Rum** (x-axis) - ⚔️ **Swords** (y-axis)
 
 ## The Budget Constraint {.smaller}
 
 ### Basic Setup
 
-Consumer income: $M$ to spend on two goods:
-- **Rum** ($R$) with price $p_R$
-- **Swords** ($S$) with price $p_S$
+Consumer income: $M$ to spend on two goods: - **Rum** ($R$) with price $p_R$ - **Swords** ($S$) with price $p_S$
 
 ### Budget Constraint Equation
 
@@ -41,9 +28,9 @@ $$S = \frac{M}{p_S} - \frac{p_R}{p_S} \cdot R$$
 
 ### Our Assumptions
 
-- **Income:** $M = \$120$
-- **Price of Rum:** $p_R = \$4$ per bottle  
-- **Price of Swords:** $p_S = \$6$ per sword
+-   **Income:** $M = \$120$
+-   **Price of Rum:** $p_R = \$4$ per bottle\
+-   **Price of Swords:** $p_S = \$6$ per sword
 
 ### Initial Budget Constraint
 
@@ -59,10 +46,7 @@ $$S = 20 - \frac{2}{3}R$$
 
 $$U(R,S) = R^{0.6} \cdot S^{0.4}$$
 
-**Why Cobb-Douglas?**
-- Mathematically tractable
-- Realistic diminishing marginal utility
-- Widely used in economics
+**Why Cobb-Douglas?** - Mathematically tractable - Realistic diminishing marginal utility - Widely used in economics
 
 ## Utility Maximization {.smaller}
 
@@ -74,8 +58,8 @@ $$MRS_{R,S} = \frac{MU_R}{MU_S} = \frac{p_R}{p_S}$$
 
 ### For Cobb-Douglas Function
 
-- $MU_R = 0.6 \cdot R^{-0.4} \cdot S^{0.4}$
-- $MU_S = 0.4 \cdot R^{0.6} \cdot S^{-0.6}$
+-   $MU_R = 0.6 \cdot R^{-0.4} \cdot S^{0.4}$
+-   $MU_S = 0.4 \cdot R^{0.6} \cdot S^{-0.6}$
 
 ### Therefore:
 
@@ -97,7 +81,7 @@ $$4R + 6 \cdot \frac{4}{9}R = 120$$
 
 ### **Result:** $(R^*, S^*) = (18, 8)$
 
-## Price Changes: Rum = $3 {.center}
+## Price Changes: Rum = \$3 {.center}
 
 ### New Price Ratio
 
@@ -113,7 +97,7 @@ $$3R + 6S = 120$$
 
 ### **New Optimum:** $(R^*, S^*) = (24, 8)$
 
-## Price Changes: Rum = $6 {.center}
+## Price Changes: Rum = \$6 {.center}
 
 ### New Price Ratio
 
@@ -125,7 +109,7 @@ $$S = \frac{2}{3}R$$
 
 ### **New Optimum:** $(R^*, S^*) = (12, 8)$
 
-## Price Changes: Rum = $2 {.center}
+## Price Changes: Rum = \$2 {.center}
 
 ### Following the same process...
 
@@ -137,10 +121,10 @@ $$S = \frac{2}{3}R$$
 
 | Price of Rum | Quantity of Rum | Quantity of Swords | Total Utility |
 |:-------------|:----------------|:-------------------|:--------------|
-| $6           | 12 bottles      | 8 swords          | 57.9          |
-| $4           | 18 bottles      | 8 swords          | 67.2          |
-| $3           | 24 bottles      | 8 swords          | 73.8          |
-| $2           | 36 bottles      | 8 swords          | 85.7          |
+| \$6          | 12 bottles      | 8 swords           | 57.9          |
+| \$4          | 18 bottles      | 8 swords           | 67.2          |
+| \$3          | 24 bottles      | 8 swords           | 73.8          |
+| \$2          | 36 bottles      | 8 swords           | 85.7          |
 
 ## Mathematical Demand Function {.center}
 
@@ -274,44 +258,46 @@ $$\varepsilon_{R,p_R} = -1$$
 
 ### 💡 Income and Substitution Effects
 
-When price decreases from $4 to $3:
-- **Total Effect:** $\Delta R = 24 - 18 = 6$ bottles
-- Both effects reinforce the law of demand
+When price decreases from \$4 to \$3: - **Total Effect:** $\Delta R = 24 - 18 = 6$ bottles - Both effects reinforce the law of demand
 
 ## Applications {.center}
 
 ### 🏪 Business Applications
-- **Pricing strategies**
-- **Revenue optimization**  
-- **Market analysis**
+
+-   **Pricing strategies**
+-   **Revenue optimization**\
+-   **Market analysis**
 
 ### 🏛️ Policy Applications
-- **Tax policy effects**
-- **Subsidy programs**
-- **Market regulation**
+
+-   **Tax policy effects**
+-   **Subsidy programs**
+-   **Market regulation**
 
 ## Key Takeaways {.center}
 
 ### ✅ What We Learned
 
-1. **Budget constraints** limit consumer choices
-2. **Utility maximization** determines optimal bundles  
-3. **Price changes** create predictable demand responses
-4. **Mathematical functions** can be derived analytically
-5. **Elasticity** provides insights into behavior
+1.  **Budget constraints** limit consumer choices
+2.  **Utility maximization** determines optimal bundles\
+3.  **Price changes** create predictable demand responses
+4.  **Mathematical functions** can be derived analytically
+5.  **Elasticity** provides insights into behavior
 
 ### 🎯 **The Framework**
+
 Essential tools for economic analysis and policy evaluation
 
 ## Questions? {.center}
 
 ### 🤔 **Discussion Topics**
 
-- What happens with different utility function parameters?
-- How do income changes affect demand?
-- What about substitute and complement goods?
+-   What happens with different utility function parameters?
+-   How do income changes affect demand?
+-   What about substitute and complement goods?
 
 ### 📚 **Next Steps**
-- Practice with problem sets
-- Explore interactive simulations
-- Apply to real-world examples
+
+-   Practice with problem sets
+-   Explore interactive simulations
+-   Apply to real-world examples
