@@ -1,21 +1,41 @@
 [
   {
+    "objectID": "downloads/downloads-splash.html",
+    "href": "downloads/downloads-splash.html",
+    "title": "Downloads",
+    "section": "",
+    "text": "The splash page for downloads! :)\n\n\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "Downloads",
+      "Downloads"
+    ]
+  },
+  {
+    "objectID": "microeconomics/microeconomics-splash.html",
+    "href": "microeconomics/microeconomics-splash.html",
+    "title": "Microeconomics Home",
+    "section": "",
+    "text": "Start your journey in economics here. From a Scavenger Hunt to Pirate Treasure. We will encounter lots of thought provoking ideas along the way! Ahoy Mateys!\n\n\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "Microeconomics",
+      "Microeconomics Home"
+    ]
+  },
+  {
+    "objectID": "macroeconomics/macroeconomics-splash.html",
+    "href": "macroeconomics/macroeconomics-splash.html",
+    "title": "Macroeconomics Home",
+    "section": "",
+    "text": "Here is the splash page for the experience through macroeconomics! Its a whale of a time :)\n\n\n\n Back to top"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "the-goat-market",
     "section": "",
-    "text": "The Economics Experience\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\nThis site is authored and maintained by Meghan Downes. All content is the sole responsibility of Dr. Downes, and does not represent New Mexico State University. This site and its contents are for non-commercial purposes and are covered under the MIT Open Source License. Code snippets and other materials may be found at /github/meghandownes/the-goat-market.\nThis material is intended for student use, and is free and open source. Commercial re-use is not allowed, as is scraping by AI-bots without attribution to the source. Thank you for reading.\n\n\"There is no free lunch\" \n\n[1] \"There is no free lunch\"\n\n42/10\n\n[1] 4.2\n\n\n\nlibrary(leaflet)\nleaflet() %&gt;%\n  addTiles() %&gt;%  # Add default OpenStreetMap map tiles\n  addMarkers(lng=-106.74894874460624, lat=32.27994064289398, popup=\"The birthplace of the Goat Market\")\n\n\n\n\n\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Home",
-      "About"
-    ]
+    "text": "The Economics Experience\nThe answer is always to double it and double it again!\n\n1 + 1\n\n[1] 2\n\n\nPut properly:\n\nx = 10\ny = 2*x +2*x\n\nCheck out our new Macroeconomics site macroeconomics\n\n\n\n Back to top"
   },
   {
     "objectID": "microeconomics/lectures/demand-analysis-slides.html",
@@ -24,7 +44,6 @@
     "section": "",
     "text": "🎯 Learning Objective\nDerive individual demand curves from utility maximization theory\nOur Example: Two goods - 🍺 Rum (x-axis) - ⚔️ Swords (y-axis)",
     "crumbs": [
-      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -37,7 +56,6 @@
     "section": "",
     "text": "🎯 Learning Objective\nDerive individual demand curves from utility maximization theory\nOur Example: Two goods - 🍺 Rum (x-axis) - ⚔️ Swords (y-axis)",
     "crumbs": [
-      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -50,7 +68,6 @@
     "section": "The Budget Constraint",
     "text": "The Budget Constraint\n\nBasic Setup\nConsumer income: \\(M\\) to spend on two goods: - Rum (\\(R\\)) with price \\(p_R\\) - Swords (\\(S\\)) with price \\(p_S\\)\n\n\nBudget Constraint Equation\n\\[p_R \\cdot R + p_S \\cdot S = M\\]\n\n\nSlope-Intercept Form\n\\[S = \\frac{M}{p_S} - \\frac{p_R}{p_S} \\cdot R\\]",
     "crumbs": [
-      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -63,7 +80,6 @@
     "section": "Initial Scenario",
     "text": "Initial Scenario\n\nOur Assumptions\n\nIncome: \\(M = \\$120\\)\nPrice of Rum: \\(p_R = \\$4\\) per bottle\n\nPrice of Swords: \\(p_S = \\$6\\) per sword\n\n\n\nInitial Budget Constraint\n\\[4R + 6S = 120\\]\n\n\nSlope-Intercept Form\n\\[S = 20 - \\frac{2}{3}R\\]",
     "crumbs": [
-      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -76,7 +92,6 @@
     "section": "Utility Function",
     "text": "Utility Function\n\nCobb-Douglas Utility Function\n\\[U(R,S) = R^{0.6} \\cdot S^{0.4}\\]\nWhy Cobb-Douglas? - Mathematically tractable - Realistic diminishing marginal utility - Widely used in economics",
     "crumbs": [
-      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -89,7 +104,6 @@
     "section": "Utility Maximization",
     "text": "Utility Maximization\n\nThe Key Condition\nMarginal Rate of Substitution = Price Ratio\n\\[MRS_{R,S} = \\frac{MU_R}{MU_S} = \\frac{p_R}{p_S}\\]\n\n\nFor Cobb-Douglas Function\n\n\\(MU_R = 0.6 \\cdot R^{-0.4} \\cdot S^{0.4}\\)\n\\(MU_S = 0.4 \\cdot R^{0.6} \\cdot S^{-0.6}\\)\n\n\n\nTherefore:\n\\[MRS_{R,S} = 1.5 \\cdot \\frac{S}{R}\\]",
     "crumbs": [
-      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -102,7 +116,6 @@
     "section": "Finding the Optimal Bundle",
     "text": "Finding the Optimal Bundle\n\nSetting MRS = Price Ratio\n\\[1.5 \\cdot \\frac{S}{R} = \\frac{4}{6} = \\frac{2}{3}\\]\n\n\nSolving for S in terms of R\n\\[S = \\frac{4}{9}R\\]\n\n\nSubstituting into Budget Constraint\n\\[4R + 6 \\cdot \\frac{4}{9}R = 120\\]\n\n\nResult: \\((R^*, S^*) = (18, 8)\\)",
     "crumbs": [
-      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -115,7 +128,6 @@
     "section": "Price Changes: Rum = $3",
     "text": "Price Changes: Rum = $3\n\nNew Price Ratio\n\\[1.5 \\cdot \\frac{S}{R} = \\frac{3}{6} = \\frac{1}{2}\\]\n\n\nNew Relationship\n\\[S = \\frac{1}{3}R\\]\n\n\nNew Budget Constraint\n\\[3R + 6S = 120\\]\n\n\nNew Optimum: \\((R^*, S^*) = (24, 8)\\)",
     "crumbs": [
-      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -128,7 +140,6 @@
     "section": "Price Changes: Rum = $6",
     "text": "Price Changes: Rum = $6\n\nNew Price Ratio\n\\[1.5 \\cdot \\frac{S}{R} = \\frac{6}{6} = 1\\]\n\n\nNew Relationship\n\\[S = \\frac{2}{3}R\\]\n\n\nNew Optimum: \\((R^*, S^*) = (12, 8)\\)",
     "crumbs": [
-      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -141,7 +152,6 @@
     "section": "Price Changes: Rum = $2",
     "text": "Price Changes: Rum = $2\n\nFollowing the same process…\n\n\nNew Optimum: \\((R^*, S^*) = (36, 8)\\)\nNotice: Swords consumption stays constant at 8!",
     "crumbs": [
-      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -154,7 +164,6 @@
     "section": "Demand Schedule",
     "text": "Demand Schedule\n\n\n\nPrice of Rum\nQuantity of Rum\nQuantity of Swords\nTotal Utility\n\n\n\n\n$6\n12 bottles\n8 swords\n57.9\n\n\n$4\n18 bottles\n8 swords\n67.2\n\n\n$3\n24 bottles\n8 swords\n73.8\n\n\n$2\n36 bottles\n8 swords\n85.7",
     "crumbs": [
-      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -167,7 +176,6 @@
     "section": "Mathematical Demand Function",
     "text": "Mathematical Demand Function\n\nGeneral Cobb-Douglas Result\nFor \\(a = 0.6, b = 0.4, M = 120, p_S = 6\\):\n\n\nRum Demand Function:\n\\[R^*(p_R) = \\frac{72}{p_R}\\]\n\n\nSwords Demand Function:\n\\[S^* = 8\\]",
     "crumbs": [
-      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -180,7 +188,6 @@
     "section": "Demand Curve Visualization",
     "text": "Demand Curve Visualization",
     "crumbs": [
-      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -193,7 +200,6 @@
     "section": "Budget Lines Visualization",
     "text": "Budget Lines Visualization",
     "crumbs": [
-      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -206,7 +212,6 @@
     "section": "Key Economic Insights",
     "text": "Key Economic Insights\n\n📊 Elasticity Analysis\nFor demand function \\(R = \\frac{72}{p_R}\\):\n\\[\\varepsilon_{R,p_R} = -1\\]\nUnit Elastic Demand at all points!\n\n\n💡 Income and Substitution Effects\nWhen price decreases from $4 to $3: - Total Effect: \\(\\Delta R = 24 - 18 = 6\\) bottles - Both effects reinforce the law of demand",
     "crumbs": [
-      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -219,7 +224,6 @@
     "section": "Applications",
     "text": "Applications\n\n🏪 Business Applications\n\nPricing strategies\nRevenue optimization\n\nMarket analysis\n\n\n\n🏛️ Policy Applications\n\nTax policy effects\nSubsidy programs\nMarket regulation",
     "crumbs": [
-      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -232,7 +236,6 @@
     "section": "Key Takeaways",
     "text": "Key Takeaways\n\n✅ What We Learned\n\nBudget constraints limit consumer choices\nUtility maximization determines optimal bundles\n\nPrice changes create predictable demand responses\nMathematical functions can be derived analytically\nElasticity provides insights into behavior\n\n\n\n🎯 The Framework\nEssential tools for economic analysis and policy evaluation",
     "crumbs": [
-      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -245,10 +248,20 @@
     "section": "Questions?",
     "text": "Questions?\n\n🤔 Discussion Topics\n\nWhat happens with different utility function parameters?\nHow do income changes affect demand?\nWhat about substitute and complement goods?\n\n\n\n📚 Next Steps\n\nPractice with problem sets\nExplore interactive simulations\nApply to real-world examples",
     "crumbs": [
-      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\nThis site is authored and maintained by Meghan Downes. All content is the sole responsibility of Dr. Downes, and does not represent New Mexico State University. This site and its contents are for non-commercial purposes and are covered under the MIT Open Source License. Code snippets and other materials may be found at /github/meghandownes/the-goat-market.\nThis material is intended for student use, and is free and open source. Commercial re-use is not allowed, as is scraping by AI-bots without attribution to the source. Thank you for reading.\n\n\"There is no free lunch\" \n\n[1] \"There is no free lunch\"\n\n42/10\n\n[1] 4.2\n\n\n\nlibrary(leaflet)\nleaflet() %&gt;%\n  addTiles() %&gt;%  # Add default OpenStreetMap map tiles\n  addMarkers(lng=-106.74894874460624, lat=32.27994064289398, popup=\"The birthplace of the Goat Market\")\n\n\n\n\n\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "About"
     ]
   }
 ]

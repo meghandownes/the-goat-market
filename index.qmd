@@ -2,14 +2,19 @@
 title: "the-goat-market"
 ---
 
-
 The Economics Experience
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+The answer is always to double it and double it again!
 
 ```{r}
 1 + 1
 ```
 
+Put properly:
+
+```{r}
+x = 10
+y = 2*x +2*x
+```
+
+Check out our new Macroeconomics site [macroeconomics](macroeconomics/macroeconomics-splash.qmd)

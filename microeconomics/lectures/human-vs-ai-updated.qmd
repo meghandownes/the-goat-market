@@ -1,0 +1,438 @@
+---
+title: "Human vs AI Score Analysis with Section Comparison"
+format: html
+---
+
+## Introduction
+
+This analysis compares performance scores between Human and AI participants in a test with scores ranging from 0 to 15. The analysis includes both overall comparisons and section-specific comparisons (MW vs TTH sections).
+
+```{r setup, include=FALSE}
+# Load necessary libraries
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(shinylive)
+
+# Set chunk options
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+```{r load-data}
+# Check if file exists in current directory
+if (!file.exists("human-vs-ai-utility-mwtth.csv")) {
+  stop("CSV file not found. Please ensure 'human-vs-ai-utility-mwtth.csv' is in the same directory as this .qmd file")
+}
+
+# Load the CSV data
+data <- read.csv("human-vs-ai-utility-mwtth.csv", stringsAsFactors = FALSE)
+
+# Rename columns for convenience
+colnames(data) <- c("Timestamp", "Score", "Group", "Section")
+
+# Convert Score to numeric and clean data
+data$Score <- as.numeric(data$Score)
+
+# Remove any rows with NA scores
+data <- data[!is.na(data$Score), ]
+
+# Display first few rows
+head(data) %>%
+  kable(caption = "First 6 rows of the dataset") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+## Data Overview
+
+```{r data-overview}
+# Basic data overview
+cat("Total observations:", nrow(data), "\n")
+cat("AI entries:", sum(data$Group == "AI", na.rm = TRUE), "\n")
+cat("Human entries:", sum(data$Group == "Human", na.rm = TRUE), "\n\n")
+
+# Section breakdown
+cat("Section breakdown:\n")
+section_breakdown <- data %>%
+  group_by(Group, Section) %>%
+  summarize(Count = n(), .groups = 'drop') %>%
+  pivot_wider(names_from = Section, values_from = Count, values_fill = 0)
+
+print(section_breakdown)
+```
+
+## Summary Statistics
+
+### Overall Summary Statistics
+
+```{r summary-stats-overall}
+# Overall summary statistics by group
+overall_stats <- data %>%
+  group_by(Group) %>%
+  summarize(
+    Count = n(),
+    Mean = round(mean(Score, na.rm = TRUE), 2),
+    Median = round(median(Score, na.rm = TRUE), 2),
+    `Std Dev` = round(sd(Score, na.rm = TRUE), 2),
+    Min = min(Score, na.rm = TRUE),
+    Max = max(Score, na.rm = TRUE),
+    .groups = 'drop'
+  )
+
+# Display overall summary statistics table
+overall_stats %>%
+  kable(caption = "Overall Summary Statistics by Group") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+### Section-Specific Summary Statistics
+
+```{r summary-stats-by-section}
+# Summary statistics by group and section
+summary_stats <- data %>%
+  group_by(Group, Section) %>%
+  summarize(
+    Count = n(),
+    Mean = round(mean(Score, na.rm = TRUE), 2),
+    Median = round(median(Score, na.rm = TRUE), 2),
+    `Std Dev` = round(sd(Score, na.rm = TRUE), 2),
+    Min = min(Score, na.rm = TRUE),
+    Max = max(Score, na.rm = TRUE),
+    .groups = 'drop'
+  )
+
+# Display summary statistics table
+summary_stats %>%
+  kable(caption = "Summary Statistics by Group and Section") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+## Visualizations
+
+### Overall Average Scores
+
+```{r bar-graph-overall}
+# Overall bar graph of average scores by group
+data %>%
+  group_by(Group) %>%
+  summarize(Mean_Score = mean(Score, na.rm = TRUE), .groups = 'drop') %>%
+  ggplot(aes(x = Group, y = Mean_Score, fill = Group)) +
+  geom_col(width = 0.6, alpha = 0.8) +
+  geom_text(aes(label = round(Mean_Score, 2)), 
+            vjust = -0.3, 
+            size = 4, 
+            fontface = "bold") +
+  labs(
+    title = "Overall Average Score by Group",
+    subtitle = "Human vs AI Performance Comparison",
+    x = "Group",
+    y = "Average Score (out of 15)",
+    caption = "Data from Human vs AI Responses"
+  ) +
+  scale_fill_manual(values = c("AI" = "#FF6B6B", "Human" = "#4ECDC4")) +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12),
+    axis.title = element_text(size = 11),
+    axis.text = element_text(size = 10)
+  ) +
+  ylim(0, 12)
+```
+
+### Average Scores by Section (Faceted)
+
+```{r bar-graph-faceted}
+# Bar graph with faceting by section
+data %>%
+  group_by(Group, Section) %>%
+  summarize(Mean_Score = mean(Score, na.rm = TRUE), .groups = 'drop') %>%
+  ggplot(aes(x = Group, y = Mean_Score, fill = Group)) +
+  geom_col(width = 0.6, alpha = 0.8) +
+  geom_text(aes(label = round(Mean_Score, 2)), 
+            vjust = -0.3, 
+            size = 3.5, 
+            fontface = "bold") +
+  facet_wrap(~Section, labeller = label_both) +
+  labs(
+    title = "Average Score by Group and Section",
+    subtitle = "Human vs AI Performance Comparison Across Sections",
+    x = "Group",
+    y = "Average Score (out of 15)",
+    caption = "Data from Human vs AI Responses"
+  ) +
+  scale_fill_manual(values = c("AI" = "#FF6B6B", "Human" = "#4ECDC4")) +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12),
+    axis.title = element_text(size = 11),
+    axis.text = element_text(size = 10),
+    strip.text = element_text(size = 11, face = "bold")
+  ) +
+  ylim(0, 13)
+```
+
+### Distribution of Scores Overall
+
+```{r histogram-overall}
+# Histogram showing overall distribution of scores by group
+ggplot(data, aes(x = Score, fill = Group)) +
+  geom_histogram(bins = 15, alpha = 0.7, position = "identity") +
+  facet_wrap(~Group, ncol = 1) +
+  labs(
+    title = "Overall Distribution of Scores by Group",
+    x = "Score (out of 15)",
+    y = "Frequency",
+    caption = "Data from Human vs AI Responses"
+  ) +
+  scale_fill_manual(values = c("AI" = "#FF6B6B", "Human" = "#4ECDC4")) +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    plot.title = element_text(size = 14, face = "bold"),
+    strip.text = element_text(size = 12, face = "bold")
+  )
+```
+
+### Distribution of Scores by Section
+
+```{r histogram-by-section}
+# Histogram showing distribution of scores by group and section
+ggplot(data, aes(x = Score, fill = Group)) +
+  geom_histogram(bins = 10, alpha = 0.7, position = "dodge") +
+  facet_grid(Section ~ Group, labeller = label_both) +
+  labs(
+    title = "Distribution of Scores by Group and Section",
+    x = "Score (out of 15)",
+    y = "Frequency",
+    caption = "Data from Human vs AI Responses"
+  ) +
+  scale_fill_manual(values = c("AI" = "#FF6B6B", "Human" = "#4ECDC4")) +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    plot.title = element_text(size = 14, face = "bold"),
+    strip.text = element_text(size = 11, face = "bold")
+  )
+```
+
+### Box Plot Comparison Overall
+
+```{r boxplot-overall}
+# Overall box plot comparison
+ggplot(data, aes(x = Group, y = Score, fill = Group)) +
+  geom_boxplot(alpha = 0.7, width = 0.6) +
+  geom_jitter(width = 0.2, alpha = 0.5, size = 2) +
+  labs(
+    title = "Overall Score Distribution Comparison",
+    subtitle = "Box plots with individual data points",
+    x = "Group",
+    y = "Score (out of 15)",
+    caption = "Data from Human vs AI Responses"
+  ) +
+  scale_fill_manual(values = c("AI" = "#FF6B6B", "Human" = "#4ECDC4")) +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12)
+  )
+```
+
+### Box Plot Comparison by Section (Faceted)
+
+```{r boxplot-faceted}
+# Box plot comparison with faceting by section
+ggplot(data, aes(x = Group, y = Score, fill = Group)) +
+  geom_boxplot(alpha = 0.7, width = 0.6) +
+  geom_jitter(width = 0.2, alpha = 0.5, size = 1.5) +
+  facet_wrap(~Section, labeller = label_both) +
+  labs(
+    title = "Score Distribution Comparison by Section",
+    subtitle = "Box plots with individual data points for each section",
+    x = "Group",
+    y = "Score (out of 15)",
+    caption = "Data from Human vs AI Responses"
+  ) +
+  scale_fill_manual(values = c("AI" = "#FF6B6B", "Human" = "#4ECDC4")) +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12),
+    strip.text = element_text(size = 11, face = "bold")
+  )
+```
+
+## Statistical Analysis
+
+### Overall Statistical Comparison
+
+```{r statistical-test-overall}
+# Overall t-test to compare means
+if (length(unique(data$Group)) < 2) {
+  cat("Error: Need data for both groups to perform comparison\n")
+} else {
+  t_test_result <- t.test(Score ~ Group, data = data)
+  
+  cat("=== OVERALL COMPARISON ===\n")
+  cat("Two-sample t-test results:\n")
+  cat("t-statistic:", round(t_test_result$statistic, 3), "\n")
+  cat("p-value:", round(t_test_result$p.value, 4), "\n")
+  cat("95% Confidence Interval for difference in means:", 
+      round(t_test_result$conf.int[1], 2), "to", 
+      round(t_test_result$conf.int[2], 2), "\n")
+  
+  # Effect size (Cohen's d)
+  ai_scores <- data$Score[data$Group == "AI"]
+  human_scores <- data$Score[data$Group == "Human"]
+  
+  pooled_sd <- sqrt(((length(ai_scores) - 1) * var(ai_scores, na.rm = TRUE) + 
+                     (length(human_scores) - 1) * var(human_scores, na.rm = TRUE)) / 
+                    (length(ai_scores) + length(human_scores) - 2))
+  
+  cohens_d_overall <- (mean(human_scores, na.rm = TRUE) - mean(ai_scores, na.rm = TRUE)) / pooled_sd
+  
+  cat("Cohen's d (effect size):", round(cohens_d_overall, 3), "\n\n")
+  
+  # Store values for findings
+  human_mean_overall <- round(mean(human_scores, na.rm = TRUE), 2)
+  ai_mean_overall <- round(mean(ai_scores, na.rm = TRUE), 2)
+  difference_overall <- round(human_mean_overall - ai_mean_overall, 2)
+  percent_diff_overall <- round((difference_overall / ai_mean_overall) * 100, 1)
+  p_value_overall <- round(t_test_result$p.value, 4)
+}
+```
+
+### Section-Specific Statistical Analysis
+
+```{r statistical-test-by-section}
+# Perform t-tests for each section
+cat("=== SECTION-SPECIFIC COMPARISONS ===\n")
+
+sections <- unique(data$Section)
+section_results <- list()
+
+for (section in sections) {
+  section_data <- data[data$Section == section, ]
+  
+  if (length(unique(section_data$Group)) >= 2 && 
+      sum(section_data$Group == "AI") >= 2 && 
+      sum(section_data$Group == "Human") >= 2) {
+    
+    t_test_section <- t.test(Score ~ Group, data = section_data)
+    
+    cat("\n--- Section:", section, "---\n")
+    cat("Sample sizes: AI =", sum(section_data$Group == "AI"), 
+        ", Human =", sum(section_data$Group == "Human"), "\n")
+    cat("t-statistic:", round(t_test_section$statistic, 3), "\n")
+    cat("p-value:", round(t_test_section$p.value, 4), "\n")
+    cat("95% CI for difference:", 
+        round(t_test_section$conf.int[1], 2), "to", 
+        round(t_test_section$conf.int[2], 2), "\n")
+    
+    # Effect size for section
+    ai_section <- section_data$Score[section_data$Group == "AI"]
+    human_section <- section_data$Score[section_data$Group == "Human"]
+    
+    pooled_sd_section <- sqrt(((length(ai_section) - 1) * var(ai_section, na.rm = TRUE) + 
+                              (length(human_section) - 1) * var(human_section, na.rm = TRUE)) / 
+                              (length(ai_section) + length(human_section) - 2))
+    
+    cohens_d_section <- (mean(human_section, na.rm = TRUE) - mean(ai_section, na.rm = TRUE)) / pooled_sd_section
+    
+    cat("Cohen's d (effect size):", round(cohens_d_section, 3), "\n")
+    
+    # Store section results
+    section_results[[section]] <- list(
+      human_mean = round(mean(human_section, na.rm = TRUE), 2),
+      ai_mean = round(mean(ai_section, na.rm = TRUE), 2),
+      p_value = round(t_test_section$p.value, 4),
+      effect_size = round(cohens_d_section, 3)
+    )
+  } else {
+    cat("\n--- Section:", section, "---\n")
+    cat("Insufficient data for statistical comparison\n")
+  }
+}
+```
+
+## Key Findings
+
+### Overall Performance
+
+```{r findings-overall, echo=FALSE}
+if (exists("human_mean_overall") && exists("ai_mean_overall")) {
+  cat("OVERALL RESULTS:\n")
+  cat("• Human participants achieved an average score of", human_mean_overall, "out of 15\n")
+  cat("• AI participants achieved an average score of", ai_mean_overall, "out of 15\n")
+  cat("• Difference: Humans scored", difference_overall, "points higher on average (", percent_diff_overall, "% difference)\n")
+  
+  if (p_value_overall < 0.05) {
+    cat("• The difference is statistically significant (p =", p_value_overall, ")\n")
+  } else {
+    cat("• The difference is not statistically significant (p =", p_value_overall, ")\n")
+  }
+  
+  effect_interpretation_overall <- if (abs(cohens_d_overall) < 0.2) {
+    "small"
+  } else if (abs(cohens_d_overall) < 0.5) {
+    "small to medium"
+  } else if (abs(cohens_d_overall) < 0.8) {
+    "medium to large"
+  } else {
+    "large"
+  }
+  
+  cat("• Effect size (Cohen's d) =", round(cohens_d_overall, 3), ", indicating a", effect_interpretation_overall, "effect\n")
+}
+```
+
+### Section-Specific Performance
+
+```{r findings-by-section, echo=FALSE}
+if (length(section_results) > 0) {
+  cat("\nSECTION-SPECIFIC RESULTS:\n")
+  
+  for (section in names(section_results)) {
+    result <- section_results[[section]]
+    cat("\n--- Section", section, "---\n")
+    cat("• Human average:", result$human_mean, ", AI average:", result$ai_mean, "\n")
+    cat("• Difference:", round(result$human_mean - result$ai_mean, 2), "points\n")
+    
+    if (result$p_value < 0.05) {
+      cat("• Statistically significant difference (p =", result$p_value, ")\n")
+    } else {
+      cat("• No statistically significant difference (p =", result$p_value, ")\n")
+    }
+    
+    effect_interpretation <- if (abs(result$effect_size) < 0.2) {
+      "small"
+    } else if (abs(result$effect_size) < 0.5) {
+      "small to medium"
+    } else if (abs(result$effect_size) < 0.8) {
+      "medium to large"
+    } else {
+      "large"
+    }
+    
+    cat("• Effect size:", result$effect_size, " (", effect_interpretation, ")\n")
+  }
+}
+```
+
+## Conclusion
+
+The analysis reveals both overall and section-specific performance differences between human and AI participants in this assessment. The faceted analysis allows us to understand whether performance differences are consistent across sections or vary by section type. Key insights include:
+
+1.  **Overall Performance**: The combined analysis provides a general comparison between human and AI performance across all data.
+
+2.  **Section-Specific Patterns**: The faceted analysis reveals whether certain sections favor one group over another, which could indicate section-specific strengths or weaknesses.
+
+3.  **Statistical Significance**: Both overall and section-specific statistical tests help determine whether observed differences are likely due to chance or represent genuine performance differences.
+
+4.  **Effect Sizes**: Cohen's d values provide insight into the practical significance of any differences, helping to understand not just whether differences exist, but how meaningful they are.
+
+This comprehensive analysis framework allows for both broad and detailed insights into Human vs AI performance patterns across different test sections.

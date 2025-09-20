@@ -6,24 +6,28 @@ website:
   navbar:
     background: primary
     search: true
+    collapse: true
     left:
       - text: "Home"
         href: index.qmd
       - text: "Microeconomics"
-        href: microeconomics.qmd
+        href: microeconomics
       - text: "Macroeconomics"
-        href: macroeconomics.qmd
+        href: macroeconomics
       - text: "Downloads"
-        href: downloads.qmd
+        href: downloads
   
   sidebar:
     style: "docked"
     search: true
+    background: "secondary"
+    foreground: "info"
     contents: auto
-    background: light
-    site-path: "https://rubyrooster.com"
+    
+ 
   page-navigation: true
   back-to-top-navigation: true
+  
   page-footer:
     background: dark
     left: "Copyright 2025, Meghan Downes"
@@ -36,14 +40,14 @@ website:
     content: "**Alert** - this is some information that you should pay attention to"
     type: primary
     position: below-navbar
-  open-graph: true
-  twitter-card: true
-  favicon: nofreelunch.png
-
+  
 format:
   html:
     theme: lux
     css: styles.css
     toc: true
+    link-external-icon: true
+    link-external-newwindow: true
+    
  
 
