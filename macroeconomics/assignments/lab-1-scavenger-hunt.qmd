@@ -1,0 +1,30 @@
+---
+title: "Lab 1: Scavenger Hunt"
+format:
+  html:
+    toc: true
+execute: 
+  echo: false
+---
+
+# Introduction
+
+For our first "Lab" you will be pairing up with someone in the class and going on a scavenger hunt. You have three things and a bonus to find. All of these are real objects, and really on campus. While you are exploring campus get to know your classmate(s). Ask questions about where they are from and what they like. Are they math-y people or arts-y people? What do they think they want to be "when they grow up"? You will write a short paragraph about your class mate to add to your scavenger hunt.
+
+# Question 1
+
+# Please find the giant monster head. Take a funny picture in front of it with a classmate or two. Then add the picture to your scavenger hunt note.
+
+# Question 2
+
+# Find the whale. Take another silly picture and add it to your note. Where did you find the whale?
+
+# Question 3
+
+# Find the airplane suspended in the air. Then browse around. Find something interesting that you might buy if you wanted to. How much does it cost? Is that ridiculous or reasonable? What is the per unit price?
+
+# Bonus Question!
+
+# Find Sid the Sloth. Where is he? Take a picture and write up some information on Giant Sloths.
+
+# Please write a short paragraph about the person with whom you completed the scavenger hunt.
