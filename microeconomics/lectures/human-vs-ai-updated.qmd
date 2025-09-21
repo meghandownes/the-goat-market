@@ -20,12 +20,12 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 
 ```{r load-data}
 # Check if file exists in current directory
-if (!file.exists("human-vs-ai-utility-mwtth.csv")) {
+if (!file.exists("~/the-goat-market/microeconomics/data/human-vs-ai-utility-mwtth.csv")) {
   stop("CSV file not found. Please ensure 'human-vs-ai-utility-mwtth.csv' is in the same directory as this .qmd file")
 }
 
 # Load the CSV data
-data <- read.csv("human-vs-ai-utility-mwtth.csv", stringsAsFactors = FALSE)
+data <- read.csv("~/the-goat-market/microeconomics/data/human-vs-ai-utility-mwtth.csv", stringsAsFactors = FALSE)
 
 # Rename columns for convenience
 colnames(data) <- c("Timestamp", "Score", "Group", "Section")

@@ -14,14 +14,6 @@ website:
         href: microeconomics
       - text: "Macroeconomics"
         href: macroeconomics
-      - text: "Downloads"
-        href: downloads
-        href: microeconomics-splash.qmd
-      - text: "Macroeconomics"
-        href: macroeconomics-splash.qmd
-      - text: "Downloads"
-        href: downloads-splash.qmd
-
   sidebar:
     style: "docked"
     search: true
