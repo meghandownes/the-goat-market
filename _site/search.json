@@ -1,46 +1,5 @@
 [
   {
-    "objectID": "downloads/downloads-splash.html",
-    "href": "downloads/downloads-splash.html",
-    "title": "Downloads",
-    "section": "",
-    "text": "The splash page for downloads! :)\n\n\n\n Back to top",
-    "crumbs": [
-      "Home",
-      "Downloads",
-      "Downloads"
-    ]
-  },
-  {
-    "objectID": "microeconomics/microeconomics-splash.html",
-    "href": "microeconomics/microeconomics-splash.html",
-    "title": "Microeconomics Home",
-    "section": "",
-    "text": "Start your journey in economics here. From a Scavenger Hunt to Pirate Treasure. We will encounter lots of thought provoking ideas along the way! Ahoy Mateys!\n\n\n\n Back to top",
-    "crumbs": [
-      "Home",
-      "Microeconomics",
-      "Microeconomics Home"
-    ]
-  },
-  {
-    "objectID": "macroeconomics/macroeconomics-splash.html",
-    "href": "macroeconomics/macroeconomics-splash.html",
-    "title": "Macroeconomics Home",
-    "section": "",
-    "text": "Here is the splash page for the experience through macroeconomics! Its a whale of a time :)\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "the-goat-market",
-    "section": "",
-<<<<<<< HEAD
-    "text": "The Economics Experience\nThe answer is always to double it and double it again!\n\n1 + 1\n\n[1] 2\n\n\nPut properly:\n\nx = 10\ny = 2*x +2*x\n\nCheck out our new Macroeconomics site macroeconomics\n\n\n\n Back to top"
-=======
-    "text": "The Economics Experience\nThe answer is always to double it and double it again!\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n Back to top"
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -50,7 +9,6 @@
       "Home",
       "About"
     ]
->>>>>>> a62cdb21db7c7f333cef12f3c1ca9eacd5646bc1
   },
   {
     "objectID": "microeconomics/lectures/demand-analysis-slides.html",
@@ -59,6 +17,7 @@
     "section": "",
     "text": "🎯 Learning Objective\nDerive individual demand curves from utility maximization theory\nOur Example: Two goods - 🍺 Rum (x-axis) - ⚔️ Swords (y-axis)",
     "crumbs": [
+      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -71,6 +30,7 @@
     "section": "",
     "text": "🎯 Learning Objective\nDerive individual demand curves from utility maximization theory\nOur Example: Two goods - 🍺 Rum (x-axis) - ⚔️ Swords (y-axis)",
     "crumbs": [
+      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -83,6 +43,7 @@
     "section": "The Budget Constraint",
     "text": "The Budget Constraint\n\nBasic Setup\nConsumer income: \\(M\\) to spend on two goods: - Rum (\\(R\\)) with price \\(p_R\\) - Swords (\\(S\\)) with price \\(p_S\\)\n\n\nBudget Constraint Equation\n\\[p_R \\cdot R + p_S \\cdot S = M\\]\n\n\nSlope-Intercept Form\n\\[S = \\frac{M}{p_S} - \\frac{p_R}{p_S} \\cdot R\\]",
     "crumbs": [
+      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -95,6 +56,7 @@
     "section": "Initial Scenario",
     "text": "Initial Scenario\n\nOur Assumptions\n\nIncome: \\(M = \\$120\\)\nPrice of Rum: \\(p_R = \\$4\\) per bottle\n\nPrice of Swords: \\(p_S = \\$6\\) per sword\n\n\n\nInitial Budget Constraint\n\\[4R + 6S = 120\\]\n\n\nSlope-Intercept Form\n\\[S = 20 - \\frac{2}{3}R\\]",
     "crumbs": [
+      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -107,6 +69,7 @@
     "section": "Utility Function",
     "text": "Utility Function\n\nCobb-Douglas Utility Function\n\\[U(R,S) = R^{0.6} \\cdot S^{0.4}\\]\nWhy Cobb-Douglas? - Mathematically tractable - Realistic diminishing marginal utility - Widely used in economics",
     "crumbs": [
+      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -119,6 +82,7 @@
     "section": "Utility Maximization",
     "text": "Utility Maximization\n\nThe Key Condition\nMarginal Rate of Substitution = Price Ratio\n\\[MRS_{R,S} = \\frac{MU_R}{MU_S} = \\frac{p_R}{p_S}\\]\n\n\nFor Cobb-Douglas Function\n\n\\(MU_R = 0.6 \\cdot R^{-0.4} \\cdot S^{0.4}\\)\n\\(MU_S = 0.4 \\cdot R^{0.6} \\cdot S^{-0.6}\\)\n\n\n\nTherefore:\n\\[MRS_{R,S} = 1.5 \\cdot \\frac{S}{R}\\]",
     "crumbs": [
+      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -131,6 +95,7 @@
     "section": "Finding the Optimal Bundle",
     "text": "Finding the Optimal Bundle\n\nSetting MRS = Price Ratio\n\\[1.5 \\cdot \\frac{S}{R} = \\frac{4}{6} = \\frac{2}{3}\\]\n\n\nSolving for S in terms of R\n\\[S = \\frac{4}{9}R\\]\n\n\nSubstituting into Budget Constraint\n\\[4R + 6 \\cdot \\frac{4}{9}R = 120\\]\n\n\nResult: \\((R^*, S^*) = (18, 8)\\)",
     "crumbs": [
+      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -143,6 +108,7 @@
     "section": "Price Changes: Rum = $3",
     "text": "Price Changes: Rum = $3\n\nNew Price Ratio\n\\[1.5 \\cdot \\frac{S}{R} = \\frac{3}{6} = \\frac{1}{2}\\]\n\n\nNew Relationship\n\\[S = \\frac{1}{3}R\\]\n\n\nNew Budget Constraint\n\\[3R + 6S = 120\\]\n\n\nNew Optimum: \\((R^*, S^*) = (24, 8)\\)",
     "crumbs": [
+      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -155,6 +121,7 @@
     "section": "Price Changes: Rum = $6",
     "text": "Price Changes: Rum = $6\n\nNew Price Ratio\n\\[1.5 \\cdot \\frac{S}{R} = \\frac{6}{6} = 1\\]\n\n\nNew Relationship\n\\[S = \\frac{2}{3}R\\]\n\n\nNew Optimum: \\((R^*, S^*) = (12, 8)\\)",
     "crumbs": [
+      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -167,6 +134,7 @@
     "section": "Price Changes: Rum = $2",
     "text": "Price Changes: Rum = $2\n\nFollowing the same process…\n\n\nNew Optimum: \\((R^*, S^*) = (36, 8)\\)\nNotice: Swords consumption stays constant at 8!",
     "crumbs": [
+      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -179,6 +147,7 @@
     "section": "Demand Schedule",
     "text": "Demand Schedule\n\n\n\nPrice of Rum\nQuantity of Rum\nQuantity of Swords\nTotal Utility\n\n\n\n\n$6\n12 bottles\n8 swords\n57.9\n\n\n$4\n18 bottles\n8 swords\n67.2\n\n\n$3\n24 bottles\n8 swords\n73.8\n\n\n$2\n36 bottles\n8 swords\n85.7",
     "crumbs": [
+      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -191,6 +160,7 @@
     "section": "Mathematical Demand Function",
     "text": "Mathematical Demand Function\n\nGeneral Cobb-Douglas Result\nFor \\(a = 0.6, b = 0.4, M = 120, p_S = 6\\):\n\n\nRum Demand Function:\n\\[R^*(p_R) = \\frac{72}{p_R}\\]\n\n\nSwords Demand Function:\n\\[S^* = 8\\]",
     "crumbs": [
+      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -203,6 +173,7 @@
     "section": "Demand Curve Visualization",
     "text": "Demand Curve Visualization",
     "crumbs": [
+      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -215,6 +186,7 @@
     "section": "Budget Lines Visualization",
     "text": "Budget Lines Visualization",
     "crumbs": [
+      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -227,6 +199,7 @@
     "section": "Key Economic Insights",
     "text": "Key Economic Insights\n\n📊 Elasticity Analysis\nFor demand function \\(R = \\frac{72}{p_R}\\):\n\\[\\varepsilon_{R,p_R} = -1\\]\nUnit Elastic Demand at all points!\n\n\n💡 Income and Substitution Effects\nWhen price decreases from $4 to $3: - Total Effect: \\(\\Delta R = 24 - 18 = 6\\) bottles - Both effects reinforce the law of demand",
     "crumbs": [
+      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -239,6 +212,7 @@
     "section": "Applications",
     "text": "Applications\n\n🏪 Business Applications\n\nPricing strategies\nRevenue optimization\n\nMarket analysis\n\n\n\n🏛️ Policy Applications\n\nTax policy effects\nSubsidy programs\nMarket regulation",
     "crumbs": [
+      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -251,6 +225,7 @@
     "section": "Key Takeaways",
     "text": "Key Takeaways\n\n✅ What We Learned\n\nBudget constraints limit consumer choices\nUtility maximization determines optimal bundles\n\nPrice changes create predictable demand responses\nMathematical functions can be derived analytically\nElasticity provides insights into behavior\n\n\n\n🎯 The Framework\nEssential tools for economic analysis and policy evaluation",
     "crumbs": [
+      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
@@ -263,64 +238,134 @@
     "section": "Questions?",
     "text": "Questions?\n\n🤔 Discussion Topics\n\nWhat happens with different utility function parameters?\nHow do income changes affect demand?\nWhat about substitute and complement goods?\n\n\n\n📚 Next Steps\n\nPractice with problem sets\nExplore interactive simulations\nApply to real-world examples",
     "crumbs": [
+      "Home",
       "Microeconomics",
       "Lectures",
       "Deriving Demand for Rum and Swords"
     ]
   },
   {
-<<<<<<< HEAD
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "the-goat-market",
     "section": "",
-    "text": "About this site\nThis site is authored and maintained by Meghan Downes. All content is the sole responsibility of Dr. Downes, and does not represent New Mexico State University. This site and its contents are for non-commercial purposes and are covered under the MIT Open Source License. Code snippets and other materials may be found at /github/meghandownes/the-goat-market.\nThis material is intended for student use, and is free and open source. Commercial re-use is not allowed, as is scraping by AI-bots without attribution to the source. Thank you for reading.\n\n\"There is no free lunch\" \n\n[1] \"There is no free lunch\"\n\n42/10\n\n[1] 4.2\n\n\n\nlibrary(leaflet)\nleaflet() %&gt;%\n  addTiles() %&gt;%  # Add default OpenStreetMap map tiles\n  addMarkers(lng=-106.74894874460624, lat=32.27994064289398, popup=\"The birthplace of the Goat Market\")\n\n\n\n\n\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n Back to top",
+    "text": "The Economics Experience\nThe answer is always to double it and double it again!\n\n1 + 1\n\n[1] 2\n\n\nPut properly:\n\nx = 10\ny = 2*x +2*x\n\nCheck out our new Macroeconomics site macroeconomics\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "macroeconomics/lectures/lecture-3-gdp.html",
+    "href": "macroeconomics/lectures/lecture-3-gdp.html",
+    "title": "Gross Domestic Product",
+    "section": "",
+    "text": "Measuring the Economy\nHow do we measure how well a country is doing? If you are an economist, you do this by measuring the output of an economy. We use the measure, “Gross Domestic Product”. Sounds totally gross dude :) but what it really means is the take all the finished goods and services produced within a country within a year and adding it up. We call this GDP or Gross Domestic Product. It is one way of measuring how well and economy is doing.\n\n\n\n\n Back to top",
     "crumbs": [
       "Home",
-      "About"
-=======
-    "objectID": "Microeconomics.html",
-    "href": "Microeconomics.html",
-    "title": "Mircoreconomics",
-    "section": "",
-    "text": "Start your journey in economics here. From a Scavenger Hunt to Pirate Treasure. We will encounter lots of thought provoking ideas along the way! Ahoy Mateys!\n\n\n\n Back to top",
-    "crumbs": [
-      "Home",
-      "Mircoreconomics"
+      "Macroeconomics",
+      "Lectures",
+      "Gross Domestic Product"
     ]
   },
   {
-    "objectID": "microeconomics-splash.html",
-    "href": "microeconomics-splash.html",
-    "title": "Mircoreconomics",
+    "objectID": "microeconomics/lectures/human-vs-ai-updated.html",
+    "href": "microeconomics/lectures/human-vs-ai-updated.html",
+    "title": "Human vs AI Score Analysis with Section Comparison",
     "section": "",
-    "text": "Start your journey in economics here. From a Scavenger Hunt to Pirate Treasure. We will encounter lots of thought provoking ideas along the way! Ahoy Mateys!\n\n\n\n Back to top",
+    "text": "This analysis compares performance scores between Human and AI participants in a test with scores ranging from 0 to 15. The analysis includes both overall comparisons and section-specific comparisons (MW vs TTH sections).\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.2\n✔ ggplot2   4.0.0     ✔ tibble    3.3.0\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.1.0     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'kableExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    group_rows\n\n\n\n\nWarning: NAs introduced by coercion\n\n\n\nFirst 6 rows of the dataset\n\n\nTimestamp\nScore\nGroup\nSection\n\n\n\n\n9/10/2025 12:54:53\n4.0\nAI\nMW\n\n\n9/10/2025 12:54:59\n10.0\nHuman\nMW\n\n\n9/10/2025 12:55:01\n15.0\nAI\nMW\n\n\n9/10/2025 12:55:03\n10.0\nAI\nMW\n\n\n9/10/2025 12:55:07\n8.5\nAI\nMW\n\n\n9/10/2025 12:55:18\n7.0\nAI\nMW",
     "crumbs": [
       "Home",
-      "Mircoreconomics"
+      "Microeconomics",
+      "Lectures",
+      "Human vs AI Score Analysis with Section Comparison"
     ]
   },
   {
-    "objectID": "macroeconomics-splash.html",
-    "href": "macroeconomics-splash.html",
-    "title": "macroeconomics-splash",
+    "objectID": "microeconomics/lectures/human-vs-ai-updated.html#introduction",
+    "href": "microeconomics/lectures/human-vs-ai-updated.html#introduction",
+    "title": "Human vs AI Score Analysis with Section Comparison",
     "section": "",
-    "text": "Here is the splash page for the experience through macroeconomics! Its a whale of a time :)\n\n\n\n Back to top",
+    "text": "This analysis compares performance scores between Human and AI participants in a test with scores ranging from 0 to 15. The analysis includes both overall comparisons and section-specific comparisons (MW vs TTH sections).\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.2\n✔ ggplot2   4.0.0     ✔ tibble    3.3.0\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.1.0     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'kableExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    group_rows\n\n\n\n\nWarning: NAs introduced by coercion\n\n\n\nFirst 6 rows of the dataset\n\n\nTimestamp\nScore\nGroup\nSection\n\n\n\n\n9/10/2025 12:54:53\n4.0\nAI\nMW\n\n\n9/10/2025 12:54:59\n10.0\nHuman\nMW\n\n\n9/10/2025 12:55:01\n15.0\nAI\nMW\n\n\n9/10/2025 12:55:03\n10.0\nAI\nMW\n\n\n9/10/2025 12:55:07\n8.5\nAI\nMW\n\n\n9/10/2025 12:55:18\n7.0\nAI\nMW",
     "crumbs": [
       "Home",
-      "macroeconomics-splash"
+      "Microeconomics",
+      "Lectures",
+      "Human vs AI Score Analysis with Section Comparison"
     ]
   },
   {
-    "objectID": "downoads-splash.html",
-    "href": "downoads-splash.html",
-    "title": "Downlaods",
-    "section": "",
-    "text": "The splash page for downloads! :)\n\n\n\n Back to top",
+    "objectID": "microeconomics/lectures/human-vs-ai-updated.html#data-overview",
+    "href": "microeconomics/lectures/human-vs-ai-updated.html#data-overview",
+    "title": "Human vs AI Score Analysis with Section Comparison",
+    "section": "Data Overview",
+    "text": "Data Overview\n\n\nTotal observations: 70 \n\n\nAI entries: 39 \n\n\nHuman entries: 31 \n\n\nSection breakdown:\n\n\n# A tibble: 2 × 3\n  Group    MW   TTH\n  &lt;chr&gt; &lt;int&gt; &lt;int&gt;\n1 AI       24    15\n2 Human    18    13",
     "crumbs": [
       "Home",
-      "Downlaods"
->>>>>>> a62cdb21db7c7f333cef12f3c1ca9eacd5646bc1
+      "Microeconomics",
+      "Lectures",
+      "Human vs AI Score Analysis with Section Comparison"
+    ]
+  },
+  {
+    "objectID": "microeconomics/lectures/human-vs-ai-updated.html#summary-statistics",
+    "href": "microeconomics/lectures/human-vs-ai-updated.html#summary-statistics",
+    "title": "Human vs AI Score Analysis with Section Comparison",
+    "section": "Summary Statistics",
+    "text": "Summary Statistics\n\nOverall Summary Statistics\n\n\n\nOverall Summary Statistics by Group\n\n\nGroup\nCount\nMean\nMedian\nStd Dev\nMin\nMax\n\n\n\n\nAI\n39\n8.01\n8\n4.13\n0\n15\n\n\nHuman\n31\n9.62\n9\n3.24\n2\n15\n\n\n\n\n\n\n\nSection-Specific Summary Statistics\n\n\n\nSummary Statistics by Group and Section\n\n\nGroup\nSection\nCount\nMean\nMedian\nStd Dev\nMin\nMax\n\n\n\n\nAI\nMW\n24\n8.23\n8.25\n3.95\n0.0\n15\n\n\nAI\nTTH\n15\n7.67\n7.00\n4.53\n0.0\n15\n\n\nHuman\nMW\n18\n10.39\n10.00\n2.54\n6.6\n15\n\n\nHuman\nTTH\n13\n8.54\n8.00\n3.86\n2.0\n15",
+    "crumbs": [
+      "Home",
+      "Microeconomics",
+      "Lectures",
+      "Human vs AI Score Analysis with Section Comparison"
+    ]
+  },
+  {
+    "objectID": "microeconomics/lectures/human-vs-ai-updated.html#visualizations",
+    "href": "microeconomics/lectures/human-vs-ai-updated.html#visualizations",
+    "title": "Human vs AI Score Analysis with Section Comparison",
+    "section": "Visualizations",
+    "text": "Visualizations\n\nOverall Average Scores\n\n\n\n\n\n\n\n\n\n\n\nAverage Scores by Section (Faceted)\n\n\n\n\n\n\n\n\n\n\n\nDistribution of Scores Overall\n\n\n\n\n\n\n\n\n\n\n\nDistribution of Scores by Section\n\n\n\n\n\n\n\n\n\n\n\nBox Plot Comparison Overall\n\n\n\n\n\n\n\n\n\n\n\nBox Plot Comparison by Section (Faceted)",
+    "crumbs": [
+      "Home",
+      "Microeconomics",
+      "Lectures",
+      "Human vs AI Score Analysis with Section Comparison"
+    ]
+  },
+  {
+    "objectID": "microeconomics/lectures/human-vs-ai-updated.html#statistical-analysis",
+    "href": "microeconomics/lectures/human-vs-ai-updated.html#statistical-analysis",
+    "title": "Human vs AI Score Analysis with Section Comparison",
+    "section": "Statistical Analysis",
+    "text": "Statistical Analysis\n\nOverall Statistical Comparison\n\n\n=== OVERALL COMPARISON ===\nTwo-sample t-test results:\nt-statistic: -1.82 \np-value: 0.0732 \n95% Confidence Interval for difference in means: -3.36 to 0.15 \nCohen's d (effect size): 0.426 \n\n\n\n\nSection-Specific Statistical Analysis\n\n\n=== SECTION-SPECIFIC COMPARISONS ===\n\n\n\n--- Section: MW ---\nSample sizes: AI = 24 , Human = 18 \nt-statistic: -2.157 \np-value: 0.0372 \n95% CI for difference: -4.2 to -0.13 \nCohen's d (effect size): 0.633 \n\n--- Section: TTH ---\nSample sizes: AI = 15 , Human = 13 \nt-statistic: -0.549 \np-value: 0.5874 \n95% CI for difference: -4.13 to 2.39 \nCohen's d (effect size): 0.206",
+    "crumbs": [
+      "Home",
+      "Microeconomics",
+      "Lectures",
+      "Human vs AI Score Analysis with Section Comparison"
+    ]
+  },
+  {
+    "objectID": "microeconomics/lectures/human-vs-ai-updated.html#key-findings",
+    "href": "microeconomics/lectures/human-vs-ai-updated.html#key-findings",
+    "title": "Human vs AI Score Analysis with Section Comparison",
+    "section": "Key Findings",
+    "text": "Key Findings\n\nOverall Performance\n\n\nOVERALL RESULTS:\n• Human participants achieved an average score of 9.62 out of 15\n• AI participants achieved an average score of 8.01 out of 15\n• Difference: Humans scored 1.61 points higher on average ( 20.1 % difference)\n• The difference is not statistically significant (p = 0.0732 )\n• Effect size (Cohen's d) = 0.426 , indicating a small to medium effect\n\n\n\n\nSection-Specific Performance\n\n\n\nSECTION-SPECIFIC RESULTS:\n\n--- Section MW ---\n• Human average: 10.39 , AI average: 8.23 \n• Difference: 2.16 points\n• Statistically significant difference (p = 0.0372 )\n• Effect size: 0.633  ( medium to large )\n\n--- Section TTH ---\n• Human average: 8.54 , AI average: 7.67 \n• Difference: 0.87 points\n• No statistically significant difference (p = 0.5874 )\n• Effect size: 0.206  ( small to medium )",
+    "crumbs": [
+      "Home",
+      "Microeconomics",
+      "Lectures",
+      "Human vs AI Score Analysis with Section Comparison"
+    ]
+  },
+  {
+    "objectID": "microeconomics/lectures/human-vs-ai-updated.html#conclusion",
+    "href": "microeconomics/lectures/human-vs-ai-updated.html#conclusion",
+    "title": "Human vs AI Score Analysis with Section Comparison",
+    "section": "Conclusion",
+    "text": "Conclusion\nThe analysis reveals both overall and section-specific performance differences between human and AI participants in this assessment. The faceted analysis allows us to understand whether performance differences are consistent across sections or vary by section type. Key insights include:\n\nOverall Performance: The combined analysis provides a general comparison between human and AI performance across all data.\nSection-Specific Patterns: The faceted analysis reveals whether certain sections favor one group over another, which could indicate section-specific strengths or weaknesses.\nStatistical Significance: Both overall and section-specific statistical tests help determine whether observed differences are likely due to chance or represent genuine performance differences.\nEffect Sizes: Cohen’s d values provide insight into the practical significance of any differences, helping to understand not just whether differences exist, but how meaningful they are.\n\nThis comprehensive analysis framework allows for both broad and detailed insights into Human vs AI performance patterns across different test sections.",
+    "crumbs": [
+      "Home",
+      "Microeconomics",
+      "Lectures",
+      "Human vs AI Score Analysis with Section Comparison"
     ]
   }
 ]

@@ -16,5 +16,3 @@ Put properly:
 x = 10
 y = 2*x +2*x
 ```
-
-Check out our new Macroeconomics site [macroeconomics](macroeconomics/)

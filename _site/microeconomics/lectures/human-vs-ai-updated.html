@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Meghan Downes">
 
-<title>Downloads – The Economics Experience</title>
+<title>Human vs AI Score Analysis with Section Comparison – The Economics Experience</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,25 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../macroeconomics/macroeconomics-splash.html" rel="next">
-<link href="../about.html" rel="prev">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-206390e4bf2ba2c1fec4ba827ad935b0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../microeconomics/lectures/demand-analysis-slides.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-206390e4bf2ba2c1fec4ba827ad935b0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,9 +68,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">The Economics Experience</span>
     </a>
   </div>
@@ -93,20 +93,16 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../microeconomics/microeconomics-splash.html" aria-current="page"> 
+    <a class="nav-link" href="../../microeconomics"> 
 <span class="menu-text">Microeconomics</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../macroeconomics/macroeconomics-splash.html"> 
+    <a class="nav-link" href="../../macroeconomics"> 
 <span class="menu-text">Macroeconomics</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../downloads/downloads-splash.html"> 
-<span class="menu-text">Downloads</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -119,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../downloads/downloads-splash.html">Downloads</a></li><li class="breadcrumb-item"><a href="../downloads/downloads-splash.html">Downloads</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Microeconomics</li><li class="breadcrumb-item"><a href="../../microeconomics/lectures/demand-analysis-slides.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../microeconomics/lectures/human-vs-ai-updated.html">Human vs AI Score Analysis with Section Comparison</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -144,42 +140,36 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../about.html" class="sidebar-item-text sidebar-link">
+  <a href="../../about.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Downloads</span></a>
+ <span class="menu-text">Macroeconomics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Lectures</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../downloads/downloads-splash.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Downloads</span></a>
+  <a href="../../macroeconomics/lectures/lecture-3-gdp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gross Domestic Product</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Macroeconomics</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../macroeconomics/macroeconomics-splash.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Macroeconomics Home</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -191,25 +181,25 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../microeconomics/microeconomics-splash.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Microeconomics Home</span></a>
-  </div>
-</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Lectures</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../microeconomics/lectures/demand-analysis-slides.html" class="sidebar-item-text sidebar-link">
+  <a href="../../microeconomics/lectures/demand-analysis-slides.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Deriving Demand for Rum and Swords</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../microeconomics/lectures/human-vs-ai-updated.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Human vs AI Score Analysis with Section Comparison</span></a>
   </div>
 </li>
       </ul>
@@ -221,27 +211,53 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#data-overview" id="toc-data-overview" class="nav-link" data-scroll-target="#data-overview">Data Overview</a></li>
+  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics">Summary Statistics</a>
+  <ul class="collapse">
+  <li><a href="#overall-summary-statistics" id="toc-overall-summary-statistics" class="nav-link" data-scroll-target="#overall-summary-statistics">Overall Summary Statistics</a></li>
+  <li><a href="#section-specific-summary-statistics" id="toc-section-specific-summary-statistics" class="nav-link" data-scroll-target="#section-specific-summary-statistics">Section-Specific Summary Statistics</a></li>
+  </ul></li>
+  <li><a href="#visualizations" id="toc-visualizations" class="nav-link" data-scroll-target="#visualizations">Visualizations</a>
+  <ul class="collapse">
+  <li><a href="#overall-average-scores" id="toc-overall-average-scores" class="nav-link" data-scroll-target="#overall-average-scores">Overall Average Scores</a></li>
+  <li><a href="#average-scores-by-section-faceted" id="toc-average-scores-by-section-faceted" class="nav-link" data-scroll-target="#average-scores-by-section-faceted">Average Scores by Section (Faceted)</a></li>
+  <li><a href="#distribution-of-scores-overall" id="toc-distribution-of-scores-overall" class="nav-link" data-scroll-target="#distribution-of-scores-overall">Distribution of Scores Overall</a></li>
+  <li><a href="#distribution-of-scores-by-section" id="toc-distribution-of-scores-by-section" class="nav-link" data-scroll-target="#distribution-of-scores-by-section">Distribution of Scores by Section</a></li>
+  <li><a href="#box-plot-comparison-overall" id="toc-box-plot-comparison-overall" class="nav-link" data-scroll-target="#box-plot-comparison-overall">Box Plot Comparison Overall</a></li>
+  <li><a href="#box-plot-comparison-by-section-faceted" id="toc-box-plot-comparison-by-section-faceted" class="nav-link" data-scroll-target="#box-plot-comparison-by-section-faceted">Box Plot Comparison by Section (Faceted)</a></li>
+  </ul></li>
+  <li><a href="#statistical-analysis" id="toc-statistical-analysis" class="nav-link" data-scroll-target="#statistical-analysis">Statistical Analysis</a>
+  <ul class="collapse">
+  <li><a href="#overall-statistical-comparison" id="toc-overall-statistical-comparison" class="nav-link" data-scroll-target="#overall-statistical-comparison">Overall Statistical Comparison</a></li>
+  <li><a href="#section-specific-statistical-analysis" id="toc-section-specific-statistical-analysis" class="nav-link" data-scroll-target="#section-specific-statistical-analysis">Section-Specific Statistical Analysis</a></li>
+  </ul></li>
+  <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings">Key Findings</a>
+  <ul class="collapse">
+  <li><a href="#overall-performance" id="toc-overall-performance" class="nav-link" data-scroll-target="#overall-performance">Overall Performance</a></li>
+  <li><a href="#section-specific-performance" id="toc-section-specific-performance" class="nav-link" data-scroll-target="#section-specific-performance">Section-Specific Performance</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../downloads/downloads-splash.html">Downloads</a></li><li class="breadcrumb-item"><a href="../downloads/downloads-splash.html">Downloads</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Microeconomics</li><li class="breadcrumb-item"><a href="../../microeconomics/lectures/demand-analysis-slides.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../microeconomics/lectures/human-vs-ai-updated.html">Human vs AI Score Analysis with Section Comparison</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Downloads</h1>
+<h1 class="title">Human vs AI Score Analysis with Section Comparison</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Meghan Downes </p>
-          </div>
-  </div>
     
   
     
@@ -252,9 +268,384 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The splash page for downloads! :)</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>This analysis compares performance scores between Human and AI participants in a test with scores ranging from 0 to 15. The analysis includes both overall comparisons and section-specific comparisons (MW vs TTH sections).</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.2
+✔ ggplot2   4.0.0     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.1.0     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors
+
+Attaching package: 'kableExtra'
 
 
+The following object is masked from 'package:dplyr':
+
+    group_rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: NAs introduced by coercion</code></pre>
+</div>
+<div class="cell-output-display">
+<table class="table table-striped table-hover caption-top table-sm small" data-quarto-postprocess="true">
+<caption>First 6 rows of the dataset</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Timestamp</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Score</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Group</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Section</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">9/10/2025 12:54:53</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: left;">AI</td>
+<td style="text-align: left;">MW</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9/10/2025 12:54:59</td>
+<td style="text-align: right;">10.0</td>
+<td style="text-align: left;">Human</td>
+<td style="text-align: left;">MW</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9/10/2025 12:55:01</td>
+<td style="text-align: right;">15.0</td>
+<td style="text-align: left;">AI</td>
+<td style="text-align: left;">MW</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9/10/2025 12:55:03</td>
+<td style="text-align: right;">10.0</td>
+<td style="text-align: left;">AI</td>
+<td style="text-align: left;">MW</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9/10/2025 12:55:07</td>
+<td style="text-align: right;">8.5</td>
+<td style="text-align: left;">AI</td>
+<td style="text-align: left;">MW</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9/10/2025 12:55:18</td>
+<td style="text-align: right;">7.0</td>
+<td style="text-align: left;">AI</td>
+<td style="text-align: left;">MW</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="data-overview" class="level2">
+<h2 class="anchored" data-anchor-id="data-overview">Data Overview</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Total observations: 70 </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>AI entries: 39 </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Human entries: 31 </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Section breakdown:</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  Group    MW   TTH
+  &lt;chr&gt; &lt;int&gt; &lt;int&gt;
+1 AI       24    15
+2 Human    18    13</code></pre>
+</div>
+</div>
+</section>
+<section id="summary-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="summary-statistics">Summary Statistics</h2>
+<section id="overall-summary-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="overall-summary-statistics">Overall Summary Statistics</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover caption-top table-sm small" data-quarto-postprocess="true">
+<caption>Overall Summary Statistics by Group</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Group</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Count</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mean</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Median</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Std Dev</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Min</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">AI</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">8.01</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">4.13</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Human</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">9.62</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">3.24</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">15</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="section-specific-summary-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="section-specific-summary-statistics">Section-Specific Summary Statistics</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover caption-top table-sm small" data-quarto-postprocess="true">
+<caption>Summary Statistics by Group and Section</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Group</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Section</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Count</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mean</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Median</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Std Dev</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Min</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">AI</td>
+<td style="text-align: left;">MW</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">8.23</td>
+<td style="text-align: right;">8.25</td>
+<td style="text-align: right;">3.95</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AI</td>
+<td style="text-align: left;">TTH</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">7.67</td>
+<td style="text-align: right;">7.00</td>
+<td style="text-align: right;">4.53</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Human</td>
+<td style="text-align: left;">MW</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">10.39</td>
+<td style="text-align: right;">10.00</td>
+<td style="text-align: right;">2.54</td>
+<td style="text-align: right;">6.6</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Human</td>
+<td style="text-align: left;">TTH</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">8.54</td>
+<td style="text-align: right;">8.00</td>
+<td style="text-align: right;">3.86</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">15</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="visualizations" class="level2">
+<h2 class="anchored" data-anchor-id="visualizations">Visualizations</h2>
+<section id="overall-average-scores" class="level3">
+<h3 class="anchored" data-anchor-id="overall-average-scores">Overall Average Scores</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="human-vs-ai-updated_files/figure-html/bar-graph-overall-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="average-scores-by-section-faceted" class="level3">
+<h3 class="anchored" data-anchor-id="average-scores-by-section-faceted">Average Scores by Section (Faceted)</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="human-vs-ai-updated_files/figure-html/bar-graph-faceted-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="distribution-of-scores-overall" class="level3">
+<h3 class="anchored" data-anchor-id="distribution-of-scores-overall">Distribution of Scores Overall</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="human-vs-ai-updated_files/figure-html/histogram-overall-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="distribution-of-scores-by-section" class="level3">
+<h3 class="anchored" data-anchor-id="distribution-of-scores-by-section">Distribution of Scores by Section</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="human-vs-ai-updated_files/figure-html/histogram-by-section-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="box-plot-comparison-overall" class="level3">
+<h3 class="anchored" data-anchor-id="box-plot-comparison-overall">Box Plot Comparison Overall</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="human-vs-ai-updated_files/figure-html/boxplot-overall-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="box-plot-comparison-by-section-faceted" class="level3">
+<h3 class="anchored" data-anchor-id="box-plot-comparison-by-section-faceted">Box Plot Comparison by Section (Faceted)</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="human-vs-ai-updated_files/figure-html/boxplot-faceted-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="statistical-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-analysis">Statistical Analysis</h2>
+<section id="overall-statistical-comparison" class="level3">
+<h3 class="anchored" data-anchor-id="overall-statistical-comparison">Overall Statistical Comparison</h3>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>=== OVERALL COMPARISON ===
+Two-sample t-test results:
+t-statistic: -1.82 
+p-value: 0.0732 
+95% Confidence Interval for difference in means: -3.36 to 0.15 
+Cohen's d (effect size): 0.426 </code></pre>
+</div>
+</div>
+</section>
+<section id="section-specific-statistical-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="section-specific-statistical-analysis">Section-Specific Statistical Analysis</h3>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>=== SECTION-SPECIFIC COMPARISONS ===</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+--- Section: MW ---
+Sample sizes: AI = 24 , Human = 18 
+t-statistic: -2.157 
+p-value: 0.0372 
+95% CI for difference: -4.2 to -0.13 
+Cohen's d (effect size): 0.633 
+
+--- Section: TTH ---
+Sample sizes: AI = 15 , Human = 13 
+t-statistic: -0.549 
+p-value: 0.5874 
+95% CI for difference: -4.13 to 2.39 
+Cohen's d (effect size): 0.206 </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="key-findings" class="level2">
+<h2 class="anchored" data-anchor-id="key-findings">Key Findings</h2>
+<section id="overall-performance" class="level3">
+<h3 class="anchored" data-anchor-id="overall-performance">Overall Performance</h3>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>OVERALL RESULTS:
+• Human participants achieved an average score of 9.62 out of 15
+• AI participants achieved an average score of 8.01 out of 15
+• Difference: Humans scored 1.61 points higher on average ( 20.1 % difference)
+• The difference is not statistically significant (p = 0.0732 )
+• Effect size (Cohen's d) = 0.426 , indicating a small to medium effect</code></pre>
+</div>
+</div>
+</section>
+<section id="section-specific-performance" class="level3">
+<h3 class="anchored" data-anchor-id="section-specific-performance">Section-Specific Performance</h3>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+SECTION-SPECIFIC RESULTS:
+
+--- Section MW ---
+• Human average: 10.39 , AI average: 8.23 
+• Difference: 2.16 points
+• Statistically significant difference (p = 0.0372 )
+• Effect size: 0.633  ( medium to large )
+
+--- Section TTH ---
+• Human average: 8.54 , AI average: 7.67 
+• Difference: 0.87 points
+• No statistically significant difference (p = 0.5874 )
+• Effect size: 0.206  ( small to medium )</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>The analysis reveals both overall and section-specific performance differences between human and AI participants in this assessment. The faceted analysis allows us to understand whether performance differences are consistent across sections or vary by section type. Key insights include:</p>
+<ol type="1">
+<li><p><strong>Overall Performance</strong>: The combined analysis provides a general comparison between human and AI performance across all data.</p></li>
+<li><p><strong>Section-Specific Patterns</strong>: The faceted analysis reveals whether certain sections favor one group over another, which could indicate section-specific strengths or weaknesses.</p></li>
+<li><p><strong>Statistical Significance</strong>: Both overall and section-specific statistical tests help determine whether observed differences are likely due to chance or represent genuine performance differences.</p></li>
+<li><p><strong>Effect Sizes</strong>: Cohen’s d values provide insight into the practical significance of any differences, helping to understand not just whether differences exist, but how meaningful they are.</p></li>
+</ol>
+<p>This comprehensive analysis framework allows for both broad and detailed insights into Human vs AI performance patterns across different test sections.</p>
+
+
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -665,14 +1056,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../about.html" class="pagination-link" aria-label="About">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">About</span>
+      <a href="../../microeconomics/lectures/demand-analysis-slides.html" class="pagination-link" aria-label="Deriving Demand for Rum and Swords">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Deriving Demand for Rum and Swords</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../macroeconomics/macroeconomics-splash.html" class="pagination-link" aria-label="Macroeconomics Home">
-        <span class="nav-page-text">Macroeconomics Home</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
