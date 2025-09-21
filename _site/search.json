@@ -35,7 +35,22 @@
     "href": "index.html",
     "title": "the-goat-market",
     "section": "",
+<<<<<<< HEAD
     "text": "The Economics Experience\nThe answer is always to double it and double it again!\n\n1 + 1\n\n[1] 2\n\n\nPut properly:\n\nx = 10\ny = 2*x +2*x\n\nCheck out our new Macroeconomics site macroeconomics\n\n\n\n Back to top"
+=======
+    "text": "The Economics Experience\nThe answer is always to double it and double it again!\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\nThis site is authored and maintained by Meghan Downes. All content is the sole responsibility of Dr. Downes, and does not represent New Mexico State University. This site and its contents are for non-commercial purposes and are covered under the MIT Open Source License. Code snippets and other materials may be found at /github/meghandownes/the-goat-market.\nThis material is intended for student use, and is free and open source. Commercial re-use is not allowed, as is scraping by AI-bots without attribution to the source. Thank you for reading.\n\n\"There is no free lunch\" \n\n[1] \"There is no free lunch\"\n\n42/10\n\n[1] 4.2\n\n\n\nlibrary(leaflet)\nleaflet() %&gt;%\n  addTiles() %&gt;%  # Add default OpenStreetMap map tiles\n  addMarkers(lng=-106.74894874460624, lat=32.27994064289398, popup=\"The birthplace of the Goat Market\")\n\n\n\n\n\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "About"
+    ]
+>>>>>>> a62cdb21db7c7f333cef12f3c1ca9eacd5646bc1
   },
   {
     "objectID": "microeconomics/lectures/demand-analysis-slides.html",
@@ -254,6 +269,7 @@
     ]
   },
   {
+<<<<<<< HEAD
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -262,6 +278,49 @@
     "crumbs": [
       "Home",
       "About"
+=======
+    "objectID": "Microeconomics.html",
+    "href": "Microeconomics.html",
+    "title": "Mircoreconomics",
+    "section": "",
+    "text": "Start your journey in economics here. From a Scavenger Hunt to Pirate Treasure. We will encounter lots of thought provoking ideas along the way! Ahoy Mateys!\n\n\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "Mircoreconomics"
+    ]
+  },
+  {
+    "objectID": "microeconomics-splash.html",
+    "href": "microeconomics-splash.html",
+    "title": "Mircoreconomics",
+    "section": "",
+    "text": "Start your journey in economics here. From a Scavenger Hunt to Pirate Treasure. We will encounter lots of thought provoking ideas along the way! Ahoy Mateys!\n\n\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "Mircoreconomics"
+    ]
+  },
+  {
+    "objectID": "macroeconomics-splash.html",
+    "href": "macroeconomics-splash.html",
+    "title": "macroeconomics-splash",
+    "section": "",
+    "text": "Here is the splash page for the experience through macroeconomics! Its a whale of a time :)\n\n\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "macroeconomics-splash"
+    ]
+  },
+  {
+    "objectID": "downoads-splash.html",
+    "href": "downoads-splash.html",
+    "title": "Downlaods",
+    "section": "",
+    "text": "The splash page for downloads! :)\n\n\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "Downlaods"
+>>>>>>> a62cdb21db7c7f333cef12f3c1ca9eacd5646bc1
     ]
   }
 ]
