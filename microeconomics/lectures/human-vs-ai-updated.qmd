@@ -1,21 +1,24 @@
 ---
 title: "Human vs AI Score Analysis with Section Comparison"
-format: html
+execute: 
+  echo: false
+format: 
+  html:
+    code-fold: true
+    code-summary: "Show the Code"
 ---
 
 ## Introduction
 
 This analysis compares performance scores between Human and AI participants in a test with scores ranging from 0 to 15. The analysis includes both overall comparisons and section-specific comparisons (MW vs TTH sections).
 
-```{r setup, include=FALSE}
+```{r setup}
 # Load necessary libraries
 library(tidyverse)
 library(knitr)
 library(kableExtra)
 library(shinylive)
 
-# Set chunk options
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
 ```{r load-data}

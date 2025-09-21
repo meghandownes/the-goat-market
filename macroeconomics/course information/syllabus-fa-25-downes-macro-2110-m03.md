@@ -1,0 +1,360 @@
+# Dr. Meghan Downes
+
+**College Professor**  
+Economics, Applied Statistics, and International Business  
+College of Business  
+New Mexico State University  
+
+**Email:** [cmdownes@nmsu.edu](mailto:cmdownes@nmsu.edu)  
+**Office Phone:** 575.646.3295  
+**Cell Phone:** 575.214.0365  
+**Office:** DOM224  
+**Office Hours: BY APPOINTMENT ONLY**  
+
+> ***PLEASE EMAIL to ensure you have my time reserved and available to meet your needs. Office hours will be conducted over Zoom or in-person.***
+
+**Note:** I will typically respond to communications within 24 hours.
+
+---
+
+## Course Information
+
+**Course:** ECON2110G.M03
+**Title:** Principles of Macroeconomics  
+**Semester:** FA2025  
+**Dates:** August 20 to December 15, 2025  
+**Credits:** 3  
+
+### Course Meeting Times & Location
+
+**Format:** Face-to-Face  
+**Room:** DOM106  
+**Schedule:** MW 1:30-2:45 PM  
+
+### Prerequisites
+
+None
+
+### Course Description
+
+This course provides a comprehensive introduction to macroeconomic theory and its applications to real-world policy challenges and economic systems. Macroeconomics examines how entire economies function—from business cycles and unemployment to inflation, economic growth, and international trade. Students will learn to analyze aggregate economic behavior, government policy effectiveness, and the complex interactions between fiscal and monetary policy through the lens of multiple economic schools of thought, while developing advanced AI partnership capabilities for economic research and policy analysis.
+
+The course emphasizes practical applications of macroeconomic theory to current policy debates, including Federal Reserve decisions, government spending and taxation, international economic relations, and long-term growth strategies. Students will engage with diverse theoretical perspectives—from Keynesian demand management to Austrian business cycle theory—to develop nuanced understanding of how national economies function and how policy can influence economic outcomes.
+
+---
+
+## Textbooks and Materials
+
+### Modern Principles: Macroeconomics
+**Authors:** Tyler Cowen; Alex Tabarrok  
+**Edition:** 5th  
+**Publisher:** Worth Publishers  
+**ISBNs:** 1319329580, 9781319329587, 9781319329594, 9781319329600, 9781319245412  
+**Language:** English  
+**Pages:** 624  
+**Format:** EPUB  
+
+***This is available in your Kortex App.***
+
+---
+
+## Course Schedule
+
+|                   |                                            |                                      |           |        |            |
+| ----------------- | ------------------------------------------ | ------------------------------------ | --------- | ------ | ---------- |
+| Assignment Number | Topic                                      | Assignment                           | Type      | Points | Due Date   |
+| 1                 | The Big ideas of Economics                 | Scavenger Hunt Lab 1                 | Lab       | 10     | 08-31-2025 |
+| 2                 | Comparative Advantage and Trade            | Opportunity Cost Lab 2               | Lab       | 10     | 08-31-2025 |
+| 3                 | AI Ethics                                  | AI vs Human Research Lab 3           | Lab       | 20     | 08-31-2025 |
+| 4                 | The Process of Wealth Creation             | Process of Wealth Creation Lab 4     | Lab       | 50     | 09-14-2025 |
+| 5                 | Measuring Wealth: GDP                      | GDP Worksheet 1                      | Worksheet | 20     | 09-17-2025 |
+| 6                 | The Wealth of Nations                      | Wealth Around the World Lab 5        | Lab       | 20     | 09-21-2025 |
+| 7                 | The Long Road to Solow                     | Solow Worksheet 2                    | Worksheet | 20     | 09-24-2025 |
+| 8                 | The Long Road to Solow                     | Solow Lab 6                          | Lab       | 20     | 09-28-2025 |
+| 9                 | Inflation and the Quantity Theory of Money | Quantity Theory of Money Worksheet 3 | Worksheet | 20     | 10-1-2025  |
+| 10                | Fiscal Policy                              | Fiscal Policy Lab 8                  | Lab       | 20     | 10-12-2025 |
+| 11                | The Dynamic AD-AS Model                    | Dynamic AD-AS Worksheet 5            | Worksheet | 20     | 10-15-2025 |
+| 12                | Political Economy and Public Choice        | Political Economy Lab 9              | Lab       | 20     | 10-19-2025 |
+| 13                | Unemployment and Labor Markets             | Business Cycles Worksheet 6          | Worksheet | 20     | 10-22-2025 |
+| 14                | Political Economy and Public Choice        | Public Choice Lab 10                 | Lab       | 20     | 10-26-2025 |
+| 15                | Monetary Policy and the Federal Reserve    | Monetary Policy Lab 7                | Lab       | 20     | 10-5-2025  |
+| 16                | Inflation and the Quantity Theory of Money | Inflation Worksheet 4                | Worksheet | 20     | 10-8-2025  |
+| 17                | Business Cycles                            | Schools of Thought Worksheet 9       | Worksheet | 50     | 11-16-2025 |
+| 18                | Monetary Policy and the Federal Reserve    | Monetary Worksheet 7                 | Worksheet | 20     | 11-2-2025  |
+| 19                | Fiscal Policy                              | Fiscal Worksheet 8                   | Worksheet | 50     | 11-9-2025  |
+| 20                | Business Cycles                            | Schools of Thought Worksheet 10      | Worksheet | 50     | 12-10-2025 |
+| 21                | Obsidian Learning Journal                  | Electronic Learning Journal          | Journal   | 100    | 12-10-2025 |
+|                   | Totals                                     |                                      |           | 600    |            |
+
+---
+
+## Course Innovation: AI Partnership & Economics Learning Journal
+
+This course pioneered the integration of **Artificial Intelligence Partnership** with traditional macroeconomics education. Students learn to collaborate effectively with AI tools while developing critical thinking skills necessary to verify, enhance, and apply AI-generated insights to complex economic problems and policy analysis.
+
+### AI Partnership Methodology
+- **Sophisticated Prompt Development**: Learn to create multi-step, nuanced prompts for complex macroeconomic policy analysis
+- **Critical Verification**: Develop skills to fact-check and enhance AI outputs using primary sources (Fed communications, government data, academic research)
+- **Professional Integration**: Build capabilities for AI collaboration in economic research and policy consulting
+- **Ethical Application**: Understand appropriate uses and limitations of AI in macroeconomic analysis and policy work
+
+### Economics Learning Journal
+- **Weekly Reflections**: 400+ word entries connecting macroeconomic concepts to current events, policy debates, and professional insights
+- **Multi-School Analysis**: Apply different economic schools (Keynesian, Austrian, Monetarist, etc.) to real-world macroeconomic phenomena
+- **AI Partnership Documentation**: Track development of AI collaboration skills throughout semester
+- **Policy Application**: Connect macroeconomic learning to career goals and current policy debates (Fed decisions, fiscal policy, international economics)
+
+---
+
+## Course Organization
+
+This course combines traditional macroeconomics instruction with cutting-edge AI partnership methodology. You will read assigned chapters, engage with interactive economic data visualizations and policy simulations, and complete sophisticated assignments using AI collaboration tools. The learning journal serves as the intellectual backbone connecting all course elements.
+
+### Assignment Structure
+- **AI Partnership Projects**: Five major assignments developing professional-level macroeconomic policy analysis capabilities
+- **Learning Journal**: Weekly reflections demonstrating growing macroeconomic reasoning and AI collaboration skills  
+- **Class Participation**: Active engagement in discussions, policy simulations, and peer learning activities
+- **Portfolio Development**: Creation of professional materials suitable for policy careers, graduate school, or economic analysis roles
+
+### AI Integration Philosophy
+This course views AI as a powerful research partner for macroeconomic analysis, not a replacement for economic thinking. Students learn when to leverage AI capabilities for policy research, how to verify and enhance AI outputs with economic data and theory, and where human judgment and economic expertise remain essential. The goal is developing AI partnership skills that will serve students throughout their careers in an increasingly AI-integrated economy.
+
+## Course Learning Outcomes
+
+By the end of this course, you will be able to:
+
+1. **Master Core Macroeconomic Theory**: Understand business cycles, monetary and fiscal policy, international economics, and economic growth through multiple theoretical frameworks
+
+2. **Analyze Current Economic Policy**: Use macroeconomic reasoning to evaluate Federal Reserve decisions, government fiscal policy, and international economic developments
+
+3. **Collaborate Effectively with AI**: Develop sophisticated skills for AI partnership in macroeconomic research, including advanced prompt development, data verification, and professional integration
+
+4. **Communicate Economic Analysis Professionally**: Present complex macroeconomic policy analysis clearly to diverse audiences, including policymakers, business leaders, and general public
+
+5. **Integrate Multiple Theoretical Perspectives**: Apply insights from different schools of economic thought (Keynesian, Austrian, Monetarist, etc.) to develop nuanced understanding of macroeconomic phenomena
+
+6. **Connect Theory to Policy Practice**: Link abstract macroeconomic concepts to real-world applications in central banking, government policy, and international economics
+
+## General Education Content Area and Essential Skills
+
+All general education courses include instruction and evaluation of essential skills. This course emphasizes:
+
+- **Communication**: Professional writing, policy analysis, and presentation skills
+- **Critical Thinking**: Analysis of macroeconomic arguments, policy evaluation, and data interpretation  
+- **Information and Digital Literacy**: AI partnership capabilities and advanced economic research skills
+
+---
+
+## Engaged Hours
+
+This 3-credit course meets synchronously for 16 weeks with extensive outside learning activities. The course provides learning opportunities totaling approximately 170 hours:
+
+|       Activity       |       Calculation        |  Hours  |
+| :------------------: | :----------------------: | :-----: |
+| **Class Attendance** | 32 sessions x 1.25 hours |   40    |
+| **Required Reading** | 17 chapters x 2.5 hours  |   43    |
+|       **Labs**       | 10 assignments x 8 hours |   40    |
+| **Learning Journal** |   10 entries x 2 hours   |   30    |
+|    **Worksheets**    |      10 x 1.5 hours      |   18    |
+|      **Total**       |                          | **171** |
+
+
+---
+
+## AI Partnership & Learning Journal Requirements
+
+### Weekly Learning Journal (100 points total)
+**Purpose**: Connect macroeconomic learning to broader understanding and professional development
+
+**Requirements (15 weeks x 10 points)**:
+- **Minimum 400 words** per entry
+- **AI Partnership Component**: Document prompts used and insights gained from economic policy research
+- **Multiple School Analysis**: Apply 2-3 theoretical perspectives to current macroeconomic issues
+- **Professional Connection**: Link macroeconomic concepts to career interests or current policy debates
+- **Critical Reflection**: Evaluate strengths/limitations of different macroeconomic approaches
+
+**Sample Weekly Themes**:
+- Weeks 1-4: Economic growth and business cycle fundamentals
+- Weeks 5-8: Monetary and fiscal policy analysis  
+- Weeks 9-12: International economics and trade policy
+- Weeks 13-15: Integration and professional development
+
+### AI Partnership Development
+**Embedded in all assignments**: Students document AI collaboration process including:
+- Evolution of prompt sophistication for macroeconomic policy analysis
+- Examples of effective vs. ineffective AI collaboration in economic research
+- Instances where human expertise was essential for policy evaluation
+- Professional applications of AI partnership skills in macroeconomic analysis
+
+---
+## Communication Expectations
+
+### Email Communications
+
+Your NMSU email account is the official communication method. Emails to the instructor should use either Canvas or official NMSU email accounts. Due to privacy concerns, we cannot respond to emails from non-official addresses.
+
+### AI Partnership Collaboration
+
+This course encourages AI use for learning and research, with these guidelines:
+- **Document your process**: Show prompts used, verification steps, and learning outcomes
+- **Maintain academic integrity**: AI assists learning but doesn't replace critical thinking
+- **Cite AI collaboration**: Include AI partnership documentation in assignments
+- **Develop professional skills**: Learn effective AI collaboration for economic policy analysis careers
+
+### Class Discussion Standards
+
+- **Respectful engagement**: Disagree with policy positions, not individuals
+- **Evidence-based arguments**: Support positions with macroeconomic reasoning and data
+- **Multiple perspectives**: Consider various theoretical approaches and policy viewpoints
+- **Professional communication**: Practice skills needed for policy and business career success
+
+---
+
+## Grading and Assessment
+
+### Assignment Distribution
+
+| Assignment Type  | Points | Percent |
+| :--------------: | :----: | :-----: |
+|       Labs       |  210   |   35%   |
+|    Worksheets    |  290   | 48.33%  |
+| Learning Journal |  100   | 16.67%  |
+|      Total       |  600   |  100%   |
+
+### Grade Scale
+
+This course uses the standard fractional grading scale as published in Canvas.
+
+### Late Work Policy
+
+**Professional Standards**: Late assignments lose 10% per day unless prior arrangements are made. Extensions available for documented emergencies or university-excused absences.
+
+**Learning Journal**: Weekly entries cannot be made up after deadline to maintain currency of reflection and discussion.
+
+---
+
+## Technology Requirements
+
+### Essential Tools
+- **Reliable internet access** (25 Mbps download minimum)
+- **Modern computer/laptop** with camera and microphone
+- **AI Access**: Students need access to AI tools (ChatGPT, Claude, or similar) for macroeconomic research
+- **Browser**: Latest Chrome or Firefox for Canvas compatibility
+- **Office Software**: Microsoft Office or Google Workspace for assignments
+
+### Course-Specific Technology
+- **Economic Data Access**: FRED (Federal Reserve Economic Data), BLS, BEA websites
+- **Policy Research Tools**: Federal Reserve communications, Congressional Budget Office reports
+- **Interactive Elements**: R/Shiny apps for macroeconomic modeling (browser-based)
+- **Obsidian** (optional): For advanced note-taking and knowledge management
+
+### AI Partnership Tools
+Students will learn to use AI effectively for:
+- **Policy Research**: Complex macroeconomic policy analysis projects
+- **Data Interpretation**: Economic indicator analysis and forecasting  
+- **Writing Enhancement**: Professional communication for policy audiences
+- **Career Development**: Understanding career paths in economics and policy
+
+---
+
+## Attendance Policy
+
+**Participation Requirement**: Active attendance essential for discussion-based learning environment. Attendance tracked through in-class activities and participation.
+
+**Absence Policy**: Missing more than 10% of classes (3+ sessions) without documented excuse affects participation grade and may require alternative assessments.
+
+**University-Excused Absences**: Students representing NMSU at official events receive excused absences with prior notification. Responsibilities remain unchanged.
+
+## Academic Integrity & AI Use
+
+### AI Partnership Guidelines
+
+This course **encourages AI use** within academic integrity framework:
+
+**Appropriate AI Use**:
+- Macroeconomic policy research and initial analysis
+- Economic data interpretation and visualization help
+- Writing enhancement and editing support for policy communications
+- Career exploration in economics and policy fields
+
+**Required Documentation**:
+- Include AI collaboration details in assignments
+- Show verification of AI outputs against primary sources (Fed data, government reports, academic research)
+- Demonstrate independent critical thinking beyond AI assistance
+- Reflect on AI partnership learning in journal entries
+
+**Academic Integrity Expectations**:
+- AI assists learning but doesn't replace economic reasoning
+- All sources (including AI) must be acknowledged
+- Verification of AI outputs against economic data is your responsibility
+- Final analysis and policy conclusions must reflect your economic understanding
+
+### Professional Development Philosophy
+
+This course prepares students for careers where AI collaboration will be standard practice in economic research and policy analysis. Learning effective AI partnership now builds capabilities needed for professional success while maintaining high standards for macroeconomic reasoning and ethical practice.
+
+---
+
+## Important Dates
+
+**University Resources**: [https://records.nmsu.edu/important-dates-students/](https://records.nmsu.edu/important-dates-students/)
+
+**Key Course Dates**:
+- **August 20**: First class (course introduction)
+- **September 8**: Assignment 1 launches  
+- **November 26**: Thanksgiving break begins
+- **December 1-3**: Final portfolio presentations
+- **December 9**: Finals week begins
+
+---
+
+## Student Support Resources
+
+### Academic Support
+- **Disability Access Services**: Corbett Center Room 204, 575-646-6840
+- **Writing Center**: Support for policy analysis and AI partnership documentation
+- **Library Research Support**: Economic databases and policy research methodology assistance
+- **Office of Student Success**: Academic coaching and study strategies
+
+### Technology Support  
+- **Canvas Help**: 24/7 technical support for learning management system
+- **IT Services**: Computer and internet connectivity assistance
+- **AI Partnership Training**: Additional resources available through instructor office hours
+
+### Course-Specific Support
+- **Office Hours**: Individual consultation on AI partnership development and macroeconomic policy analysis
+- **Study Groups**: Peer collaboration encouraged for complex economic concepts
+- **Professional Development**: Career guidance in economics and policy fields
+
+---
+
+## Institutional Policies
+
+**Complete Policy Information**: [https://provost.nmsu.edu/faculty-and-staff-resources/syllabus/policies](https://provost.nmsu.edu/faculty-and-staff-resources/syllabus/policies.html)
+
+This link provides comprehensive information about:
+- Discrimination and disability accommodation procedures
+- Academic misconduct policies and consequences  
+- Student services and support resources
+- Final examination schedules and grading policies
+- Emergency procedures and campus safety information
+
+### Key Contact Information
+
+| Service | Phone | Email/Website |
+|:---:|:---:|:---:|
+| **Emergency (on-campus)** | 911 | |
+| **NMSU Police** | (575) 646-3311 | [nmsupolice.com](http://www.nmsupolice.com/) |
+| **Dean of Students** | (575) 646-1722 | |
+| **Counseling Services** | (575) 646-1512 | [wellness.nmsu.edu](https://wellness.nmsu.edu/) |
+| **Office of Institutional Equity** | (575) 646-3635 | [equity.nmsu.edu](https://equity.nmsu.edu/) |
+
+---
+
+## Syllabus Modifications
+
+The instructor reserves the right to modify this syllabus as needed to enhance student learning or accommodate unforeseen circumstances. Students will receive advance notification of any significant changes through Canvas announcements.
+
+---
+
+*This syllabus represents a commitment to innovative macroeconomic education that prepares students for success in an AI-integrated professional environment while maintaining rigorous standards for economic reasoning and policy analysis.*
