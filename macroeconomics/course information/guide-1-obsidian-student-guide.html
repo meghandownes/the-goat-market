@@ -1,0 +1,1886 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Perplexity.ai and Meghan Downes">
+
+<title>Obsidian Set Up Guide – The Economics Experience</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-697313df19b4b029016be603f33abac8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">The Economics Experience</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../microeconomics/index.html"> 
+<span class="menu-text">Microeconomics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../macroeconomics/index.html"> 
+<span class="menu-text">Macroeconomics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../downloads/index.html"> 
+<span class="menu-text">Downloads</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../macroeconomics/index.html">Welcome to Macroeconomics</a></li><li class="breadcrumb-item"><a href="../../macroeconomics/course information/guide-1-obsidian-student-guide.html">course information</a></li><li class="breadcrumb-item"><a href="../../macroeconomics/course information/guide-1-obsidian-student-guide.html">Obsidian Set Up Guide</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+  <div id="quarto-announcement" data-announcement-id="4dbec71e4d490c868f450c4d836411f5" class="alert alert-warning hidden"><i class="bi bi-info-circle quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p><strong>Alert</strong> - Make Sure to Check Here for Announcements!</p>
+</div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../macroeconomics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome to Macroeconomics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Assignments</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../macroeconomics/assignments/lab-1-scavenger-hunt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 1: Scavenger Hunt</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../macroeconomics/assignments/lab-2-opportunity-cost.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 2: Opportunity Cost</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../macroeconomics/assignments/lab-3-team-ai-vs-team-human-macro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 3: Team AI vs Team Human Research</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../macroeconomics/assignments/lab-4-htmlwidgets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 4: The Process of Wealth Creation - Interactive Assignment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../macroeconomics/assignments/lab-4-process-of-wealth-creation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 4: The Process of Wealth Creation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">class materials</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../macroeconomics/class materials/lecture-1-big-ideas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 1: The Big Ideas of Economics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../macroeconomics/class materials/lecture-3-gdp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gross Domestic Product</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">course information</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../macroeconomics/course information/guide-1-obsidian-student-guide.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Obsidian Set Up Guide</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../macroeconomics/course information/syllabus-fa-25-downes-macro-2110-m03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">FALL2020 ECON2110G Syllabus</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-complete-student-guide-to-setting-up-obsidian-from-installation-to-advanced-note-taking" id="toc-the-complete-student-guide-to-setting-up-obsidian-from-installation-to-advanced-note-taking" class="nav-link active" data-scroll-target="#the-complete-student-guide-to-setting-up-obsidian-from-installation-to-advanced-note-taking">The Complete Student Guide to Setting Up Obsidian: From Installation to Advanced Note-Taking</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#chapter-1-installation-across-all-platforms" id="toc-chapter-1-installation-across-all-platforms" class="nav-link" data-scroll-target="#chapter-1-installation-across-all-platforms">Chapter 1: Installation Across All Platforms</a>
+  <ul class="collapse">
+  <li><a href="#windows-installation" id="toc-windows-installation" class="nav-link" data-scroll-target="#windows-installation">Windows Installation</a></li>
+  <li><a href="#macos-installation" id="toc-macos-installation" class="nav-link" data-scroll-target="#macos-installation">macOS Installation</a></li>
+  <li><a href="#linux-installation" id="toc-linux-installation" class="nav-link" data-scroll-target="#linux-installation">Linux Installation</a></li>
+  <li><a href="#mobile-installation" id="toc-mobile-installation" class="nav-link" data-scroll-target="#mobile-installation">Mobile Installation</a></li>
+  </ul></li>
+  <li><a href="#chapter-2-creating-your-first-vault" id="toc-chapter-2-creating-your-first-vault" class="nav-link" data-scroll-target="#chapter-2-creating-your-first-vault">Chapter 2: Creating Your First Vault</a>
+  <ul class="collapse">
+  <li><a href="#understanding-vaults" id="toc-understanding-vaults" class="nav-link" data-scroll-target="#understanding-vaults">Understanding Vaults</a></li>
+  <li><a href="#setting-up-your-student-vault" id="toc-setting-up-your-student-vault" class="nav-link" data-scroll-target="#setting-up-your-student-vault">Setting Up Your Student Vault</a></li>
+  </ul></li>
+  <li><a href="#chapter-3-essential-settings-configuration" id="toc-chapter-3-essential-settings-configuration" class="nav-link" data-scroll-target="#chapter-3-essential-settings-configuration">Chapter 3: Essential Settings Configuration</a>
+  <ul class="collapse">
+  <li><a href="#appearance-settings" id="toc-appearance-settings" class="nav-link" data-scroll-target="#appearance-settings">Appearance Settings</a></li>
+  <li><a href="#editor-settings" id="toc-editor-settings" class="nav-link" data-scroll-target="#editor-settings">Editor Settings</a></li>
+  <li><a href="#file-links-settings" id="toc-file-links-settings" class="nav-link" data-scroll-target="#file-links-settings">File &amp; Links Settings</a></li>
+  </ul></li>
+  <li><a href="#chapter-4-essential-plugins-setup" id="toc-chapter-4-essential-plugins-setup" class="nav-link" data-scroll-target="#chapter-4-essential-plugins-setup">Chapter 4: Essential Plugins Setup</a>
+  <ul class="collapse">
+  <li><a href="#core-plugins-built-in" id="toc-core-plugins-built-in" class="nav-link" data-scroll-target="#core-plugins-built-in">Core Plugins (Built-in)</a></li>
+  <li><a href="#community-plugins-installation" id="toc-community-plugins-installation" class="nav-link" data-scroll-target="#community-plugins-installation">Community Plugins Installation</a></li>
+  </ul></li>
+  <li><a href="#chapter-5-essential-community-plugins-for-students" id="toc-chapter-5-essential-community-plugins-for-students" class="nav-link" data-scroll-target="#chapter-5-essential-community-plugins-for-students">Chapter 5: Essential Community Plugins for Students</a>
+  <ul class="collapse">
+  <li><a href="#excalidraw-plugin---visual-learning-made-easy" id="toc-excalidraw-plugin---visual-learning-made-easy" class="nav-link" data-scroll-target="#excalidraw-plugin---visual-learning-made-easy">1. Excalidraw Plugin - Visual Learning Made Easy</a></li>
+  <li><a href="#calendar-plugin---track-your-academic-journey" id="toc-calendar-plugin---track-your-academic-journey" class="nav-link" data-scroll-target="#calendar-plugin---track-your-academic-journey">2. Calendar Plugin - Track Your Academic Journey</a></li>
+  <li><a href="#dataview-plugin---smart-note-organization" id="toc-dataview-plugin---smart-note-organization" class="nav-link" data-scroll-target="#dataview-plugin---smart-note-organization">3. Dataview Plugin - Smart Note Organization</a></li>
+  <li><a href="#templates-plugin---consistent-note-structure" id="toc-templates-plugin---consistent-note-structure" class="nav-link" data-scroll-target="#templates-plugin---consistent-note-structure">4. Templates Plugin - Consistent Note Structure</a></li>
+  </ul></li>
+  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts">## Key Concepts</a></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">## Questions</a></li>
+  <li><a href="#follow-up-actions" id="toc-follow-up-actions" class="nav-link" data-scroll-target="#follow-up-actions">Follow-up Actions</a></li>
+  <li><a href="#related-notes" id="toc-related-notes" class="nav-link" data-scroll-target="#related-notes">Related Notes</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#key-quotes" id="toc-key-quotes" class="nav-link" data-scroll-target="#key-quotes">Key Quotes</a></li>
+  <li><a href="#my-thoughts" id="toc-my-thoughts" class="nav-link" data-scroll-target="#my-thoughts">My Thoughts</a></li>
+  <li><a href="#connections" id="toc-connections" class="nav-link" data-scroll-target="#connections">Connections</a></li>
+  <li><a href="#tags" id="toc-tags" class="nav-link" data-scroll-target="#tags">Tags</a>
+  <ul class="collapse">
+  <li><a href="#additional-recommended-plugins" id="toc-additional-recommended-plugins" class="nav-link" data-scroll-target="#additional-recommended-plugins">5. Additional Recommended Plugins</a></li>
+  </ul></li>
+  <li><a href="#chapter-6-mastering-markdown-for-academic-notes" id="toc-chapter-6-mastering-markdown-for-academic-notes" class="nav-link" data-scroll-target="#chapter-6-mastering-markdown-for-academic-notes">Chapter 6: Mastering Markdown for Academic Notes</a>
+  <ul class="collapse">
+  <li><a href="#why-learn-markdown" id="toc-why-learn-markdown" class="nav-link" data-scroll-target="#why-learn-markdown">Why Learn Markdown?</a></li>
+  <li><a href="#essential-markdown-syntax" id="toc-essential-markdown-syntax" class="nav-link" data-scroll-target="#essential-markdown-syntax">Essential Markdown Syntax</a></li>
+  </ul></li>
+  <li><a href="#ordered-lists" id="toc-ordered-lists" class="nav-link" data-scroll-target="#ordered-lists">Ordered Lists</a></li>
+  <li><a href="#external-links" id="toc-external-links" class="nav-link" data-scroll-target="#external-links">External Links</a>
+  <ul class="collapse">
+  <li><a href="#advanced-markdown-features" id="toc-advanced-markdown-features" class="nav-link" data-scroll-target="#advanced-markdown-features">Advanced Markdown Features</a></li>
+  </ul></li>
+  <li><a href="#chapter-7-setting-up-your-student-workflow" id="toc-chapter-7-setting-up-your-student-workflow" class="nav-link" data-scroll-target="#chapter-7-setting-up-your-student-workflow">Chapter 7: Setting Up Your Student Workflow</a>
+  <ul class="collapse">
+  <li><a href="#folder-structure-recommendations" id="toc-folder-structure-recommendations" class="nav-link" data-scroll-target="#folder-structure-recommendations">Folder Structure Recommendations</a></li>
+  <li><a href="#note-taking-strategies" id="toc-note-taking-strategies" class="nav-link" data-scroll-target="#note-taking-strategies">Note-Taking Strategies</a></li>
+  </ul></li>
+  <li><a href="#cue-column-questionskeywords" id="toc-cue-column-questionskeywords" class="nav-link" data-scroll-target="#cue-column-questionskeywords">Cue Column (Questions/Keywords)</a></li>
+  <li><a href="#notes-column-main-content" id="toc-notes-column-main-content" class="nav-link" data-scroll-target="#notes-column-main-content">Notes Column (Main Content)</a></li>
+  <li><a href="#summary-1" id="toc-summary-1" class="nav-link" data-scroll-target="#summary-1">Summary</a></li>
+  <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition">Definition</a></li>
+  <li><a href="#key-components" id="toc-key-components" class="nav-link" data-scroll-target="#key-components">Key Components</a></li>
+  <li><a href="#mathematical-representation" id="toc-mathematical-representation" class="nav-link" data-scroll-target="#mathematical-representation">Mathematical Representation</a></li>
+  <li><a href="#real-world-examples" id="toc-real-world-examples" class="nav-link" data-scroll-target="#real-world-examples">Real-World Examples</a></li>
+  <li><a href="#related-concepts" id="toc-related-concepts" class="nav-link" data-scroll-target="#related-concepts">Related Concepts</a></li>
+  <li><a href="#practice-problems" id="toc-practice-problems" class="nav-link" data-scroll-target="#practice-problems">Practice Problems</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#components" id="toc-components" class="nav-link" data-scroll-target="#components">Components</a>
+  <ul class="collapse">
+  <li><a href="#is-curve-investment-saving" id="toc-is-curve-investment-saving" class="nav-link" data-scroll-target="#is-curve-investment-saving">IS Curve (Investment-Saving)</a></li>
+  <li><a href="#lm-curve-liquidity-money" id="toc-lm-curve-liquidity-money" class="nav-link" data-scroll-target="#lm-curve-liquidity-money">LM Curve (Liquidity-Money)</a></li>
+  </ul></li>
+  <li><a href="#mathematical-framework" id="toc-mathematical-framework" class="nav-link" data-scroll-target="#mathematical-framework">Mathematical Framework</a></li>
+  <li><a href="#policy-implications" id="toc-policy-implications" class="nav-link" data-scroll-target="#policy-implications">Policy Implications</a></li>
+  <li><a href="#diagram" id="toc-diagram" class="nav-link" data-scroll-target="#diagram">Diagram</a></li>
+  <li><a href="#related-models" id="toc-related-models" class="nav-link" data-scroll-target="#related-models">Related Models</a>
+  <ul class="collapse">
+  <li><a href="#daily-study-routine-with-obsidian" id="toc-daily-study-routine-with-obsidian" class="nav-link" data-scroll-target="#daily-study-routine-with-obsidian">Daily Study Routine with Obsidian</a></li>
+  </ul></li>
+  <li><a href="#chapter-8-advanced-features-for-academic-success" id="toc-chapter-8-advanced-features-for-academic-success" class="nav-link" data-scroll-target="#chapter-8-advanced-features-for-academic-success">Chapter 8: Advanced Features for Academic Success</a>
+  <ul class="collapse">
+  <li><a href="#canvas-for-visual-learning" id="toc-canvas-for-visual-learning" class="nav-link" data-scroll-target="#canvas-for-visual-learning">Canvas for Visual Learning</a></li>
+  <li><a href="#graph-view-for-knowledge-discovery" id="toc-graph-view-for-knowledge-discovery" class="nav-link" data-scroll-target="#graph-view-for-knowledge-discovery">Graph View for Knowledge Discovery</a></li>
+  <li><a href="#tags-vs.-links-when-to-use-each" id="toc-tags-vs.-links-when-to-use-each" class="nav-link" data-scroll-target="#tags-vs.-links-when-to-use-each">Tags vs.&nbsp;Links: When to Use Each</a></li>
+  <li><a href="#search-and-query-mastery" id="toc-search-and-query-mastery" class="nav-link" data-scroll-target="#search-and-query-mastery">Search and Query Mastery</a></li>
+  </ul></li>
+  <li><a href="#chapter-9-excalidraw-deep-dive-for-students" id="toc-chapter-9-excalidraw-deep-dive-for-students" class="nav-link" data-scroll-target="#chapter-9-excalidraw-deep-dive-for-students">Chapter 9: Excalidraw Deep Dive for Students</a>
+  <ul class="collapse">
+  <li><a href="#advanced-excalidraw-techniques" id="toc-advanced-excalidraw-techniques" class="nav-link" data-scroll-target="#advanced-excalidraw-techniques">Advanced Excalidraw Techniques</a></li>
+  </ul></li>
+  <li><a href="#supply-and-demand-overview" id="toc-supply-and-demand-overview" class="nav-link" data-scroll-target="#supply-and-demand-overview">Supply and Demand Overview</a>
+  <ul class="collapse">
+  <li><a href="#economics-specific-excalidraw-templates" id="toc-economics-specific-excalidraw-templates" class="nav-link" data-scroll-target="#economics-specific-excalidraw-templates">Economics-Specific Excalidraw Templates</a></li>
+  </ul></li>
+  <li><a href="#chapter-10-troubleshooting-and-optimization" id="toc-chapter-10-troubleshooting-and-optimization" class="nav-link" data-scroll-target="#chapter-10-troubleshooting-and-optimization">Chapter 10: Troubleshooting and Optimization</a>
+  <ul class="collapse">
+  <li><a href="#common-issues-and-solutions" id="toc-common-issues-and-solutions" class="nav-link" data-scroll-target="#common-issues-and-solutions">Common Issues and Solutions</a></li>
+  <li><a href="#backup-strategies" id="toc-backup-strategies" class="nav-link" data-scroll-target="#backup-strategies">Backup Strategies</a></li>
+  <li><a href="#mobile-optimization" id="toc-mobile-optimization" class="nav-link" data-scroll-target="#mobile-optimization">Mobile Optimization</a></li>
+  </ul></li>
+  <li><a href="#chapter-11-study-techniques-with-obsidian" id="toc-chapter-11-study-techniques-with-obsidian" class="nav-link" data-scroll-target="#chapter-11-study-techniques-with-obsidian">Chapter 11: Study Techniques with Obsidian</a>
+  <ul class="collapse">
+  <li><a href="#active-learning-strategies" id="toc-active-learning-strategies" class="nav-link" data-scroll-target="#active-learning-strategies">Active Learning Strategies</a></li>
+  <li><a href="#exam-preparation" id="toc-exam-preparation" class="nav-link" data-scroll-target="#exam-preparation">Exam Preparation</a></li>
+  </ul></li>
+  <li><a href="#topics-covered" id="toc-topics-covered" class="nav-link" data-scroll-target="#topics-covered">Topics Covered</a></li>
+  <li><a href="#key-formulas" id="toc-key-formulas" class="nav-link" data-scroll-target="#key-formulas">Key Formulas</a></li>
+  <li><a href="#practice-problems-1" id="toc-practice-problems-1" class="nav-link" data-scroll-target="#practice-problems-1">Practice Problems</a></li>
+  <li><a href="#important-diagrams" id="toc-important-diagrams" class="nav-link" data-scroll-target="#important-diagrams">Important Diagrams</a></li>
+  <li><a href="#review-timeline" id="toc-review-timeline" class="nav-link" data-scroll-target="#review-timeline">Review Timeline</a>
+  <ul class="collapse">
+  <li><a href="#research-and-writing" id="toc-research-and-writing" class="nav-link" data-scroll-target="#research-and-writing">Research and Writing</a></li>
+  </ul></li>
+  <li><a href="#theoretical-framework" id="toc-theoretical-framework" class="nav-link" data-scroll-target="#theoretical-framework">Theoretical Framework</a>
+  <ul class="collapse">
+  <li><a href="#classical-economics-view" id="toc-classical-economics-view" class="nav-link" data-scroll-target="#classical-economics-view">[[Classical Economics View]]</a></li>
+  <li><a href="#modern-perspectives" id="toc-modern-perspectives" class="nav-link" data-scroll-target="#modern-perspectives">[[Modern Perspectives]]</a></li>
+  </ul></li>
+  <li><a href="#empirical-evidence" id="toc-empirical-evidence" class="nav-link" data-scroll-target="#empirical-evidence">Empirical Evidence</a>
+  <ul class="collapse">
+  <li><a href="#income-distribution-studies" id="toc-income-distribution-studies" class="nav-link" data-scroll-target="#income-distribution-studies">[[Income Distribution Studies]]</a></li>
+  <li><a href="#policy-impact-analysis" id="toc-policy-impact-analysis" class="nav-link" data-scroll-target="#policy-impact-analysis">[[Policy Impact Analysis]]</a></li>
+  </ul></li>
+  <li><a href="#research-gaps" id="toc-research-gaps" class="nav-link" data-scroll-target="#research-gaps">Research Gaps</a></li>
+  <li><a href="#my-analysis" id="toc-my-analysis" class="nav-link" data-scroll-target="#my-analysis">My Analysis</a></li>
+  <li><a href="#chapter-12-collaborative-learning" id="toc-chapter-12-collaborative-learning" class="nav-link" data-scroll-target="#chapter-12-collaborative-learning">Chapter 12: Collaborative Learning</a>
+  <ul class="collapse">
+  <li><a href="#study-group-organization" id="toc-study-group-organization" class="nav-link" data-scroll-target="#study-group-organization">Study Group Organization</a></li>
+  <li><a href="#teaching-and-tutoring" id="toc-teaching-and-tutoring" class="nav-link" data-scroll-target="#teaching-and-tutoring">Teaching and Tutoring</a></li>
+  </ul></li>
+  <li><a href="#chapter-13-long-term-knowledge-management" id="toc-chapter-13-long-term-knowledge-management" class="nav-link" data-scroll-target="#chapter-13-long-term-knowledge-management">Chapter 13: Long-term Knowledge Management</a>
+  <ul class="collapse">
+  <li><a href="#semester-transitions" id="toc-semester-transitions" class="nav-link" data-scroll-target="#semester-transitions">Semester Transitions</a></li>
+  <li><a href="#career-integration" id="toc-career-integration" class="nav-link" data-scroll-target="#career-integration">Career Integration</a></li>
+  </ul></li>
+  <li><a href="#conclusion-your-academic-journey-with-obsidian" id="toc-conclusion-your-academic-journey-with-obsidian" class="nav-link" data-scroll-target="#conclusion-your-academic-journey-with-obsidian">Conclusion: Your Academic Journey with Obsidian</a>
+  <ul class="collapse">
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
+  <li><a href="#next-steps-for-continued-learning" id="toc-next-steps-for-continued-learning" class="nav-link" data-scroll-target="#next-steps-for-continued-learning">Next Steps for Continued Learning</a></li>
+  <li><a href="#resources-for-continued-learning" id="toc-resources-for-continued-learning" class="nav-link" data-scroll-target="#resources-for-continued-learning">Resources for Continued Learning</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../macroeconomics/index.html">Welcome to Macroeconomics</a></li><li class="breadcrumb-item"><a href="../../macroeconomics/course information/guide-1-obsidian-student-guide.html">course information</a></li><li class="breadcrumb-item"><a href="../../macroeconomics/course information/guide-1-obsidian-student-guide.html">Obsidian Set Up Guide</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Obsidian Set Up Guide</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Perplexity.ai and Meghan Downes </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="the-complete-student-guide-to-setting-up-obsidian-from-installation-to-advanced-note-taking" class="level1">
+<h1>The Complete Student Guide to Setting Up Obsidian: From Installation to Advanced Note-Taking</h1>
+<p><em>A comprehensive how-to guide for students to master Obsidian with screenshots, platform-specific instructions, and essential plugins for academic success</em></p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Obsidian is a powerful, free note-taking application that transforms how students organize, connect, and learn from their academic materials. Unlike traditional note-taking apps, Obsidian creates a web of interconnected knowledge that grows stronger with each note you add. This guide will walk you through every step of setting up Obsidian across all platforms, installing essential plugins like Excalidraw for visual learning, and mastering markdown for effective note-taking.</p>
+<p>Whether you’re studying economics, science, humanities, or any other field, this guide will help you create a personalized knowledge management system that scales with your academic journey.</p>
+</section>
+<section id="chapter-1-installation-across-all-platforms" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-1-installation-across-all-platforms">Chapter 1: Installation Across All Platforms</h2>
+<section id="windows-installation" class="level3">
+<h3 class="anchored" data-anchor-id="windows-installation">Windows Installation</h3>
+<ol type="1">
+<li><strong>Download Obsidian</strong>
+<ul>
+<li>Visit <a href="https://obsidian.md/download">obsidian.md/download</a></li>
+<li>Click “Universal” under the Windows section</li>
+<li>Save the installation file to your Downloads folder</li>
+</ul></li>
+<li><strong>Run the Installer</strong>
+<ul>
+<li>Double-click the downloaded <code>.exe</code> file</li>
+<li>Follow the installation wizard (click “Next” through each step)</li>
+<li>Choose installation location (default is fine for most users)</li>
+<li>Click “Install” and wait for completion</li>
+</ul></li>
+<li><strong>Launch Obsidian</strong>
+<ul>
+<li>Find Obsidian in your Start menu or desktop shortcut</li>
+<li>The application will open to the vault management screen</li>
+</ul></li>
+</ol>
+</section>
+<section id="macos-installation" class="level3">
+<h3 class="anchored" data-anchor-id="macos-installation">macOS Installation</h3>
+<ol type="1">
+<li><strong>Download and Install</strong>
+<ul>
+<li>Go to <a href="https://obsidian.md/download">obsidian.md/download</a></li>
+<li>Click “Universal” under the macOS section</li>
+<li>Open the downloaded <code>.dmg</code> file</li>
+<li>Drag Obsidian to your Applications folder</li>
+</ul></li>
+<li><strong>First Launch</strong>
+<ul>
+<li>Open Applications folder and double-click Obsidian</li>
+<li>If you see a security warning, go to System Preferences &gt; Security &amp; Privacy</li>
+<li>Click “Open Anyway” to allow Obsidian to run</li>
+</ul></li>
+</ol>
+</section>
+<section id="linux-installation" class="level3">
+<h3 class="anchored" data-anchor-id="linux-installation">Linux Installation</h3>
+<section id="option-a-snap-package-recommended" class="level4">
+<h4 class="anchored" data-anchor-id="option-a-snap-package-recommended">Option A: Snap Package (Recommended)</h4>
+<p>bash sudo snap install obsidian –classic</p>
+</section>
+<section id="option-b-appimage" class="level4">
+<h4 class="anchored" data-anchor-id="option-b-appimage">Option B: AppImage</h4>
+<ol type="1">
+<li>Download the AppImage from <a href="https://obsidian.md/download">obsidian.md/download</a></li>
+<li>Make it executable:</li>
+</ol>
+<p>bash chmod u+x Obsidian-<em>.AppImage ./Obsidian-</em>.AppImage –no-sandbox</p>
+</section>
+<section id="option-c-flatpak" class="level4">
+<h4 class="anchored" data-anchor-id="option-c-flatpak">Option C: Flatpak</h4>
+<p>bash flatpak install flathub md.obsidian.Obsidian flatpak run md.obsidian.Obsidian</p>
+</section>
+</section>
+<section id="mobile-installation" class="level3">
+<h3 class="anchored" data-anchor-id="mobile-installation">Mobile Installation</h3>
+<section id="android" class="level4">
+<h4 class="anchored" data-anchor-id="android">Android</h4>
+<ul>
+<li>Install from <a href="https://play.google.com/store/apps/details?id=md.obsidian">Google Play Store</a></li>
+<li>Or download APK from the official website</li>
+</ul>
+</section>
+<section id="iosipados" class="level4">
+<h4 class="anchored" data-anchor-id="iosipados">iOS/iPadOS</h4>
+<ul>
+<li>Install from <a href="https://apps.apple.com/us/app/obsidian-connected-notes/id1557175442">App Store</a></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="chapter-2-creating-your-first-vault" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-2-creating-your-first-vault">Chapter 2: Creating Your First Vault</h2>
+<section id="understanding-vaults" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-vaults">Understanding Vaults</h3>
+<p>A <strong>vault</strong> is simply a folder on your computer where Obsidian stores all your notes and settings. Think of it as your digital notebook collection. Each vault is independent, allowing you to separate different projects or areas of study.</p>
+</section>
+<section id="setting-up-your-student-vault" class="level3">
+<h3 class="anchored" data-anchor-id="setting-up-your-student-vault">Setting Up Your Student Vault</h3>
+<p><strong>Please note: Apple users – create your vault in your physical hard drive NOT icloud. If your default directory and storage is cloud based (icloud) Obsidian may struggle.</strong></p>
+<ol type="1">
+<li><strong>Create a New Vault</strong>
+<ul>
+<li>When Obsidian opens, click “Create new vault”</li>
+<li>Name it something meaningful like “University Notes” or “Academic Vault”</li>
+<li>Choose location carefully - consider using cloud storage for sync</li>
+</ul></li>
+<li><strong>Recommended Vault Location</strong>
+<ul>
+<li><strong>Windows</strong>: <code>C:\Users\[Username]\Documents\Obsidian Vaults\</code></li>
+<li><strong>macOS</strong>: <code>~/Documents/Obsidian Vaults/</code></li>
+<li><strong>Linux</strong>: <code>~/Documents/Obsidian Vaults/</code></li>
+<li><strong>Cloud Sync</strong>: Place in Dropbox, iCloud, OneDrive, or Google Drive folder</li>
+</ul></li>
+<li><strong>Initial Setup</strong>
+<ul>
+<li>Click “Create” to generate your vault</li>
+<li>Obsidian will open with a welcome note</li>
+<li>You can delete this welcome note or keep it as reference</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="chapter-3-essential-settings-configuration" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-3-essential-settings-configuration">Chapter 3: Essential Settings Configuration</h2>
+<section id="appearance-settings" class="level3">
+<h3 class="anchored" data-anchor-id="appearance-settings">Appearance Settings</h3>
+<ol type="1">
+<li><strong>Access Settings</strong>
+<ul>
+<li>Click the gear icon (⚙️) in the bottom-left corner</li>
+<li>Or use keyboard shortcut: <code>Ctrl/Cmd + ,</code></li>
+</ul></li>
+<li><strong>Theme Selection</strong>
+<ul>
+<li>Go to Appearance → Themes</li>
+<li>Try different themes like “Minimal”, “Prism”, or “Blue Topaz”</li>
+<li>Dark mode: Toggle at Appearance → Base color scheme</li>
+</ul></li>
+<li><strong>Font Settings</strong>
+<ul>
+<li>Adjust font size for comfortable reading</li>
+<li>Consider dyslexia-friendly fonts like OpenDyslexic</li>
+</ul></li>
+</ol>
+</section>
+<section id="editor-settings" class="level3">
+<h3 class="anchored" data-anchor-id="editor-settings">Editor Settings</h3>
+<ol type="1">
+<li><strong>Live Preview Mode</strong>
+<ul>
+<li>Set default editing mode to “Live Preview”</li>
+<li>Shows formatted text as you type</li>
+<li>Essential for learning markdown</li>
+</ul></li>
+<li><strong>Auto-save Settings</strong>
+<ul>
+<li>Enable “Auto save” for automatic file saving</li>
+<li>Set reasonable intervals (every 2-3 seconds)</li>
+</ul></li>
+<li><strong>Spell Check</strong>
+<ul>
+<li>Enable spell checking for academic writing</li>
+<li>Add custom dictionary words</li>
+</ul></li>
+</ol>
+</section>
+<section id="file-links-settings" class="level3">
+<h3 class="anchored" data-anchor-id="file-links-settings">File &amp; Links Settings</h3>
+<ol type="1">
+<li><strong>Default Location for New Notes</strong>
+<ul>
+<li>Set to a “Quick Notes” or “Inbox” folder</li>
+<li>Use underscore prefix (_Inbox) to keep it at top</li>
+</ul></li>
+<li><strong>Attachment Folder Path</strong>
+<ul>
+<li>Set to “attachments” subfolder</li>
+<li>Keep media organized and portable</li>
+</ul></li>
+<li><strong>Link Format</strong>
+<ul>
+<li>Keep “Use [[Wikilinks]]” enabled</li>
+<li>Makes linking between notes easier</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="chapter-4-essential-plugins-setup" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-4-essential-plugins-setup">Chapter 4: Essential Plugins Setup</h2>
+<section id="core-plugins-built-in" class="level3">
+<h3 class="anchored" data-anchor-id="core-plugins-built-in">Core Plugins (Built-in)</h3>
+<p>Enable these essential core plugins:</p>
+<ol type="1">
+<li><strong>Command Palette</strong> - Quick access to all functions (<code>Ctrl/Cmd + P</code>)</li>
+<li><strong>Quick Switcher</strong> - Fast file navigation (<code>Ctrl/Cmd + O</code>)</li>
+<li><strong>File Explorer</strong> - Navigate your vault structure</li>
+<li><strong>Search</strong> - Find content across all notes</li>
+<li><strong>Daily Notes</strong> - Create dated notes automatically</li>
+<li><strong>Templates</strong> - Reuse note structures</li>
+<li><strong>Backlinks</strong> - See which notes link to current note</li>
+<li><strong>Canvas</strong> - Visual mind mapping and brainstorming</li>
+</ol>
+</section>
+<section id="community-plugins-installation" class="level3">
+<h3 class="anchored" data-anchor-id="community-plugins-installation">Community Plugins Installation</h3>
+<ol type="1">
+<li><strong>Enable Community Plugins</strong>
+<ul>
+<li>Go to Settings → Community Plugins</li>
+<li>Turn off “Restricted Mode”</li>
+<li>Click “Browse” to explore available plugins</li>
+</ul></li>
+<li><strong>Search and Install Plugins</strong>
+<ul>
+<li>Use the search bar to find specific plugins</li>
+<li>Click “Install” then “Enable”</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="chapter-5-essential-community-plugins-for-students" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-5-essential-community-plugins-for-students">Chapter 5: Essential Community Plugins for Students</h2>
+<section id="excalidraw-plugin---visual-learning-made-easy" class="level3">
+<h3 class="anchored" data-anchor-id="excalidraw-plugin---visual-learning-made-easy">1. Excalidraw Plugin - Visual Learning Made Easy</h3>
+<p><strong>Why Excalidraw is Essential for Students:</strong> - Create hand-drawn style diagrams and sketches - Perfect for economics graphs, scientific diagrams, mind maps - Integrates seamlessly with your notes - Links to other notes within drawings</p>
+<p><strong>Installation:</strong> 1. Go to Community Plugins → Browse 2. Search “Excalidraw” 3. Install and enable the plugin</p>
+<p><strong>Basic Usage:</strong> 1. <strong>Create New Drawing</strong> - Press <code>Ctrl/Cmd + P</code> to open command palette - Type “Excalidraw: Create new drawing” - Name your drawing file</p>
+<ol start="2" type="1">
+<li><strong>Drawing Tools</strong>
+<ul>
+<li><strong>Selection tool</strong>: Select and move objects</li>
+<li><strong>Rectangle</strong>: Create boxes and shapes</li>
+<li><strong>Circle</strong>: Draw circles and ellipses<br>
+</li>
+<li><strong>Diamond</strong>: Diamond shapes</li>
+<li><strong>Arrow</strong>: Connect ideas with arrows</li>
+<li><strong>Line</strong>: Straight lines</li>
+<li><strong>Pen</strong>: Freehand drawing</li>
+<li><strong>Text</strong>: Add labels and notes</li>
+<li><strong>Eraser</strong>: Remove elements</li>
+</ul></li>
+<li><strong>Essential Features for Students</strong>
+<ul>
+<li><strong>Colors</strong>: Change stroke and fill colors</li>
+<li><strong>Text Styles</strong>: Different fonts and sizes</li>
+<li><strong>Linking</strong>: Link to other notes using <code>[[Note Name]]</code></li>
+<li><strong>Embedding</strong>: Embed notes in drawings using <code>![[Note Name]]</code></li>
+</ul></li>
+</ol>
+<p><strong>Student Use Cases:</strong> - <strong>Economics</strong>: Supply/demand curves, market diagrams, flowcharts - <strong>Science</strong>: Molecular structures, process diagrams, lab setups - <strong>History</strong>: Timelines, concept maps, cause-effect diagrams - <strong>Literature</strong>: Character relationship maps, plot structures</p>
+</section>
+<section id="calendar-plugin---track-your-academic-journey" class="level3">
+<h3 class="anchored" data-anchor-id="calendar-plugin---track-your-academic-journey">2. Calendar Plugin - Track Your Academic Journey</h3>
+<p><strong>Features:</strong> - Visual calendar view of your daily notes - Quick navigation to any date - See patterns in your note-taking</p>
+<p><strong>Setup:</strong> 1. Install Calendar plugin 2. Enable Daily Notes core plugin 3. Set daily note template and folder</p>
+<p><strong>Usage Tips:</strong> - Click any date to create/open daily notes - Use for lecture notes, study sessions, assignment tracking - Combine with periodic notes for weekly/monthly reviews</p>
+</section>
+<section id="dataview-plugin---smart-note-organization" class="level3">
+<h3 class="anchored" data-anchor-id="dataview-plugin---smart-note-organization">3. Dataview Plugin - Smart Note Organization</h3>
+<p><strong>What it does:</strong> - Query your notes like a database - Automatically generate lists and tables - Track assignments, readings, and progress</p>
+<p><strong>Basic Queries for Students:</strong></p>
+<p>dataview TABLE status, due-date FROM “Assignments” WHERE status != “completed” SORT due-date ASC</p>
+<p><strong>Student Applications:</strong> - Assignment tracking - Reading lists - Gradebook organization - Research paper management</p>
+</section>
+<section id="templates-plugin---consistent-note-structure" class="level3">
+<h3 class="anchored" data-anchor-id="templates-plugin---consistent-note-structure">4. Templates Plugin - Consistent Note Structure</h3>
+<p><strong>Setup Note Templates:</strong></p>
+<p><strong>Lecture Note Template:</strong></p>
+<p>markdown # {{title}}</p>
+<p><strong>Date:</strong> {{date}} <strong>Course:</strong> <strong>Professor:</strong> <strong>Topic:</strong></p>
+</section>
+</section>
+<section id="key-concepts" class="level2">
+<h2 class="anchored" data-anchor-id="key-concepts">## Key Concepts</h2>
+</section>
+<section id="notes" class="level2">
+<h2 class="anchored" data-anchor-id="notes">Notes</h2>
+</section>
+<section id="questions" class="level2">
+<h2 class="anchored" data-anchor-id="questions">## Questions</h2>
+</section>
+<section id="follow-up-actions" class="level2">
+<h2 class="anchored" data-anchor-id="follow-up-actions">Follow-up Actions</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">Review readings</label></li>
+<li><label><input type="checkbox">Complete exercises</label></li>
+</ul>
+</section>
+<section id="related-notes" class="level2">
+<h2 class="anchored" data-anchor-id="related-notes">Related Notes</h2>
+<p>[[]]</p>
+<p><strong>Reading Note Template:</strong></p>
+<p>markdown # {{title}}</p>
+<p><strong>Author:</strong> <strong>Publication:</strong> <strong>Date Read:</strong> {{date}} <strong>Rating:</strong> /5</p>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+</section>
+<section id="key-quotes" class="level2">
+<h2 class="anchored" data-anchor-id="key-quotes">Key Quotes</h2>
+<blockquote class="blockquote">
+
+</blockquote>
+</section>
+<section id="my-thoughts" class="level2">
+<h2 class="anchored" data-anchor-id="my-thoughts">My Thoughts</h2>
+</section>
+<section id="connections" class="level2">
+<h2 class="anchored" data-anchor-id="connections">Connections</h2>
+<p>[[]]</p>
+</section>
+<section id="tags" class="level2">
+<h2 class="anchored" data-anchor-id="tags">Tags</h2>
+<p>#reading #</p>
+<section id="additional-recommended-plugins" class="level3">
+<h3 class="anchored" data-anchor-id="additional-recommended-plugins">5. Additional Recommended Plugins</h3>
+<p><strong>Advanced Tables</strong> - Create and edit tables easily - Perfect for data, comparisons, schedules</p>
+<p><strong>Mind Map</strong> - Convert your notes into visual mind maps - Great for exam preparation and concept review</p>
+<p><strong>Kanban</strong> - Organize tasks and projects visually - Track assignment progress from idea to completion</p>
+<p><strong>Better Word Count</strong> - Track writing progress - Essential for essays and research papers</p>
+<p><strong>Paste URL into Selection</strong> - Quickly convert selected text into links - Saves time when adding references</p>
+</section>
+</section>
+<section id="chapter-6-mastering-markdown-for-academic-notes" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-6-mastering-markdown-for-academic-notes">Chapter 6: Mastering Markdown for Academic Notes</h2>
+<section id="why-learn-markdown" class="level3">
+<h3 class="anchored" data-anchor-id="why-learn-markdown">Why Learn Markdown?</h3>
+<p>Markdown is a simple formatting language that makes your notes: - <strong>Fast to write</strong>: No mouse needed for formatting - <strong>Consistent</strong>: Same formatting across all platforms - <strong>Future-proof</strong>: Works in any text editor - <strong>Professional</strong>: Clean, readable output</p>
+</section>
+<section id="essential-markdown-syntax" class="level3">
+<h3 class="anchored" data-anchor-id="essential-markdown-syntax">Essential Markdown Syntax</h3>
+<section id="headings" class="level4">
+<h4 class="anchored" data-anchor-id="headings">Headings</h4>
+<p>markdown # Main Topic (Heading 1) ## Subtopic (Heading 2)<br>
+### Sub-subtopic (Heading 3) #### Details (Heading 4)</p>
+</section>
+<section id="text-formatting" class="level4">
+<h4 class="anchored" data-anchor-id="text-formatting">Text Formatting</h4>
+<p>markdown <strong>Bold text</strong> for important concepts <em>Italic text</em> for emphasis <strong><em>Bold and italic</em></strong> for critical points <del>Strikethrough</del> for corrections ==Highlighted text== for key terms</p>
+</section>
+<section id="lists" class="level4">
+<h4 class="anchored" data-anchor-id="lists">Lists</h4>
+<p>markdown ## Unordered Lists - Main point - Sub-point - Another sub-point - Second main point</p>
+</section>
+</section>
+</section>
+<section id="ordered-lists" class="level2">
+<h2 class="anchored" data-anchor-id="ordered-lists">Ordered Lists</h2>
+<ol type="1">
+<li>First step</li>
+<li>Second step
+<ol type="1">
+<li>Sub-step</li>
+<li>Another sub-step</li>
+</ol></li>
+<li>Third step</li>
+</ol>
+<section id="links-and-references" class="level4">
+<h4 class="anchored" data-anchor-id="links-and-references">Links and References</h4>
+<p>markdown ## Internal Links [[Note Name]] - Link to another note [[Note Name#Heading]] - Link to specific section [[Note Name|Display Text]] - Custom link text</p>
+</section>
+</section>
+<section id="external-links" class="level2">
+<h2 class="anchored" data-anchor-id="external-links">External Links</h2>
+<p><a href="https://google.com">Google</a> <a href="link-to-pdf">Research Paper</a></p>
+<section id="blockquotes-and-callouts" class="level4">
+<h4 class="anchored" data-anchor-id="blockquotes-and-callouts">Blockquotes and Callouts</h4>
+<p>markdown &gt; This is a quote from a source &gt; - Attribution</p>
+<blockquote class="blockquote">
+<p>[!note] Important Note This is a callout box for emphasis</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>[!warning] Caution Pay attention to this warning</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>[!tip] Study Tip Helpful advice for learning</p>
+</blockquote>
+</section>
+<section id="tables" class="level4">
+<h4 class="anchored" data-anchor-id="tables">Tables</h4>
+<p>markdown | Course | Credits | Grade | |——–|———|——-| | Economics 101 | 3 | A | | Statistics | 4 | B+ | | History | 3 | A- |</p>
+</section>
+<section id="mathematical-expressions" class="level4">
+<h4 class="anchored" data-anchor-id="mathematical-expressions">Mathematical Expressions</h4>
+<p>markdown Inline math: <span class="math inline">\(E = mc^2\)</span></p>
+<p>Block math: <span class="math display">\[
+\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+\]</span></p>
+</section>
+<section id="advanced-markdown-features" class="level3">
+<h3 class="anchored" data-anchor-id="advanced-markdown-features">Advanced Markdown Features</h3>
+<section id="code-blocks" class="level4">
+<h4 class="anchored" data-anchor-id="code-blocks">Code Blocks</h4>
+<p>markdown python # Python code example def calculate_gdp(consumption, investment): return consumption + investment</p>
+</section>
+<section id="task-lists" class="level4">
+<h4 class="anchored" data-anchor-id="task-lists">Task Lists</h4>
+<p>markdown - [x] Completed task - [ ] Pending task - [ ] Another pending task</p>
+</section>
+<section id="footnotes" class="level4">
+<h4 class="anchored" data-anchor-id="footnotes">Footnotes</h4>
+<p>markdown This is important text<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+</section>
+</section>
+</section>
+<section id="chapter-7-setting-up-your-student-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-7-setting-up-your-student-workflow">Chapter 7: Setting Up Your Student Workflow</h2>
+<section id="folder-structure-recommendations" class="level3">
+<h3 class="anchored" data-anchor-id="folder-structure-recommendations">Folder Structure Recommendations</h3>
+<p>📁 University Vault/ ├── 📁 00 Dashboard/ ├── 📁 01 Courses/ │ ├── 📁 Economics 101/ │ ├── 📁 Statistics/ │ └── 📁 History/ ├── 📁 02 Projects/ ├── 📁 03 Resources/ │ ├── 📁 Templates/ │ ├── 📁 References/ │ └── 📁 Attachments/ ├── 📁 04 Archive/ └── 📁 _Inbox/</p>
+</section>
+<section id="note-taking-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="note-taking-strategies">Note-Taking Strategies</h3>
+<section id="the-cornell-note-taking-method-in-obsidian" class="level4">
+<h4 class="anchored" data-anchor-id="the-cornell-note-taking-method-in-obsidian">The Cornell Note-Taking Method in Obsidian</h4>
+<p>markdown # Lecture Title - Date</p>
+</section>
+</section>
+</section>
+<section id="cue-column-questionskeywords" class="level2">
+<h2 class="anchored" data-anchor-id="cue-column-questionskeywords">Cue Column (Questions/Keywords)</h2>
+<ul>
+<li>Key question 1?</li>
+<li>Important term</li>
+<li>Main concept</li>
+</ul>
+</section>
+<section id="notes-column-main-content" class="level2">
+<h2 class="anchored" data-anchor-id="notes-column-main-content">Notes Column (Main Content)</h2>
+<p>[Detailed notes go here]</p>
+</section>
+<section id="summary-1" class="level2">
+<h2 class="anchored" data-anchor-id="summary-1">Summary</h2>
+<p>[Brief summary of main points]</p>
+<section id="the-zettelkasten-method" class="level4">
+<h4 class="anchored" data-anchor-id="the-zettelkasten-method">The Zettelkasten Method</h4>
+<ol type="1">
+<li><strong>Atomic Notes</strong>: One concept per note</li>
+<li><strong>Unique IDs</strong>: Use timestamps or unique numbers</li>
+<li><strong>Linking</strong>: Connect related ideas extensively</li>
+<li><strong>Emergence</strong>: Let connections reveal new insights</li>
+</ol>
+</section>
+<section id="economics-specific-note-taking" class="level4">
+<h4 class="anchored" data-anchor-id="economics-specific-note-taking">Economics-Specific Note-Taking</h4>
+<p><strong>For Economic Concepts:</strong></p>
+<p>markdown # Economic Concept: Supply and Demand</p>
+</section>
+</section>
+<section id="definition" class="level2">
+<h2 class="anchored" data-anchor-id="definition">Definition</h2>
+<p>Supply and demand is the relationship between…</p>
+</section>
+<section id="key-components" class="level2">
+<h2 class="anchored" data-anchor-id="key-components">Key Components</h2>
+<ul>
+<li><strong>Supply</strong>: [[Supply Curve]]</li>
+<li><strong>Demand</strong>: [[Demand Curve]]</li>
+<li><strong>Equilibrium</strong>: [[Market Equilibrium]]</li>
+</ul>
+</section>
+<section id="mathematical-representation" class="level2">
+<h2 class="anchored" data-anchor-id="mathematical-representation">Mathematical Representation</h2>
+<p><span class="math display">\[Q_d = a - bP\]</span> <span class="math display">\[Q_s = c + dP\]</span></p>
+</section>
+<section id="real-world-examples" class="level2">
+<h2 class="anchored" data-anchor-id="real-world-examples">Real-World Examples</h2>
+<ul>
+<li>Housing market dynamics</li>
+<li>Labor market fluctuations</li>
+</ul>
+</section>
+<section id="related-concepts" class="level2">
+<h2 class="anchored" data-anchor-id="related-concepts">Related Concepts</h2>
+<p>[[Elasticity]] | [[Market Structures]] | [[Consumer Theory]]</p>
+</section>
+<section id="practice-problems" class="level2">
+<h2 class="anchored" data-anchor-id="practice-problems">Practice Problems</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">Problem 1: Calculate equilibrium price</label></li>
+<li><label><input type="checkbox">Problem 2: Analyze demand shift</label></li>
+</ul>
+<p>![[Supply Demand Diagram.excalidraw]]</p>
+<p><strong>For Economic Models:</strong></p>
+<p>markdown # IS-LM Model</p>
+</section>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The IS-LM model represents…</p>
+</section>
+<section id="components" class="level2">
+<h2 class="anchored" data-anchor-id="components">Components</h2>
+<section id="is-curve-investment-saving" class="level3">
+<h3 class="anchored" data-anchor-id="is-curve-investment-saving">IS Curve (Investment-Saving)</h3>
+<ul>
+<li>Represents equilibrium in goods market</li>
+<li>Slopes downward because…</li>
+</ul>
+</section>
+<section id="lm-curve-liquidity-money" class="level3">
+<h3 class="anchored" data-anchor-id="lm-curve-liquidity-money">LM Curve (Liquidity-Money)</h3>
+<ul>
+<li>Represents equilibrium in money market</li>
+<li>Slopes upward because…</li>
+</ul>
+</section>
+</section>
+<section id="mathematical-framework" class="level2">
+<h2 class="anchored" data-anchor-id="mathematical-framework">Mathematical Framework</h2>
+<p><span class="math display">\[Y = C(Y-T) + I(r) + G\]</span> <span class="math display">\[M/P = L(r,Y)\]</span></p>
+</section>
+<section id="policy-implications" class="level2">
+<h2 class="anchored" data-anchor-id="policy-implications">Policy Implications</h2>
+<ul>
+<li>Fiscal policy shifts IS curve</li>
+<li>Monetary policy shifts LM curve</li>
+</ul>
+</section>
+<section id="diagram" class="level2">
+<h2 class="anchored" data-anchor-id="diagram">Diagram</h2>
+<p>![[IS-LM Model.excalidraw]]</p>
+</section>
+<section id="related-models" class="level2">
+<h2 class="anchored" data-anchor-id="related-models">Related Models</h2>
+<p>[[AD-AS Model]] | [[Mundell-Fleming Model]]</p>
+<section id="daily-study-routine-with-obsidian" class="level3">
+<h3 class="anchored" data-anchor-id="daily-study-routine-with-obsidian">Daily Study Routine with Obsidian</h3>
+<section id="morning-setup-5-minutes" class="level4">
+<h4 class="anchored" data-anchor-id="morning-setup-5-minutes">Morning Setup (5 minutes)</h4>
+<ol type="1">
+<li>Open daily note</li>
+<li>Review calendar for classes/deadlines</li>
+<li>Check task list for the day</li>
+<li>Link to relevant course notes</li>
+</ol>
+</section>
+<section id="during-class-real-time" class="level4">
+<h4 class="anchored" data-anchor-id="during-class-real-time">During Class (Real-time)</h4>
+<ol type="1">
+<li>Use lecture note template</li>
+<li>Focus on capturing ideas, not formatting</li>
+<li>Link to previous related concepts</li>
+<li>Mark unclear points with <code>TODO:</code> or <code>QUESTION:</code></li>
+</ol>
+</section>
+<section id="evening-review-15-30-minutes" class="level4">
+<h4 class="anchored" data-anchor-id="evening-review-15-30-minutes">Evening Review (15-30 minutes)</h4>
+<ol type="1">
+<li>Clean up and expand class notes</li>
+<li>Create concept notes for new ideas</li>
+<li>Link notes to build knowledge web</li>
+<li>Update assignment tracker</li>
+<li>Plan tomorrow’s study priorities</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="chapter-8-advanced-features-for-academic-success" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-8-advanced-features-for-academic-success">Chapter 8: Advanced Features for Academic Success</h2>
+<section id="canvas-for-visual-learning" class="level3">
+<h3 class="anchored" data-anchor-id="canvas-for-visual-learning">Canvas for Visual Learning</h3>
+<p><strong>Creating Study Maps:</strong> 1. Open new canvas file 2. Add relevant notes as cards 3. Connect related concepts with arrows 4. Use colors to categorize by importance/topic 5. Add shapes for visual organization</p>
+<p><strong>Use Cases:</strong> - Thesis argument structure - Literature review organization - Exam topic overview - Research project planning</p>
+</section>
+<section id="graph-view-for-knowledge-discovery" class="level3">
+<h3 class="anchored" data-anchor-id="graph-view-for-knowledge-discovery">Graph View for Knowledge Discovery</h3>
+<p><strong>Understanding Your Knowledge Network:</strong> - Larger nodes = more connections - Clusters = related topic areas - Isolated nodes = need more connections - Dense connections = well-understood topics</p>
+<p><strong>Using Graph View for Study:</strong> - Identify knowledge gaps - Find unexpected connections - Plan review sessions - Visualize learning progress</p>
+</section>
+<section id="tags-vs.-links-when-to-use-each" class="level3">
+<h3 class="anchored" data-anchor-id="tags-vs.-links-when-to-use-each">Tags vs.&nbsp;Links: When to Use Each</h3>
+<p><strong>Use Tags (#) for:</strong> - Subject areas: <code>#economics</code>, <code>#statistics</code> - Note types: <code>#lecture</code>, <code>#reading</code>, <code>#assignment</code> - Status: <code>#todo</code>, <code>#review</code>, <code>#complete</code> - Concepts: <code>#microeconomics</code>, <code>#macroeconomics</code></p>
+<p><strong>Use Links ([[]] for:</strong> - Specific concepts and theories - Related notes and ideas - Cross-references - Building knowledge networks</p>
+</section>
+<section id="search-and-query-mastery" class="level3">
+<h3 class="anchored" data-anchor-id="search-and-query-mastery">Search and Query Mastery</h3>
+<p><strong>Basic Search Operators:</strong> - <code>"exact phrase"</code> - Find exact matches - <code>file:(filename)</code> - Search in specific file - <code>tag:#economics</code> - Find notes with tag - <code>path:"Courses/"</code> - Search in folder - <code>-word</code> - Exclude term from search</p>
+<p><strong>Dataview Queries for Students:</strong></p>
+<p>dataview LIST FROM #assignment WHERE status = “pending” SORT due-date ASC</p>
+<p>dataview TABLE course, topic, rating FROM #lecture WHERE rating &gt;= 4 SORT date DESC</p>
+</section>
+</section>
+<section id="chapter-9-excalidraw-deep-dive-for-students" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-9-excalidraw-deep-dive-for-students">Chapter 9: Excalidraw Deep Dive for Students</h2>
+<section id="advanced-excalidraw-techniques" class="level3">
+<h3 class="anchored" data-anchor-id="advanced-excalidraw-techniques">Advanced Excalidraw Techniques</h3>
+<section id="creating-professional-diagrams" class="level4">
+<h4 class="anchored" data-anchor-id="creating-professional-diagrams">Creating Professional Diagrams</h4>
+<p><strong>Economics Graphs:</strong> 1. <strong>Supply and Demand Curves</strong> - Use smooth pen tool for curves - Add axis labels with text tool - Use arrows to show shifts - Color-code different scenarios</p>
+<ol start="2" type="1">
+<li><strong>Market Structure Diagrams</strong>
+<ul>
+<li>Rectangle tool for market boxes</li>
+<li>Diamond shapes for decision points</li>
+<li>Connecting arrows for relationships</li>
+<li>Text labels for explanations</li>
+</ul></li>
+</ol>
+<p><strong>Scientific Diagrams:</strong> 1. <strong>Process Flows</strong> - Use shapes for processes - Arrows for sequence - Different colors for different pathways - Labels for each step</p>
+<ol start="2" type="1">
+<li><strong>Molecular Structures</strong>
+<ul>
+<li>Circles for atoms</li>
+<li>Lines for bonds</li>
+<li>Different colors for elements</li>
+<li>Text for chemical symbols</li>
+</ul></li>
+</ol>
+</section>
+<section id="integrating-excalidraw-with-notes" class="level4">
+<h4 class="anchored" data-anchor-id="integrating-excalidraw-with-notes">Integrating Excalidraw with Notes</h4>
+<p><strong>Embedding Drawings in Notes:</strong></p>
+<p>markdown # Market Analysis</p>
+</section>
+</section>
+</section>
+<section id="supply-and-demand-overview" class="level2">
+<h2 class="anchored" data-anchor-id="supply-and-demand-overview">Supply and Demand Overview</h2>
+<p>![[Supply Demand Analysis.excalidraw]]</p>
+<p>The diagram above shows…</p>
+<p><strong>Linking from Drawings to Notes:</strong> - Add text boxes in Excalidraw - Use <code>[[Note Name]]</code> syntax - Create clickable links within diagrams - Build interactive visual maps</p>
+<section id="collaborative-features" class="level4">
+<h4 class="anchored" data-anchor-id="collaborative-features">Collaborative Features</h4>
+<p><strong>Sharing Diagrams:</strong> - Export as PNG for presentations - Share Excalidraw files with classmates - Collaborate in real-time (with Excalidraw.com) - Version control with Git integration</p>
+</section>
+<section id="economics-specific-excalidraw-templates" class="level3">
+<h3 class="anchored" data-anchor-id="economics-specific-excalidraw-templates">Economics-Specific Excalidraw Templates</h3>
+<section id="supply-and-demand-template" class="level4">
+<h4 class="anchored" data-anchor-id="supply-and-demand-template">Supply and Demand Template</h4>
+<ol type="1">
+<li>Create basic axes (Price vs.&nbsp;Quantity)</li>
+<li>Draw supply curve (upward sloping)</li>
+<li>Draw demand curve (downward sloping)</li>
+<li>Mark equilibrium point</li>
+<li>Add labels and annotations</li>
+<li>Save as template for reuse</li>
+</ol>
+</section>
+<section id="business-cycle-diagram" class="level4">
+<h4 class="anchored" data-anchor-id="business-cycle-diagram">Business Cycle Diagram</h4>
+<ol type="1">
+<li>Create time axis</li>
+<li>Draw cyclical wave pattern</li>
+<li>Label phases (expansion, peak, contraction, trough)</li>
+<li>Add economic indicators</li>
+<li>Use colors for different phases</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="chapter-10-troubleshooting-and-optimization" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-10-troubleshooting-and-optimization">Chapter 10: Troubleshooting and Optimization</h2>
+<section id="common-issues-and-solutions" class="level3">
+<h3 class="anchored" data-anchor-id="common-issues-and-solutions">Common Issues and Solutions</h3>
+<p><strong>Sync Problems:</strong> - Ensure all devices use same vault location - Check cloud storage sync status - Use Obsidian Sync for reliable syncing - Avoid simultaneous editing on multiple devices</p>
+<p><strong>Performance Issues:</strong> - Disable unnecessary plugins - Use smaller image files - Archive old notes to separate vault - Regular vault maintenance</p>
+<p><strong>Plugin Conflicts:</strong> - Disable recently installed plugins - Check for updates - Reset plugin settings - Use minimal plugin set for stability</p>
+</section>
+<section id="backup-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="backup-strategies">Backup Strategies</h3>
+<p><strong>Local Backups:</strong> - Regular folder copies - Version control with Git - Automated backup scripts</p>
+<p><strong>Cloud Backups:</strong> - Multiple cloud services - Obsidian Sync (paid service) - Manual export options</p>
+</section>
+<section id="mobile-optimization" class="level3">
+<h3 class="anchored" data-anchor-id="mobile-optimization">Mobile Optimization</h3>
+<p><strong>iOS/Android Tips:</strong> - Use voice dictation for quick notes - Set up widgets for quick access - Optimize for touch interface - Use markdown shortcuts</p>
+</section>
+</section>
+<section id="chapter-11-study-techniques-with-obsidian" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-11-study-techniques-with-obsidian">Chapter 11: Study Techniques with Obsidian</h2>
+<section id="active-learning-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="active-learning-strategies">Active Learning Strategies</h3>
+<section id="spaced-repetition-with-obsidian" class="level4">
+<h4 class="anchored" data-anchor-id="spaced-repetition-with-obsidian">Spaced Repetition with Obsidian</h4>
+<ol type="1">
+<li><strong>Create Review Notes</strong>
+<ul>
+<li>Mark difficult concepts</li>
+<li>Use spaced repetition plugins</li>
+<li>Schedule regular reviews</li>
+<li>Track learning progress</li>
+</ul></li>
+<li><strong>Flashcard Integration</strong>
+<ul>
+<li>Export to Anki</li>
+<li>Use built-in spaced repetition</li>
+<li>Create question/answer pairs</li>
+<li>Review weak areas more frequently</li>
+</ul></li>
+</ol>
+</section>
+<section id="the-feynman-technique-in-obsidian" class="level4">
+<h4 class="anchored" data-anchor-id="the-feynman-technique-in-obsidian">The Feynman Technique in Obsidian</h4>
+<ol type="1">
+<li><strong>Explain Simply</strong>
+<ul>
+<li>Write concept in plain language</li>
+<li>Use analogies and examples</li>
+<li>Avoid jargon and complexity</li>
+<li>Link to prerequisite knowledge</li>
+</ul></li>
+<li><strong>Identify Gaps</strong>
+<ul>
+<li>Mark unclear explanations</li>
+<li>Research missing information</li>
+<li>Ask clarifying questions</li>
+<li>Refine understanding</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="exam-preparation" class="level3">
+<h3 class="anchored" data-anchor-id="exam-preparation">Exam Preparation</h3>
+<section id="creating-study-guides" class="level4">
+<h4 class="anchored" data-anchor-id="creating-study-guides">Creating Study Guides</h4>
+<p>markdown # Exam Study Guide: Microeconomics Midterm</p>
+</section>
+</section>
+</section>
+<section id="topics-covered" class="level2">
+<h2 class="anchored" data-anchor-id="topics-covered">Topics Covered</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">Supply and Demand</label></li>
+<li><label><input type="checkbox">Elasticity</label></li>
+<li><label><input type="checkbox">Consumer Theory</label></li>
+<li><label><input type="checkbox">Producer Theory</label></li>
+<li><label><input type="checkbox">Market Structures</label></li>
+</ul>
+</section>
+<section id="key-formulas" class="level2">
+<h2 class="anchored" data-anchor-id="key-formulas">Key Formulas</h2>
+<p><span class="math display">\[\text{Price Elasticity} = \frac{\% \Delta Q_d}{\% \Delta P}\]</span></p>
+</section>
+<section id="practice-problems-1" class="level2">
+<h2 class="anchored" data-anchor-id="practice-problems-1">Practice Problems</h2>
+<p>[[Problem Set 1]] | [[Problem Set 2]]</p>
+</section>
+<section id="important-diagrams" class="level2">
+<h2 class="anchored" data-anchor-id="important-diagrams">Important Diagrams</h2>
+<p>![[Market Equilibrium.excalidraw]] ![[Consumer Choice.excalidraw]]</p>
+</section>
+<section id="review-timeline" class="level2">
+<h2 class="anchored" data-anchor-id="review-timeline">Review Timeline</h2>
+<ul>
+<li>Week 1: [[Supply Demand Review]]</li>
+<li>Week 2: [[Elasticity Review]]</li>
+<li>Week 3: [[Consumer Theory Review]]</li>
+</ul>
+<section id="mind-mapping-for-comprehensive-review" class="level4">
+<h4 class="anchored" data-anchor-id="mind-mapping-for-comprehensive-review">Mind Mapping for Comprehensive Review</h4>
+<ol type="1">
+<li>Central topic in center</li>
+<li>Major concepts as branches</li>
+<li>Sub-concepts as smaller branches</li>
+<li>Use colors for categorization</li>
+<li>Add links to detailed notes</li>
+</ol>
+</section>
+<section id="research-and-writing" class="level3">
+<h3 class="anchored" data-anchor-id="research-and-writing">Research and Writing</h3>
+<section id="literature-review-organization" class="level4">
+<h4 class="anchored" data-anchor-id="literature-review-organization">Literature Review Organization</h4>
+<p>markdown # Literature Review: Economic Inequality</p>
+</section>
+</section>
+</section>
+<section id="theoretical-framework" class="level2">
+<h2 class="anchored" data-anchor-id="theoretical-framework">Theoretical Framework</h2>
+<section id="classical-economics-view" class="level3">
+<h3 class="anchored" data-anchor-id="classical-economics-view">[[Classical Economics View]]</h3>
+<ul>
+<li>Smith (1776): [[Wealth of Nations Notes]]</li>
+<li>Ricardo (1817): [[Comparative Advantage Theory]]</li>
+</ul>
+</section>
+<section id="modern-perspectives" class="level3">
+<h3 class="anchored" data-anchor-id="modern-perspectives">[[Modern Perspectives]]</h3>
+<ul>
+<li>Piketty (2014): [[Capital in 21st Century]]</li>
+<li>Stiglitz (2012): [[Price of Inequality]]</li>
+</ul>
+</section>
+</section>
+<section id="empirical-evidence" class="level2">
+<h2 class="anchored" data-anchor-id="empirical-evidence">Empirical Evidence</h2>
+<section id="income-distribution-studies" class="level3">
+<h3 class="anchored" data-anchor-id="income-distribution-studies">[[Income Distribution Studies]]</h3>
+</section>
+<section id="policy-impact-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="policy-impact-analysis">[[Policy Impact Analysis]]</h3>
+</section>
+</section>
+<section id="research-gaps" class="level2">
+<h2 class="anchored" data-anchor-id="research-gaps">Research Gaps</h2>
+<ul>
+<li>Limited long-term studies</li>
+<li>Need for cross-cultural analysis</li>
+<li>Policy implementation challenges</li>
+</ul>
+</section>
+<section id="my-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="my-analysis">My Analysis</h2>
+<p>[[Economic Inequality Synthesis]]</p>
+<section id="citation-management" class="level4">
+<h4 class="anchored" data-anchor-id="citation-management">Citation Management</h4>
+<ul>
+<li>Link to full bibliographic notes</li>
+<li>Use consistent citation format</li>
+<li>Track source reliability</li>
+<li>Maintain reference database</li>
+</ul>
+</section>
+</section>
+<section id="chapter-12-collaborative-learning" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-12-collaborative-learning">Chapter 12: Collaborative Learning</h2>
+<section id="study-group-organization" class="level3">
+<h3 class="anchored" data-anchor-id="study-group-organization">Study Group Organization</h3>
+<section id="shared-knowledge-base" class="level4">
+<h4 class="anchored" data-anchor-id="shared-knowledge-base">Shared Knowledge Base</h4>
+<ol type="1">
+<li><strong>Create Group Vault</strong>
+<ul>
+<li>Shared cloud folder</li>
+<li>Consistent naming conventions</li>
+<li>Clear folder structure</li>
+<li>Access permissions</li>
+</ul></li>
+<li><strong>Collaborative Note-Taking</strong>
+<ul>
+<li>Assign note-taking roles</li>
+<li>Review and verify information</li>
+<li>Cross-link group members’ notes</li>
+<li>Regular knowledge updates</li>
+</ul></li>
+</ol>
+</section>
+<section id="version-control-for-groups" class="level4">
+<h4 class="anchored" data-anchor-id="version-control-for-groups">Version Control for Groups</h4>
+<ul>
+<li>Use Git for version tracking</li>
+<li>Merge conflicts resolution</li>
+<li>Branch creation for experiments</li>
+<li>History preservation</li>
+</ul>
+</section>
+</section>
+<section id="teaching-and-tutoring" class="level3">
+<h3 class="anchored" data-anchor-id="teaching-and-tutoring">Teaching and Tutoring</h3>
+<section id="creating-teaching-materials" class="level4">
+<h4 class="anchored" data-anchor-id="creating-teaching-materials">Creating Teaching Materials</h4>
+<ol type="1">
+<li><strong>Lesson Plans in Obsidian</strong>
+<ul>
+<li>Structured content delivery</li>
+<li>Interactive elements</li>
+<li>Assessment checkpoints</li>
+<li>Resource links</li>
+</ul></li>
+<li><strong>Student Progress Tracking</strong>
+<ul>
+<li>Individual student notes</li>
+<li>Progress monitoring</li>
+<li>Difficulty identification</li>
+<li>Personalized recommendations</li>
+</ul></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="chapter-13-long-term-knowledge-management" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-13-long-term-knowledge-management">Chapter 13: Long-term Knowledge Management</h2>
+<section id="semester-transitions" class="level3">
+<h3 class="anchored" data-anchor-id="semester-transitions">Semester Transitions</h3>
+<section id="end-of-semester-review" class="level4">
+<h4 class="anchored" data-anchor-id="end-of-semester-review">End-of-Semester Review</h4>
+<ol type="1">
+<li><strong>Archive Completed Courses</strong>
+<ul>
+<li>Move to archive folder</li>
+<li>Create course summary</li>
+<li>Extract key concepts</li>
+<li>Link to ongoing themes</li>
+</ul></li>
+<li><strong>Knowledge Integration</strong>
+<ul>
+<li>Connect concepts across courses</li>
+<li>Identify recurring themes</li>
+<li>Build interdisciplinary links</li>
+<li>Update master concept map</li>
+</ul></li>
+</ol>
+</section>
+<section id="continuous-learning" class="level4">
+<h4 class="anchored" data-anchor-id="continuous-learning">Continuous Learning</h4>
+<ul>
+<li>Regular vault maintenance</li>
+<li>Plugin updates and optimization</li>
+<li>New workflow experimentation</li>
+<li>Knowledge base expansion</li>
+</ul>
+</section>
+</section>
+<section id="career-integration" class="level3">
+<h3 class="anchored" data-anchor-id="career-integration">Career Integration</h3>
+<section id="professional-development" class="level4">
+<h4 class="anchored" data-anchor-id="professional-development">Professional Development</h4>
+<ol type="1">
+<li><strong>Skills Documentation</strong>
+<ul>
+<li>Track acquired competencies</li>
+<li>Document project experiences</li>
+<li>Maintain achievement records</li>
+<li>Build portfolio content</li>
+</ul></li>
+<li><strong>Network Building</strong>
+<ul>
+<li>Professional contact notes</li>
+<li>Industry knowledge base</li>
+<li>Career opportunity tracking</li>
+<li>Mentorship documentation</li>
+</ul></li>
+</ol>
+</section>
+<section id="research-continuation" class="level4">
+<h4 class="anchored" data-anchor-id="research-continuation">Research Continuation</h4>
+<ul>
+<li>Graduate school preparation</li>
+<li>Research methodology notes</li>
+<li>Academic writing development</li>
+<li>Publication tracking</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="conclusion-your-academic-journey-with-obsidian" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-your-academic-journey-with-obsidian">Conclusion: Your Academic Journey with Obsidian</h2>
+<p>Obsidian is more than just a note-taking app—it’s a thinking tool that grows with you throughout your academic journey. By following this comprehensive guide, you’ve learned to:</p>
+<ul>
+<li>Install and configure Obsidian across all platforms</li>
+<li>Set up essential plugins including Excalidraw for visual learning</li>
+<li>Master markdown for efficient, professional note-taking</li>
+<li>Create sustainable workflows for different academic disciplines</li>
+<li>Build interconnected knowledge that compounds over time</li>
+</ul>
+<section id="key-takeaways" class="level3">
+<h3 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h3>
+<ol type="1">
+<li><strong>Start Simple</strong>: Begin with basic features and gradually add complexity</li>
+<li><strong>Be Consistent</strong>: Develop regular habits and stick to naming conventions</li>
+<li><strong>Link Everything</strong>: Build connections between concepts and ideas</li>
+<li><strong>Use Visuals</strong>: Leverage Excalidraw for diagrams, graphs, and mind maps</li>
+<li><strong>Review Regularly</strong>: Maintain and refine your knowledge base</li>
+<li><strong>Collaborate</strong>: Share knowledge with classmates and study groups</li>
+<li><strong>Think Long-term</strong>: Build a system that serves your entire academic career</li>
+</ol>
+</section>
+<section id="next-steps-for-continued-learning" class="level3">
+<h3 class="anchored" data-anchor-id="next-steps-for-continued-learning">Next Steps for Continued Learning</h3>
+<ol type="1">
+<li><strong>Practice Daily</strong>: Use Obsidian for all your note-taking needs</li>
+<li><strong>Experiment</strong>: Try new plugins and workflows as you discover them</li>
+<li><strong>Join Communities</strong>: Connect with other Obsidian users online</li>
+<li><strong>Share Knowledge</strong>: Teach others and learn from their approaches</li>
+<li><strong>Stay Updated</strong>: Keep up with new features and best practices</li>
+</ol>
+</section>
+<section id="resources-for-continued-learning" class="level3">
+<h3 class="anchored" data-anchor-id="resources-for-continued-learning">Resources for Continued Learning</h3>
+<ul>
+<li><strong>Official Documentation</strong>: <a href="https://help.obsidian.md">help.obsidian.md</a></li>
+<li><strong>Community Forum</strong>: <a href="https://forum.obsidian.md">forum.obsidian.md</a></li>
+<li><strong>YouTube Channels</strong>: Search for “Obsidian tutorials” and “PKM workflows”</li>
+<li><strong>Reddit Communities</strong>: r/ObsidianMD for tips and discussions</li>
+<li><strong>Plugin Directory</strong>: Explore new plugins in the community store</li>
+</ul>
+<p>Remember, the goal isn’t to create the perfect system immediately, but to build a sustainable practice that enhances your learning and thinking. Start with the basics outlined in this guide, and gradually customize Obsidian to fit your unique academic needs.</p>
+<p>Your knowledge is your most valuable asset—Obsidian helps you organize, connect, and leverage it for academic success and lifelong learning. Welcome to the journey of connected thinking and accelerated learning!</p>
+<p><em>This guide represents current best practices as of 2024. The Obsidian community is constantly evolving, so stay engaged with updates and new developments to keep your system current and effective.</em></p>
+
+
+</section>
+</section>
+</section>
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>This is the footnote explanation.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright 2025, Meghan Downes</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/meghandownes">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
