@@ -1,0 +1,6 @@
+---
+title: "Welcome to Macroeconomics"
+id: macroeconomics
+---
+
+splash macro

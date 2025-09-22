@@ -1,1 +1,10 @@
 /* css styles */
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+.card-body {
+  flex: 1; /* stretch body to fill card */
+}
+
