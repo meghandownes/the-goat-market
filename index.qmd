@@ -1,18 +1,77 @@
 ---
 title: "the-goat-market"
+sidebar: home
+page-layout: full
+toc: false
 ---
 
 The Economics Experience
 
-The answer is always to double it and double it again!
+# Welcome to Economics
 
-```{r}
-1 + 1
-```
+Explore the fascinating world of economic theory and applications.
 
-Put properly:
+:::::::::::::::::: grid
+::::::: {.g-col-12 .g-col-md-4}
+:::::: {.card .h-100}
+::::: {.card-body .d-flex .flex-column}
+::: card-title
+## Micro
+:::
 
-```{r}
-x = 10
-y = 2*x +2*x
-```
+Study individual consumers, firms, and markets. Learn about supply and demand, market structures, and decision-making at the micro level.
+
+::: mt-auto
+[Explore Microeconomics →](microeconomics/index.qmd){.btn .btn-primary}
+:::
+:::::
+::::::
+:::::::
+
+::::::: {.g-col-12 .g-col-md-4}
+:::::: {.card .h-100}
+::::: {.card-body .d-flex .flex-column}
+::: card-title
+## Macro
+:::
+
+Examine the economy as a whole. Understand GDP, inflation, unemployment, fiscal policy, and monetary policy.
+
+::: mt-auto
+[Explore Macroeconomics →](macroeconomics/index.qmd){.btn .btn-primary}
+:::
+:::::
+::::::
+:::::::
+
+::::::: {.g-col-12 .g-col-md-4}
+:::::: {.card .h-100}
+::::: {.card-body .d-flex .flex-column}
+::: card-title
+## Downloads
+:::
+
+Access course materials, datasets, software setup guides, and additional resources for your studies.
+
+::: mt-auto
+[View Downloads →](downloads/index.qmd){.btn .btn-primary}
+:::
+:::::
+::::::
+:::::::
+::::::::::::::::::
+
+## Course Information
+
+### 📚 About This Course
+
+This comprehensive economics course covers both microeconomic and macroeconomic principles, providing you with a solid foundation in economic theory and practical applications.
+
+[Learn More →](about.qmd){.btn .btn-outline-primary}
+
+### 🛠️ Getting Started
+
+New to the course? Start here to set up your environment, download necessary software, and access your first materials.
+
+[Get Started →](downloads/index.qmd){.btn .btn-outline-success}
+

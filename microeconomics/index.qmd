@@ -1,0 +1,6 @@
+---
+title: "Welcome to Microeconomics"
+id: microeconomics
+---
+
+this is the splash page for the microeconomics section

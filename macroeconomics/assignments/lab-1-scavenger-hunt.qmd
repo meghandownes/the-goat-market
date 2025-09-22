@@ -2,7 +2,7 @@
 title: "Lab 1: Scavenger Hunt"
 format:
   html:
-    toc: true
+    toc: false
 execute: 
   echo: false
 ---
@@ -13,18 +13,20 @@ For our first "Lab" you will be pairing up with someone in the class and going o
 
 # Question 1
 
-# Please find the giant monster head. Take a funny picture in front of it with a classmate or two. Then add the picture to your scavenger hunt note.
+Please find the giant monster head. Take a funny picture in front of it with a classmate or two. Then add the picture to your scavenger hunt note.
 
 # Question 2
 
-# Find the whale. Take another silly picture and add it to your note. Where did you find the whale?
+Find the whale. Take another silly picture and add it to your note. Where did you find the whale?
 
 # Question 3
 
-# Find the airplane suspended in the air. Then browse around. Find something interesting that you might buy if you wanted to. How much does it cost? Is that ridiculous or reasonable? What is the per unit price?
+Find the airplane suspended in the air. Then browse around. Find something interesting that you might buy if you wanted to. How much does it cost? Is that ridiculous or reasonable? What is the per unit price?
 
 # Bonus Question!
 
-# Find Sid the Sloth. Where is he? Take a picture and write up some information on Giant Sloths.
+Find Sid the Sloth. Where is he? Take a picture and write up some information on Giant Sloths.
 
-# Please write a short paragraph about the person with whom you completed the scavenger hunt.
+# Question 4
+
+Please write a short paragraph about the person with whom you completed the scavenger hunt.

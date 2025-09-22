@@ -6,23 +6,70 @@ website:
   navbar:
     background: primary
     search: true
-    collapse: true
     left:
       - text: "Home"
         href: index.qmd
       - text: "Microeconomics"
-        href: microeconomics
+        href: microeconomics/index.qmd
       - text: "Macroeconomics"
-        href: macroeconomics
+        href: macroeconomics/index.qmd
+      - text: "Downloads"
+        href: downloads/index.qmd
+      - text: "About"
+        href: about.qmd
+     
   sidebar:
-    style: "docked"
-    search: true
-    background: "secondary"
-    foreground: "info"
-    contents: auto
-    
- 
-  page-navigation: true
+   
+    - id: microeconomics
+      title: "Microeconomics"
+      style: "docked"
+      search: true
+      background: "secondary"
+      collapse-level: 1
+      contents: 
+        - text: "Home"
+          href: index.qmd
+        - auto: "microeconomics/"
+      
+    - id: macroeconomics
+      title: "Macroeconomics"
+      style: "docked"
+      search: true
+      background: "secondary"
+      collapse-level: 1
+      contents: 
+        - text: "Home"
+          href: index.qmd
+        - auto: "macroeconomics/"
+      
+    - id: downloads
+      title: "Downloads"
+      style: "docked"
+      search: true
+      collapse-level: 1
+      contents:
+        - text: "Home"
+          href: index.qmd
+        - auto: "downloads/"
+      
+    - id: home
+      title: "Navigation"
+      style: "docked"
+      background: light
+      collapse-level: 1
+      contents:
+        - text: "Home"
+          href: index.qmd
+        - text: "Microeconomics"
+          href: microeconomics/index.qmd
+        - text: "Macroeconomics"
+          href: macroeconomics/index.qmd
+        - text: "Downloads"
+          href: downloads/index.qmd
+        - text: "About"
+          href: about.qmd
+      
+  page-navigation: false
   back-to-top-navigation: true
   
   page-footer:
@@ -34,8 +81,8 @@ website:
   announcement: 
     icon: info-circle
     dismissable: true
-    content: "**Alert** - this is some information that you should pay attention to"
-    type: primary
+    content: "**Alert** - Make Sure to Check Here for Announcements!"
+    type: warning
     position: below-navbar
   
 format:
