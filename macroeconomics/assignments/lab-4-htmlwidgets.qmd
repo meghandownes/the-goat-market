@@ -1,0 +1,728 @@
+---
+title: "Lab 4: The Process of Wealth Creation - Interactive Assignment"
+author: "Meghan Downes"
+format: 
+  html:
+    theme: lux
+    toc: false
+sidebar: macroeconomics
+---
+
+```{r setup, include=FALSE}
+library(htmltools)
+library(jsonlite)
+```
+
+```{css}
+.form-section {
+  margin-bottom: 2rem;
+}
+
+.calculation-result {
+  background-color: #e8f4fd;
+  border: 1px solid #b3d9ff;
+  border-radius: 0.375rem;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.progress-container {
+  margin: 2rem 0;
+}
+
+.progress {
+  height: 25px;
+  background-color: #f8f9fa;
+  border-radius: 0.375rem;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0.25rem;
+}
+
+.btn-primary { background-color: #007bff; color: white; }
+.btn-success { background-color: #28a745; color: white; }
+.btn-danger { background-color: #dc3545; color: white; }
+.btn-info { background-color: #17a2b8; color: white; }
+
+.alert {
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0.375rem;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+.alert-warning {
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  color: #856404;
+}
+
+.alert-info {
+  background-color: #cce7ff;
+  border: 1px solid #99d6ff;
+  color: #004085;
+}
+
+#downloadSection {
+  display: none;
+}
+```
+
+::: {.card .mb-4}
+::: {.card-header .bg-primary .text-white}
+#### The Process of Wealth Creation Analysis {.card-title .mb-0}
+:::
+::: {.card-body}
+This interactive assignment allows you to enter your experimental data and see calculations in real-time. Complete each section by entering your values and providing your analysis.
+:::
+:::
+
+## Part I: Data Collection
+
+### Round 1 Results (Individual Production)
+
+::: {.card .form-section}
+::: {.card-header}
+##### Personal Results
+:::
+::: {.card-body}
+::: {.row}
+::: {.col-md-4}
+::: {.input-group}
+<label class="form-label" for="completed_seal">Completed a seal:</label>
+<select class="form-control" id="completed_seal" onchange="updateCalculations()">
+  <option value="">Select...</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+:::
+:::
+::: {.col-md-4}
+::: {.input-group}
+<label class="form-label" for="time_taken">Time taken (minutes):</label>
+<input type="number" class="form-control" id="time_taken" step="0.1" min="0" onchange="updateCalculations()">
+:::
+:::
+::: {.col-md-4}
+::: {.input-group}
+<label class="form-label" for="seals_attempted">Seals attempted:</label>
+<input type="number" class="form-control" id="seals_attempted" step="1" min="0" onchange="updateCalculations()">
+:::
+:::
+:::
+:::
+:::
+
+::: {.card .form-section}
+::: {.card-header}
+##### Class Results
+:::
+::: {.card-body}
+::: {.row}
+::: {.col-md-4}
+::: {.input-group}
+<label class="form-label" for="total_students">Total students:</label>
+<input type="number" class="form-control" id="total_students" step="1" min="1" onchange="updateCalculations()">
+:::
+:::
+::: {.col-md-4}
+::: {.input-group}
+<label class="form-label" for="students_completed">Students who completed seal:</label>
+<input type="number" class="form-control" id="students_completed" step="1" min="0" onchange="updateCalculations()">
+:::
+:::
+::: {.col-md-4}
+::: {.input-group}
+<label class="form-label" for="total_class_production_r1">Total class production:</label>
+<input type="number" class="form-control" id="total_class_production_r1" step="1" min="0" onchange="updateCalculations()">
+:::
+:::
+:::
+<div id="round1_summary" class="calculation-result" style="display: none;"></div>
+:::
+:::
+
+### Round 2 Results (Team Production)
+
+::: {.card .form-section}
+::: {.card-header}
+##### Team Results
+:::
+::: {.card-body}
+::: {.row}
+::: {.col-md-3}
+::: {.input-group}
+<label class="form-label" for="team_size">Team size:</label>
+<input type="number" class="form-control" id="team_size" step="1" min="2" onchange="updateCalculations()">
+:::
+:::
+::: {.col-md-3}
+::: {.input-group}
+<label class="form-label" for="team_production">Team production:</label>
+<input type="number" class="form-control" id="team_production" step="1" min="0" onchange="updateCalculations()">
+:::
+:::
+::: {.col-md-3}
+::: {.input-group}
+<label class="form-label" for="winning_team_production">Winning team production:</label>
+<input type="number" class="form-control" id="winning_team_production" step="1" min="0" onchange="updateCalculations()">
+:::
+:::
+::: {.col-md-3}
+::: {.input-group}
+<label class="form-label" for="total_class_production_r2">Total class production:</label>
+<input type="number" class="form-control" id="total_class_production_r2" step="1" min="0" onchange="updateCalculations()">
+:::
+:::
+:::
+<div id="round2_summary" class="calculation-result" style="display: none;"></div>
+:::
+:::
+
+## Part II: Productivity Analysis
+
+### Question 1: Calculate Productivity Change
+
+<div id="productivity_calculation" class="calculation-result" style="display: none;"></div>
+
+### Question 2: Explain the Change
+
+::: {.card .form-section}
+::: {.card-body}
+###### Analysis Required: Write 2-3 paragraphs explaining why productivity changed. Consider:
+- Work organization differences
+- Learning process changes  
+- Role of collaboration
+
+<textarea id="productivity_analysis" class="form-control" rows="6" placeholder="Write your analysis here..." onchange="updateProgress()"></textarea>
+:::
+:::
+
+## Part III: Economic Concepts
+
+### Question 3: Division of Labor
+
+::: {.row .form-section}
+::: {.col-md-6}
+::: {.card}
+::: {.card-body}
+###### Define division of labor in your own words:
+<textarea id="division_definition" class="form-control" rows="4" placeholder="Your definition..." onchange="updateProgress()"></textarea>
+:::
+:::
+:::
+::: {.col-md-6}
+::: {.card}
+::: {.card-body}
+###### Examples from Experiment:
+<textarea id="division_examples" class="form-control" rows="4" placeholder="Give specific examples from Round 2..." onchange="updateProgress()"></textarea>
+:::
+:::
+:::
+:::
+
+::: {.card .form-section}
+::: {.card-body}
+###### Adam Smith's Benefits - List THREE benefits of division of labor:
+::: {.row}
+::: {.col-md-4}
+<input type="text" class="form-control" id="smith_benefit1" placeholder="First benefit..." onchange="updateProgress()">
+:::
+::: {.col-md-4}
+<input type="text" class="form-control" id="smith_benefit2" placeholder="Second benefit..." onchange="updateProgress()">
+:::
+::: {.col-md-4}
+<input type="text" class="form-control" id="smith_benefit3" placeholder="Third benefit..." onchange="updateProgress()">
+:::
+:::
+:::
+:::
+
+### Question 4: Specialization
+
+::: {.card .form-section}
+::: {.card-body}
+###### Define specialization in economics:
+<textarea id="specialization_definition" class="form-control" rows="3" placeholder="Your definition..." onchange="updateProgress()"></textarea>
+:::
+:::
+
+::: {.row .form-section}
+::: {.col-md-6}
+::: {.card}
+::: {.card-body}
+###### Type 1 Specialization Observed:
+<textarea id="spec_type1" class="form-control" rows="3" placeholder="Description of first type..." onchange="updateProgress()"></textarea>
+:::
+:::
+:::
+::: {.col-md-6}
+::: {.card}
+::: {.card-body}
+###### Type 2 Specialization Observed:
+<textarea id="spec_type2" class="form-control" rows="3" placeholder="Description of second type..." onchange="updateProgress()"></textarea>
+:::
+:::
+:::
+:::
+
+::: {.card .form-section}
+::: {.card-body}
+###### Impact Analysis - How did specialization contribute to increased productivity?
+<textarea id="spec_impact" class="form-control" rows="4" placeholder="Your analysis..." onchange="updateProgress()"></textarea>
+:::
+:::
+
+### Question 5: Comparative Advantage
+
+::: {.row .form-section}
+::: {.col-md-6}
+::: {.card}
+::: {.card-body}
+###### Define comparative advantage:
+<textarea id="comp_adv_definition" class="form-control" rows="4" placeholder="Your definition..." onchange="updateProgress()"></textarea>
+:::
+:::
+:::
+::: {.col-md-6}
+::: {.card}
+::: {.card-body}
+###### Example from Experiment:
+<textarea id="comp_adv_example" class="form-control" rows="4" placeholder="Use 'Student A' instead of real names..." onchange="updateProgress()"></textarea>
+:::
+:::
+:::
+:::
+
+::: {.card .form-section}
+::: {.card-body}
+###### Gains from Trade/Collaboration - How does comparative advantage lead to gains?
+<textarea id="comp_adv_gains" class="form-control" rows="4" placeholder="Use experiment as example..." onchange="updateProgress()"></textarea>
+:::
+:::
+
+## Part IV: Adam Smith & The Wealth of Nations
+
+### Question 6: Historical Context
+
+::: {.card .form-section}
+::: {.card-body}
+###### Basic Facts:
+::: {.row}
+::: {.col-md-6}
+<input type="text" class="form-control mb-2" id="smith_who" placeholder="Who was Adam Smith?" onchange="updateProgress()">
+:::
+::: {.col-md-6}
+<input type="text" class="form-control mb-2" id="smith_when" placeholder="When did he write 'The Wealth of Nations'?" onchange="updateProgress()">
+:::
+::: {.col-md-6}
+<input type="text" class="form-control" id="smith_example" placeholder="What was his famous example?" onchange="updateProgress()">
+:::
+::: {.col-md-6}
+<input type="text" class="form-control" id="smith_productivity" placeholder="Productivity difference in his example?" onchange="updateProgress()">
+:::
+:::
+:::
+:::
+
+## Part V: Real-World Applications
+
+### Question 7: Modern Examples
+
+::: {.row .form-section}
+::: {.col-md-6}
+::: {.card}
+::: {.card-header}
+###### Example 1
+:::
+::: {.card-body}
+<input type="text" class="form-control mb-2" id="modern_ex1_industry" placeholder="Industry/Activity:" onchange="updateProgress()">
+<textarea class="form-control mb-2" id="modern_ex1_division" rows="2" placeholder="How work is divided:" onchange="updateProgress()"></textarea>
+<textarea class="form-control" id="modern_ex1_productivity" rows="2" placeholder="Why this increases productivity:" onchange="updateProgress()"></textarea>
+:::
+:::
+:::
+::: {.col-md-6}
+::: {.card}
+::: {.card-header}
+###### Example 2
+:::
+::: {.card-body}
+<input type="text" class="form-control mb-2" id="modern_ex2_industry" placeholder="Industry/Activity:" onchange="updateProgress()">
+<textarea class="form-control mb-2" id="modern_ex2_division" rows="2" placeholder="How work is divided:" onchange="updateProgress()"></textarea>
+<textarea class="form-control" id="modern_ex2_productivity" rows="2" placeholder="Why this increases productivity:" onchange="updateProgress()"></textarea>
+:::
+:::
+:::
+:::
+
+::: {.card .form-section}
+::: {.card-body}
+###### Global Application - How might our results apply to understanding wealth differences between countries?
+<textarea id="global_application" class="form-control" rows="5" placeholder="Your analysis..." onchange="updateProgress()"></textarea>
+:::
+:::
+
+## Part VI: Personal Reflection
+
+### Question 8: Key Insights
+
+::: {.card .form-section}
+::: {.card-body}
+###### Personal Learning - What was your most important economic insight from this experiment?
+<textarea id="personal_reflection" class="form-control" rows="6" placeholder="How has it changed your understanding of cooperation and specialization?" onchange="updateProgress()"></textarea>
+:::
+:::
+
+## Assignment Summary
+
+::: {.progress-container}
+<div id="assignment_summary"></div>
+:::
+
+## Download Options
+
+::: {.card}
+::: {.card-header .bg-primary .text-white}
+##### Download Assignment
+:::
+::: {.card-body}
+Save your completed assignment in different formats:
+::: {.row}
+::: {.col-md-4}
+<button class="btn btn-success btn-block" onclick="downloadHTML()">Download as HTML</button>
+:::
+::: {.col-md-4}
+<button class="btn btn-danger btn-block" onclick="downloadPDF()">Download as PDF</button>
+:::
+::: {.col-md-4}
+<button class="btn btn-info btn-block" onclick="downloadCSV()">Download Data as CSV</button>
+:::
+:::
+:::
+:::
+
+<script>
+// Global variables to store form data
+let formData = {};
+let completedFields = 0;
+const totalFields = 25;
+
+// Initialize the page
+document.addEventListener('DOMContentLoaded', function() {
+    updateCalculations();
+    updateProgress();
+});
+
+function updateCalculations() {
+    // Get values
+    const totalStudents = parseFloat(document.getElementById('total_students').value) || 0;
+    const studentsCompleted = parseFloat(document.getElementById('students_completed').value) || 0;
+    const classProductionR1 = parseFloat(document.getElementById('total_class_production_r1').value) || 0;
+    const classProductionR2 = parseFloat(document.getElementById('total_class_production_r2').value) || 0;
+    const teamSize = parseFloat(document.getElementById('team_size').value) || 0;
+    const teamProduction = parseFloat(document.getElementById('team_production').value) || 0;
+
+    // Update Round 1 Summary
+    if (totalStudents > 0 && studentsCompleted >= 0 && classProductionR1 >= 0) {
+        const completionRate = ((studentsCompleted / totalStudents) * 100).toFixed(1);
+        const avgPerPerson = (classProductionR1 / totalStudents).toFixed(2);
+        
+        document.getElementById('round1_summary').innerHTML = `
+            <h6>Calculated Results:</h6>
+            <p><strong>Completion rate:</strong> ${completionRate}%</p>
+            <p><strong>Average per person:</strong> ${avgPerPerson} seals</p>
+        `;
+        document.getElementById('round1_summary').style.display = 'block';
+    } else {
+        document.getElementById('round1_summary').style.display = 'none';
+    }
+
+    // Update Round 2 Summary
+    if (teamSize > 0 && teamProduction >= 0 && totalStudents > 0 && classProductionR2 >= 0) {
+        const teamPerPerson = (teamProduction / teamSize).toFixed(2);
+        const classAvgPerPerson = (classProductionR2 / totalStudents).toFixed(2);
+        
+        document.getElementById('round2_summary').innerHTML = `
+            <h6>Calculated Results:</h6>
+            <p><strong>Team per-person productivity:</strong> ${teamPerPerson} seals</p>
+            <p><strong>Class average per person:</strong> ${classAvgPerPerson} seals</p>
+        `;
+        document.getElementById('round2_summary').style.display = 'block';
+    } else {
+        document.getElementById('round2_summary').style.display = 'none';
+    }
+
+    // Update Productivity Calculation
+    if (totalStudents > 0 && classProductionR1 > 0 && classProductionR2 > 0) {
+        const round1PerPerson = classProductionR1 / totalStudents;
+        const round2PerPerson = classProductionR2 / totalStudents;
+        const productivityChange = (((round2PerPerson - round1PerPerson) / round1PerPerson) * 100).toFixed(1);
+        
+        document.getElementById('productivity_calculation').innerHTML = `
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h5>Productivity Analysis</h5>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-primary">
+                        <h6>Formula: ((Round 2 - Round 1) ÷ Round 1) × 100</h6>
+                        <p><strong>Round 1 per-person:</strong> ${round1PerPerson.toFixed(2)} seals</p>
+                        <p><strong>Round 2 per-person:</strong> ${round2PerPerson.toFixed(2)} seals</p>
+                        <h5 class="text-success"><strong>Productivity increase: ${productivityChange}%</strong></h5>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.getElementById('productivity_calculation').style.display = 'block';
+    } else {
+        document.getElementById('productivity_calculation').style.display = 'none';
+    }
+
+    updateProgress();
+}
+
+function updateProgress() {
+    // Count completed fields
+    completedFields = 0;
+    
+    const fields = [
+        'completed_seal', 'time_taken', 'seals_attempted', 'total_students', 
+        'students_completed', 'total_class_production_r1', 'team_size', 
+        'team_production', 'winning_team_production', 'total_class_production_r2',
+        'productivity_analysis', 'division_definition', 'division_examples',
+        'smith_benefit1', 'smith_benefit2', 'smith_benefit3', 'specialization_definition',
+        'spec_type1', 'spec_type2', 'spec_impact', 'comp_adv_definition',
+        'comp_adv_example', 'comp_adv_gains', 'personal_reflection', 'global_application'
+    ];
+    
+    fields.forEach(fieldId => {
+        const element = document.getElementById(fieldId);
+        if (element && element.value && element.value.trim() !== '') {
+            completedFields++;
+        }
+    });
+
+    const completionPercent = Math.round((completedFields / totalFields) * 100);
+    
+    let progressClass = 'bg-danger';
+    let alertClass = 'alert-warning';
+    let alertMessage = 'Continue completing the remaining fields.';
+    
+    if (completionPercent >= 80) {
+        progressClass = 'bg-success';
+        alertClass = 'alert-success';
+        alertMessage = '✓ Assignment is ready for submission!';
+    } else if (completionPercent >= 50) {
+        progressClass = 'bg-warning';
+    }
+
+    document.getElementById('assignment_summary').innerHTML = `
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h5>Assignment Progress</h5>
+            </div>
+            <div class="card-body">
+                <div class="progress mb-3">
+                    <div class="progress-bar ${progressClass}" style="width: ${completionPercent}%">
+                        ${completionPercent}%
+                    </div>
+                </div>
+                <p><strong>Completed:</strong> ${completedFields} out of ${totalFields} fields</p>
+                <div class="alert ${alertClass}">
+                    ${alertMessage}
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function collectAllData() {
+    const fields = [
+        'completed_seal', 'time_taken', 'seals_attempted', 'total_students', 
+        'students_completed', 'total_class_production_r1', 'team_size', 
+        'team_production', 'winning_team_production', 'total_class_production_r2',
+        'productivity_analysis', 'division_definition', 'division_examples',
+        'smith_benefit1', 'smith_benefit2', 'smith_benefit3', 'specialization_definition',
+        'spec_type1', 'spec_type2', 'spec_impact', 'comp_adv_definition',
+        'comp_adv_example', 'comp_adv_gains', 'personal_reflection', 'global_application',
+        'smith_who', 'smith_when', 'smith_example', 'smith_productivity',
+        'modern_ex1_industry', 'modern_ex1_division', 'modern_ex1_productivity',
+        'modern_ex2_industry', 'modern_ex2_division', 'modern_ex2_productivity'
+    ];
+
+    const data = {};
+    fields.forEach(fieldId => {
+        const element = document.getElementById(fieldId);
+        data[fieldId] = element ? element.value : '';
+    });
+
+    return data;
+}
+
+function downloadHTML() {
+    const data = collectAllData();
+    const htmlContent = generateHTMLReport(data);
+    
+    const blob = new Blob([htmlContent], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Lab4_Wealth_Creation_${new Date().toISOString().split('T')[0]}.html`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+function downloadCSV() {
+    const data = collectAllData();
+    let csvContent = "Field,Value\\n";
+    
+    for (const [key, value] of Object.entries(data)) {
+        csvContent += `"${key}","${value.replace(/"/g, '""')}"\\n`;
+    }
+    
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Lab4_Data_${new Date().toISOString().split('T')[0]}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+function downloadPDF() {
+    alert('PDF download would require a server-side component. For now, use "Print to PDF" from your browser after downloading HTML.');
+}
+
+function generateHTMLReport(data) {
+    return `
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 4: The Process of Wealth Creation - Completed Assignment</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2rem; line-height: 1.6; }
+        h1, h2, h3 { color: #2c3e50; }
+        .section { margin-bottom: 2rem; }
+        .data-point { margin-bottom: 0.5rem; }
+        .calculation { background: #e8f4fd; padding: 1rem; border-radius: 5px; margin: 1rem 0; }
+    </style>
+</head>
+<body>
+    <h1>Lab 4: The Process of Wealth Creation - Completed Assignment</h1>
+    <p><strong>Date:</strong> ${new Date().toLocaleDateString()}</p>
+    
+    <div class="section">
+        <h2>Data Collection Results</h2>
+        <h3>Round 1 (Individual Production)</h3>
+        <div class="data-point"><strong>Completed a seal:</strong> ${data.completed_seal || 'Not provided'}</div>
+        <div class="data-point"><strong>Time taken:</strong> ${data.time_taken || 'Not provided'} minutes</div>
+        <div class="data-point"><strong>Seals attempted:</strong> ${data.seals_attempted || 'Not provided'}</div>
+        <div class="data-point"><strong>Total students:</strong> ${data.total_students || 'Not provided'}</div>
+        <div class="data-point"><strong>Students who completed seal:</strong> ${data.students_completed || 'Not provided'}</div>
+        <div class="data-point"><strong>Total class production:</strong> ${data.total_class_production_r1 || 'Not provided'}</div>
+        
+        <h3>Round 2 (Team Production)</h3>
+        <div class="data-point"><strong>Team size:</strong> ${data.team_size || 'Not provided'}</div>
+        <div class="data-point"><strong>Team production:</strong> ${data.team_production || 'Not provided'}</div>
+        <div class="data-point"><strong>Winning team production:</strong> ${data.winning_team_production || 'Not provided'}</div>
+        <div class="data-point"><strong>Total class production:</strong> ${data.total_class_production_r2 || 'Not provided'}</div>
+    </div>
+    
+    <div class="section">
+        <h2>Analysis and Responses</h2>
+        <h3>Productivity Analysis</h3>
+        <p>${data.productivity_analysis || 'No analysis provided'}</p>
+        
+        <h3>Division of Labor</h3>
+        <p><strong>Definition:</strong> ${data.division_definition || 'No definition provided'}</p>
+        <p><strong>Examples from Experiment:</strong> ${data.division_examples || 'No examples provided'}</p>
+        <p><strong>Adam Smith's Benefits:</strong></p>
+        <ol>
+            <li>${data.smith_benefit1 || 'Not provided'}</li>
+            <li>${data.smith_benefit2 || 'Not provided'}</li>
+            <li>${data.smith_benefit3 || 'Not provided'}</li>
+        </ol>
+        
+        <h3>Specialization</h3>
+        <p><strong>Definition:</strong> ${data.specialization_definition || 'No definition provided'}</p>
+        <p><strong>Types Observed:</strong></p>
+        <p>Type 1: ${data.spec_type1 || 'Not provided'}</p>
+        <p>Type 2: ${data.spec_type2 || 'Not provided'}</p>
+        <p><strong>Impact Analysis:</strong> ${data.spec_impact || 'No analysis provided'}</p>
+        
+        <h3>Comparative Advantage</h3>
+        <p><strong>Definition:</strong> ${data.comp_adv_definition || 'No definition provided'}</p>
+        <p><strong>Example from Experiment:</strong> ${data.comp_adv_example || 'No example provided'}</p>
+        <p><strong>Gains from Collaboration:</strong> ${data.comp_adv_gains || 'No explanation provided'}</p>
+        
+        <h3>Personal Reflection</h3>
+        <p>${data.personal_reflection || 'No reflection provided'}</p>
+        
+        <h3>Global Application</h3>
+        <p>${data.global_application || 'No analysis provided'}</p>
+    </div>
+    
+    <footer>
+        <p><strong>Generated:</strong> ${new Date().toLocaleString()}</p>
+    </footer>
+</body>
+</html>
+    `;
+}
+</script>
+
+---
+
+**Due:** 48 hours after experiment  
+**Total Points:** 20  
+**Format:** Interactive completion + download submission
+
+#economics #division-of-labor #adam-smith #specialization #comparative-advantage #interactive-assignment

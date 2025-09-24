@@ -1,0 +1,194 @@
+---
+title: "Lab 4 Downloads - Interactive Economics Assignment"
+format: html
+sidebar: downloads
+---
+
+# Lab 4: The Process of Wealth Creation - Download Center
+
+## Interactive Assignment Files
+
+::: {.row}
+
+::: {.g-col-12 .g-col-md-4}
+::: {.card .h-100}
+::: {.card-body .d-flex .flex-column}
+::: {.card-title}
+### 📱 Interactive Version
+:::
+
+Complete the assignment with real-time calculations, progress tracking, and automatic data validation. Best for in-class or online completion.
+
+**Features:**
+- Auto-calculation of productivity changes
+- Progress tracking
+- Data validation
+- Export options
+
+::: {.mt-auto}
+[Access Interactive Assignment →](../microeconomics/labs/lab-4-interactive.qmd){.btn .btn-success}
+:::
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.card .h-100}
+::: {.card-body .d-flex .flex-column}
+::: {.card-title}
+### 📄 Static PDF Version
+:::
+
+Traditional printable assignment format. Perfect for offline completion or students who prefer paper-based work.
+
+**Features:**
+- Print-friendly layout
+- Fill-in-the-blank format
+- All questions included
+- Grading rubric
+
+::: {.mt-auto}
+[Download PDF](lab-4-static.pdf){.btn .btn-danger .download-link}
+:::
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.card .h-100}
+::: {.card-body .d-flex .flex-column}
+::: {.card-title}
+### 📝 Obsidian Markdown
+:::
+
+Optimized for Obsidian note-taking with proper callout formatting and linking capabilities.
+
+**Features:**
+- Obsidian callout blocks
+- Tag system
+- Link-ready format
+- Template structure
+
+::: {.mt-auto}
+[Download Markdown](lab-4-obsidian.md){.btn .btn-info .download-link}
+:::
+:::
+:::
+:::
+
+:::
+
+## Assignment Instructions
+
+::: {.card}
+::: {.card-body}
+### 🎯 Learning Objectives
+
+By completing this lab, students will:
+
+1. **Analyze productivity data** from hands-on economic experiments
+2. **Calculate productivity changes** using economic formulas
+3. **Define key concepts** including division of labor, specialization, and comparative advantage
+4. **Apply theoretical knowledge** to real-world economic scenarios
+5. **Reflect critically** on the relationship between cooperation and economic efficiency
+
+### 📋 Submission Requirements
+
+- **Due:** 48 hours after in-class experiment
+- **Points:** 20 total
+- **Format:** Choose from interactive completion, PDF submission, or markdown file
+- **Length:** Complete responses to all sections (approximately 3-4 pages when printed)
+
+### 📊 Grading Criteria
+
+| Category | Points | Requirements |
+|----------|---------|-------------|
+| **Data Collection** | 4 pts | Complete and accurate experimental data |
+| **Calculations** | 4 pts | Correct productivity formulas and math |
+| **Concept Definitions** | 4 pts | Clear, accurate economic definitions |
+| **Real-world Examples** | 4 pts | Relevant, well-explained applications |
+| **Analysis & Reflection** | 4 pts | Thoughtful, well-reasoned responses |
+
+:::
+:::
+
+## Supporting Materials
+
+::: {.row}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+### 📚 Background Reading
+
+**Required:**
+- *The Wealth of Nations* - Chapter 1 (excerpt)
+- Course textbook: Chapter 2.1-2.3
+
+**Supplementary:**
+- "Division of Labor in Modern Economy" (handout)
+- Adam Smith biographical overview
+
+[Access Reading Materials →](../readings/){.btn .btn-outline-primary}
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+### 🎥 Video Resources
+
+**Lecture Recordings:**
+- "Introduction to Division of Labor" (15 min)
+- "Calculating Economic Productivity" (12 min)
+- "Adam Smith and The Wealth of Nations" (18 min)
+
+[View Lecture Videos →](../videos/){.btn .btn-outline-success}
+:::
+:::
+:::
+
+:::
+
+## Technical Support
+
+::: {.alert .alert-info}
+**Need Help?**
+
+- **Interactive Version Issues:** Make sure you have a modern browser with JavaScript enabled
+- **Download Problems:** Right-click links and select "Save As" 
+- **PDF Viewing:** Use Adobe Reader or modern browser PDF viewer
+- **Markdown Editing:** Recommended apps: Obsidian, Typora, or VS Code
+
+**Office Hours:** Mon/Wed 2-4 PM or by appointment  
+**Email:** [mdownes@university.edu](mailto:mdownes@university.edu)
+:::
+
+## Export Templates
+
+For advanced users who want to create their own assignment formats:
+
+::: {.row}
+
+::: {.g-col-12 .g-col-md-3}
+[📄 LaTeX Template](templates/lab4-template.tex){.btn .btn-outline-secondary .btn-sm}
+:::
+
+::: {.g-col-12 .g-col-md-3}
+[📊 Excel Template](templates/lab4-data.xlsx){.btn .btn-outline-secondary .btn-sm}
+:::
+
+::: {.g-col-12 .g-col-md-3}
+[🎨 HTML Template](templates/lab4-template.html){.btn .btn-outline-secondary .btn-sm}
+:::
+
+::: {.g-col-12 .g-col-md-3}
+[📱 JSON Data Schema](templates/lab4-schema.json){.btn .btn-outline-secondary .btn-sm}
+:::
+
+:::
+
+---
+
+*Last updated: September 2025 | Questions? Contact course instructor*

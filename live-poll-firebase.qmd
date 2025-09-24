@@ -1,0 +1,431 @@
+---
+title: "In-Class Poll: Supply and Demand Concepts"
+format: html
+sidebar: microeconomics
+---
+
+```{css}
+.poll-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.poll-question {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 0.375rem;
+  margin-bottom: 2rem;
+}
+
+.poll-options {
+  display: grid;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.poll-option {
+  padding: 1rem;
+  border: 2px solid #e9ecef;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.poll-option:hover {
+  border-color: #007bff;
+  background: #f0f8ff;
+}
+
+.poll-option.selected {
+  border-color: #007bff;
+  background: #007bff;
+  color: white;
+}
+
+.results-container {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #e8f4fd;
+  border-radius: 0.375rem;
+}
+
+.result-bar {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.result-label {
+  width: 200px;
+  font-weight: 500;
+}
+
+.result-progress {
+  flex: 1;
+  height: 30px;
+  background: #e9ecef;
+  border-radius: 15px;
+  margin: 0 1rem;
+  overflow: hidden;
+}
+
+.result-fill {
+  height: 100%;
+  background: #007bff;
+  transition: width 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.student-count {
+  font-size: 1.2rem;
+  color: #28a745;
+  font-weight: bold;
+}
+
+.attendance-form {
+  background: #fff3cd;
+  padding: 1.5rem;
+  border-radius: 0.375rem;
+  margin-bottom: 2rem;
+}
+```
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+
+::: {.poll-container}
+
+# Live Economics Poll
+
+## Quick Attendance Check
+::: {.attendance-form}
+**Before we start:** Please enter your name to mark attendance:
+<div style="display: flex; gap: 1rem; margin-top: 1rem;">
+  <input type="text" id="studentName" placeholder="Your name..." class="form-control" style="flex: 1;">
+  <button onclick="markAttendance()" class="btn btn-success">Mark Present</button>
+</div>
+<div id="attendanceStatus" style="margin-top: 1rem;"></div>
+:::
+
+<div class="student-count">
+  Students online: <span id="studentCount">0</span>
+</div>
+
+## Poll Question 1: Market Equilibrium
+::: {.poll-question}
+**When demand for a product increases while supply remains constant, what happens to the equilibrium price?**
+
+::: {.poll-options}
+<div class="poll-option" onclick="submitAnswer('q1', 'increase')" data-option="increase">
+  **A) Price increases** - Higher demand pushes price up
+</div>
+<div class="poll-option" onclick="submitAnswer('q1', 'decrease')" data-option="decrease">
+  **B) Price decreases** - Competition lowers prices
+</div>
+<div class="poll-option" onclick="submitAnswer('q1', 'unchanged')" data-option="unchanged">
+  **C) Price stays unchanged** - Supply and demand balance out
+</div>
+<div class="poll-option" onclick="submitAnswer('q1', 'uncertain')" data-option="uncertain">
+  **D) Cannot be determined** - Need more information
+</div>
+:::
+
+<button onclick="showResults('q1')" class="btn btn-primary">Show Live Results</button>
+:::
+
+::: {.results-container}
+### Live Results - Question 1
+<div id="q1Results"></div>
+:::
+
+## Poll Question 2: Consumer Behavior
+::: {.poll-question}
+**If the price of coffee increases by 20%, and you're a typical coffee drinker, what would you most likely do?**
+
+::: {.poll-options}
+<div class="poll-option" onclick="submitAnswer('q2', 'buy_same')" data-option="buy_same">
+  **A) Buy the same amount** - Coffee is essential for me
+</div>
+<div class="poll-option" onclick="submitAnswer('q2', 'buy_less')" data-option="buy_less">
+  **B) Buy less coffee** - Look for cheaper alternatives
+</div>
+<div class="poll-option" onclick="submitAnswer('q2', 'buy_substitute')" data-option="buy_substitute">
+  **C) Switch to tea** - Find a substitute product
+</div>
+<div class="poll-option" onclick="submitAnswer('q2', 'buy_more')" data-option="buy_more">
+  **D) Buy more coffee** - Stock up before further increases
+</div>
+:::
+
+<button onclick="showResults('q2')" class="btn btn-primary">Show Live Results</button>
+:::
+
+::: {.results-container}
+### Live Results - Question 2
+<div id="q2Results"></div>
+:::
+
+## Data Collection: Personal Economics
+::: {.poll-question}
+**Help us analyze real student data! Enter your information:**
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
+  <div>
+    <label>Hours worked per week:</label>
+    <input type="number" id="hoursWorked" class="form-control" min="0" max="40">
+  </div>
+  <div>
+    <label>Monthly income ($):</label>
+    <input type="number" id="monthlyIncome" class="form-control" min="0">
+  </div>
+  <div>
+    <label>Coffee purchases per week:</label>
+    <input type="number" id="coffeePerWeek" class="form-control" min="0" max="50">
+  </div>
+  <div>
+    <label>Transportation mode:</label>
+    <select id="transportation" class="form-control">
+      <option value="">Select...</option>
+      <option value="car">Personal car</option>
+      <option value="public">Public transport</option>
+      <option value="bike">Bicycle</option>
+      <option value="walk">Walking</option>
+      <option value="rideshare">Uber/Lyft</option>
+    </select>
+  </div>
+</div>
+
+<button onclick="submitPersonalData()" class="btn btn-success">Submit My Data</button>
+:::
+
+::: {.results-container}
+### Class Economics Summary
+<div id="personalDataResults"></div>
+:::
+
+:::
+
+<script>
+// Firebase Configuration - Replace with your config
+const firebaseConfig = {
+  // GET THESE VALUES FROM FIREBASE CONSOLE
+  apiKey: "your-api-key-here",
+  authDomain: "your-project.firebaseapp.com",
+  databaseURL: "https://your-project-default-rtdb.firebaseio.com/",
+  projectId: "your-project-id",
+  storageBucket: "your-project.appspot.com",
+  messagingSenderId: "123456789",
+  appId: "your-app-id"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+const sessionId = 'fall2025-' + new Date().toISOString().split('T')[0];
+
+let currentStudent = '';
+let hasVoted = {};
+
+// Mark Attendance
+async function markAttendance() {
+  const name = document.getElementById('studentName').value.trim();
+  if (!name) {
+    alert('Please enter your name');
+    return;
+  }
+  
+  currentStudent = name;
+  
+  try {
+    await db.ref(`attendance/${sessionId}/${name}`).set({
+      timestamp: firebase.database.ServerValue.TIMESTAMP,
+      present: true
+    });
+    
+    document.getElementById('attendanceStatus').innerHTML = 
+      `<div class="alert alert-success">✓ Attendance marked for ${name}</div>`;
+    
+    updateStudentCount();
+  } catch (error) {
+    console.error('Error marking attendance:', error);
+  }
+}
+
+// Submit Poll Answer
+async function submitAnswer(questionId, answer) {
+  if (!currentStudent) {
+    alert('Please mark attendance first!');
+    return;
+  }
+  
+  if (hasVoted[questionId]) {
+    alert('You have already answered this question!');
+    return;
+  }
+  
+  try {
+    await db.ref(`polls/${sessionId}/${questionId}/${currentStudent}`).set({
+      answer: answer,
+      timestamp: firebase.database.ServerValue.TIMESTAMP
+    });
+    
+    hasVoted[questionId] = true;
+    
+    // Visual feedback
+    document.querySelectorAll(`[data-option]`).forEach(el => {
+      el.classList.remove('selected');
+    });
+    document.querySelector(`[data-option="${answer}"]`).classList.add('selected');
+    
+    showResults(questionId);
+  } catch (error) {
+    console.error('Error submitting answer:', error);
+  }
+}
+
+// Submit Personal Data
+async function submitPersonalData() {
+  if (!currentStudent) {
+    alert('Please mark attendance first!');
+    return;
+  }
+  
+  const data = {
+    hoursWorked: parseFloat(document.getElementById('hoursWorked').value) || 0,
+    monthlyIncome: parseFloat(document.getElementById('monthlyIncome').value) || 0,
+    coffeePerWeek: parseInt(document.getElementById('coffeePerWeek').value) || 0,
+    transportation: document.getElementById('transportation').value,
+    timestamp: firebase.database.ServerValue.TIMESTAMP
+  };
+  
+  try {
+    await db.ref(`personalData/${sessionId}/${currentStudent}`).set(data);
+    alert('Data submitted successfully!');
+    updatePersonalDataResults();
+  } catch (error) {
+    console.error('Error submitting personal data:', error);
+  }
+}
+
+// Show Live Results
+function showResults(questionId) {
+  db.ref(`polls/${sessionId}/${questionId}`).on('value', (snapshot) => {
+    const votes = snapshot.val() || {};
+    const results = {};
+    let total = 0;
+    
+    // Count votes
+    Object.values(votes).forEach(vote => {
+      results[vote.answer] = (results[vote.answer] || 0) + 1;
+      total++;
+    });
+    
+    // Display results
+    let html = `<h6>Total responses: ${total}</h6>`;
+    
+    const options = {
+      'q1': {
+        'increase': 'A) Price increases',
+        'decrease': 'B) Price decreases', 
+        'unchanged': 'C) Price stays unchanged',
+        'uncertain': 'D) Cannot be determined'
+      },
+      'q2': {
+        'buy_same': 'A) Buy the same amount',
+        'buy_less': 'B) Buy less coffee',
+        'buy_substitute': 'C) Switch to tea',
+        'buy_more': 'D) Buy more coffee'
+      }
+    };
+    
+    Object.entries(options[questionId]).forEach(([key, label]) => {
+      const count = results[key] || 0;
+      const percentage = total > 0 ? Math.round((count / total) * 100) : 0;
+      
+      html += `
+        <div class="result-bar">
+          <div class="result-label">${label}</div>
+          <div class="result-progress">
+            <div class="result-fill" style="width: ${percentage}%">
+              ${count} (${percentage}%)
+            </div>
+          </div>
+        </div>
+      `;
+    });
+    
+    document.getElementById(`${questionId}Results`).innerHTML = html;
+  });
+}
+
+// Update Student Count
+function updateStudentCount() {
+  db.ref(`attendance/${sessionId}`).on('value', (snapshot) => {
+    const attendance = snapshot.val() || {};
+    const count = Object.keys(attendance).length;
+    document.getElementById('studentCount').textContent = count;
+  });
+}
+
+// Update Personal Data Results
+function updatePersonalDataResults() {
+  db.ref(`personalData/${sessionId}`).on('value', (snapshot) => {
+    const data = snapshot.val() || {};
+    const entries = Object.values(data);
+    
+    if (entries.length === 0) return;
+    
+    // Calculate averages
+    const avgHours = entries.reduce((sum, d) => sum + d.hoursWorked, 0) / entries.length;
+    const avgIncome = entries.reduce((sum, d) => sum + d.monthlyIncome, 0) / entries.length;
+    const avgCoffee = entries.reduce((sum, d) => sum + d.coffeePerWeek, 0) / entries.length;
+    
+    // Transportation breakdown
+    const transportation = {};
+    entries.forEach(d => {
+      if (d.transportation) {
+        transportation[d.transportation] = (transportation[d.transportation] || 0) + 1;
+      }
+    });
+    
+    let html = `
+      <h6>Class Summary (${entries.length} students)</h6>
+      <div class="row">
+        <div class="col-md-6">
+          <p><strong>Average work hours/week:</strong> ${avgHours.toFixed(1)}</p>
+          <p><strong>Average monthly income:</strong> $${avgIncome.toFixed(0)}</p>
+          <p><strong>Average coffee purchases/week:</strong> ${avgCoffee.toFixed(1)}</p>
+        </div>
+        <div class="col-md-6">
+          <p><strong>Transportation modes:</strong></p>
+          <ul>
+    `;
+    
+    Object.entries(transportation).forEach(([mode, count]) => {
+      html += `<li>${mode}: ${count} students</li>`;
+    });
+    
+    html += `</ul></div></div>`;
+    
+    document.getElementById('personalDataResults').innerHTML = html;
+  });
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', function() {
+  updateStudentCount();
+  updatePersonalDataResults();
+});
+</script>
+
+---
+
+**🔴 LIVE SESSION** | Real-time results update automatically  
+**Session:** `fall2025-economics-poll`
