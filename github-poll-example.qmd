@@ -2,6 +2,7 @@
 title: "Quick Poll: Economic Concepts"
 format: html
 sidebar: microeconomics
+jupyter: python3
 ---
 
 ```{css}

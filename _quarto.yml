@@ -93,5 +93,8 @@ format:
     link-external-icon: true
     link-external-newwindow: true
     
+python:
+  executable: /home/meghan-downes/quarto-env/bin/python
+
  
 
