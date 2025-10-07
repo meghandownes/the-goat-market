@@ -1,0 +1,255 @@
+---
+title: "Solow Growth Model Test Bank"
+subtitle: "Quarto (R) with LaTeX and ggplot2"
+author: ""
+format:
+  pdf: default
+  html: default
+execute:
+  echo: false
+  warning: false
+  message: false
+editor: source
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(ggplot2)
+library(dplyr)
+library(ggrepel)
+theme_set(theme_minimal())
+```
+
+# Overview
+
+Based on Cowen and Tabarrok's Modern Principles of Macroeconomics (Chapter 8), this test bank contains 20 questions designed for in-class, on-paper assessment. Equations are rendered in LaTeX, and ggplot2 is used to visualize key Solow model graphs. An answer key is provided at the end for easy grading and Gradescope compatibility.
+
+# Graphing Questions
+
+## 1. Draw the Solow Model steady state
+
+Prompt: Draw the Solow Model steady state for the following parameters:
+
+- Production function: \( y = k^{0.5} \)
+- Saving rate: \( s = 0.3 \)
+- Depreciation rate: \( \delta = 0.05 \)
+
+Label the investment curve, depreciation line, and steady state capital per worker \( k^* \).
+
+```{r}
+#| label: solow-steady-state
+#| fig-cap: "Solow model steady state with investment and depreciation curves."
+k <- seq(0, 100, by = 1)
+s <- 0.3
+delta <- 0.05
+invest <- s * k^0.5
+deprec <- delta * k
+ss_k <- (s / delta)^2
+
+ss_idx <- which.min(abs(k - ss_k))
+ss_y <- invest[ss_idx]
+
+ss_df <- data.frame(k = ss_k, y = ss_y)
+
+base_df <- data.frame(k = k, invest = invest, deprec = deprec)
+
+library(scales)
+
+ ggplot(base_df, aes(x = k)) +
+  geom_line(aes(y = invest, color = "Investment: s k^{0.5}"), size = 1.1) +
+  geom_line(aes(y = deprec, color = "Depreciation: delta k"), size = 1.1, linetype = "dashed") +
+  geom_point(data = ss_df, aes(y = y), color = "black", size = 3) +
+  annotate("text", x = ss_k + 6, y = ss_y, label = "Steady State (k*)", hjust = 0) +
+  scale_color_manual(values = c("Investment: s k^{0.5}" = "#2C7FB8", "Depreciation: delta k" = "#D95F02")) +
+  labs(x = "Capital per Worker (k)", y = "Investment & Depreciation", color = "Curves", title = "Solow Model Steady State") +
+  xlim(0, 100) + ylim(0, max(invest, deprec))
+```
+
+## 2. Effect of an increased saving rate
+
+Prompt: Suppose the saving rate increases from \( s = 0.3 \) to \( s = 0.5 \). Draw the new investment curve and show the new steady state.
+
+```{r}
+#| label: solow-savings-change
+#| fig-cap: "Solow model: effect of increased saving rate on steady state."
+s1 <- 0.3
+s2 <- 0.5
+invest1 <- s1 * k^0.5
+invest2 <- s2 * k^0.5
+ss_k1 <- (s1 / delta)^2
+ss_k2 <- (s2 / delta)^2
+
+ss_df2 <- tibble(
+  label = c("Old SS", "New SS"),
+  k = c(ss_k1, ss_k2),
+  y = c(invest1[which.min(abs(k - ss_k1))], invest2[which.min(abs(k - ss_k2))])
+)
+
+plot_df <- dplyr::bind_rows(
+  tibble(k = k, y = invest1, series = "Investment (s=0.3)"),
+  tibble(k = k, y = invest2, series = "Investment (s=0.5)"),
+  tibble(k = k, y = deprec, series = "Depreciation (delta k)")
+)
+
+ ggplot(plot_df, aes(x = k, y = y, color = series)) +
+  geom_line(size = 1.1) +
+  geom_point(data = ss_df2, aes(x = k, y = y), color = "black", size = 3, inherit.aes = FALSE) +
+  geom_text_repel(data = ss_df2, aes(x = k, y = y, label = label), inherit.aes = FALSE, nudge_x = 5, size = 4) +
+  scale_color_manual(values = c("Investment (s=0.3)" = "#2C7FB8", "Investment (s=0.5)" = "#1A9850", "Depreciation (delta k)" = "#D95F02")) +
+  labs(x = "Capital per Worker (k)", y = "Investment & Depreciation", color = "Curves", title = "Saving Rate Increase and Steady States") +
+  xlim(0, 100) + ylim(0, max(invest2, deprec))
+```
+
+## 3. Effect of an increase in depreciation rate
+
+Prompt: Draw the Solow Model steady state before and after an increase in the depreciation rate from \( \delta = 0.05 \) to \( \delta = 0.10 \), holding \( s = 0.3 \).
+
+```{r}
+#| label: solow-depreciation-change
+#| fig-cap: "Solow model: higher depreciation lowers the steady state."
+delta1 <- 0.05
+delta2 <- 0.10
+
+invest <- s1 * k^0.5
+
+dep1 <- delta1 * k
+dep2 <- delta2 * k
+
+ss_k_dep1 <- (s1 / delta1)^2
+ss_k_dep2 <- (s1 / delta2)^2
+
+ss_dep_df <- tibble(
+  label = c("Old SS (delta=0.05)", "New SS (delta=0.10)"),
+  k = c(ss_k_dep1, ss_k_dep2),
+  y = c(invest[which.min(abs(k - ss_k_dep1))], invest[which.min(abs(k - ss_k_dep2))])
+)
+
+plot_df_dep <- dplyr::bind_rows(
+  tibble(k = k, y = invest, series = "Investment (s=0.3)"),
+  tibble(k = k, y = dep1, series = "Depreciation (0.05)"),
+  tibble(k = k, y = dep2, series = "Depreciation (0.10)")
+)
+
+ ggplot(plot_df_dep, aes(x = k, y = y, color = series)) +
+  geom_line(size = 1.1) +
+  geom_point(data = ss_dep_df, aes(x = k, y = y), color = "black", size = 3, inherit.aes = FALSE) +
+  geom_text_repel(data = ss_dep_df, aes(x = k, y = y, label = label), inherit.aes = FALSE, nudge_x = 5, size = 4) +
+  scale_color_manual(values = c("Investment (s=0.3)" = "#2C7FB8", "Depreciation (0.05)" = "#D95F02", "Depreciation (0.10)" = "#7570B3")) +
+  labs(x = "Capital per Worker (k)", y = "Investment & Depreciation", color = "Curves", title = "Depreciation Increase and Steady State") +
+  xlim(0, 100) + ylim(0, max(invest, dep2))
+```
+
+## 4. Convergence to steady state (time path)
+
+Prompt: Sketch the time path of \( k_t \) as the economy converges from below to \( k^* \).
+
+```{r}
+#| label: solow-convergence-time
+#| fig-cap: "Time path of capital per worker converging to steady state."
+# Simple geometric convergence illustration
+k_star <- ss_k1
+k0 <- 4
+T <- 12
+alpha <- 0.5  # closes half the gap each period
+k_path <- numeric(T + 1)
+k_path[1] <- k0
+for (t in 1:T) {
+  k_path[t + 1] <- k_path[t] + alpha * (k_star - k_path[t])
+}
+
+conv_df <- tibble(period = 0:T, k = k_path)
+
+ ggplot(conv_df, aes(x = period, y = k)) +
+  geom_line(color = "#2C7FB8", size = 1.2) +
+  geom_hline(yintercept = k_star, linetype = "dashed", color = "#D95F02") +
+  annotate("text", x = T * 0.6, y = k_star + 1, label = "Steady State (k*)") +
+  labs(x = "Period", y = "Capital per Worker (k)", title = "Convergence to Steady State (Illustrative)")
+```
+
+## 5. Capital destruction shock (war)
+
+Prompt: Show the immediate effect of a one-time shock that halves \( k \) and the path back to \( k^* \).
+
+```{r}
+#| label: solow-war-shock
+#| fig-cap: "One-time capital destruction and recovery to steady state."
+# Assume pre-shock k at steady state k_star, shock halves k, then convergence
+k_pre <- k_star
+k_shock <- k_pre / 2
+T2 <- 10
+alpha <- 0.5  # closes half the gap each period
+k_path2 <- numeric(T2 + 1)
+k_path2[1] <- k_shock
+for (t in 1:T2) {
+  k_path2[t + 1] <- k_path2[t] + alpha * (k_star - k_path2[t])
+}
+conv_df2 <- tibble(period = 0:T2, k = k_path2)
+
+shock_df <- tibble(period = 0, k = k_shock)
+
+ggplot(conv_df2, aes(x = period, y = k)) +
+  geom_line(color = "#1A9850", size = 1.2) +
+  geom_hline(yintercept = k_star, linetype = "dashed", color = "#D95F02") +
+  geom_point(data = shock_df, aes(x = period, y = k), color = "black", size = 2) +
+  annotate("text", x = 0.5, y = k_shock + 1, label = "Shock: k halves") +
+  labs(x = "Period", y = "Capital per Worker (k)", title = "Capital Destruction and Recovery")
+```
+
+# Definition Questions
+
+1. What is the steady state in the Solow Model?
+2. Define capital depreciation.
+3. What does diminishing returns to capital mean?
+4. What is meant by convergence in the Solow Model?
+5. What is the investment function in the Solow Model?
+
+# Synthesis Questions
+
+1. Explain why Germany and Japan grew rapidly after WWII using the Solow Model.
+2. If a country increases its saving rate, what happens to its steady state output per worker? Explain.
+3. Why do poor countries tend to grow faster than rich countries, according to the Solow Model?
+4. Describe the trade-off between investment and consumption in the Solow Model.
+5. Why can't capital accumulation alone generate sustained long-run growth?
+
+# Numerical Questions
+
+1. Given \( s = 0.25 \), \( \delta = 0.05 \), and production function \( y = k^{0.5} \), find the steady state value of capital per worker \( k^* \).
+2. Country A has \( s = 0.2 \), \( \delta = 0.05 \); Country B has \( s = 0.4 \), \( \delta = 0.05 \). Which country has a higher steady state output per worker? Show your work.
+3. If the depreciation rate increases from 0.05 to 0.1, what happens to the steady state capital per worker, holding s constant at 0.3?
+4. Suppose an economy starts with \( k = 4 \), but its steady state is \( k^* = 16 \). Will output per worker grow or shrink? Explain.
+5. If output per worker is currently 10 and the saving rate is 0.3, what is investment per worker?
+
+# Answer Key
+
+## Graphing Answers
+
+1. Steady state at \( k^* = (s/\delta)^2 = (0.3/0.05)^2 = 36 \).
+2. New steady state at \( k^* = (0.5/0.05)^2 = 100 \).
+3. With \( s = 0.3 \), increasing \( \delta \) from 0.05 to 0.10 reduces steady state from 36 to 9.
+4. From below \( k^* \), capital per worker increases over time toward \( k^* \).
+5. A one-time capital destruction moves \( k \) below \( k^* \); economy converges back upward to \( k^* \).
+
+## Definition Answers
+
+1. Steady state: investment per worker equals depreciation per worker, so capital per worker is constant.
+2. Capital depreciation: reduction in capital stock due to wear, tear, and obsolescence, \( \delta k \).
+3. Diminishing returns: each additional unit of capital increases output by less than the previous one.
+4. Convergence: ceteris paribus, poorer countries grow faster and catch up to richer ones.
+5. Investment function: \( i = s y = s k^{0.5} \).
+
+## Synthesis Answers
+
+1. Post-WWII: low initial capital implied high marginal product of capital; rapid growth during rebuild, slowing as approaching \( k^* \).
+2. Higher saving rate raises steady state capital and output per worker; growth is transitional, not permanent.
+3. Poorer countries have higher returns to capital; conditional convergence if fundamentals match.
+4. Higher saving reduces current consumption but raises future output and potential consumption.
+5. Diminishing returns imply capital deepening cannot sustain growth; long-run growth requires technological progress.
+
+## Numerical Answers
+
+1. \( k^* = (s/\delta)^2 = (0.25/0.05)^2 = 25 \).
+2. A: \( k_A^* = (0.2/0.05)^2 = 16,\; y_A^* = 4 \). B: \( k_B^* = (0.4/0.05)^2 = 64,\; y_B^* = 8 \). Country B higher.
+3. With \( s = 0.3 \): \( k^* \) falls from 36 to 9.
+4. With \( k = 4 < 16 = k^* \), output per worker grows as the economy converges.
+5. \( i = s y = 0.3 \times 10 = 3 \).

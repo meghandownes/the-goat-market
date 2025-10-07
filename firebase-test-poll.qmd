@@ -1,0 +1,121 @@
+---
+title: "Test Firebase Poll"
+format: html
+sidebar: microeconomics
+---
+
+<!-- Firebase SDK -->
+
+```{=html}
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+```
+
+```{=html}
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+```
+
+```{=html}
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+```
+
+:::::: {#poll-container}
+<h3>Quick Test Poll</h3>
+
+<p><strong>Question:</strong> What's the most important economic concept?</p>
+
+<div>
+
+```         
+<button onclick="submitAnswer('supply-demand')" class="btn btn-primary">Supply & Demand</button>
+<button onclick="submitAnswer('scarcity')" class="btn btn-primary">Scarcity</button>
+<button onclick="submitAnswer('opportunity-cost')" class="btn btn-primary">Opportunity Cost</button>
+```
+
+</div>
+
+::: {#status style="margin-top: 20px;"}
+:::
+
+::: {#results style="margin-top: 20px;"}
+:::
+::::::
+
+```{=html}
+<script>
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCoSSQn0lKUOSomyDsZu_B-EHOXx7mDCLI",
+  authDomain: "the-goat-market.firebaseapp.com",
+  databaseURL: "https://the-goat-market-default-rtdb.firebaseio.com",
+  projectId: "the-goat-market",
+  storageBucket: "the-goat-market.firebasestorage.app",
+  messagingSenderId: "54944137763",
+  appId: "1:54944137763:web:1ac7fe7888eb5a671b6796"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+// Course and session identifiers
+const courseId = 'econ-fall2025';
+const sessionId = new Date().toISOString().split('T')[0]; // Today's date
+
+// Authenticate anonymously when page loads
+auth.signInAnonymously()
+  .then(() => {
+    document.getElementById('status').innerHTML = 
+      '<div class="alert alert-success">✅ Connected to database!</div>';
+    showResults();
+  })
+  .catch((error) => {
+    document.getElementById('status').innerHTML = 
+      '<div class="alert alert-danger">❌ Connection failed: ' + error.message + '</div>';
+  });
+
+// Submit an answer
+function submitAnswer(answer) {
+  if (!auth.currentUser) {
+    alert('Please wait for connection...');
+    return;
+  }
+  
+  const studentId = 'student_' + auth.currentUser.uid.substring(0, 8);
+  
+  db.ref(`courses/${courseId}/sessions/${sessionId}/polls/test-question/responses/${studentId}`)
+    .set({
+      answer: answer,
+      timestamp: firebase.database.ServerValue.TIMESTAMP
+    })
+    .then(() => {
+      document.getElementById('status').innerHTML = 
+        '<div class="alert alert-success">✅ Your answer was recorded!</div>';
+      showResults();
+    })
+    .catch((error) => {
+      document.getElementById('status').innerHTML = 
+        '<div class="alert alert-danger">❌ Error: ' + error.message + '</div>';
+    });
+}
+
+// Show live results (will only work if you're logged in as instructor)
+function showResults() {
+  db.ref(`courses/${courseId}/sessions/${sessionId}/polls/test-question/responses`)
+    .on('value', (snapshot) => {
+      const responses = snapshot.val() || {};
+      const counts = {};
+      
+      // Count responses
+      Object.values(responses).forEach(response => {
+        counts[response.answer] = (counts[response.answer] || 0) + 1;
+      });
+      
+      // Display results
+      let html = '<h4>Live Results:</h4>';
+      Object.entries(counts).forEach(([answer, count]) => {
+        html += `<p><strong>${answer}:</strong> ${count} votes</p>`;
+      });
+      
+      document.getElementById('results').innerHTML = html;
+    });
+}
+</script>
+```

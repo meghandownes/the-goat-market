@@ -1,0 +1,265 @@
+---
+title: "Test Firebase Poll"
+format: html
+sidebar: microeconomics
+---
+
+```{=html}
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+
+<style>
+.poll-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+}
+.btn {
+  padding: 0.75rem 1.5rem;
+  margin: 0.5rem;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+.btn-primary {
+  background: #007bff;
+  color: white;
+}
+.btn-primary:hover {
+  background: #0056b3;
+}
+.alert {
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0.375rem;
+}
+.alert-success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+.alert-danger {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+.results-section {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #e8f4fd;
+  border-radius: 0.375rem;
+}
+</style>
+
+<div class="poll-container">
+  <h3>🔥 Firebase Connection Test</h3>
+  <p><strong>Question:</strong> What's the most important economic concept?</p>
+  
+  <div style="text-align: center; margin: 2rem 0;">
+    <button onclick="submitAnswer('supply-demand')" class="btn btn-primary">Supply & Demand</button>
+    <button onclick="submitAnswer('scarcity')" class="btn btn-primary">Scarcity</button>
+    <button onclick="submitAnswer('opportunity-cost')" class="btn btn-primary">Opportunity Cost</button>
+  </div>
+  
+  <div id="connection-status">
+    <div class="alert" style="background: #fff3cd; color: #856404; border: 1px solid #ffeaa7;">
+      🔄 Connecting to Firebase...
+    </div>
+  </div>
+  
+  <div id="submission-status"></div>
+  
+  <div class="results-section">
+    <h4>Live Results:</h4>
+    <div id="live-results">No responses yet...</div>
+  </div>
+</div>
+
+<script>
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCoSSQn0lKUOSomyDsZu_B-EHOXx7mDCLI",
+  authDomain: "the-goat-market.firebaseapp.com",
+  databaseURL: "https://the-goat-market-default-rtdb.firebaseio.com",
+  projectId: "the-goat-market",
+  storageBucket: "the-goat-market.firebasestorage.app",
+  messagingSenderId: "54944137763",
+  appId: "1:54944137763:web:1ac7fe7888eb5a671b6796"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Check if config is still default
+if (firebaseConfig.apiKey === "AIzaSyCoSSQn0lKUOSomyDsZu_B-EHOXx7mDCLI") {
+  document.getElementById('connection-status').innerHTML = 
+    '<div class="alert alert-danger">❌ Please update Firebase configuration in the code!</div>';
+} else {
+  initializeFirebase();
+}
+
+function initializeFirebase() {
+  try {
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+    const auth = firebase.auth();
+    
+    // Course and session identifiers
+    const courseId = 'econ-fall2025';
+    const sessionId = new Date().toISOString().split('T')[0]; // Today's date
+    
+    // Global variables for access
+    window.db = db;
+    window.auth = auth;
+    window.courseId = courseId;
+    window.sessionId = sessionId;
+    
+    // Authenticate anonymously when page loads
+    auth.signInAnonymously()
+      .then(() => {
+        document.getElementById('connection-status').innerHTML = 
+          '<div class="alert alert-success">✅ Successfully connected to Firebase!</div>';
+        showResults();
+      })
+      .catch((error) => {
+        document.getElementById('connection-status').innerHTML = 
+          '<div class="alert alert-danger">❌ Firebase connection failed: ' + error.message + '</div>';
+      });
+      
+  } catch (error) {
+    document.getElementById('connection-status').innerHTML = 
+      '<div class="alert alert-danger">❌ Firebase initialization error: ' + error.message + '</div>';
+  }
+}
+
+// Submit an answer
+function submitAnswer(answer) {
+  if (!window.auth || !window.auth.currentUser) {
+    document.getElementById('submission-status').innerHTML = 
+      '<div class="alert alert-danger">❌ Please wait for Firebase connection...</div>';
+    return;
+  }
+  
+  const studentId = 'student_' + window.auth.currentUser.uid.substring(0, 8);
+  
+  window.db.ref(`courses/${window.courseId}/sessions/${window.sessionId}/polls/test-question/responses/${studentId}`)
+    .set({
+      answer: answer,
+      timestamp: firebase.database.ServerValue.TIMESTAMP
+    })
+    .then(() => {
+      document.getElementById('submission-status').innerHTML = 
+        '<div class="alert alert-success">✅ Your answer "' + answer + '" was recorded successfully!</div>';
+      showResults();
+    })
+    .catch((error) => {
+      document.getElementById('submission-status').innerHTML = 
+        '<div class="alert alert-danger">❌ Submission failed: ' + error.message + '</div>';
+      console.error('Firebase error:', error);
+    });
+}
+
+// Show live results
+function showResults() {
+  if (!window.db) return;
+  
+  window.db.ref(`courses/${window.courseId}/sessions/${window.sessionId}/polls/test-question/responses`)
+    .on('value', (snapshot) => {
+      const responses = snapshot.val() || {};
+      const counts = {
+        'supply-demand': 0,
+        'scarcity': 0,
+        'opportunity-cost': 0
+      };
+      const totalResponses = Object.keys(responses).length;
+      
+      // Count responses
+      Object.values(responses).forEach(response => {
+        if (counts.hasOwnProperty(response.answer)) {
+          counts[response.answer]++;
+        }
+      });
+      
+      // Display results with percentages
+      let html = `<p><strong>Total responses: ${totalResponses}</strong></p>`;
+      
+      const labels = {
+        'supply-demand': 'Supply & Demand',
+        'scarcity': 'Scarcity',
+        'opportunity-cost': 'Opportunity Cost'
+      };
+      
+      Object.entries(counts).forEach(([answer, count]) => {
+        const percentage = totalResponses > 0 ? Math.round((count / totalResponses) * 100) : 0;
+        html += `
+          <div style="margin: 0.5rem 0; padding: 0.5rem; background: white; border-radius: 0.25rem;">
+            <strong>${labels[answer]}:</strong> ${count} votes (${percentage}%)
+            <div style="width: 100%; background: #e9ecef; height: 20px; border-radius: 10px; margin-top: 0.25rem; overflow: hidden;">
+              <div style="width: ${percentage}%; height: 100%; background: #007bff; transition: width 0.5s ease;"></div>
+            </div>
+          </div>
+        `;
+      });
+      
+      document.getElementById('live-results').innerHTML = html;
+    }, (error) => {
+      document.getElementById('live-results').innerHTML = 
+        '<div class="alert alert-danger">❌ Could not load results: ' + error.message + '</div>';
+    });
+}
+
+// Manual refresh button for results
+function refreshResults() {
+  showResults();
+}
+</script>
+
+<div style="text-align: center; margin-top: 2rem;">
+  <button onclick="refreshResults()" class="btn btn-primary">🔄 Refresh Results</button>
+</div>
+```
+
+## 🔧 Configuration Instructions
+
+**Step 1:** Replace the Firebase configuration in the code above with your actual values from the Firebase console.
+
+**Step 2:** Look for this section in the code:
+```javascript
+const firebaseConfig = {
+  apiKey: "your-api-key-here",           // ← Replace this
+  authDomain: "your-project.firebaseapp.com",  // ← And this  
+  databaseURL: "https://your-project-default-rtdb.firebaseio.com/", // ← And this
+  projectId: "your-project-id",         // ← And this
+  storageBucket: "your-project.appspot.com",   // ← And this
+  messagingSenderId: "123456789",       // ← And this
+  appId: "your-app-id"                  // ← And this
+};
+```
+
+**Step 3:** After updating the config, save the file and run:
+```bash
+quarto render
+```
+
+## 📋 What This Fixed:
+
+1. **Proper HTML blocks**: Used `{=html}` blocks to ensure Quarto doesn't strip the content
+2. **Better error handling**: Shows specific error messages for configuration issues  
+3. **Visual feedback**: Clear status indicators for each step
+4. **Defensive coding**: Checks if Firebase is properly initialized before use
+5. **Enhanced results display**: Shows percentages and visual progress bars
+
+## 🧪 Testing Steps:
+
+1. **Configuration check**: If you haven't updated the config yet, you'll see a red error message
+2. **Connection test**: Should see "✅ Successfully connected to Firebase!"
+3. **Submission test**: Click any button, should see "✅ Your answer was recorded"
+4. **Results test**: Should see live updating results with vote counts and percentages
+
+This version should render all the HTML content properly and give you clear feedback on what's working and what needs to be fixed!

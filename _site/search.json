@@ -1112,6 +1112,13 @@
     ]
   },
   {
+    "objectID": "firebase-test-poll.html",
+    "href": "firebase-test-poll.html",
+    "title": "Test Firebase Poll",
+    "section": "",
+    "text": "Quick Test Poll\n\n\nQuestion: What’s the most important economic concept?\n\n\n&lt;button onclick=\"submitAnswer('supply-demand')\" class=\"btn btn-primary\"&gt;Supply & Demand&lt;/button&gt;\n&lt;button onclick=\"submitAnswer('scarcity')\" class=\"btn btn-primary\"&gt;Scarcity&lt;/button&gt;\n&lt;button onclick=\"submitAnswer('opportunity-cost')\" class=\"btn btn-primary\"&gt;Opportunity Cost&lt;/button&gt;\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
+  },
+  {
     "objectID": "live-poll-firebase.html",
     "href": "live-poll-firebase.html",
     "title": "In-Class Poll: Supply and Demand Concepts",
@@ -1151,7 +1158,7 @@
     "href": "github-poll-example.html",
     "title": "Quick Poll: Economic Concepts",
     "section": "",
-    "text": ".poll-form {\n  background: #f8f9fa;\n  padding: 2rem;\n  border-radius: 0.375rem;\n  max-width: 600px;\n  margin: 2rem auto;\n}\n\n.response-display {\n  background: #e8f4fd;\n  padding: 1.5rem;\n  border-radius: 0.375rem;\n  margin-top: 2rem;\n}\n\n.form-group {\n  margin-bottom: 1.5rem;\n}\n\n.btn-poll {\n  background: #007bff;\n  color: white;\n  padding: 0.75rem 1.5rem;\n  border: none;\n  border-radius: 0.375rem;\n  cursor: pointer;\n  font-size: 1.1rem;\n}\n\nQuick Economics Poll\nQuestion: What best describes the relationship between price and demand?\n\n\n&lt;input type=\"text\" id=\"studentName\" placeholder=\"Your name (for attendance)\" required style=\"width: 100%; padding: 0.5rem; margin-bottom: 1rem;\"&gt;\n\n\n&lt;label&gt;\n  &lt;input type=\"radio\" name=\"answer\" value=\"inverse\" required&gt; \n  **Inverse relationship** - As price increases, demand decreases\n&lt;/label&gt;\n\n\n&lt;label&gt;\n  &lt;input type=\"radio\" name=\"answer\" value=\"direct\" required&gt;\n  **Direct relationship** - As price increases, demand increases  \n&lt;/label&gt;\n\n\n&lt;label&gt;\n  &lt;input type=\"radio\" name=\"answer\" value=\"no-relationship\" required&gt;\n  **No relationship** - Price and demand are independent\n&lt;/label&gt;\n\n\nSubmit Response\n\n\n\n\nLive Results\n\nLoading results…\n\n\nRefresh Results\n\n\n\n\nInstructions for Instructor: 1. Create a GitHub issue in your repository titled “Poll: Economic Concepts” 2. Note the issue number and update the POLL_ISSUE_NUMBER variable 3. Create a Personal Access Token with repo permissions\n4. Store the token securely (use GitHub Secrets for production) 5. Students’ responses will appear as comments on the issue\n\n\n\n Back to top"
+    "text": "Quick Economics Poll\nQuestion: What best describes the relationship between price and demand?\n\n\n&lt;input type=\"text\" id=\"studentName\" placeholder=\"Your name (for attendance)\" required style=\"width: 100%; padding: 0.5rem; margin-bottom: 1rem;\"&gt;\n\n\n&lt;label&gt;\n  &lt;input type=\"radio\" name=\"answer\" value=\"inverse\" required&gt; \n  **Inverse relationship** - As price increases, demand decreases\n&lt;/label&gt;\n\n\n&lt;label&gt;\n  &lt;input type=\"radio\" name=\"answer\" value=\"direct\" required&gt;\n  **Direct relationship** - As price increases, demand increases  \n&lt;/label&gt;\n\n\n&lt;label&gt;\n  &lt;input type=\"radio\" name=\"answer\" value=\"no-relationship\" required&gt;\n  **No relationship** - Price and demand are independent\n&lt;/label&gt;\n\n\nSubmit Response\n\n\n\n\nLive Results\n\nLoading results…\n\n\nRefresh Results\n\n\n\n\nInstructions for Instructor: 1. Create a GitHub issue in your repository titled “Poll: Economic Concepts” 2. Note the issue number and update the POLL_ISSUE_NUMBER variable 3. Create a Personal Access Token with repo permissions\n4. Store the token securely (use GitHub Secrets for production) 5. Students’ responses will appear as comments on the issue\n\n\n\n Back to top"
   },
   {
     "objectID": "macroeconomics/index.html",
@@ -1821,6 +1828,94 @@
     "crumbs": [
       "Downloads",
       "Materials for Download"
+    ]
+  },
+  {
+    "objectID": "microeconomics/test-poll-fixed.html",
+    "href": "microeconomics/test-poll-fixed.html",
+    "title": "Test Firebase Poll",
+    "section": "",
+    "text": "Question: What's the most important economic concept?\n  \n  \n    Supply & Demand\n    Scarcity\n    Opportunity Cost\n  \n  \n  \n    \n      🔄 Connecting to Firebase...\n    \n  \n  \n  \n  \n  \n    \n    No responses yet...",
+    "crumbs": [
+      "Home",
+      "Welcome to Microeconomics",
+      "Test Firebase Poll"
+    ]
+  },
+  {
+    "objectID": "microeconomics/test-poll-fixed.html#configuration-instructions",
+    "href": "microeconomics/test-poll-fixed.html#configuration-instructions",
+    "title": "Test Firebase Poll",
+    "section": "🔧 Configuration Instructions",
+    "text": "🔧 Configuration Instructions\nStep 1: Replace the Firebase configuration in the code above with your actual values from the Firebase console.\nStep 2: Look for this section in the code:\nconst firebaseConfig = {\n  apiKey: \"your-api-key-here\",           // ← Replace this\n  authDomain: \"your-project.firebaseapp.com\",  // ← And this  \n  databaseURL: \"https://your-project-default-rtdb.firebaseio.com/\", // ← And this\n  projectId: \"your-project-id\",         // ← And this\n  storageBucket: \"your-project.appspot.com\",   // ← And this\n  messagingSenderId: \"123456789\",       // ← And this\n  appId: \"your-app-id\"                  // ← And this\n};\nStep 3: After updating the config, save the file and run:\nquarto render",
+    "crumbs": [
+      "Home",
+      "Welcome to Microeconomics",
+      "Test Firebase Poll"
+    ]
+  },
+  {
+    "objectID": "microeconomics/test-poll-fixed.html#what-this-fixed",
+    "href": "microeconomics/test-poll-fixed.html#what-this-fixed",
+    "title": "Test Firebase Poll",
+    "section": "📋 What This Fixed:",
+    "text": "📋 What This Fixed:\n\nProper HTML blocks: Used {=html} blocks to ensure Quarto doesn’t strip the content\nBetter error handling: Shows specific error messages for configuration issues\n\nVisual feedback: Clear status indicators for each step\nDefensive coding: Checks if Firebase is properly initialized before use\nEnhanced results display: Shows percentages and visual progress bars",
+    "crumbs": [
+      "Home",
+      "Welcome to Microeconomics",
+      "Test Firebase Poll"
+    ]
+  },
+  {
+    "objectID": "microeconomics/test-poll-fixed.html#testing-steps",
+    "href": "microeconomics/test-poll-fixed.html#testing-steps",
+    "title": "Test Firebase Poll",
+    "section": "🧪 Testing Steps:",
+    "text": "🧪 Testing Steps:\n\nConfiguration check: If you haven’t updated the config yet, you’ll see a red error message\nConnection test: Should see “✅ Successfully connected to Firebase!”\nSubmission test: Click any button, should see “✅ Your answer was recorded”\nResults test: Should see live updating results with vote counts and percentages\n\nThis version should render all the HTML content properly and give you clear feedback on what’s working and what needs to be fixed!",
+    "crumbs": [
+      "Home",
+      "Welcome to Microeconomics",
+      "Test Firebase Poll"
+    ]
+  },
+  {
+    "objectID": "test-poll-fixed.html",
+    "href": "test-poll-fixed.html",
+    "title": "Test Firebase Poll",
+    "section": "",
+    "text": "Question: What's the most important economic concept?\n  \n  \n    Supply & Demand\n    Scarcity\n    Opportunity Cost\n  \n  \n  \n    \n      🔄 Connecting to Firebase...\n    \n  \n  \n  \n  \n  \n    \n    No responses yet..."
+  },
+  {
+    "objectID": "test-poll-fixed.html#configuration-instructions",
+    "href": "test-poll-fixed.html#configuration-instructions",
+    "title": "Test Firebase Poll",
+    "section": "🔧 Configuration Instructions",
+    "text": "🔧 Configuration Instructions\nStep 1: Replace the Firebase configuration in the code above with your actual values from the Firebase console.\nStep 2: Look for this section in the code:\nconst firebaseConfig = {\n  apiKey: \"your-api-key-here\",           // ← Replace this\n  authDomain: \"your-project.firebaseapp.com\",  // ← And this  \n  databaseURL: \"https://your-project-default-rtdb.firebaseio.com/\", // ← And this\n  projectId: \"your-project-id\",         // ← And this\n  storageBucket: \"your-project.appspot.com\",   // ← And this\n  messagingSenderId: \"123456789\",       // ← And this\n  appId: \"your-app-id\"                  // ← And this\n};\nStep 3: After updating the config, save the file and run:\nquarto render"
+  },
+  {
+    "objectID": "test-poll-fixed.html#what-this-fixed",
+    "href": "test-poll-fixed.html#what-this-fixed",
+    "title": "Test Firebase Poll",
+    "section": "📋 What This Fixed:",
+    "text": "📋 What This Fixed:\n\nProper HTML blocks: Used {=html} blocks to ensure Quarto doesn’t strip the content\nBetter error handling: Shows specific error messages for configuration issues\n\nVisual feedback: Clear status indicators for each step\nDefensive coding: Checks if Firebase is properly initialized before use\nEnhanced results display: Shows percentages and visual progress bars"
+  },
+  {
+    "objectID": "test-poll-fixed.html#testing-steps",
+    "href": "test-poll-fixed.html#testing-steps",
+    "title": "Test Firebase Poll",
+    "section": "🧪 Testing Steps:",
+    "text": "🧪 Testing Steps:\n\nConfiguration check: If you haven’t updated the config yet, you’ll see a red error message\nConnection test: Should see “✅ Successfully connected to Firebase!”\nSubmission test: Click any button, should see “✅ Your answer was recorded”\nResults test: Should see live updating results with vote counts and percentages\n\nThis version should render all the HTML content properly and give you clear feedback on what’s working and what needs to be fixed!"
+  },
+  {
+    "objectID": "microeconomics/firebase-debug.html",
+    "href": "microeconomics/firebase-debug.html",
+    "title": "Firebase Debug Test",
+    "section": "",
+    "text": "🔍 Firebase Connection Debugger\n  \n  \n    Step 1: Configuration Check\n    Checking configuration...\n  \n  \n  \n    Step 2: Firebase Initialization\n    Not started\n  \n  \n  \n    Step 3: Anonymous Authentication\n    Not started\n  \n  \n  \n    Step 4: Database Connection Test\n    Not started\n    Test Database Write\n  \n  \n  \n    Step 5: Detailed Error Log\n    \n      No errors yet...\n    \n  \n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "Welcome to Microeconomics",
+      "Firebase Debug Test"
     ]
   }
 ]
