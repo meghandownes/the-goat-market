@@ -1917,5 +1917,135 @@
       "Welcome to Microeconomics",
       "Firebase Debug Test"
     ]
+  },
+  {
+    "objectID": "macroeconomics/assignments/solow-corrected.html",
+    "href": "macroeconomics/assignments/solow-corrected.html",
+    "title": "Solow Growth Model Test Bank",
+    "section": "",
+    "text": "Based on Cowen and Tabarrok’s Modern Principles of Macroeconomics (Chapter 8), this test bank contains 20 questions designed for in-class, on-paper assessment. Equations are rendered in LaTeX, and ggplot2 is used to visualize key Solow model graphs. An answer key is provided at the end for easy grading and Gradescope compatibility.",
+    "crumbs": [
+      "Macroeconomics",
+      "Welcome to Macroeconomics",
+      "Assignments",
+      "Solow Growth Model Test Bank"
+    ]
+  },
+  {
+    "objectID": "macroeconomics/assignments/solow-corrected.html#draw-the-solow-model-steady-state",
+    "href": "macroeconomics/assignments/solow-corrected.html#draw-the-solow-model-steady-state",
+    "title": "Solow Growth Model Test Bank",
+    "section": "1. Draw the Solow Model steady state",
+    "text": "1. Draw the Solow Model steady state\nPrompt: Draw the Solow Model steady state for the following parameters:\n\nProduction function: ( y = k^{0.5} )\nSaving rate: ( s = 0.3 )\nDepreciation rate: ( = 0.05 )\n\nLabel the investment curve, depreciation line, and steady state capital per worker ( k^* ).\n\n\n\n\n\nSolow model steady state with investment and depreciation curves.",
+    "crumbs": [
+      "Macroeconomics",
+      "Welcome to Macroeconomics",
+      "Assignments",
+      "Solow Growth Model Test Bank"
+    ]
+  },
+  {
+    "objectID": "macroeconomics/assignments/solow-corrected.html#effect-of-an-increased-saving-rate",
+    "href": "macroeconomics/assignments/solow-corrected.html#effect-of-an-increased-saving-rate",
+    "title": "Solow Growth Model Test Bank",
+    "section": "2. Effect of an increased saving rate",
+    "text": "2. Effect of an increased saving rate\nPrompt: Suppose the saving rate increases from ( s = 0.3 ) to ( s = 0.5 ). Draw the new investment curve and show the new steady state.\n\n\n\n\n\nSolow model: effect of increased saving rate on steady state.",
+    "crumbs": [
+      "Macroeconomics",
+      "Welcome to Macroeconomics",
+      "Assignments",
+      "Solow Growth Model Test Bank"
+    ]
+  },
+  {
+    "objectID": "macroeconomics/assignments/solow-corrected.html#effect-of-an-increase-in-depreciation-rate",
+    "href": "macroeconomics/assignments/solow-corrected.html#effect-of-an-increase-in-depreciation-rate",
+    "title": "Solow Growth Model Test Bank",
+    "section": "3. Effect of an increase in depreciation rate",
+    "text": "3. Effect of an increase in depreciation rate\nPrompt: Draw the Solow Model steady state before and after an increase in the depreciation rate from ( = 0.05 ) to ( = 0.10 ), holding ( s = 0.3 ).\n\n\n\n\n\nSolow model: higher depreciation lowers the steady state.",
+    "crumbs": [
+      "Macroeconomics",
+      "Welcome to Macroeconomics",
+      "Assignments",
+      "Solow Growth Model Test Bank"
+    ]
+  },
+  {
+    "objectID": "macroeconomics/assignments/solow-corrected.html#convergence-to-steady-state-time-path",
+    "href": "macroeconomics/assignments/solow-corrected.html#convergence-to-steady-state-time-path",
+    "title": "Solow Growth Model Test Bank",
+    "section": "4. Convergence to steady state (time path)",
+    "text": "4. Convergence to steady state (time path)\nPrompt: Sketch the time path of ( k_t ) as the economy converges from below to ( k^* ).\n\n\n\n\n\nTime path of capital per worker converging to steady state.",
+    "crumbs": [
+      "Macroeconomics",
+      "Welcome to Macroeconomics",
+      "Assignments",
+      "Solow Growth Model Test Bank"
+    ]
+  },
+  {
+    "objectID": "macroeconomics/assignments/solow-corrected.html#capital-destruction-shock-war",
+    "href": "macroeconomics/assignments/solow-corrected.html#capital-destruction-shock-war",
+    "title": "Solow Growth Model Test Bank",
+    "section": "5. Capital destruction shock (war)",
+    "text": "5. Capital destruction shock (war)\nPrompt: Show the immediate effect of a one-time shock that halves ( k ) and the path back to ( k^* ).\n\n\n\n\n\nOne-time capital destruction and recovery to steady state.",
+    "crumbs": [
+      "Macroeconomics",
+      "Welcome to Macroeconomics",
+      "Assignments",
+      "Solow Growth Model Test Bank"
+    ]
+  },
+  {
+    "objectID": "macroeconomics/assignments/solow-corrected.html#graphing-answers",
+    "href": "macroeconomics/assignments/solow-corrected.html#graphing-answers",
+    "title": "Solow Growth Model Test Bank",
+    "section": "Graphing Answers",
+    "text": "Graphing Answers\n\nSteady state at ( k^* = (s/)^2 = (0.3/0.05)^2 = 36 ).\nNew steady state at ( k^* = (0.5/0.05)^2 = 100 ).\nWith ( s = 0.3 ), increasing ( ) from 0.05 to 0.10 reduces steady state from 36 to 9.\nFrom below ( k^* ), capital per worker increases over time toward ( k^* ).\nA one-time capital destruction moves ( k ) below ( k^* ); economy converges back upward to ( k^* ).",
+    "crumbs": [
+      "Macroeconomics",
+      "Welcome to Macroeconomics",
+      "Assignments",
+      "Solow Growth Model Test Bank"
+    ]
+  },
+  {
+    "objectID": "macroeconomics/assignments/solow-corrected.html#definition-answers",
+    "href": "macroeconomics/assignments/solow-corrected.html#definition-answers",
+    "title": "Solow Growth Model Test Bank",
+    "section": "Definition Answers",
+    "text": "Definition Answers\n\nSteady state: investment per worker equals depreciation per worker, so capital per worker is constant.\nCapital depreciation: reduction in capital stock due to wear, tear, and obsolescence, ( k ).\nDiminishing returns: each additional unit of capital increases output by less than the previous one.\nConvergence: ceteris paribus, poorer countries grow faster and catch up to richer ones.\nInvestment function: ( i = s y = s k^{0.5} ).",
+    "crumbs": [
+      "Macroeconomics",
+      "Welcome to Macroeconomics",
+      "Assignments",
+      "Solow Growth Model Test Bank"
+    ]
+  },
+  {
+    "objectID": "macroeconomics/assignments/solow-corrected.html#synthesis-answers",
+    "href": "macroeconomics/assignments/solow-corrected.html#synthesis-answers",
+    "title": "Solow Growth Model Test Bank",
+    "section": "Synthesis Answers",
+    "text": "Synthesis Answers\n\nPost-WWII: low initial capital implied high marginal product of capital; rapid growth during rebuild, slowing as approaching ( k^* ).\nHigher saving rate raises steady state capital and output per worker; growth is transitional, not permanent.\nPoorer countries have higher returns to capital; conditional convergence if fundamentals match.\nHigher saving reduces current consumption but raises future output and potential consumption.\nDiminishing returns imply capital deepening cannot sustain growth; long-run growth requires technological progress.",
+    "crumbs": [
+      "Macroeconomics",
+      "Welcome to Macroeconomics",
+      "Assignments",
+      "Solow Growth Model Test Bank"
+    ]
+  },
+  {
+    "objectID": "macroeconomics/assignments/solow-corrected.html#numerical-answers",
+    "href": "macroeconomics/assignments/solow-corrected.html#numerical-answers",
+    "title": "Solow Growth Model Test Bank",
+    "section": "Numerical Answers",
+    "text": "Numerical Answers\n\n( k^* = (s/)^2 = (0.25/0.05)^2 = 25 ).\nA: ( k_A^* = (0.2/0.05)^2 = 16,; y_A^* = 4 ). B: ( k_B^* = (0.4/0.05)^2 = 64,; y_B^* = 8 ). Country B higher.\nWith ( s = 0.3 ): ( k^* ) falls from 36 to 9.\nWith ( k = 4 &lt; 16 = k^* ), output per worker grows as the economy converges.\n( i = s y = 0.3 = 3 ).",
+    "crumbs": [
+      "Macroeconomics",
+      "Welcome to Macroeconomics",
+      "Assignments",
+      "Solow Growth Model Test Bank"
+    ]
   }
 ]
