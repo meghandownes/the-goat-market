@@ -2047,5 +2047,109 @@
       "Assignments",
       "Solow Growth Model Test Bank"
     ]
+  },
+  {
+    "objectID": "microeconomics/assignments/supply-demand-equilibrium.html",
+    "href": "microeconomics/assignments/supply-demand-equilibrium.html",
+    "title": "Linear Demand and Supply Models",
+    "section": "",
+    "text": "This section overlays demand and supply curves onto a graph-paper style grid (light gray major and minor grid lines) to aid students in reading values directly from the plot. Here’s the updated graph-paper section with negative supply values filtered out, preventing the flat 0 segments at small P:\n\n# Sample curves for demonstration\n demand &lt;- create_demand(120, 4)\n supply &lt;- create_supply(-20, 6)\n p_vals &lt;- seq(0, 35, 0.5)\n df_grid &lt;- tibble(\n   P = p_vals,\n   Qd = demand(p_vals),\n   Qs = supply(p_vals)\n )\n\n eq_point &lt;- tibble(Q = 64, P = 14)\n\n # Filter supply to positive quantities to remove jagged zero segment\n df_supply &lt;- filter(df_grid, Qs &gt; 0)\n df_demand &lt;- filter(df_grid, Qd &gt; 0)\n\n ggplot() +\n   # Graph-paper grid\n   geom_hline(yintercept = seq(0, 35, 5), color = grid_color, size = 0.3) +\n   geom_vline(xintercept = seq(0, 140, 20), color = grid_color, size = 0.3) +\n   geom_hline(yintercept = seq(0, 35, 1), color = grid_color, linetype = \"dotted\", size = 0.2) +\n   geom_vline(xintercept = seq(0, 140, 5), color = grid_color, linetype = \"dotted\", size = 0.2) +\n   # Demand curve (all Qd &gt;= 0)\n   geom_line(data = df_demand, aes(x = Qd, y = P), color = demand_color, size = 1.2) +\n   # Supply curve only where Qs &gt; 0\n   geom_line(data = df_supply, aes(x = Qs, y = P), color = supply_color, size = 1.2) +\n   # Equilibrium point\n   geom_point(data = eq_point, aes(x = Q, y = P), color = equilibrium_color, size = 3) +\n   annotate(\"text\", x = 64, y = 16, label = \"(64, 14)\", color = equilibrium_color, fontface = \"bold\") +\n   labs(\n     title = \"Supply and Demand with Graph-Paper Grid\",\n     x = \"Quantity (Q)\",\n     y = \"Price (P)\"\n   ) +\n   coord_cartesian(xlim = c(0, 140), ylim = c(0, 35))\n\n\n\n\n\n\n\n\nThis filters out the jagged zeros of the supply curve for prices where supply is zero or negative.\n# Introduction to Linear Demand and Supply\n## Learning Objectives\nBy the end of this lecture, you will be able to:\n\nDefine and graph linear demand and supply functions\nCalculate market equilibrium algebraically and graphically\nAnalyze the effects of market shifts on equilibrium\nCompute consumer and producer surplus\nEvaluate the impacts of taxes and price controls\nApply elasticity concepts to linear demand curves\n\n# Linear Demand and Supply Functions\n## The Linear Demand Curve\nA linear demand curve has the form:\n\\[Q_D = a - bP\\]\nwhere: - \\(a &gt; 0\\) is the quantity intercept (maximum quantity when \\(P = 0\\)) - \\(b &gt; 0\\) is the slope parameter (how responsive quantity is to price) - The price intercept occurs at \\(P = \\frac{a}{b}\\) (choke price)\n\n\nA linear supply curve has the form:\n\\[Q_S = c + dP\\]\nwhere: - \\(c\\) can be positive or negative (quantity intercept) - \\(d &gt; 0\\) is the slope parameter (positive relationship between price and quantity) - If \\(c &lt; 0\\), the supply curve has a minimum price \\(P = -\\frac{c}{d}\\) before positive quantities\n\n# Market Equilibrium\n## Finding Equilibrium Algebraically\nMarket equilibrium occurs where \\(Q_D = Q_S\\):\nFor our example: \\(Q_D = 120 - 4P\\) and \\(Q_S = -20 + 6P\\)\n\\[120 - 4P = -20 + 6P\\] \\[140 = 10P\\] \\[P^* = 14\\]\nSubstituting back: \\(Q^* = 120 - 4(14) = 64\\)\n## General Equilibrium Formula\nFor general linear curves \\(Q_D = a - bP\\) and \\(Q_S = c + dP\\):\n\\[P^* = \\frac{a - c}{b + d}\\]\n\\[Q^* = \\frac{ad + bc}{b + d}\\]\n\n# Market Shifts\n## Demand Shifts\nAn increase in demand shifts the entire demand curve rightward (parallel shift). This could result from: - Increase in consumer income (normal goods) - Increase in price of substitutes - Decrease in price of complements - Positive change in consumer preferences\n\n# Consumer and Producer Surplus\n## Consumer Surplus\nConsumer surplus is the area between the demand curve and the market price, representing the net benefit to consumers.\nFor a linear demand curve, consumer surplus is: \\[CS = \\frac{1}{2}(P_{choke} - P^*)Q^*\\]\nwhere \\(P_{choke} = \\frac{a}{b}\\) is the price intercept of demand.\n\n\n\nProducer surplus is the area between the market price and the supply curve, representing the net benefit to producers.\nFor a linear supply curve, producer surplus is: \\[PS = \\frac{1}{2}(P^* - P_{min})Q^*\\]\nwhere \\(P_{min} = -\\frac{c}{d}\\) is the minimum price for positive supply.\n\n# Tax Incidence and Deadweight Loss\n## Per-Unit Tax\nA per-unit tax of amount \\(t\\) creates a wedge between the price buyers pay and the price sellers receive. The tax can be imposed on either buyers or sellers with the same final outcome.\n\n\nWhen a tax \\(t\\) is imposed on sellers, the supply curve shifts up by \\(t\\): - Original supply: \\(Q_S = c + dP_S\\) - After-tax supply: \\(Q_S = c + d(P_B - t) = (c - dt) + dP_B\\)\n## Tax Incidence\nThe tax incidence shows how the tax burden is split between buyers and sellers:\n\nBuyers’ burden: \\(\\Delta P_B = P_B^* - P^* = \\frac{d}{b+d} \\cdot t\\)\nSellers’ burden: \\(\\Delta P_S = P^* - P_S^* = \\frac{b}{b+d} \\cdot t\\)\nThe side of the market with less elastic (steeper) curve bears more of the tax burden.\n\n\n# Price Controls\n## Price Floors\nA price floor is a minimum legal price. It’s only binding when set above equilibrium.\n\n\n\n\nA price ceiling is a maximum legal price. It’s only binding when set below equilibrium.\n\n# Price Elasticity of Demand\n## Definition and Formula\nPrice elasticity of demand measures the responsiveness of quantity demanded to price changes:\n\\[\\varepsilon = \\frac{\\% \\text{ change in } Q_D}{\\% \\text{ change in } P} = \\frac{dQ_D/dP \\cdot P}{Q_D}\\]\nFor linear demand \\(Q_D = a - bP\\): \\[\\varepsilon = -b \\cdot \\frac{P}{Q}\\]\n## Interpreting Elasticity\n\n\\(|\\varepsilon| &gt; 1\\): Elastic (quantity very responsive to price)\n\\(|\\varepsilon| = 1\\): Unit elastic (proportional response)\n\n\\(|\\varepsilon| &lt; 1\\): Inelastic (quantity less responsive to price)\n\n\n\n\nElasticity varies along a linear demand curve:\n\n# Summary and Key Takeaways\n## Market Mechanics 1. Linear demand: \\(Q_D = a - bP\\) (negative slope) 2. Linear supply: \\(Q_S = c + dP\\) (positive slope)\n3. Equilibrium: Where \\(Q_D = Q_S\\), solving for \\(P^*\\) and \\(Q^*\\)\n## Welfare Analysis - Consumer Surplus: Area under demand curve, above price - Producer Surplus: Area above supply curve, below price - Total Surplus: \\(CS + PS\\) measures market efficiency\n\n\n\n\nTaxes: Create deadweight loss, incidence depends on relative elasticities\nPrice floors: Binding when above equilibrium → surplus\nPrice ceilings: Binding when below equilibrium → shortage\n\n\n\n\n\nMeasures price responsiveness of demand\nVaries along linear demand curves\nKey for predicting policy impacts and business decisions\n\nThis comprehensive treatment of linear demand and supply models provides the foundation for understanding market behavior, policy impacts, and welfare analysis in microeconomics. The mathematical tools and graphical techniques demonstrated here are essential for analyzing real-world economic phenomena.",
+    "crumbs": [
+      "Home",
+      "Welcome to Microeconomics",
+      "Assignments",
+      "Linear Demand and Supply Models"
+    ]
+  },
+  {
+    "objectID": "microeconomics/assignments/supply-demand-equilibrium.html#the-linear-supply-curve",
+    "href": "microeconomics/assignments/supply-demand-equilibrium.html#the-linear-supply-curve",
+    "title": "Linear Demand and Supply Models",
+    "section": "",
+    "text": "A linear supply curve has the form:\n\\[Q_S = c + dP\\]\nwhere: - \\(c\\) can be positive or negative (quantity intercept) - \\(d &gt; 0\\) is the slope parameter (positive relationship between price and quantity) - If \\(c &lt; 0\\), the supply curve has a minimum price \\(P = -\\frac{c}{d}\\) before positive quantities\n\n# Market Equilibrium\n## Finding Equilibrium Algebraically\nMarket equilibrium occurs where \\(Q_D = Q_S\\):\nFor our example: \\(Q_D = 120 - 4P\\) and \\(Q_S = -20 + 6P\\)\n\\[120 - 4P = -20 + 6P\\] \\[140 = 10P\\] \\[P^* = 14\\]\nSubstituting back: \\(Q^* = 120 - 4(14) = 64\\)\n## General Equilibrium Formula\nFor general linear curves \\(Q_D = a - bP\\) and \\(Q_S = c + dP\\):\n\\[P^* = \\frac{a - c}{b + d}\\]\n\\[Q^* = \\frac{ad + bc}{b + d}\\]\n\n# Market Shifts\n## Demand Shifts\nAn increase in demand shifts the entire demand curve rightward (parallel shift). This could result from: - Increase in consumer income (normal goods) - Increase in price of substitutes - Decrease in price of complements - Positive change in consumer preferences\n\n# Consumer and Producer Surplus\n## Consumer Surplus\nConsumer surplus is the area between the demand curve and the market price, representing the net benefit to consumers.\nFor a linear demand curve, consumer surplus is: \\[CS = \\frac{1}{2}(P_{choke} - P^*)Q^*\\]\nwhere \\(P_{choke} = \\frac{a}{b}\\) is the price intercept of demand.",
+    "crumbs": [
+      "Home",
+      "Welcome to Microeconomics",
+      "Assignments",
+      "Linear Demand and Supply Models"
+    ]
+  },
+  {
+    "objectID": "microeconomics/assignments/supply-demand-equilibrium.html#producer-surplus",
+    "href": "microeconomics/assignments/supply-demand-equilibrium.html#producer-surplus",
+    "title": "Linear Demand and Supply Models",
+    "section": "",
+    "text": "Producer surplus is the area between the market price and the supply curve, representing the net benefit to producers.\nFor a linear supply curve, producer surplus is: \\[PS = \\frac{1}{2}(P^* - P_{min})Q^*\\]\nwhere \\(P_{min} = -\\frac{c}{d}\\) is the minimum price for positive supply.\n\n# Tax Incidence and Deadweight Loss\n## Per-Unit Tax\nA per-unit tax of amount \\(t\\) creates a wedge between the price buyers pay and the price sellers receive. The tax can be imposed on either buyers or sellers with the same final outcome.\n\n\nWhen a tax \\(t\\) is imposed on sellers, the supply curve shifts up by \\(t\\): - Original supply: \\(Q_S = c + dP_S\\) - After-tax supply: \\(Q_S = c + d(P_B - t) = (c - dt) + dP_B\\)\n## Tax Incidence\nThe tax incidence shows how the tax burden is split between buyers and sellers:\n\nBuyers’ burden: \\(\\Delta P_B = P_B^* - P^* = \\frac{d}{b+d} \\cdot t\\)\nSellers’ burden: \\(\\Delta P_S = P^* - P_S^* = \\frac{b}{b+d} \\cdot t\\)\nThe side of the market with less elastic (steeper) curve bears more of the tax burden.\n\n\n# Price Controls\n## Price Floors\nA price floor is a minimum legal price. It’s only binding when set above equilibrium.",
+    "crumbs": [
+      "Home",
+      "Welcome to Microeconomics",
+      "Assignments",
+      "Linear Demand and Supply Models"
+    ]
+  },
+  {
+    "objectID": "microeconomics/assignments/supply-demand-equilibrium.html#price-ceilings",
+    "href": "microeconomics/assignments/supply-demand-equilibrium.html#price-ceilings",
+    "title": "Linear Demand and Supply Models",
+    "section": "",
+    "text": "A price ceiling is a maximum legal price. It’s only binding when set below equilibrium.\n\n# Price Elasticity of Demand\n## Definition and Formula\nPrice elasticity of demand measures the responsiveness of quantity demanded to price changes:\n\\[\\varepsilon = \\frac{\\% \\text{ change in } Q_D}{\\% \\text{ change in } P} = \\frac{dQ_D/dP \\cdot P}{Q_D}\\]\nFor linear demand \\(Q_D = a - bP\\): \\[\\varepsilon = -b \\cdot \\frac{P}{Q}\\]\n## Interpreting Elasticity\n\n\\(|\\varepsilon| &gt; 1\\): Elastic (quantity very responsive to price)\n\\(|\\varepsilon| = 1\\): Unit elastic (proportional response)\n\n\\(|\\varepsilon| &lt; 1\\): Inelastic (quantity less responsive to price)",
+    "crumbs": [
+      "Home",
+      "Welcome to Microeconomics",
+      "Assignments",
+      "Linear Demand and Supply Models"
+    ]
+  },
+  {
+    "objectID": "microeconomics/assignments/supply-demand-equilibrium.html#elasticity-along-linear-demand",
+    "href": "microeconomics/assignments/supply-demand-equilibrium.html#elasticity-along-linear-demand",
+    "title": "Linear Demand and Supply Models",
+    "section": "",
+    "text": "Elasticity varies along a linear demand curve:\n\n# Summary and Key Takeaways\n## Market Mechanics 1. Linear demand: \\(Q_D = a - bP\\) (negative slope) 2. Linear supply: \\(Q_S = c + dP\\) (positive slope)\n3. Equilibrium: Where \\(Q_D = Q_S\\), solving for \\(P^*\\) and \\(Q^*\\)\n## Welfare Analysis - Consumer Surplus: Area under demand curve, above price - Producer Surplus: Area above supply curve, below price - Total Surplus: \\(CS + PS\\) measures market efficiency",
+    "crumbs": [
+      "Home",
+      "Welcome to Microeconomics",
+      "Assignments",
+      "Linear Demand and Supply Models"
+    ]
+  },
+  {
+    "objectID": "microeconomics/assignments/supply-demand-equilibrium.html#policy-effects",
+    "href": "microeconomics/assignments/supply-demand-equilibrium.html#policy-effects",
+    "title": "Linear Demand and Supply Models",
+    "section": "",
+    "text": "Taxes: Create deadweight loss, incidence depends on relative elasticities\nPrice floors: Binding when above equilibrium → surplus\nPrice ceilings: Binding when below equilibrium → shortage",
+    "crumbs": [
+      "Home",
+      "Welcome to Microeconomics",
+      "Assignments",
+      "Linear Demand and Supply Models"
+    ]
+  },
+  {
+    "objectID": "microeconomics/assignments/supply-demand-equilibrium.html#elasticity-insights",
+    "href": "microeconomics/assignments/supply-demand-equilibrium.html#elasticity-insights",
+    "title": "Linear Demand and Supply Models",
+    "section": "",
+    "text": "Measures price responsiveness of demand\nVaries along linear demand curves\nKey for predicting policy impacts and business decisions\n\nThis comprehensive treatment of linear demand and supply models provides the foundation for understanding market behavior, policy impacts, and welfare analysis in microeconomics. The mathematical tools and graphical techniques demonstrated here are essential for analyzing real-world economic phenomena.",
+    "crumbs": [
+      "Home",
+      "Welcome to Microeconomics",
+      "Assignments",
+      "Linear Demand and Supply Models"
+    ]
+  },
+  {
+    "objectID": "microeconomics/assignments/supply-demand-equilibrium-updated.html",
+    "href": "microeconomics/assignments/supply-demand-equilibrium-updated.html",
+    "title": "The Economics Experience",
+    "section": "",
+    "text": "Here’s the updated supply-demand-equilibrium.qmd with a new Graph Paper Grids section and ggplot2 code for background grids:\n---\ntitle: \"Linear Demand and Supply Models\"\nsubtitle: \"Based on Cowen & Tabarrok MRU Principles of Microeconomics, Ch. 3–4\"\nauthor: \"Professor [Your Name]\"\ndate: today\nformat:\n  html:\n    toc: true\n    toc-depth: 3\n    code-fold: false\n    theme: cosmo\n  pdf:\n    toc: true\n    number-sections: true\n    geometry: margin=1in\nexecute:\n  warning: false\n  message: false\n---\n\n\n\n# Graph Paper Grids\n\nThis section overlays demand and supply curves onto a graph-paper style grid (light gray major and minor grid lines) to aid students in reading values directly from the plot.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Sample curves for demonstration\n demand &lt;- create_demand(120, 4)\n supply &lt;- create_supply(-20, 6)\n p_vals &lt;- seq(0, 35, 0.5)\n df_grid &lt;- tibble(\n   P = p_vals,\n   Qd = demand(p_vals),\n   Qs = supply(p_vals)\n )\n\n ggplot(df_grid, aes(x = Qd, y = P)) +\n   # Graph-paper grid with major and minor lines\n   geom_hline(yintercept = seq(0, 35, 5), color = grid_color, size = 0.3) +\n   geom_vline(xintercept = seq(0, 140, 20), color = grid_color, size = 0.3) +\n   geom_hline(yintercept = seq(0, 35, 1), color = grid_color, linetype = \"dotted\", size = 0.2) +\n   geom_vline(xintercept = seq(0, 140, 5), color = grid_color, linetype = \"dotted\", size = 0.2) +\n   # Demand and supply curves\n   geom_line(aes(x = Qd, y = P), color = demand_color, size = 1.2) +\n   geom_line(data = df_grid, aes(x = Qs, y = P), color = supply_color, size = 1.2) +\n   # Equilibrium point\n   geom_point(aes(x = 64, y = 14), color = equilibrium_color, size = 3) +\n   annotate(\"text\", x = 64, y = 14 + 2, label = \"(64,14)\", color = equilibrium_color, fontface = \"bold\") +\n   labs(\n     title = \"Supply and Demand with Graph-Paper Grid\",\n     x = \"Quantity (Q)\",\n     y = \"Price (P)\"\n   ) +\n   xlim(0, 140) + ylim(0, 35)\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead.\n\n\nWarning in geom_point(aes(x = 64, y = 14), color = equilibrium_color, size = 3): All aesthetics have length 1, but the data has 71 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.\n\n\nWarning: Removed 17 rows containing missing values or values outside the scale range\n(`geom_line()`).\n\n\n\n\n\n\n\n\n:::\n\n```\n\n\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "Welcome to Microeconomics",
+      "Assignments",
+      "```qmd"
+    ]
   }
 ]

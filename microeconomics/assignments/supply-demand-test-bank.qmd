@@ -1,0 +1,243 @@
+---
+title: "Linear Demand and Supply Model Test Bank"
+subtitle: "Based on Cowen & Tabarrok MRU Principles of Microeconomics (Chapters 3-4)"
+author: "Professor"
+date: today
+format:
+  pdf:
+    documentclass: article
+    geometry: 
+      - top=1in
+      - bottom=1in
+      - left=1in
+      - right=1in
+    fontsize: 12pt
+    include-in-header:
+      text: |
+        \usepackage{amsmath}
+        \usepackage{amsfonts}
+        \usepackage{graphicx}
+        \usepackage{setspace}
+        \onehalfspacing
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(knitr)
+```
+
+# Instructions
+
+**Name:** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+**Date:** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+This worksheet covers linear demand and supply models. Show all work clearly and label all graphs completely. Use the space provided for your answers.
+
+---
+
+## Section A: Graphing Questions (20 points, 4 points each)
+
+**A1.** Consider the linear demand curve `$Q_D = 100 - 2P$` and the linear supply curve `$Q_S = -20 + 3P$`.
+
+On the grid below, graph both curves and clearly label:
+- Both intercepts for each curve
+- The equilibrium point $(P^*, Q^*)$
+- Axes with appropriate labels
+
+\vspace{3in}
+
+**A2.** Starting with demand `$Q_D = 80 - 4P$` and supply `$Q_S = -40 + 2P$`, show the effect of an increase in demand by 30 units at every price level.
+
+Graph the original equilibrium and the new equilibrium after the demand shift. Use arrows to show the direction of change in price and quantity.
+
+\vspace{3in}
+
+**A3.** A per-unit tax of $t = 6$ is imposed on sellers in a market with demand `$Q_D = 120 - 3P$` and supply `$Q_S = -30 + 2P$`.
+
+Draw the original supply and demand curves, then show the after-tax supply curve. Shade the tax wedge and label the prices paid by buyers and received by sellers.
+
+\vspace{3in}
+
+**A4.** A price floor of $P_f = 25$ is set in a market with demand `$Q_D = 150 - 2P$` and supply `$Q_S = -50 + 4P$`.
+
+Graph the market with the price floor and identify any surplus or shortage that results. Show the unconstrained equilibrium for comparison.
+
+\vspace{3in}
+
+**A5.** A price ceiling of $P_c = 15$ is imposed in a market with demand `$Q_D = 180 - 4P$` and supply `$Q_S = -60 + 6P$`.
+
+Graph the market with the price ceiling and identify any surplus or shortage. Mark both the ceiling quantity and the equilibrium quantity.
+
+\vspace{3in}
+
+---
+
+## Section B: Definition Questions (20 points, 4 points each)
+
+**B1.** Define **consumer surplus** and explain how it is calculated for a linear demand curve.
+
+\vspace{1.5in}
+
+**B2.** Define **producer surplus** and explain how it is calculated for a linear supply curve.
+
+\vspace{1.5in}
+
+**B3.** Explain the difference between a "change in demand" and a "change in quantity demanded."
+
+\vspace{1.5in}
+
+**B4.** Define **deadweight loss** and explain when it occurs in markets.
+
+\vspace{1.5in}
+
+**B5.** Define **price elasticity of demand** and state its formula for a linear demand curve.
+
+\vspace{1.5in}
+
+---
+
+## Section C: Synthesis Questions (20 points, 4 points each)
+
+**C1.** For general linear demand `$Q_D = a - bP$` and supply `$Q_S = c + dP$` (where $a, b, c, d > 0$ and $c < a$), derive the equilibrium price and quantity in terms of these parameters.
+
+\vspace{2in}
+
+**C2.** Using the curves from C1, if a per-unit tax $t$ is imposed on sellers, derive expressions for the new equilibrium price paid by buyers and the price received by sellers.
+
+\vspace{2in}
+
+**C3.** Explain why the side of the market on which a tax is imposed (buyers vs. sellers) does not affect the final equilibrium quantity or the distribution of the tax burden.
+
+\vspace{2in}
+
+**C4.** For a binding price ceiling, explain how to calculate the resulting shortage and describe one efficiency problem that typically results.
+
+\vspace{2in}
+
+**C5.** Given linear demand and supply curves, derive a general formula for consumer surplus at the competitive equilibrium in terms of the curve parameters.
+
+\vspace{2in}
+
+---
+
+## Section D: Numerical Problems (20 points, 4 points each)
+
+**D1.** Given `$Q_D = 90 - 3P$` and `$Q_S = -30 + 2P$`:
+a) Find the equilibrium price and quantity.
+b) Calculate consumer surplus and producer surplus.
+
+\vspace{2in}
+
+**D2.** With `$Q_D = 60 - 2P$` and `$Q_S = -20 + 3P$`, a per-unit tax of $t = 10$ is imposed on sellers.
+a) Find the new equilibrium quantity and the prices paid by buyers and received by sellers.
+b) Calculate the tax revenue and deadweight loss.
+
+\vspace{2in}
+
+**D3.** A price floor of $P_f = 20$ is set in a market with `$Q_D = 140 - 3P$` and `$Q_S = -40 + 2P$`.
+a) Determine if the floor is binding.
+b) If binding, calculate the surplus (excess supply).
+
+\vspace{2in}
+
+**D4.** A price ceiling of $P_c = 12$ is imposed with `$Q_D = 100 - 2P$` and `$Q_S = -20 + 4P$`.
+a) Determine if the ceiling is binding.
+b) If binding, calculate the shortage (excess demand).
+
+\vspace{2in}
+
+**D5.** For the demand curve `$Q_D = 80 - 4P$`:
+a) Calculate the price elasticity of demand at $P = 10$.
+b) Determine if demand is elastic, unit elastic, or inelastic at this price.
+
+\vspace{2in}
+
+---
+
+# ANSWER KEY
+
+## Section A: Graphing Questions
+
+**A1.** 
+- Demand intercepts: $(P = 50, Q = 0)$ and $(P = 0, Q = 100)$
+- Supply intercepts: $(P = 6.67, Q = 0)$ and $(P = 0, Q = -20)$
+- Equilibrium: Set $100 - 2P = -20 + 3P$, solve: $120 = 5P$, so $P^* = 24$, $Q^* = 52$
+
+**A2.**
+- Original equilibrium: $80 - 4P = -40 + 2P \Rightarrow 120 = 6P \Rightarrow P^* = 20$, $Q^* = 0$
+- New demand: $Q_D' = 110 - 4P$
+- New equilibrium: $110 - 4P = -40 + 2P \Rightarrow 150 = 6P \Rightarrow P' = 25$, $Q' = 10$
+- Both price and quantity increase
+
+**A3.**
+- Original equilibrium: $120 - 3P = -30 + 2P \Rightarrow 150 = 5P \Rightarrow P^* = 30$, $Q^* = 30$
+- After-tax supply: $Q_S = -30 + 2(P - 6) = -42 + 2P$
+- New equilibrium: $120 - 3P = -42 + 2P \Rightarrow 162 = 5P \Rightarrow P_B = 32.4$, $Q = 22.8$
+- Sellers receive: $P_S = 32.4 - 6 = 26.4$
+
+**A4.**
+- Equilibrium: $150 - 2P = -50 + 4P \Rightarrow 200 = 6P \Rightarrow P^* = 33.33$, $Q^* = 83.33$
+- Since $P_f = 25 < P^* = 33.33$, the floor is not binding
+- No surplus or shortage results
+
+**A5.**
+- Equilibrium: $180 - 4P = -60 + 6P \Rightarrow 240 = 10P \Rightarrow P^* = 24$, $Q^* = 84$
+- Since $P_c = 15 < P^* = 24$, the ceiling is binding
+- At $P = 15$: $Q_D = 120$, $Q_S = 30$
+- Shortage = $120 - 30 = 90$
+
+## Section B: Definition Questions
+
+**B1.** Consumer surplus is the area between the demand curve and the market price, representing the difference between what consumers are willing to pay and what they actually pay. For a linear demand curve, CS = $\frac{1}{2} \times \text{base} \times \text{height} = \frac{1}{2} \times Q^* \times (P_{\text{choke}} - P^*)$
+
+**B2.** Producer surplus is the area between the market price and the supply curve, representing the difference between what producers receive and their minimum acceptable price. For a linear supply curve, PS = $\frac{1}{2} \times Q^* \times (P^* - P_{\text{minimum}})$
+
+**B3.** A "change in demand" refers to a shift of the entire demand curve due to factors other than price (income, preferences, etc.). A "change in quantity demanded" refers to movement along a fixed demand curve due to a price change.
+
+**B4.** Deadweight loss is the loss of economic efficiency that occurs when the equilibrium outcome is not achieved, typically due to market interventions like taxes, price controls, or monopoly power. It represents mutually beneficial trades that do not occur.
+
+**B5.** Price elasticity of demand measures the responsiveness of quantity demanded to price changes. For linear demand $Q_D = a - bP$: 
+$$\varepsilon = \frac{\partial Q}{\partial P} \times \frac{P}{Q} = -b \times \frac{P}{Q}$$
+
+## Section C: Synthesis Questions
+
+**C1.** Setting $Q_D = Q_S$: $a - bP = c + dP$
+Solving: $P^* = \frac{a - c}{b + d}$ and $Q^* = \frac{ad + bc}{b + d}$
+
+**C2.** With tax $t$ on sellers, after-tax supply becomes $Q_S = c + d(P - t)$
+New equilibrium: $P_B^* = \frac{a - c + dt}{b + d}$ and $P_S^* = P_B^* - t = \frac{a - c - bt}{b + d}$
+
+**C3.** Whether the tax is imposed on buyers or sellers, it creates the same vertical wedge of size $t$ between the price paid and price received. The final equilibrium depends only on the size of this wedge, not which side initially bears the tax. The economic incidence is determined by the relative elasticities of supply and demand.
+
+**C4.** Shortage = $Q_D(P_c) - Q_S(P_c)$ where $P_c$ is the ceiling price. Efficiency problem: Prevents mutually beneficial trades from occurring, creates deadweight loss, and may lead to non-price rationing mechanisms that don't allocate goods to those who value them most.
+
+**C5.** Consumer surplus at equilibrium:
+$$CS = \frac{1}{2} \times Q^* \times (P_{\text{choke}} - P^*) = \frac{1}{2} \times \frac{ad + bc}{b + d} \times \frac{c}{b + d} = \frac{c(ad + bc)}{2(b + d)^2}$$
+
+## Section D: Numerical Problems
+
+**D1.** 
+a) $90 - 3P = -30 + 2P \Rightarrow 120 = 5P \Rightarrow P^* = 24$, $Q^* = 18$
+b) CS = $\frac{1}{2} \times 18 \times (30 - 24) = 54$; PS = $\frac{1}{2} \times 18 \times (24 - 15) = 81$
+
+**D2.**
+a) After-tax supply: $Q_S = -20 + 3(P - 10) = -50 + 3P$
+   New equilibrium: $60 - 2P = -50 + 3P \Rightarrow 110 = 5P \Rightarrow P_B = 22$, $Q = 16$
+   $P_S = 22 - 10 = 12$
+b) Tax revenue = $10 \times 16 = 160$; Original $Q^* = 20$, DWL = $\frac{1}{2} \times 10 \times 4 = 20$
+
+**D3.**
+a) $140 - 3P = -40 + 2P \Rightarrow 180 = 5P \Rightarrow P^* = 36$
+   Since $P_f = 20 < P^* = 36$, floor is not binding
+b) No surplus results
+
+**D4.**
+a) $100 - 2P = -20 + 4P \Rightarrow 120 = 6P \Rightarrow P^* = 20$
+   Since $P_c = 12 < P^* = 20$, ceiling is binding
+b) At $P = 12$: $Q_D = 76$, $Q_S = 28$, Shortage = $76 - 28 = 48$
+
+**D5.**
+a) At $P = 10$: $Q = 80 - 4(10) = 40$
+   $\varepsilon = -4 \times \frac{10}{40} = -1$
+b) $|\varepsilon| = 1$, so demand is unit elastic

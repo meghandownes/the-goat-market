@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Professor [Your Name]">
+<meta name="dcterms.date" content="2025-10-08">
 
-<title>Lab 1: Scavenger Hunt – The Economics Experience</title>
+<title>Linear Demand and Supply Models – The Economics Experience</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -39,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-697313df19b4b029016be603f33abac8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-c2a174d10535f338b43dafb3fd39464a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,11 +105,40 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -120,7 +186,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../macroeconomics/index.html">Welcome to Macroeconomics</a></li><li class="breadcrumb-item"><a href="../../macroeconomics/assignments/lab-1-scavenger-hunt.html">Assignments</a></li><li class="breadcrumb-item"><a href="../../macroeconomics/assignments/lab-1-scavenger-hunt.html">Lab 1: Scavenger Hunt</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../microeconomics/index.html">Welcome to Microeconomics</a></li><li class="breadcrumb-item"><a href="../../microeconomics/assignments/supply-demand-equilibrium.html">Assignments</a></li><li class="breadcrumb-item"><a href="../../microeconomics/assignments/supply-demand-equilibrium.html">Linear Demand and Supply Models</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -151,13 +217,19 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../macroeconomics/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome to Macroeconomics</span></a>
+            <a href="../../microeconomics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome to Microeconomics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../microeconomics/firebase-debug.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Firebase Debug Test</span></a>
+  </div>
+</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
@@ -169,38 +241,32 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../macroeconomics/assignments/lab-1-scavenger-hunt.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Lab 1: Scavenger Hunt</span></a>
+  <a href="../../microeconomics/assignments/supply-demand-equilibrium.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Linear Demand and Supply Models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../macroeconomics/assignments/lab-2-opportunity-cost.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 2: Opportunity Cost</span></a>
+  <a href="../../microeconomics/assignments/supply-demand-equilibrium-updated.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><code>qmd]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1uZXh0"} [Firebase Debug Test]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1wcmV2"} [Home]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9pbmRleC5odG1sSG9tZQ=="} [Welcome to Microeconomics]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOnF1YXJ0by1zaWRlYmFyLXNlY3Rpb24tMQ=="} [Firebase Debug Test]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9taWNyb2Vjb25vbWljcy9maXJlYmFzZS1kZWJ1Zy5odG1sRmlyZWJhc2UtRGVidWctVGVzdA=="} [Assignments]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOnF1YXJ0by1zaWRlYmFyLXNlY3Rpb24tMg=="} [Linear Demand and Supply Models]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9taWNyb2Vjb25vbWljcy9hc3NpZ25tZW50cy9zdXBwbHktZGVtYW5kLWVxdWlsaWJyaXVtLmh0bWxMaW5lYXItRGVtYW5kLWFuZC1TdXBwbHktTW9kZWxz"} [</code>qmd</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../macroeconomics/assignments/lab-3-team-ai-vs-team-human-macro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 3: Team AI vs Team Human Research</span></a>
+  <a href="../../microeconomics/assignments/supply-demand-equilibrium-updated (1).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">supply-demand-equilibrium-updated (1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../macroeconomics/assignments/lab-4-htmlwidgets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 4: The Process of Wealth Creation - Interactive Assignment</span></a>
+  <a href="../../microeconomics/assignments/supply-demand-equilibrium-updated (2).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sample curves for demonstration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../macroeconomics/assignments/lab-4-process-of-wealth-creation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 4: The Process of Wealth Creation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../macroeconomics/assignments/solow-corrected.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Solow Growth Model Test Bank</span></a>
+  <a href="../../microeconomics/assignments/supply-demand-test-bank.pdf" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Demand and Supply Model Test Bank</span></a>
   </div>
 </li>
       </ul>
@@ -208,7 +274,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">class materials</span></a>
+ <span class="menu-text">Lectures</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -216,37 +282,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../macroeconomics/class materials/lecture-1-big-ideas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lecture 1: The Big Ideas of Economics</span></a>
+  <a href="../../microeconomics/lectures/demand-analysis-slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Deriving Demand for Rum and Swords</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../macroeconomics/class materials/lecture-3-gdp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Gross Domestic Product</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
- <span class="menu-text">course information</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../macroeconomics/course information/guide-1-obsidian-student-guide.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Obsidian Set Up Guide</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../macroeconomics/course information/syllabus-fa-25-downes-macro-2110-m03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">FALL2020 ECON2110G Syllabus</span></a>
+  <a href="../../microeconomics/lectures/human-vs-ai-updated.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Human vs AI Score Analysis with Section Comparison</span></a>
   </div>
 </li>
       </ul>
@@ -258,20 +301,52 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#graph-paper-grids" id="toc-graph-paper-grids" class="nav-link active" data-scroll-target="#graph-paper-grids">Graph Paper Grids</a>
+  <ul class="collapse">
+  <li><a href="#the-linear-supply-curve" id="toc-the-linear-supply-curve" class="nav-link" data-scroll-target="#the-linear-supply-curve">The Linear Supply Curve</a></li>
+  <li><a href="#producer-surplus" id="toc-producer-surplus" class="nav-link" data-scroll-target="#producer-surplus">Producer Surplus</a>
+  <ul class="collapse">
+  <li><a href="#tax-on-sellers" id="toc-tax-on-sellers" class="nav-link" data-scroll-target="#tax-on-sellers">Tax on Sellers</a></li>
+  </ul></li>
+  <li><a href="#price-ceilings" id="toc-price-ceilings" class="nav-link" data-scroll-target="#price-ceilings">Price Ceilings</a></li>
+  <li><a href="#elasticity-along-linear-demand" id="toc-elasticity-along-linear-demand" class="nav-link" data-scroll-target="#elasticity-along-linear-demand">Elasticity Along Linear Demand</a></li>
+  <li><a href="#policy-effects" id="toc-policy-effects" class="nav-link" data-scroll-target="#policy-effects">Policy Effects</a></li>
+  <li><a href="#elasticity-insights" id="toc-elasticity-insights" class="nav-link" data-scroll-target="#elasticity-insights">Elasticity Insights</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="supply-demand-equilibrium.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../macroeconomics/index.html">Welcome to Macroeconomics</a></li><li class="breadcrumb-item"><a href="../../macroeconomics/assignments/lab-1-scavenger-hunt.html">Assignments</a></li><li class="breadcrumb-item"><a href="../../macroeconomics/assignments/lab-1-scavenger-hunt.html">Lab 1: Scavenger Hunt</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../microeconomics/index.html">Welcome to Microeconomics</a></li><li class="breadcrumb-item"><a href="../../microeconomics/assignments/supply-demand-equilibrium.html">Assignments</a></li><li class="breadcrumb-item"><a href="../../microeconomics/assignments/supply-demand-equilibrium.html">Linear Demand and Supply Models</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Lab 1: Scavenger Hunt</h1>
+<h1 class="title">Linear Demand and Supply Models</h1>
+<p class="subtitle lead">Based on Cowen &amp; Tabarrok MRU Principles of Microeconomics, Ch. 3–4</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Professor [Your Name] </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 8, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -281,31 +356,167 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>For our first “Lab” you will be pairing up with someone in the class and going on a scavenger hunt. You have three things and a bonus to find. All of these are real objects, and really on campus. While you are exploring campus get to know your classmate(s). Ask questions about where they are from and what they like. Are they math-y people or arts-y people? What do they think they want to be “when they grow up”? You will write a short paragraph about your class mate to add to your scavenger hunt.</p>
+<section id="graph-paper-grids" class="level1">
+<h1>Graph Paper Grids</h1>
+<p>This section overlays demand and supply curves onto a graph-paper style grid (light gray major and minor grid lines) to aid students in reading values directly from the plot. Here’s the updated <code>graph-paper</code> section with negative supply values filtered out, preventing the flat 0 segments at small P:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample curves for demonstration</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> demand <span class="ot">&lt;-</span> <span class="fu">create_demand</span>(<span class="dv">120</span>, <span class="dv">4</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> supply <span class="ot">&lt;-</span> <span class="fu">create_supply</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">6</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a> p_vals <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">35</span>, <span class="fl">0.5</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a> df_grid <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>   <span class="at">P =</span> p_vals,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>   <span class="at">Qd =</span> <span class="fu">demand</span>(p_vals),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>   <span class="at">Qs =</span> <span class="fu">supply</span>(p_vals)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a> )</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a> eq_point <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Q =</span> <span class="dv">64</span>, <span class="at">P =</span> <span class="dv">14</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a> <span class="co"># Filter supply to positive quantities to remove jagged zero segment</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a> df_supply <span class="ot">&lt;-</span> <span class="fu">filter</span>(df_grid, Qs <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a> df_demand <span class="ot">&lt;-</span> <span class="fu">filter</span>(df_grid, Qd <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Graph-paper grid</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">35</span>, <span class="dv">5</span>), <span class="at">color =</span> grid_color, <span class="at">size =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">140</span>, <span class="dv">20</span>), <span class="at">color =</span> grid_color, <span class="at">size =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">35</span>, <span class="dv">1</span>), <span class="at">color =</span> grid_color, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">size =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">140</span>, <span class="dv">5</span>), <span class="at">color =</span> grid_color, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">size =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Demand curve (all Qd &gt;= 0)</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="at">data =</span> df_demand, <span class="fu">aes</span>(<span class="at">x =</span> Qd, <span class="at">y =</span> P), <span class="at">color =</span> demand_color, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Supply curve only where Qs &gt; 0</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="at">data =</span> df_supply, <span class="fu">aes</span>(<span class="at">x =</span> Qs, <span class="at">y =</span> P), <span class="at">color =</span> supply_color, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Equilibrium point</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_point</span>(<span class="at">data =</span> eq_point, <span class="fu">aes</span>(<span class="at">x =</span> Q, <span class="at">y =</span> P), <span class="at">color =</span> equilibrium_color, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>   <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">64</span>, <span class="at">y =</span> <span class="dv">16</span>, <span class="at">label =</span> <span class="st">"(64, 14)"</span>, <span class="at">color =</span> equilibrium_color, <span class="at">fontface =</span> <span class="st">"bold"</span>) <span class="sc">+</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>     <span class="at">title =</span> <span class="st">"Supply and Demand with Graph-Paper Grid"</span>,</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>     <span class="at">x =</span> <span class="st">"Quantity (Q)"</span>,</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> <span class="st">"Price (P)"</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>   ) <span class="sc">+</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>   <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">140</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">35</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="supply-demand-equilibrium_files/figure-html/grid-plot-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This filters out the jagged zeros of the supply curve for prices where supply is zero or negative.</p>
+<p># Introduction to Linear Demand and Supply</p>
+<p>## Learning Objectives</p>
+<p>By the end of this lecture, you will be able to:</p>
+<ol type="1">
+<li><strong>Define and graph</strong> linear demand and supply functions</li>
+<li><strong>Calculate</strong> market equilibrium algebraically and graphically</li>
+<li><strong>Analyze</strong> the effects of market shifts on equilibrium</li>
+<li><strong>Compute</strong> consumer and producer surplus</li>
+<li><strong>Evaluate</strong> the impacts of taxes and price controls</li>
+<li><strong>Apply</strong> elasticity concepts to linear demand curves</li>
+</ol>
+<p># Linear Demand and Supply Functions</p>
+<p>## The Linear Demand Curve</p>
+<p>A <strong>linear demand curve</strong> has the form:</p>
+<p><span class="math display">\[Q_D = a - bP\]</span></p>
+<p>where: - <span class="math inline">\(a &gt; 0\)</span> is the quantity intercept (maximum quantity when <span class="math inline">\(P = 0\)</span>) - <span class="math inline">\(b &gt; 0\)</span> is the slope parameter (how responsive quantity is to price) - The price intercept occurs at <span class="math inline">\(P = \frac{a}{b}\)</span> (choke price)</p>
+<section id="the-linear-supply-curve" class="level2">
+<h2 class="anchored" data-anchor-id="the-linear-supply-curve">The Linear Supply Curve</h2>
+<p>A <strong>linear supply curve</strong> has the form:</p>
+<p><span class="math display">\[Q_S = c + dP\]</span></p>
+<p>where: - <span class="math inline">\(c\)</span> can be positive or negative (quantity intercept) - <span class="math inline">\(d &gt; 0\)</span> is the slope parameter (positive relationship between price and quantity) - If <span class="math inline">\(c &lt; 0\)</span>, the supply curve has a minimum price <span class="math inline">\(P = -\frac{c}{d}\)</span> before positive quantities</p>
+<hr>
+<p># Market Equilibrium</p>
+<p>## Finding Equilibrium Algebraically</p>
+<p>Market equilibrium occurs where <span class="math inline">\(Q_D = Q_S\)</span>:</p>
+<p>For our example: <span class="math inline">\(Q_D = 120 - 4P\)</span> and <span class="math inline">\(Q_S = -20 + 6P\)</span></p>
+<p><span class="math display">\[120 - 4P = -20 + 6P\]</span> <span class="math display">\[140 = 10P\]</span> <span class="math display">\[P^* = 14\]</span></p>
+<p>Substituting back: <span class="math inline">\(Q^* = 120 - 4(14) = 64\)</span></p>
+<p>## General Equilibrium Formula</p>
+<p>For general linear curves <span class="math inline">\(Q_D = a - bP\)</span> and <span class="math inline">\(Q_S = c + dP\)</span>:</p>
+<p><span class="math display">\[P^* = \frac{a - c}{b + d}\]</span></p>
+<p><span class="math display">\[Q^* = \frac{ad + bc}{b + d}\]</span></p>
+<hr>
+<p># Market Shifts</p>
+<p>## Demand Shifts</p>
+<p>An <strong>increase in demand</strong> shifts the entire demand curve rightward (parallel shift). This could result from: - Increase in consumer income (normal goods) - Increase in price of substitutes - Decrease in price of complements - Positive change in consumer preferences</p>
+<hr>
+<p># Consumer and Producer Surplus</p>
+<p>## Consumer Surplus</p>
+<p><strong>Consumer surplus</strong> is the area between the demand curve and the market price, representing the net benefit to consumers.</p>
+<p>For a linear demand curve, consumer surplus is: <span class="math display">\[CS = \frac{1}{2}(P_{choke} - P^*)Q^*\]</span></p>
+<p>where <span class="math inline">\(P_{choke} = \frac{a}{b}\)</span> is the price intercept of demand.</p>
 </section>
-<section id="question-1" class="level1">
-<h1>Question 1</h1>
-<p>Please find the giant monster head. Take a funny picture in front of it with a classmate or two. Then add the picture to your scavenger hunt note.</p>
+<section id="producer-surplus" class="level2">
+<h2 class="anchored" data-anchor-id="producer-surplus">Producer Surplus</h2>
+<p><strong>Producer surplus</strong> is the area between the market price and the supply curve, representing the net benefit to producers.</p>
+<p>For a linear supply curve, producer surplus is: <span class="math display">\[PS = \frac{1}{2}(P^* - P_{min})Q^*\]</span></p>
+<p>where <span class="math inline">\(P_{min} = -\frac{c}{d}\)</span> is the minimum price for positive supply.</p>
+<hr>
+<p># Tax Incidence and Deadweight Loss</p>
+<p>## Per-Unit Tax</p>
+<p>A <strong>per-unit tax</strong> of amount <span class="math inline">\(t\)</span> creates a wedge between the price buyers pay and the price sellers receive. The tax can be imposed on either buyers or sellers with the same final outcome.</p>
+<section id="tax-on-sellers" class="level3">
+<h3 class="anchored" data-anchor-id="tax-on-sellers">Tax on Sellers</h3>
+<p>When a tax <span class="math inline">\(t\)</span> is imposed on sellers, the supply curve shifts up by <span class="math inline">\(t\)</span>: - Original supply: <span class="math inline">\(Q_S = c + dP_S\)</span> - After-tax supply: <span class="math inline">\(Q_S = c + d(P_B - t) = (c - dt) + dP_B\)</span></p>
+<p>## Tax Incidence</p>
+<p>The <strong>tax incidence</strong> shows how the tax burden is split between buyers and sellers:</p>
+<ul>
+<li><p><strong>Buyers’ burden</strong>: <span class="math inline">\(\Delta P_B = P_B^* - P^* = \frac{d}{b+d} \cdot t\)</span></p></li>
+<li><p><strong>Sellers’ burden</strong>: <span class="math inline">\(\Delta P_S = P^* - P_S^* = \frac{b}{b+d} \cdot t\)</span></p>
+<p>The side of the market with <strong>less elastic</strong> (steeper) curve bears more of the tax burden.</p></li>
+</ul>
+<hr>
+<p># Price Controls</p>
+<p>## Price Floors</p>
+<p>A <strong>price floor</strong> is a minimum legal price. It’s only binding when set above equilibrium.</p>
 </section>
-<section id="question-2" class="level1">
-<h1>Question 2</h1>
-<p>Find the whale. Take another silly picture and add it to your note. Where did you find the whale?</p>
 </section>
-<section id="question-3" class="level1">
-<h1>Question 3</h1>
-<p>Find the airplane suspended in the air. Then browse around. Find something interesting that you might buy if you wanted to. How much does it cost? Is that ridiculous or reasonable? What is the per unit price?</p>
+<section id="price-ceilings" class="level2">
+<h2 class="anchored" data-anchor-id="price-ceilings">Price Ceilings</h2>
+<p>A <strong>price ceiling</strong> is a maximum legal price. It’s only binding when set below equilibrium.</p>
+<hr>
+<p># Price Elasticity of Demand</p>
+<p>## Definition and Formula</p>
+<p><strong>Price elasticity of demand</strong> measures the responsiveness of quantity demanded to price changes:</p>
+<p><span class="math display">\[\varepsilon = \frac{\% \text{ change in } Q_D}{\% \text{ change in } P} = \frac{dQ_D/dP \cdot P}{Q_D}\]</span></p>
+<p>For linear demand <span class="math inline">\(Q_D = a - bP\)</span>: <span class="math display">\[\varepsilon = -b \cdot \frac{P}{Q}\]</span></p>
+<p>## Interpreting Elasticity</p>
+<ul>
+<li><span class="math inline">\(|\varepsilon| &gt; 1\)</span>: <strong>Elastic</strong> (quantity very responsive to price)</li>
+<li><span class="math inline">\(|\varepsilon| = 1\)</span>: <strong>Unit elastic</strong> (proportional response)<br>
+</li>
+<li><span class="math inline">\(|\varepsilon| &lt; 1\)</span>: <strong>Inelastic</strong> (quantity less responsive to price)</li>
+</ul>
 </section>
-<section id="bonus-question" class="level1">
-<h1>Bonus Question!</h1>
-<p>Find Sid the Sloth. Where is he? Take a picture and write up some information on Giant Sloths.</p>
+<section id="elasticity-along-linear-demand" class="level2">
+<h2 class="anchored" data-anchor-id="elasticity-along-linear-demand">Elasticity Along Linear Demand</h2>
+<p>Elasticity varies along a linear demand curve:</p>
+<hr>
+<p># Summary and Key Takeaways</p>
+<p>## Market Mechanics 1. <strong>Linear demand</strong>: <span class="math inline">\(Q_D = a - bP\)</span> (negative slope) 2. <strong>Linear supply</strong>: <span class="math inline">\(Q_S = c + dP\)</span> (positive slope)<br>
+3. <strong>Equilibrium</strong>: Where <span class="math inline">\(Q_D = Q_S\)</span>, solving for <span class="math inline">\(P^*\)</span> and <span class="math inline">\(Q^*\)</span></p>
+<p>## Welfare Analysis - <strong>Consumer Surplus</strong>: Area under demand curve, above price - <strong>Producer Surplus</strong>: Area above supply curve, below price - <strong>Total Surplus</strong>: <span class="math inline">\(CS + PS\)</span> measures market efficiency</p>
 </section>
-<section id="question-4" class="level1">
-<h1>Question 4</h1>
-<p>Please write a short paragraph about the person with whom you completed the scavenger hunt.</p>
+<section id="policy-effects" class="level2">
+<h2 class="anchored" data-anchor-id="policy-effects">Policy Effects</h2>
+<ul>
+<li><strong>Taxes</strong>: Create deadweight loss, incidence depends on relative elasticities</li>
+<li><strong>Price floors</strong>: Binding when above equilibrium → surplus</li>
+<li><strong>Price ceilings</strong>: Binding when below equilibrium → shortage</li>
+</ul>
+</section>
+<section id="elasticity-insights" class="level2">
+<h2 class="anchored" data-anchor-id="elasticity-insights">Elasticity Insights</h2>
+<ul>
+<li>Measures price responsiveness of demand</li>
+<li>Varies along linear demand curves</li>
+<li>Key for predicting policy impacts and business decisions</li>
+</ul>
+<p>This comprehensive treatment of linear demand and supply models provides the foundation for understanding market behavior, policy impacts, and welfare analysis in microeconomics. The mathematical tools and graphical techniques demonstrated here are essential for analyzing real-world economic phenomena.</p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
