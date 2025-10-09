@@ -1,0 +1,39 @@
+name: Deploy Quarto Site
+
+on:
+  push:
+  branches:
+  - main
+
+jobs:
+  build-deploy:
+  runs-on: ubuntu-latest
+steps:
+  
+  # 1. Check out the repository
+  - name: Checkout repository
+uses: actions/checkout@v4
+
+# 2. Install R
+- name: Setup R
+uses: r-lib/actions/setup-r@v2
+with:
+  r-version: '4.2'           # or whichever version you need
+use-public-rspm: true      # speeds up CRAN package installs
+
+# 3. Install Quarto CLI
+- name: Install Quarto
+run: |
+  sudo apt-get update
+sudo apt-get install -y wget gdebi-core
+wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.610/quarto-1.4.610-linux-amd64.deb
+sudo gdebi --non-interactive quarto-1.4.610-linux-amd64.deb
+
+# 4. Render and publish the site
+- name: Render Quarto site
+run: quarto render
+
+- name: Publish to GitHub Pages
+run: quarto publish gh-pages --force
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
