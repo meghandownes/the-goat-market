@@ -173,7 +173,6 @@
         "4. Store the token securely (use GitHub Secrets for production)\n",
         "5. Students' responses will appear as comments on the issue"
       ],
-      "id": "5286e280"
     }
   ],
   "metadata": {
