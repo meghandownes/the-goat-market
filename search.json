@@ -1,0 +1,1150 @@
+[
+  {
+    "objectID": "resources/r-statistics.html",
+    "href": "resources/r-statistics.html",
+    "title": "R & Statistics",
+    "section": "",
+    "text": "Content coming soon."
+  },
+  {
+    "objectID": "resources/r-statistics.html#r-statistics-resources",
+    "href": "resources/r-statistics.html#r-statistics-resources",
+    "title": "R & Statistics",
+    "section": "",
+    "text": "Content coming soon."
+  },
+  {
+    "objectID": "resources/lectures/econ304/index.html",
+    "href": "resources/lectures/econ304/index.html",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture materials for ECON304.\nEach lecture renders as a self-contained HTML page with interactive code, graphs, and practice problems.\n← Back to Course Home\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nTime Value of Money: Buying a Tesla\n\n\nFeb 16, 2026\n\n\n\n\n\n\nNo matching items\n Back to top"
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "",
+    "text": "“Why is the rum gone?!” — Captain Jack Sparrow\n\n\n\nBecause Elizabeth burned it to signal the Navy.\nShe made a choice:\n\n✅ Rescue (high value to her)\n❌ Rum (high value to Jack)\n\nSame stuff. Different utilities. Different choices.\nThis is the entire chapter in one scene.\n\n\n\n\n\nEvery day you face the same dilemma as Captain Jack:\n\nYou have limited treasure 💰 and unlimited wants.\n\n\nJack wants rum AND weapons AND a ship AND freedom\nYou want coffee AND Netflix AND gas AND textbooks\nYou can’t have it all → you must CHOOSE\n\nToday’s mission: Learn how economists think about these choices — using rum 🥃 and weapons ⚔️\n\n\n\n\n\n\nThe Pirate Goat Guarantee 🐐\n\n\n\nNo calculus required. If you can add, subtract, multiply, and divide, you can do this. We’ll take it one step at a time.\n\n\n\n\n\nUtility = a made-up number that represents how much satisfaction you get from consuming something\n\n\n\nYou consume…\nYou feel…\nEconomists say…\n\n\n\n\nFirst bottle of rum 🥃\nAMAZING\nHigh utility\n\n\nSecond bottle\nPretty good\nLess utility\n\n\nFifth bottle\nMeh\nEven less utility\n\n\nTenth bottle\n🤢\nAlmost zero utility\n\n\n\nKey idea: We don’t measure utility in real units (there’s no “satisfaction-ometer”). We just need to rank things and compare them.\n\n\n\n\n\n\nNote\n\n\n\nEconomists measure utility in fictional units called “utils.” Think of them like points in a video game — they don’t exist physically, but they help us keep score.\n\n\n\n\n\nMarginal utility = the extra satisfaction from consuming one more unit\n\n\n\n\nShow R Code\nrum_data &lt;- data.frame(\n  bottles = 1:8,\n  mu = c(50, 35, 25, 18, 12, 8, 5, 2)\n)\n\nggplot(rum_data, aes(x = bottles, y = mu)) +\n  geom_col(fill = \"#8B4513\", alpha = 0.85, width = 0.7) +\n  geom_line(color = \"#c0392b\", linewidth = 1.2) +\n  geom_point(color = \"#c0392b\", size = 3) +\n  labs(\n    title = \"Marginal Utility of Rum\",\n    subtitle = \"Each bottle makes Jack less happy than the last\",\n    x = \"Bottles of Rum 🥃\",\n    y = \"Marginal Utility (utils)\"\n  ) +\n  scale_x_continuous(breaks = 1:8) +\n  theme_pirate\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBottle #\nMU (utils)\nWhy?\n\n\n\n\n1st\n50\nFirst rum in weeks!\n\n\n2nd\n35\nStill great\n\n\n3rd\n25\nGood but slowing down\n\n\n4th\n18\nStarting to blur\n\n\n5th\n12\nJack’s swaying more\n\n\n6th\n8\nDiminishing fast\n\n\n7th\n5\nWhy bother\n\n\n8th\n2\nAlmost zero\n\n\n\n\n\n\n“The first bite of pizza is heaven. The eighth slice is regret.” — Universal truth\n\nThis is the Law of Diminishing Marginal Utility: each additional unit gives you LESS additional satisfaction. (Cowen & Tabarrok, Fig. 25.1–25.2, pp. 494–495)\n\n\n\nTotal utility = the running total. Marginal utility = the change from each new unit.\n\n\nShow R Code\nrum_full &lt;- data.frame(\n  bottles = 0:8,\n  tu = c(0, 50, 85, 110, 128, 140, 148, 153, 155),\n  mu = c(NA, 50, 35, 25, 18, 12, 8, 5, 2)\n)\n\nlibrary(patchwork)\n\np1 &lt;- ggplot(rum_full, aes(x = bottles, y = tu)) +\n  geom_line(color = \"#2980b9\", linewidth = 1.5) +\n  geom_point(color = \"#2980b9\", size = 3) +\n  labs(title = \"Total Utility\", subtitle = \"Keeps going up... but slower\",\n       x = \"Bottles of Rum\", y = \"Total Utility (utils)\") +\n  scale_x_continuous(breaks = 0:8) +\n  theme_pirate\n\np2 &lt;- ggplot(filter(rum_full, !is.na(mu)), aes(x = bottles, y = mu)) +\n  geom_col(fill = \"#e74c3c\", alpha = 0.8, width = 0.7) +\n  labs(title = \"Marginal Utility\", subtitle = \"The EXTRA satisfaction per bottle\",\n       x = \"Bottles of Rum\", y = \"Marginal Utility (utils)\") +\n  scale_x_continuous(breaks = 1:8) +\n  theme_pirate\n\np1 + p2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRead This Carefully\n\n\n\nTotal utility goes UP as long as marginal utility is POSITIVE. But it goes up by less and less each time. It’s like filling a bucket with a smaller cup each round — the bucket still fills, just slower.\n\n\n\n\n\nLet’s fill in this table together. No tricks. Just adding.\n\n\n\nBottle\nMarginal Utility\nTotal Utility\n\n\n\n\n0\n—\n0\n\n\n1\n50\n0 + 50 = ?\n\n\n2\n35\n50 + 35 = ?\n\n\n3\n25\n85 + 25 = ?\n\n\n4\n18\n110 + 18 = ?\n\n\n\n\n\n\nBottle\nMarginal Utility\nTotal Utility\n\n\n\n\n0\n—\n0\n\n\n1\n50\n50\n\n\n2\n35\n85\n\n\n3\n25\n110\n\n\n4\n18\n128\n\n\n\n\nTotal utility at bottle N = Total utility at bottle (N-1) + Marginal utility of bottle N\n\nThat’s it. You’re just adding one number to the running total each time. 🎉\n\n\n\nJack doesn’t just want rum. He also needs weapons to defend the Black Pearl.\n\n\nShow R Code\nweapons_data &lt;- data.frame(\n  weapons = 1:8,\n  mu_w = c(60, 45, 32, 22, 15, 10, 6, 3)\n)\n\nrum_plot &lt;- ggplot(rum_data, aes(x = bottles, y = mu)) +\n  geom_col(fill = \"#8B4513\", alpha = 0.85, width = 0.7) +\n  labs(title = \"MU of Rum 🥃\", x = \"Bottles\", y = \"Marginal Utility\") +\n  scale_x_continuous(breaks = 1:8) +\n  coord_cartesian(ylim = c(0, 65)) +\n  theme_pirate\n\nweapon_plot &lt;- ggplot(weapons_data, aes(x = weapons, y = mu_w)) +\n  geom_col(fill = \"#2c3e50\", alpha = 0.85, width = 0.7) +\n  labs(title = \"MU of Weapons ⚔️\", x = \"Weapons\", y = \"Marginal Utility\") +\n  scale_x_continuous(breaks = 1:8) +\n  coord_cartesian(ylim = c(0, 65)) +\n  theme_pirate\n\nrum_plot + weapon_plot\n\n\n\n\n\n\n\n\n\nBoth goods have diminishing marginal utility. But now Jack has a real problem:\n\nIf he spends his gold on rum, he can’t spend it on weapons. That’s the trade-off.\n\n\n\n\n\n\n\n\n\n\n🚨 THE MOST COMMON MISTAKE 🚨\n\n\n\nStudents see a graph with “Rum” on one axis and “Weapons” on the other and think: “Where are the dollars?”\nThe dollars are GONE. You already spent them. The axes show you what you GOT for your money — physical goods, not cash.\n\n\nThink of it this way:\n\nJack raids a treasure chest and finds 100 gold coins 💰\nRum costs 10 gold per bottle\nWeapons cost 20 gold per weapon\nHe must spend it all (pirates don’t save — that’s macro 😉)\n\nThe question is: How many bottles of rum and how many weapons should he buy?\n\nEvery bottle of rum Jack buys means he gave up some weapons. Every weapon means he gave up some rum. That’s opportunity cost — and it’s what the graph shows!"
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#the-most-important-question-in-economics",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#the-most-important-question-in-economics",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "",
+    "text": "“Why is the rum gone?!” — Captain Jack Sparrow\n\n\n\nBecause Elizabeth burned it to signal the Navy.\nShe made a choice:\n\n✅ Rescue (high value to her)\n❌ Rum (high value to Jack)\n\nSame stuff. Different utilities. Different choices.\nThis is the entire chapter in one scene."
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#jacks-problem-is-your-problem",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#jacks-problem-is-your-problem",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "",
+    "text": "Every day you face the same dilemma as Captain Jack:\n\nYou have limited treasure 💰 and unlimited wants.\n\n\nJack wants rum AND weapons AND a ship AND freedom\nYou want coffee AND Netflix AND gas AND textbooks\nYou can’t have it all → you must CHOOSE\n\nToday’s mission: Learn how economists think about these choices — using rum 🥃 and weapons ⚔️\n\n\n\n\n\n\nThe Pirate Goat Guarantee 🐐\n\n\n\nNo calculus required. If you can add, subtract, multiply, and divide, you can do this. We’ll take it one step at a time."
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#what-even-is-utility",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#what-even-is-utility",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "",
+    "text": "Utility = a made-up number that represents how much satisfaction you get from consuming something\n\n\n\nYou consume…\nYou feel…\nEconomists say…\n\n\n\n\nFirst bottle of rum 🥃\nAMAZING\nHigh utility\n\n\nSecond bottle\nPretty good\nLess utility\n\n\nFifth bottle\nMeh\nEven less utility\n\n\nTenth bottle\n🤢\nAlmost zero utility\n\n\n\nKey idea: We don’t measure utility in real units (there’s no “satisfaction-ometer”). We just need to rank things and compare them.\n\n\n\n\n\n\nNote\n\n\n\nEconomists measure utility in fictional units called “utils.” Think of them like points in a video game — they don’t exist physically, but they help us keep score."
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#the-law-of-diminishing-marginal-utility",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#the-law-of-diminishing-marginal-utility",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "",
+    "text": "Marginal utility = the extra satisfaction from consuming one more unit\n\n\n\n\nShow R Code\nrum_data &lt;- data.frame(\n  bottles = 1:8,\n  mu = c(50, 35, 25, 18, 12, 8, 5, 2)\n)\n\nggplot(rum_data, aes(x = bottles, y = mu)) +\n  geom_col(fill = \"#8B4513\", alpha = 0.85, width = 0.7) +\n  geom_line(color = \"#c0392b\", linewidth = 1.2) +\n  geom_point(color = \"#c0392b\", size = 3) +\n  labs(\n    title = \"Marginal Utility of Rum\",\n    subtitle = \"Each bottle makes Jack less happy than the last\",\n    x = \"Bottles of Rum 🥃\",\n    y = \"Marginal Utility (utils)\"\n  ) +\n  scale_x_continuous(breaks = 1:8) +\n  theme_pirate\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBottle #\nMU (utils)\nWhy?\n\n\n\n\n1st\n50\nFirst rum in weeks!\n\n\n2nd\n35\nStill great\n\n\n3rd\n25\nGood but slowing down\n\n\n4th\n18\nStarting to blur\n\n\n5th\n12\nJack’s swaying more\n\n\n6th\n8\nDiminishing fast\n\n\n7th\n5\nWhy bother\n\n\n8th\n2\nAlmost zero\n\n\n\n\n\n\n“The first bite of pizza is heaven. The eighth slice is regret.” — Universal truth\n\nThis is the Law of Diminishing Marginal Utility: each additional unit gives you LESS additional satisfaction. (Cowen & Tabarrok, Fig. 25.1–25.2, pp. 494–495)"
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#total-utility-vs.-marginal-utility",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#total-utility-vs.-marginal-utility",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "",
+    "text": "Total utility = the running total. Marginal utility = the change from each new unit.\n\n\nShow R Code\nrum_full &lt;- data.frame(\n  bottles = 0:8,\n  tu = c(0, 50, 85, 110, 128, 140, 148, 153, 155),\n  mu = c(NA, 50, 35, 25, 18, 12, 8, 5, 2)\n)\n\nlibrary(patchwork)\n\np1 &lt;- ggplot(rum_full, aes(x = bottles, y = tu)) +\n  geom_line(color = \"#2980b9\", linewidth = 1.5) +\n  geom_point(color = \"#2980b9\", size = 3) +\n  labs(title = \"Total Utility\", subtitle = \"Keeps going up... but slower\",\n       x = \"Bottles of Rum\", y = \"Total Utility (utils)\") +\n  scale_x_continuous(breaks = 0:8) +\n  theme_pirate\n\np2 &lt;- ggplot(filter(rum_full, !is.na(mu)), aes(x = bottles, y = mu)) +\n  geom_col(fill = \"#e74c3c\", alpha = 0.8, width = 0.7) +\n  labs(title = \"Marginal Utility\", subtitle = \"The EXTRA satisfaction per bottle\",\n       x = \"Bottles of Rum\", y = \"Marginal Utility (utils)\") +\n  scale_x_continuous(breaks = 1:8) +\n  theme_pirate\n\np1 + p2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRead This Carefully\n\n\n\nTotal utility goes UP as long as marginal utility is POSITIVE. But it goes up by less and less each time. It’s like filling a bucket with a smaller cup each round — the bucket still fills, just slower."
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#check-yourself-rum-table-practice",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#check-yourself-rum-table-practice",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "",
+    "text": "Let’s fill in this table together. No tricks. Just adding.\n\n\n\nBottle\nMarginal Utility\nTotal Utility\n\n\n\n\n0\n—\n0\n\n\n1\n50\n0 + 50 = ?\n\n\n2\n35\n50 + 35 = ?\n\n\n3\n25\n85 + 25 = ?\n\n\n4\n18\n110 + 18 = ?\n\n\n\n\n\n\nBottle\nMarginal Utility\nTotal Utility\n\n\n\n\n0\n—\n0\n\n\n1\n50\n50\n\n\n2\n35\n85\n\n\n3\n25\n110\n\n\n4\n18\n128\n\n\n\n\nTotal utility at bottle N = Total utility at bottle (N-1) + Marginal utility of bottle N\n\nThat’s it. You’re just adding one number to the running total each time. 🎉"
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#now-lets-add-weapons",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#now-lets-add-weapons",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "",
+    "text": "Jack doesn’t just want rum. He also needs weapons to defend the Black Pearl.\n\n\nShow R Code\nweapons_data &lt;- data.frame(\n  weapons = 1:8,\n  mu_w = c(60, 45, 32, 22, 15, 10, 6, 3)\n)\n\nrum_plot &lt;- ggplot(rum_data, aes(x = bottles, y = mu)) +\n  geom_col(fill = \"#8B4513\", alpha = 0.85, width = 0.7) +\n  labs(title = \"MU of Rum 🥃\", x = \"Bottles\", y = \"Marginal Utility\") +\n  scale_x_continuous(breaks = 1:8) +\n  coord_cartesian(ylim = c(0, 65)) +\n  theme_pirate\n\nweapon_plot &lt;- ggplot(weapons_data, aes(x = weapons, y = mu_w)) +\n  geom_col(fill = \"#2c3e50\", alpha = 0.85, width = 0.7) +\n  labs(title = \"MU of Weapons ⚔️\", x = \"Weapons\", y = \"Marginal Utility\") +\n  scale_x_continuous(breaks = 1:8) +\n  coord_cartesian(ylim = c(0, 65)) +\n  theme_pirate\n\nrum_plot + weapon_plot\n\n\n\n\n\n\n\n\n\nBoth goods have diminishing marginal utility. But now Jack has a real problem:\n\nIf he spends his gold on rum, he can’t spend it on weapons. That’s the trade-off."
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#the-trade-off-is-not-about-dollars",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#the-trade-off-is-not-about-dollars",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "",
+    "text": "🚨 THE MOST COMMON MISTAKE 🚨\n\n\n\nStudents see a graph with “Rum” on one axis and “Weapons” on the other and think: “Where are the dollars?”\nThe dollars are GONE. You already spent them. The axes show you what you GOT for your money — physical goods, not cash.\n\n\nThink of it this way:\n\nJack raids a treasure chest and finds 100 gold coins 💰\nRum costs 10 gold per bottle\nWeapons cost 20 gold per weapon\nHe must spend it all (pirates don’t save — that’s macro 😉)\n\nThe question is: How many bottles of rum and how many weapons should he buy?\n\nEvery bottle of rum Jack buys means he gave up some weapons. Every weapon means he gave up some rum. That’s opportunity cost — and it’s what the graph shows!"
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#jacks-budget-setting-up-the-equation",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#jacks-budget-setting-up-the-equation",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "2.1 🏴‍☠️ Jack’s Budget: Setting Up the Equation",
+    "text": "2.1 🏴‍☠️ Jack’s Budget: Setting Up the Equation\nLet’s get really specific. Here’s what Jack is working with:\n\n\n\nWhat Jack has\nValue\n\n\n\n\n💰 Income (treasure)\n100 gold coins\n\n\n🥃 Price of rum\n10 gold per bottle\n\n\n⚔️ Price of weapons\n20 gold per weapon\n\n\n\nThe budget constraint says: everything you spend must add up to your income.\n\\[\n\\underbrace{P_{\\text{Rum}}}_{\\text{price of rum}} \\times \\underbrace{Q_{\\text{Rum}}}_{\\text{bottles you buy}} + \\underbrace{P_{\\text{Weapons}}}_{\\text{price of weapons}} \\times \\underbrace{Q_{\\text{Weapons}}}_{\\text{weapons you buy}} = \\underbrace{I}_{\\text{income}}\n\\]\nPlugging in Jack’s numbers:\n\\[\n10 \\times Q_{\\text{Rum}} + 20 \\times Q_{\\text{Weapons}} = 100\n\\]\n\n\n\n\n\n\nEnglish Translation\n\n\n\n“The gold I spend on rum PLUS the gold I spend on weapons EQUALS all my gold.”"
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#finding-the-intercepts-the-easy-points",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#finding-the-intercepts-the-easy-points",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "2.2 Finding the Intercepts (The Easy Points)",
+    "text": "2.2 Finding the Intercepts (The Easy Points)\nTo draw the budget line, we need two points. The easiest two points are the intercepts — where Jack spends ALL his gold on just one good.\n\n\n2.2.1 🥃 All Rum, No Weapons\nSet \\(Q_{\\text{Weapons}} = 0\\):\n\\[\n10 \\times Q_{\\text{Rum}} + 20 \\times (0) = 100\n\\] \\[\n10 \\times Q_{\\text{Rum}} = 100\n\\] \\[\nQ_{\\text{Rum}} = \\frac{100}{10} = \\mathbf{10}\n\\]\nPoint: (10 bottles, 0 weapons)\n\n\n2.2.2 ⚔️ All Weapons, No Rum\nSet \\(Q_{\\text{Rum}} = 0\\):\n\\[\n10 \\times (0) + 20 \\times Q_{\\text{Weapons}} = 100\n\\] \\[\n20 \\times Q_{\\text{Weapons}} = 100\n\\] \\[\nQ_{\\text{Weapons}} = \\frac{100}{20} = \\mathbf{5}\n\\]\nPoint: (0 bottles, 5 weapons)\n\n\n\n\n\n\n\n\nThe Intercept Shortcut 🏴‍☠️\n\n\n\nIntercept = Income ÷ Price of that good.\n\nRum intercept: 100 ÷ 10 = 10\nWeapons intercept: 100 ÷ 20 = 5\n\nThat’s it. Division. You’ve got this."
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#drawing-the-budget-line",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#drawing-the-budget-line",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "2.3 Drawing the Budget Line",
+    "text": "2.3 Drawing the Budget Line\n\n\nShow R Code\nbudget_df &lt;- data.frame(\n  rum = c(0, 2, 4, 6, 8, 10),\n  weapons = c(5, 4, 3, 2, 1, 0)\n)\n\nggplot(budget_df, aes(x = rum, y = weapons)) +\n  geom_line(color = \"#2c3e50\", linewidth = 2) +\n  geom_point(color = \"#c0392b\", size = 4) +\n  # Label intercepts\n  annotate(\"text\", x = 10.3, y = 0.3, label = \"All Rum\\n(10, 0)\",\n           fontface = \"bold\", size = 4, color = \"#8B4513\") +\n  annotate(\"text\", x = 0.8, y = 5.2, label = \"All Weapons\\n(0, 5)\",\n           fontface = \"bold\", size = 4, color = \"#2c3e50\") +\n  # Shade the affordable region\n  geom_ribbon(aes(ymin = 0, ymax = weapons), fill = \"#3498db\", alpha = 0.15) +\n  annotate(\"text\", x = 3, y = 1.5, label = \"Affordable\\nBundles\",\n           size = 5, color = \"#2980b9\", fontface = \"italic\") +\n  labs(\n    title = \"Jack's Budget Constraint\",\n    subtitle = \"Income = 100g | Rum = 10g/bottle | Weapons = 20g each\",\n    x = \"Bottles of Rum 🥃\",\n    y = \"Weapons ⚔️\"\n  ) +\n  scale_x_continuous(breaks = 0:10) +\n  scale_y_continuous(breaks = 0:5) +\n  coord_cartesian(xlim = c(0, 11), ylim = c(0, 6)) +\n  theme_pirate\n\n\n\n\n\n\n\n\n\n\nOn the line = spending ALL your income (efficient pirate ✅)\nInside the shaded area = affordable but not spending everything (wasteful pirate 😒)\nOutside the line = can’t afford it (sad pirate 😢)"
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#the-slope-the-price-ratio",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#the-slope-the-price-ratio",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "2.4 The Slope = The Price Ratio",
+    "text": "2.4 The Slope = The Price Ratio\nThe slope of the budget line tells you the real trade-off between goods.\n\\[\n\\text{Slope} = -\\frac{P_{\\text{Rum}}}{P_{\\text{Weapons}}} = -\\frac{10}{20} = -\\frac{1}{2}\n\\]\n\n\n\n\n\n\nWhat Does -1/2 Mean?\n\n\n\nFor every 1 extra bottle of rum Jack buys, he gives up 1/2 a weapon.\nOr: For every 1 extra weapon, he gives up 2 bottles of rum.\nThe slope IS the opportunity cost. (Cowen & Tabarrok, Fig. 25.4, p. 497)\n\n\nLet’s verify with the table:\n\n\n\nRum 🥃\nWeapons ⚔️\nCheck: 10×R + 20×W = ?\n\n\n\n\n0\n5\n0 + 100 = ✅ 100\n\n\n2\n4\n20 + 80 = ✅ 100\n\n\n4\n3\n40 + 60 = ✅ 100\n\n\n6\n2\n60 + 40 = ✅ 100\n\n\n8\n1\n80 + 20 = ✅ 100\n\n\n10\n0\n100 + 0 = ✅ 100\n\n\n\nEvery point adds up to 100. That’s the whole point of the budget line. ✅"
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#what-moves-the-budget-line",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#what-moves-the-budget-line",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "2.5 What Moves the Budget Line?",
+    "text": "2.5 What Moves the Budget Line?\n\n\nShow R Code\nlibrary(patchwork)\n\n# Income change\ninc_df &lt;- bind_rows(\n  data.frame(rum = c(0, 10), weapons = c(5, 0), label = \"I = 100g\"),\n  data.frame(rum = c(0, 15), weapons = c(7.5, 0), label = \"I = 150g (raise!)\"),\n  data.frame(rum = c(0, 5), weapons = c(2.5, 0), label = \"I = 50g (taxed!)\")\n)\n\np_inc &lt;- ggplot(inc_df, aes(x = rum, y = weapons, color = label)) +\n  geom_line(linewidth = 1.5) +\n  scale_color_manual(values = c(\"#2ecc71\", \"#2c3e50\", \"#e74c3c\")) +\n  labs(title = \"Income Changes\", subtitle = \"Line shifts parallel\",\n       x = \"Rum 🥃\", y = \"Weapons ⚔️\", color = NULL) +\n  theme_pirate + theme(legend.position = \"bottom\", legend.text = element_text(size = 10))\n\n# Price change (rum gets cheaper)\nprice_df &lt;- bind_rows(\n  data.frame(rum = c(0, 10), weapons = c(5, 0), label = \"P_rum = 10g\"),\n  data.frame(rum = c(0, 20), weapons = c(5, 0), label = \"P_rum = 5g (sale!)\")\n)\n\np_price &lt;- ggplot(price_df, aes(x = rum, y = weapons, color = label)) +\n  geom_line(linewidth = 1.5) +\n  scale_color_manual(values = c(\"#2c3e50\", \"#e67e22\")) +\n  labs(title = \"Rum Price Falls\", subtitle = \"Line pivots outward from weapons intercept\",\n       x = \"Rum 🥃\", y = \"Weapons ⚔️\", color = NULL) +\n  theme_pirate + theme(legend.position = \"bottom\", legend.text = element_text(size = 10))\n\np_inc + p_price\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat changes?\nWhat happens to the line?\nWhy?\n\n\n\n\nIncome goes UP\nShifts outward (parallel)\nMore gold = more of everything\n\n\nIncome goes DOWN\nShifts inward (parallel)\nLess gold = less of everything\n\n\nPrice of rum FALLS\nPivots outward at weapons intercept\nSame weapons, but MORE rum affordable\n\n\nPrice of rum RISES\nPivots inward at weapons intercept\nSame weapons, but LESS rum affordable\n\n\n\n(Cowen & Tabarrok, Figs. 25.5–25.6, pp. 498–499)"
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#practice-jack-gets-a-raise",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#practice-jack-gets-a-raise",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "2.6 🐐 Practice: Jack Gets a Raise",
+    "text": "2.6 🐐 Practice: Jack Gets a Raise\nJack’s income increases from 100 gold to 200 gold. Prices stay the same.\nStep 1: New rum intercept = ?\n\\[Q_{\\text{Rum}} = \\frac{200}{10} = \\mathbf{20 \\text{ bottles}}\\]\nStep 2: New weapons intercept = ?\n\\[Q_{\\text{Weapons}} = \\frac{200}{20} = \\mathbf{10 \\text{ weapons}}\\]\nStep 3: New slope = ?\n\\[\\text{Slope} = -\\frac{P_R}{P_W} = -\\frac{10}{20} = -\\frac{1}{2} \\quad \\text{(unchanged!)}\\]\n\n🏴‍☠️ The line shifts out, but the slope stays the same. More gold doesn’t change the relative cost of rum vs. weapons — it just lets you buy more of both."
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#good-news-everyone",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#good-news-everyone",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "2.7 GOOD NEWS EVERYONE! 🏴‍☠️",
+    "text": "2.7 GOOD NEWS EVERYONE! 🏴‍☠️\n\n\n“Why is the rum ALWAYS gone?”\n\nBecause, Jack, you keep maximizing utility at a corner solution.\nNow that we understand the budget constraint — let’s figure out which bundle on that line makes Jack the happiest."
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#the-big-question",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#the-big-question",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "3.1 The Big Question",
+    "text": "3.1 The Big Question\nJack’s budget constraint shows all the bundles he can afford.\nBut which one should he actually choose?\nThe one that gives him the MOST total utility.\nBut how do we find it? Two methods:\n\n🧮 The MU/$ method (the workhorse — we’ll master this)\n📐 The graphical method (indifference curves — we’ll see the intuition)"
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#the-bang-for-your-buck-method",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#the-bang-for-your-buck-method",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "3.2 The “Bang for Your Buck” Method",
+    "text": "3.2 The “Bang for Your Buck” Method\nHere’s the secret to smart shopping — whether you’re a pirate or an Aggie:\n\n\n\n\n\n\nThe Utility Maximization Rule\n\n\n\nSpend your next gold coin on whichever good gives you the most extra utility per gold coin spent.\n\\[\n\\frac{MU_{\\text{Rum}}}{P_{\\text{Rum}}} = \\frac{MU_{\\text{Weapons}}}{P_{\\text{Weapons}}}\n\\]\nWhen this condition holds, you cannot rearrange your spending to get more utility.\n\n\nIn English: If your last gold coin spent on rum gave you 3 utils per coin, and your last gold coin on weapons gave you 5 utils per coin… you should have bought more weapons!\nYou keep adjusting until both ratios are equal. (Cowen & Tabarrok, Fig. 25.3, p. 496)"
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#lets-walk-through-it-slowly",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#lets-walk-through-it-slowly",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "3.3 Let’s Walk Through It — Slowly",
+    "text": "3.3 Let’s Walk Through It — Slowly\nJack’s prices: Rum = 10g, Weapons = 20g. Income = 100g.\n\n\n\nQty\nMU of Rum\nMU/$ Rum\nMU of Weapons\nMU/$ Weapons\n\n\n\n\n1\n50\n50/10 = 5.0\n60\n60/20 = 3.0\n\n\n2\n35\n35/10 = 3.5\n45\n45/20 = 2.25\n\n\n3\n25\n25/10 = 2.5\n32\n32/20 = 1.6\n\n\n4\n18\n18/10 = 1.8\n22\n22/20 = 1.1\n\n\n5\n12\n12/10 = 1.2\n15\n15/20 = 0.75\n\n\n6\n8\n8/10 = 0.8\n10\n10/20 = 0.5\n\n\n\n\n\n\n\n\n\nHow to Calculate MU/$\n\n\n\nIt’s just division: Marginal Utility ÷ Price.\n\nMU of 1st rum bottle = 50. Price = 10. So 50 ÷ 10 = 5.0 utils per gold coin.\nMU of 1st weapon = 60. Price = 20. So 60 ÷ 20 = 3.0 utils per gold coin.\n\nThat’s it! No fancy math. Just “how many utils do I get for each gold coin?”"
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#step-by-step-jack-goes-shopping",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#step-by-step-jack-goes-shopping",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "3.4 Step-by-Step: Jack Goes Shopping",
+    "text": "3.4 Step-by-Step: Jack Goes Shopping\nJack has 100 gold coins. Let’s spend them one purchase at a time.\n\n\n\nStep\nBest MU/$ Available\nJack Buys\nGold Spent\nGold Left\n\n\n\n\n1\nRum MU/\\(=5.0 &gt; Weapons MU/\\)=3.0\n1st Rum 🥃\n10\n90\n\n\n2\nRum MU/\\(=3.5 &gt; Weapons MU/\\)=3.0\n2nd Rum 🥃\n10\n80\n\n\n3\nWeapons MU/\\(=3.0 &gt; Rum MU/\\)=2.5\n1st Weapon ⚔️\n20\n60\n\n\n4\nRum MU/\\(=2.5 &gt; Weapons MU/\\)=2.25\n3rd Rum 🥃\n10\n50\n\n\n5\nWeapons MU/\\(=2.25 &gt; Rum MU/\\)=1.8\n2nd Weapon ⚔️\n20\n30\n\n\n6\nRum MU/\\(=1.8 &gt; Weapons MU/\\)=1.6\n4th Rum 🥃\n10\n20\n\n\n7\nRum MU/\\(=1.2 vs Weapons MU/\\)=1.6\n3rd Weapon ⚔️\n20\n0\n\n\n\nJack’s optimal bundle: 4 Rum + 3 Weapons ✅\nCheck: (4 × 10) + (3 × 20) = 40 + 60 = 100 gold ✅ Budget spent!\n\n\n\n\n\n\nNote\n\n\n\nAt the optimum: MU/$ for rum (1.8) ≈ MU/$ for weapons (1.6). They’re close! In the real world with whole units, they won’t be exactly equal — just as close as possible. The textbook’s streaming movies/Thai takeout example (p. 494) works exactly the same way."
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#what-happens-if-jack-is-not-optimal",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#what-happens-if-jack-is-not-optimal",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "3.5 ☠️ What Happens If Jack is NOT Optimal?",
+    "text": "3.5 ☠️ What Happens If Jack is NOT Optimal?\nSuppose Jack is being stubborn and spends all 100g on weapons:\n\nHe gets 5 weapons. MU of 5th weapon = 15. MU/$= 15/20 = 0.75\nIf he gave up the 5th weapon (saves 20g), he could buy 2 bottles of rum\nThose 2 bottles give him: 50 + 35 = 85 utils\nHe only lost: 15 utils from the weapon\n\nNet gain: 85 - 15 = 70 extra utils! 🎉\n\nThis is exactly the logic from the textbook’s Thai takeout example (Cowen & Tabarrok, Ch. 25, Problem 1, p. 494): giving up the 10th Thai meal (MU/$ = 0.5) to buy two movies (MU/$ = 10) is a massive improvement."
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#you-try-is-this-bundle-optimal",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#you-try-is-this-bundle-optimal",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "3.6 🐐 You Try: Is This Bundle Optimal?",
+    "text": "3.6 🐐 You Try: Is This Bundle Optimal?\nJack has 100g. Rum = 10g. Weapons = 20g. He’s currently holding 6 Rum and 2 Weapons.\nStep 1: Does the budget work?\n(6 × 10) + (2 × 20) = 60 + 40 = 100 ✅\nStep 2: Check MU/$ at these quantities:\n\nMU of 6th Rum = 8 → MU/$ = 8/10 = 0.8\nMU of 2nd Weapon = 45 → MU/$ = 45/20 = 2.25\n\nWeapons MU/$ (2.25) &gt;&gt; Rum MU/$ (0.8) ❌ NOT optimal!\nJack should buy fewer rum, more weapons until the ratios equalize.\n\n\n\n\n\n\nThe Golden Rule\n\n\n\nIf MU/$ is higher for one good, buy MORE of it (and less of the other). Keep adjusting until MU/$ is equal across goods."
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#whats-an-indifference-curve",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#whats-an-indifference-curve",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "4.1 What’s an Indifference Curve?",
+    "text": "4.1 What’s an Indifference Curve?\nAn indifference curve connects all bundles that give Jack the same level of utility.\n\n\nShow R Code\n# Indifference curves as hyperbolas\nic_df &lt;- data.frame(rum = seq(0.5, 10, 0.1)) |&gt;\n  mutate(\n    IC1 = 4 / rum,\n    IC2 = 8 / rum,\n    IC3 = 14 / rum\n  )\n\nggplot(ic_df, aes(x = rum)) +\n  geom_line(aes(y = IC1), color = \"#3498db\", linewidth = 1.2) +\n  geom_line(aes(y = IC2), color = \"#2ecc71\", linewidth = 1.2) +\n  geom_line(aes(y = IC3), color = \"#e74c3c\", linewidth = 1.2) +\n  annotate(\"text\", x = 8, y = 0.7, label = \"U1 (low)\", color = \"#3498db\",\n           fontface = \"bold\", size = 4.5) +\n  annotate(\"text\", x = 8, y = 1.3, label = \"U2 (medium)\", color = \"#2ecc71\",\n           fontface = \"bold\", size = 4.5) +\n  annotate(\"text\", x = 8, y = 2.2, label = \"U3 (high!)\", color = \"#e74c3c\",\n           fontface = \"bold\", size = 4.5) +\n  annotate(\"segment\", x = 5, y = 2, xend = 7, yend = 3,\n           arrow = arrow(length = unit(0.3, \"cm\")),\n           color = \"#555\", linewidth = 1) +\n  annotate(\"text\", x = 6.5, y = 3.3, label = \"Happier →\",\n           fontface = \"bold\", size = 5, color = \"#555\") +\n  labs(\n    title = \"Jack's Indifference Curves\",\n    subtitle = \"Higher curves = more utility = happier pirate\",\n    x = \"Bottles of Rum 🥃\",\n    y = \"Weapons ⚔️\"\n  ) +\n  coord_cartesian(xlim = c(0, 10), ylim = c(0, 6)) +\n  theme_pirate\n\n\n\n\n\n\n\n\n\nKey rules: Higher = better. They never cross. They’re bowed inward (convex). (Cowen & Tabarrok, Figs. 25.7–25.8, pp. 500–501)"
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#why-are-they-curved-the-mrs",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#why-are-they-curved-the-mrs",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "4.2 Why Are They Curved? The MRS",
+    "text": "4.2 Why Are They Curved? The MRS\nThe curve shape reflects the Marginal Rate of Substitution (MRS):\n\nHow many weapons would Jack willingly give up for 1 more bottle of rum?\n\n\n\nShow R Code\nmrs_df &lt;- data.frame(rum = seq(0.5, 9, 0.1)) |&gt;\n  mutate(weapons = 10 / rum)\n\nggplot(mrs_df, aes(x = rum, y = weapons)) +\n  geom_line(color = \"#2ecc71\", linewidth = 1.5) +\n  # Point A: few rum, lots of weapons\n  annotate(\"point\", x = 1, y = 10, size = 4, color = \"#c0392b\") +\n  annotate(\"text\", x = 1.8, y = 10.3, label = \"A: Lots of weapons,\\nlittle rum\",\n           size = 3.5, color = \"#c0392b\") +\n  annotate(\"segment\", x = 1, y = 10, xend = 2, yend = 10, color = \"#c0392b\",\n           linewidth = 1, linetype = \"dashed\") +\n  annotate(\"segment\", x = 2, y = 10, xend = 2, yend = 5, color = \"#c0392b\",\n           linewidth = 1, linetype = \"dashed\") +\n  annotate(\"text\", x = 2.5, y = 7.5, label = \"Give up 5 weapons\\nfor 1 rum\",\n           size = 3, color = \"#c0392b\") +\n  # Point B: more balanced\n  annotate(\"point\", x = 5, y = 2, size = 4, color = \"#2980b9\") +\n  annotate(\"text\", x = 6.2, y = 2.3, label = \"B: More balanced\",\n           size = 3.5, color = \"#2980b9\") +\n  annotate(\"segment\", x = 5, y = 2, xend = 6, yend = 2, color = \"#2980b9\",\n           linewidth = 1, linetype = \"dashed\") +\n  annotate(\"segment\", x = 6, y = 2, xend = 6, yend = 10/6, color = \"#2980b9\",\n           linewidth = 1, linetype = \"dashed\") +\n  annotate(\"text\", x = 6.7, y = 1.5, label = \"Give up 0.3 weapons\\nfor 1 rum\",\n           size = 3, color = \"#2980b9\") +\n  labs(title = \"The MRS Changes Along the Curve\",\n       subtitle = \"You'll give up less of what you already have little of\",\n       x = \"Bottles of Rum 🥃\", y = \"Weapons ⚔️\") +\n  coord_cartesian(xlim = c(0, 10), ylim = c(0, 12)) +\n  theme_pirate\n\n\n\n\n\n\n\n\n\nAt point A: Jack has tons of weapons, almost no rum. He’d trade away 5 weapons for 1 rum. At point B: More balanced. He’d only trade 0.3 weapons for 1 rum.\n\nThe less you have of something, the more valuable the next unit is. (Cowen & Tabarrok, Ch. 25 solution to Q4, pp. 500–501)"
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#the-consumers-optimum",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#the-consumers-optimum",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "4.3 The Consumer’s Optimum 🎯",
+    "text": "4.3 The Consumer’s Optimum 🎯\nThe best bundle is where the budget constraint just barely touches the highest possible indifference curve.\n\n\nShow R Code\nopt_df &lt;- data.frame(rum = seq(0.3, 10, 0.05)) |&gt;\n  mutate(\n    budget = 5 - 0.5 * rum,\n    IC_low = 3.5 / rum,\n    IC_opt = 6.25 / rum,\n    IC_high = 10 / rum\n  )\n\nggplot(opt_df, aes(x = rum)) +\n  geom_line(aes(y = budget), color = \"#2c3e50\", linewidth = 2) +\n  geom_line(aes(y = IC_low), color = \"#bdc3c7\", linewidth = 1, linetype = \"dashed\") +\n  geom_line(aes(y = IC_opt), color = \"#2ecc71\", linewidth = 1.5) +\n  geom_line(aes(y = IC_high), color = \"#e74c3c\", linewidth = 1, linetype = \"dashed\") +\n  annotate(\"point\", x = 5, y = 2.5, size = 5, color = \"#e67e22\") +\n  annotate(\"text\", x = 6.2, y = 3, label = \"OPTIMAL\\nBUNDLE ★\",\n           fontface = \"bold\", size = 5, color = \"#e67e22\") +\n  annotate(\"text\", x = 8.5, y = 0.6, label = \"Too low\\n(affordable but sad)\",\n           size = 3.5, color = \"#bdc3c7\") +\n  annotate(\"text\", x = 8.5, y = 1.5, label = \"Just right!\",\n           size = 3.5, color = \"#2ecc71\", fontface = \"bold\") +\n  annotate(\"text\", x = 8.5, y = 3.5, label = \"Too expensive\\n(can't afford)\",\n           size = 3.5, color = \"#e74c3c\") +\n  labs(\n    title = \"The Consumer's Optimum\",\n    subtitle = \"Highest indifference curve that just touches the budget line\",\n    x = \"Bottles of Rum 🥃\", y = \"Weapons ⚔️\"\n  ) +\n  coord_cartesian(xlim = c(0, 10), ylim = c(0, 6)) +\n  theme_pirate\n\n\n\n\n\n\n\n\n\nAt the tangency point (★): slope of IC = slope of budget line, which means MRS = Price ratio (Cowen & Tabarrok, Fig. 25.9, p. 502)"
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#what-the-optimum-means-in-english",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#what-the-optimum-means-in-english",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "4.4 What the Optimum Means in English",
+    "text": "4.4 What the Optimum Means in English\nAt the optimal bundle, two things are true simultaneously:\n1. You’re ON the budget line → spending all your income\n2. MRS = Price Ratio → your personal trade-off matches the market trade-off\n\\[\n\\underbrace{\\frac{MU_{\\text{Rum}}}{MU_{\\text{Weapons}}}}_{\\text{how YOU value rum vs. weapons}} = \\underbrace{\\frac{P_{\\text{Rum}}}{P_{\\text{Weapons}}}}_{\\text{how the MARKET values rum vs. weapons}}\n\\]\nIf these don’t match, you can make yourself happier by trading.\n\n\n\n\n\n\nNote\n\n\n\nThis is the graphical version of the MU/$ rule. Same answer, prettier picture. The MU/$ approach says: equalize the bang-per-buck. The tangency approach says: equalize personal valuation with market valuation. Same thing. Two languages."
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#price-of-rum-falls-raid-successful",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#price-of-rum-falls-raid-successful",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "5.1 🏴‍☠️ Price of Rum Falls! (Raid successful 🎉)",
+    "text": "5.1 🏴‍☠️ Price of Rum Falls! (Raid successful 🎉)\nSuppose rum drops from 10g to 5g per bottle. Weapons still 20g. Income still 100g.\n\n\nShow R Code\nchange_df &lt;- data.frame(rum = c(0, 10, NA, 0, 20)) |&gt;\n  mutate(\n    weapons_old = c(5, 0, NA, NA, NA),\n    weapons_new = c(NA, NA, NA, 5, 0)\n  )\n\nggplot() +\n  geom_segment(aes(x = 0, y = 5, xend = 10, yend = 0),\n               color = \"#2c3e50\", linewidth = 1.5, linetype = \"dashed\") +\n  geom_segment(aes(x = 0, y = 5, xend = 20, yend = 0),\n               color = \"#e67e22\", linewidth = 2) +\n  annotate(\"text\", x = 5, y = 3.5, label = \"OLD: Rum = 10g\",\n           color = \"#2c3e50\", fontface = \"bold\", size = 4) +\n  annotate(\"text\", x = 13, y = 2, label = \"NEW: Rum = 5g\",\n           color = \"#e67e22\", fontface = \"bold\", size = 4) +\n  annotate(\"text\", x = 0.8, y = 5.3, label = \"Same intercept\\n(weapons unchanged)\",\n           size = 3.5, color = \"#555\") +\n  annotate(\"segment\", x = 10, y = -0.1, xend = 20, yend = -0.1,\n           arrow = arrow(length = unit(0.3, \"cm\")),\n           color = \"#e67e22\", linewidth = 1) +\n  annotate(\"text\", x = 15, y = -0.4, label = \"Can buy more rum!\",\n           color = \"#e67e22\", fontface = \"bold\", size = 4) +\n  labs(\n    title = \"Budget Constraint Pivots When Rum Price Falls\",\n    subtitle = \"Weapons intercept unchanged, rum intercept doubles\",\n    x = \"Bottles of Rum 🥃\", y = \"Weapons ⚔️\"\n  ) +\n  scale_x_continuous(breaks = seq(0, 20, 2)) +\n  scale_y_continuous(breaks = 0:5) +\n  coord_cartesian(xlim = c(0, 21), ylim = c(-0.5, 6)) +\n  theme_pirate\n\n\n\n\n\n\n\n\n\n\n\n\n\nOld\nNew\n\n\n\n\nRum intercept\n100/10 = 10\n100/5 = 20\n\n\nWeapons intercept\n100/20 = 5\n100/20 = 5\n\n\nSlope\n-10/20 = -1/2\n-5/20 = -1/4\n\n\n\nJack can now reach a higher indifference curve → more utility! 🎉 (Cowen & Tabarrok, Fig. 25.10, p. 503)"
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#income-vs.-substitution-effects",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#income-vs.-substitution-effects",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "5.2 Income vs. Substitution Effects",
+    "text": "5.2 Income vs. Substitution Effects\nWhen the price of rum falls, TWO things happen simultaneously:\n\n\n5.2.1 🔄 Substitution Effect\nRum is relatively cheaper now → Jack substitutes toward rum and away from weapons.\n“Rum’s on sale! Buy more rum!”\n\n\n5.2.2 💰 Income Effect\nJack’s real purchasing power increased (same gold buys more) → he can buy more of BOTH goods.\n“I feel richer! More of everything!”\n\n\nFor rum (the good whose price fell):\n\nSubstitution effect → more rum ✅\nIncome effect → more rum ✅ (assuming rum is a normal good)\nTotal: definitely more rum\n\nFor weapons (the other good):\n\nSubstitution effect → fewer weapons ❌\nIncome effect → more weapons ✅\nTotal: ambiguous — depends which effect is stronger\n\n(Cowen & Tabarrok, Fig. 25.11, p. 504)"
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#practice-income-drops",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#practice-income-drops",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "5.3 🐐 Practice: Income Drops",
+    "text": "5.3 🐐 Practice: Income Drops\nA royal tax reduces Jack’s treasure from 100g to 60g. Prices unchanged (Rum=10g, Weapons=20g).\nFind the new intercepts:\n\nRum intercept: 60 ÷ 10 = 6 bottles\nWeapons intercept: 60 ÷ 20 = 3 weapons\nSlope: -10/20 = -1/2 (unchanged — only income changed!)\n\nWhat happened to the budget line?\n\nIt shifted inward, parallel to the original. Same slope, lower intercepts. Jack can afford less of everything. 😢 (Cowen & Tabarrok, Fig. 25.5, p. 498)"
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#deriving-demand-from-utility",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#deriving-demand-from-utility",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "5.4 Deriving Demand from Utility",
+    "text": "5.4 Deriving Demand from Utility\nHere’s the payoff: Utility theory IS demand theory.\nWhen the price of rum falls (10g → 5g), Jack buys more rum. That’s one point on his demand curve.\n\n\nShow R Code\np_budget &lt;- ggplot() +\n  geom_segment(aes(x = 0, y = 5, xend = 10, yend = 0),\n               color = \"#2c3e50\", linewidth = 1.5, linetype = \"dashed\") +\n  geom_segment(aes(x = 0, y = 5, xend = 20, yend = 0),\n               color = \"#e67e22\", linewidth = 1.5) +\n  annotate(\"point\", x = 4, y = 3, size = 4, color = \"#2c3e50\") +\n  annotate(\"point\", x = 10, y = 2.5, size = 4, color = \"#e67e22\") +\n  annotate(\"text\", x = 4.5, y = 3.4, label = \"A\", fontface = \"bold\", size = 5) +\n  annotate(\"text\", x = 10.5, y = 2.9, label = \"B\", fontface = \"bold\", size = 5) +\n  labs(title = \"Budget + Indifference Curves\",\n       x = \"Rum 🥃\", y = \"Weapons ⚔️\") +\n  coord_cartesian(xlim = c(0, 21), ylim = c(0, 6)) +\n  theme_pirate\n\np_demand &lt;- ggplot() +\n  annotate(\"point\", x = 4, y = 10, size = 4, color = \"#2c3e50\") +\n  annotate(\"point\", x = 10, y = 5, size = 4, color = \"#e67e22\") +\n  annotate(\"text\", x = 4.5, y = 10.5, label = \"A\", fontface = \"bold\", size = 5) +\n  annotate(\"text\", x = 10.5, y = 5.5, label = \"B\", fontface = \"bold\", size = 5) +\n  geom_segment(aes(x = 4, y = 10, xend = 10, yend = 5),\n               color = \"#c0392b\", linewidth = 1.5) +\n  labs(title = \"Jack's Demand for Rum\",\n       x = \"Quantity of Rum 🥃\", y = \"Price of Rum (gold)\") +\n  coord_cartesian(xlim = c(0, 15), ylim = c(0, 15)) +\n  theme_pirate\n\np_budget + p_demand\n\n\n\n\n\n\n\n\n\n\nPoint A: Price = 10g → Jack buys 4 rum (optimal bundle)\nPoint B: Price = 5g → Jack buys 10 rum (new optimal bundle)\nConnect the dots → DEMAND CURVE! 📉\n\n\nDemand slopes downward because of diminishing marginal utility and the substitution/income effects. Utility theory explains why demand curves look the way they do."
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#the-pirate-goat-summary",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#the-pirate-goat-summary",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "6.1 The Pirate Goat Summary 🏴‍☠️🐐",
+    "text": "6.1 The Pirate Goat Summary 🏴‍☠️🐐\n\n\n\n\n\n\n\n\nConcept\nWhat It Means\nJack’s Version\n\n\n\n\nUtility\nSatisfaction from consuming\nHow happy rum makes him\n\n\nMarginal Utility\nExtra satisfaction per unit\nThe 1st rum is amazing, the 8th is meh\n\n\nDiminishing MU\nEach unit adds less\nLaw of “too much of a good thing”\n\n\nBudget Constraint\nAll affordable combos\nWhat 100g of treasure can buy\n\n\nSlope = -Px/Py\nThe market trade-off\n1 rum costs 1/2 weapon\n\n\nMU/$ equalization\nHow to maximize utility\nSpend where bang-for-buck is highest\n\n\nIndifference Curve\nSame-utility bundles\nDoesn’t care between 4R+3W or 6R+2W\n\n\nTangency = Optimum\nMRS = Price Ratio\nPersonal value = market value\n\n\nPrice change → Demand\nOptimal bundles at different prices\nThe demand curve!"
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#the-real-world-connection",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#the-real-world-connection",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "6.2 The Real-World Connection",
+    "text": "6.2 The Real-World Connection\nThis isn’t just about pirates. Every choice you make is this model:\n\n🍕 Pizza vs. 🌮 Tacos with your meal plan\n📱 Phone upgrade vs. 👟 New shoes with your paycheck\n📚 Study time vs. 🎮 Gaming time (time is a budget too!)\n☕ Daily Starbucks vs. 🎬 Weekend movies with your fun money\n\n\nEvery time you ask “Is this worth it?” you’re comparing MU/$. You already do utility maximization — now you just know the formal framework.\n\n\n\n\n\n\n\nNote\n\n\n\nRemember Marcus from the textbook (Ch. 25, Q12): he has a money constraint AND a time constraint. Real life has multiple budget constraints — time, money, energy — and you optimize across all of them."
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#setting-it-up-with-calculus",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#setting-it-up-with-calculus",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "7.1 Setting It Up with Calculus",
+    "text": "7.1 Setting It Up with Calculus\n\n\n\n\n\n\n📝 This section is OPTIONAL\n\n\n\nNothing in this appendix will be on your exams. This is for students who want to see what’s happening “under the hood.” If calculus gives you hives, skip it with zero guilt.\n\n\nSuppose Jack’s utility function is:\n\\[U(R, W) = R^{0.6} \\cdot W^{0.4}\\]\nwhere \\(R\\) = rum and \\(W\\) = weapons. His constraint:\n\\[10R + 20W = 100\\]"
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#the-lagrangian-method",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#the-lagrangian-method",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "7.2 The Lagrangian Method",
+    "text": "7.2 The Lagrangian Method\nWe want to maximize \\(U(R,W)\\) subject to the budget constraint.\nSet up the Lagrangian:\n\\[\\mathcal{L} = R^{0.6} W^{0.4} - \\lambda(10R + 20W - 100)\\]\nTake partial derivatives and set them to zero:\n\\[\\frac{\\partial \\mathcal{L}}{\\partial R} = 0.6 R^{-0.4} W^{0.4} - 10\\lambda = 0\\]\n\\[\\frac{\\partial \\mathcal{L}}{\\partial W} = 0.4 R^{0.6} W^{-0.6} - 20\\lambda = 0\\]\n\\[\\frac{\\partial \\mathcal{L}}{\\partial \\lambda} = 100 - 10R - 20W = 0\\]"
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#solving-for-the-optimum",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#solving-for-the-optimum",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "7.3 Solving for the Optimum",
+    "text": "7.3 Solving for the Optimum\nDivide the first equation by the second:\n\\[\\frac{0.6 R^{-0.4} W^{0.4}}{0.4 R^{0.6} W^{-0.6}} = \\frac{10\\lambda}{20\\lambda}\\]\n\\[\\frac{0.6}{0.4} \\cdot \\frac{W}{R} = \\frac{1}{2}\\]\n\\[\\frac{3}{2} \\cdot \\frac{W}{R} = \\frac{1}{2} \\quad \\Rightarrow \\quad W = \\frac{R}{3}\\]\nPlug back into the budget constraint:\n\\[10R + 20\\left(\\frac{R}{3}\\right) = 100\\] \\[10R + \\frac{20R}{3} = 100\\] \\[\\frac{50R}{3} = 100 \\quad \\Rightarrow \\quad R = 6, \\quad W = 2\\]\nOptimal bundle: 6 Rum, 2 Weapons → \\(U = 6^{0.6} \\cdot 2^{0.4} \\approx 4.13\\) utils\n\nThe calculus confirms what the MU/$ method finds — just with more precision and fewer tables. Same economics, different toolkit. 🔧"
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/ch25-utility-lecture.html#final-words-from-the-captain",
+    "href": "resources/lectures/econ2120g/ch25-utility-lecture.html#final-words-from-the-captain",
+    "title": "Consumer Choice: A Pirate’s Guide to Utility Theory",
+    "section": "7.4 🏴‍☠️ Final Words from the Captain",
+    "text": "7.4 🏴‍☠️ Final Words from the Captain\n\n\nWhat Jack Sparrow taught us today:\n\nYou can’t have all the rum AND all the weapons\nThe budget constraint shows your real trade-offs\nSmart pirates equalize “bang for your buck”\nPrice changes create new opportunities\nThe demand curve comes FROM utility maximization\n\nNext class: We’ll build worksheets with these concepts and practice until the MU/$ of studying econ equals the MU/$ of everything else you could be doing.\n\n\n\n\n“But why is the rum gone?!”\n\nBecause you spent your budget optimally, Captain. 🏴‍☠️🐐\n\n\n\n\n7.4.1 References\n\nCowen, T., & Tabarrok, A. (2024). Modern Principles: Microeconomics (6th ed.). Worth Publishers. Chapter 25: Consumer Choice.\nFigures referenced: 25.1–25.12, pp. 494–506.\nAll memes and clips used under fair use for educational purposes."
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/index.html",
+    "href": "resources/lectures/econ2110g/index.html",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture materials for ECON2110G.\nEach lecture renders as a self-contained HTML page with interactive code, graphs, and practice problems.\n← Back to Course Home\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nThe Wealth of Nations and Economic Growth\n\n\nFeb 16, 2026\n\n\n\n\n\n\nNo matching items\n Back to top"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "The Teaching GOAT 🐐",
+    "section": "",
+    "text": "Select Your Course\n\n\nECON2110G\nExplore Principles of Macroeconomics →\n\n\nECON2120G\nExplore Principles of Microeconomics →\n\n\nECON304\nExplore The Economics of Money and Banking →\n\n\n\n📚 About This Website\nCreated by Dr. Meghan Downes. January 2026. No part of this material may be copied, distributed or used without permission of Dr. Downes. All material is subject to change. Some AI may have been harmed in the creation of these course materials, specifically Perplexity had some moments of “brain-breaking” trying to solve some code issues. All irreverant humor or out-and-out stupidity is, however, all the result of Dr. Downes.\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "docs/courses/index.html",
+    "href": "docs/courses/index.html",
+    "title": "All Courses",
+    "section": "",
+    "text": "ECON2110G - Principles of Macroeconomics\nECON2120G - Principles of Microeconomics\nECON304 - The Economics of Money and Banking\n\n← Back to Documentation Hub"
+  },
+  {
+    "objectID": "docs/courses/index.html#economics-courses",
+    "href": "docs/courses/index.html#economics-courses",
+    "title": "All Courses",
+    "section": "",
+    "text": "ECON2110G - Principles of Macroeconomics\nECON2120G - Principles of Microeconomics\nECON304 - The Economics of Money and Banking\n\n← Back to Documentation Hub"
+  },
+  {
+    "objectID": "docs/courses/econ304/syllabus/index.html",
+    "href": "docs/courses/econ304/syllabus/index.html",
+    "title": "The Economics of Money and Banking",
+    "section": "",
+    "text": "Attribute\nDetails\n\n\n\n\nCourse Code\nECON304-M01\n\n\nTitle\nThe Economics of Money and Banking\n\n\nSemester\nSpring 2026\n\n\nCredits\n3\n\n\nMeeting Times\nMon/Wed 10:30 AM - 11:45 PM\n\n\nLocation\nDOM223\n\n\nDates\nJanuary 21 – May 15, 2026\n\n\nInstructor\nDr. Meghan Downes\n\n\nEmail\ncmdownes@nmsu.edu\n\n\nOffice Hours\nMonday - Thursday 1:30 pm - 2:30 pm: By Appointment"
+  },
+  {
+    "objectID": "docs/courses/econ304/syllabus/index.html#course-information",
+    "href": "docs/courses/econ304/syllabus/index.html#course-information",
+    "title": "The Economics of Money and Banking",
+    "section": "",
+    "text": "Attribute\nDetails\n\n\n\n\nCourse Code\nECON304-M01\n\n\nTitle\nThe Economics of Money and Banking\n\n\nSemester\nSpring 2026\n\n\nCredits\n3\n\n\nMeeting Times\nMon/Wed 10:30 AM - 11:45 PM\n\n\nLocation\nDOM223\n\n\nDates\nJanuary 21 – May 15, 2026\n\n\nInstructor\nDr. Meghan Downes\n\n\nEmail\ncmdownes@nmsu.edu\n\n\nOffice Hours\nMonday - Thursday 1:30 pm - 2:30 pm: By Appointment"
+  },
+  {
+    "objectID": "docs/courses/econ304/syllabus/index.html#course-description",
+    "href": "docs/courses/econ304/syllabus/index.html#course-description",
+    "title": "The Economics of Money and Banking",
+    "section": "Course Description",
+    "text": "Course Description\nECON 2120G. Microeconomics Principles\n3 Credits (3) Income measurement and determination, monetary and fiscal policies. May be repeated up to 3 credits.\nPrerequisite: ECON 2110G or ECON 2110H or equivalent."
+  },
+  {
+    "objectID": "docs/courses/econ304/syllabus/index.html#learning-outcomes",
+    "href": "docs/courses/econ304/syllabus/index.html#learning-outcomes",
+    "title": "The Economics of Money and Banking",
+    "section": "Learning Outcomes",
+    "text": "Learning Outcomes\nAfter completing this course, you will be able to:\n\nUnderstand and apply key concepts in the economics of money and banking\nAnalyze real-world economic problems using course material\nCommunicate economic ideas clearly in writing and discussion\nUse data and quantitative methods to support economic arguments"
+  },
+  {
+    "objectID": "docs/courses/econ304/syllabus/index.html#required-materials",
+    "href": "docs/courses/econ304/syllabus/index.html#required-materials",
+    "title": "The Economics of Money and Banking",
+    "section": "Required Materials",
+    "text": "Required Materials\n\nCourse notes (provided on website)\nR and RStudio (free, open source)\nQuarto (free, open source)\nTextbook(s): TBD (to be announced)"
+  },
+  {
+    "objectID": "docs/courses/econ304/syllabus/index.html#course-requirements-grading",
+    "href": "docs/courses/econ304/syllabus/index.html#course-requirements-grading",
+    "title": "The Economics of Money and Banking",
+    "section": "Course Requirements & Grading",
+    "text": "Course Requirements & Grading\n\n\n\nAssessment\nWeight\nDetails\n\n\n\n\nParticipation\n10%\nClass attendance and discussion\n\n\nProblem Sets\n30%\nWeekly or bi-weekly assignments\n\n\nMidterm Exam\n20%\nIn-class, covering first half\n\n\nFinal Project\n40%\nResearch project or paper (due last week)\n\n\n\nGrading Scale:\n\nA: 90-100%\nB: 80-89%\nC: 70-79%\nD: 60-69%\nF: &lt;60%"
+  },
+  {
+    "objectID": "docs/courses/econ304/syllabus/index.html#course-policies",
+    "href": "docs/courses/econ304/syllabus/index.html#course-policies",
+    "title": "The Economics of Money and Banking",
+    "section": "Course Policies",
+    "text": "Course Policies\n\nAttendance\n\nRegular attendance is expected\nNotify instructor in advance if you must miss class\nMore than 3 unexcused absences may affect your grade\n\n\n\nLate Work\n\nProblem sets: -10% per day late (max 3 days)\nFinal project: No submissions accepted after last day of class\n\n\n\nAcademic Integrity\n\nAll work must be your own\nProper citations required for any sources used\nSee NMSU Student Code of Conduct: https://studenthandbook.nmsu.edu/\n\n\n\nAccessibility & Accommodations\n\nNMSU is committed to providing accommodations for students with disabilities\nDisability Services: (575) 646-6840\nRegister at least 2 weeks before needing accommodations\n\n\n\nClass Conduct\n\nBe respectful to classmates and instructor\nArrive on time; mute notifications during class\nNo smartphones or laptops without instructor permission (unless necessary for accessibility or taking notes)"
+  },
+  {
+    "objectID": "docs/courses/econ304/syllabus/index.html#course-content-overview",
+    "href": "docs/courses/econ304/syllabus/index.html#course-content-overview",
+    "title": "The Economics of Money and Banking",
+    "section": "Course Content Overview",
+    "text": "Course Content Overview\nThis course is structured around key topics, with lectures, discussions, and hands-on problem solving.\n\nWeekly Structure\n\nLectures: Concept introduction and discussion\nAssignments: Reinforce learning through practice\nOffice Hours: Ask questions and get feedback"
+  },
+  {
+    "objectID": "docs/courses/econ304/syllabus/index.html#tentative-course-schedule",
+    "href": "docs/courses/econ304/syllabus/index.html#tentative-course-schedule",
+    "title": "The Economics of Money and Banking",
+    "section": "Tentative Course Schedule",
+    "text": "Tentative Course Schedule\n\n\n\nWeek\nTopics\nAssignments\n\n\n\n\n1\nCourse overview; [Topic 1]\nRead Chapter 1\n\n\n2\n[Topic 2]; [Topic 3]\nProblem Set 1 due\n\n\n3\n[Topic 4]\nRead Chapter 2\n\n\n4\nReview & Midterm Prep\nMidterm exam\n\n\n5-14\n[Topics 5-15]\nProblem Sets 2-8 due\n\n\n15\nFinal project presentations\nFinal Project due\n\n\n\nSchedule subject to change at instructor’s discretion"
+  },
+  {
+    "objectID": "docs/courses/econ304/syllabus/index.html#course-resources",
+    "href": "docs/courses/econ304/syllabus/index.html#course-resources",
+    "title": "The Economics of Money and Banking",
+    "section": "Course Resources",
+    "text": "Course Resources\n\nGetting Help\n\nOffice Hours: Monday - Thursday 1:30 pm - 2:30 pm: By Appointment (or by appointment)\nEmail: cmdownes@nmsu.edu\nResponse Time: Typically within 24 hours\n\n\n\nTechnical Resources\n\nR Documentation: https://www.r-project.org/\nQuarto Guides: https://quarto.org/docs/guide/\nRStudio IDE: https://www.rstudio.com/\n\n\n\nWriting & Support\n\nNMSU Writing Center: https://nmsu.edu/writingcenter/\nTutoring Services: https://nmsu.edu/tutoring/\n\n\n\nLast updated: 2026-02-17 16:54:46 MST Course materials version: 1.0"
+  },
+  {
+    "objectID": "docs/courses/econ304/resources/index.html",
+    "href": "docs/courses/econ304/resources/index.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Content for resources coming soon.\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/courses/econ304/resources/index.html#resources",
+    "href": "docs/courses/econ304/resources/index.html#resources",
+    "title": "Resources",
+    "section": "",
+    "text": "Content for resources coming soon.\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/courses/econ304/information/index.html",
+    "href": "docs/courses/econ304/information/index.html",
+    "title": "Information",
+    "section": "",
+    "text": "Content for information coming soon.\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/courses/econ304/information/index.html#information",
+    "href": "docs/courses/econ304/information/index.html#information",
+    "title": "Information",
+    "section": "",
+    "text": "Content for information coming soon.\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/courses/econ2120g/worksheets/index.html",
+    "href": "docs/courses/econ2120g/worksheets/index.html",
+    "title": "Worksheets",
+    "section": "",
+    "text": "Content for worksheets coming soon.\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/courses/econ2120g/worksheets/index.html#worksheets",
+    "href": "docs/courses/econ2120g/worksheets/index.html#worksheets",
+    "title": "Worksheets",
+    "section": "",
+    "text": "Content for worksheets coming soon.\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/courses/econ2120g/schedule/index.html",
+    "href": "docs/courses/econ2120g/schedule/index.html",
+    "title": "Course Schedule",
+    "section": "",
+    "text": "Semester: Spring 2026 Dates: January 21 – May 15, 2026\nDuration: 16.2857142857143 weeks\nBelow is the planned schedule for this course. Topics and due dates are subject to change."
+  },
+  {
+    "objectID": "docs/courses/econ2120g/schedule/index.html#principles-of-microeconomics---course-schedule",
+    "href": "docs/courses/econ2120g/schedule/index.html#principles-of-microeconomics---course-schedule",
+    "title": "Course Schedule",
+    "section": "",
+    "text": "Semester: Spring 2026 Dates: January 21 – May 15, 2026\nDuration: 16.2857142857143 weeks\nBelow is the planned schedule for this course. Topics and due dates are subject to change."
+  },
+  {
+    "objectID": "docs/courses/econ2120g/schedule/index.html#week-by-week-schedule",
+    "href": "docs/courses/econ2120g/schedule/index.html#week-by-week-schedule",
+    "title": "Course Schedule",
+    "section": "Week-by-Week Schedule",
+    "text": "Week-by-Week Schedule\n\n\n\nWeek\nDates\nTopics\nDue\n\n\n\n\n1\nJan 21 – Jan 27\nTopic 1\n—\n\n\n2\nJan 28 – Feb 03\nTopic 2\n—\n\n\n3\nFeb 04 – Feb 10\nTopic 3\n—\n\n\n4\nFeb 11 – Feb 17\nTopic 4\n—\n\n\n5\nFeb 18 – Feb 24\nTopic 5\n—\n\n\n6\nFeb 25 – Mar 03\nTopic 6\n—\n\n\n7\nMar 04 – Mar 10\nTopic 7\n—\n\n\n8\nMar 11 – Mar 17\nTopic 8\n—\n\n\n9\nMar 18 – Mar 24\nTopic 9\n—\n\n\n10\nMar 25 – Mar 31\nTopic 10\n—\n\n\n11\nApr 01 – Apr 07\nTopic 11\n—\n\n\n12\nApr 08 – Apr 14\nTopic 12\n—\n\n\n13\nApr 15 – Apr 21\nTopic 13\n—\n\n\n14\nApr 22 – Apr 28\nTopic 14\n—\n\n\n15\nApr 29 – May 05\nTopic 15\n—\n\n\n16\nMay 06 – May 12\nTopic 16\n—"
+  },
+  {
+    "objectID": "docs/courses/econ2120g/schedule/index.html#important-dates",
+    "href": "docs/courses/econ2120g/schedule/index.html#important-dates",
+    "title": "Course Schedule",
+    "section": "Important Dates",
+    "text": "Important Dates\n\nStart Date: See above\nMidterm: Typically Week 7-8\nFinal Project Due: Last week of semester\nNo Class: Check university calendar for holidays"
+  },
+  {
+    "objectID": "docs/courses/econ2120g/schedule/index.html#how-to-use-this-schedule",
+    "href": "docs/courses/econ2120g/schedule/index.html#how-to-use-this-schedule",
+    "title": "Course Schedule",
+    "section": "How to Use This Schedule",
+    "text": "How to Use This Schedule\n\nCheck weekly: Before each class, review what’s coming up\nPlan ahead: Start assignments early, don’t wait until due date\nTrack changes: Check website for any schedule updates\n\n\n\nLast updated: 2026-02-17 16:54:46 MST Course materials version: 1.0"
+  },
+  {
+    "objectID": "docs/courses/econ2120g/lectures/index.html",
+    "href": "docs/courses/econ2120g/lectures/index.html",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture materials are available at: View All Lectures\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/courses/econ2120g/lectures/index.html#lecture-slides",
+    "href": "docs/courses/econ2120g/lectures/index.html#lecture-slides",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture materials are available at: View All Lectures\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/courses/econ2120g/index.html",
+    "href": "docs/courses/econ2120g/index.html",
+    "title": "Principles of Microeconomics",
+    "section": "",
+    "text": "Welcome to ECON2120G! This is your central hub for all course materials.\n\n\n\n\n\n\nSyllabus\nSchedule\nBack to All Courses\n\n\n\n\n\nInformation\nLectures\nWorksheets\nResources"
+  },
+  {
+    "objectID": "docs/courses/econ2120g/index.html#econ2120g",
+    "href": "docs/courses/econ2120g/index.html#econ2120g",
+    "title": "Principles of Microeconomics",
+    "section": "",
+    "text": "Welcome to ECON2120G! This is your central hub for all course materials.\n\n\n\n\n\n\nSyllabus\nSchedule\nBack to All Courses\n\n\n\n\n\nInformation\nLectures\nWorksheets\nResources"
+  },
+  {
+    "objectID": "docs/courses/econ2110g/syllabus/index.html",
+    "href": "docs/courses/econ2110g/syllabus/index.html",
+    "title": "Principles of Macroeconomics",
+    "section": "",
+    "text": "Attribute\nDetails\n\n\n\n\nCourse Code\nECON2110G-M04\n\n\nTitle\nPrinciples of Macroeconomics\n\n\nSemester\nSpring 2026\n\n\nCredits\n3\n\n\nMeeting Times\nMon/Wed 10:30 AM - 11:45 PM\n\n\nLocation\nDOM106\n\n\nDates\nJanuary 21 – May 15, 2026\n\n\nInstructor\nDr. Meghan Downes\n\n\nEmail\ncmdownes@nmsu.edu\n\n\nOffice Hours\nMonday - Thursday 1:30 pm - 2:30 pm: By Appointment"
+  },
+  {
+    "objectID": "docs/courses/econ2110g/syllabus/index.html#course-information",
+    "href": "docs/courses/econ2110g/syllabus/index.html#course-information",
+    "title": "Principles of Macroeconomics",
+    "section": "",
+    "text": "Attribute\nDetails\n\n\n\n\nCourse Code\nECON2110G-M04\n\n\nTitle\nPrinciples of Macroeconomics\n\n\nSemester\nSpring 2026\n\n\nCredits\n3\n\n\nMeeting Times\nMon/Wed 10:30 AM - 11:45 PM\n\n\nLocation\nDOM106\n\n\nDates\nJanuary 21 – May 15, 2026\n\n\nInstructor\nDr. Meghan Downes\n\n\nEmail\ncmdownes@nmsu.edu\n\n\nOffice Hours\nMonday - Thursday 1:30 pm - 2:30 pm: By Appointment"
+  },
+  {
+    "objectID": "docs/courses/econ2110g/syllabus/index.html#course-description",
+    "href": "docs/courses/econ2110g/syllabus/index.html#course-description",
+    "title": "Principles of Macroeconomics",
+    "section": "Course Description",
+    "text": "Course Description\nECON 2110G. Macroeconomic Principles\n3 Credits (3)\nMacroeconomics is the study of national and global economies. Topics include output, unemployment and inflation; and how they are affected by financial systems, fiscal and monetary policies."
+  },
+  {
+    "objectID": "docs/courses/econ2110g/syllabus/index.html#learning-outcomes",
+    "href": "docs/courses/econ2110g/syllabus/index.html#learning-outcomes",
+    "title": "Principles of Macroeconomics",
+    "section": "Learning Outcomes",
+    "text": "Learning Outcomes\nAfter completing this course, you will be able to:\n\nUnderstand and apply key concepts in principles of macroeconomics\nAnalyze real-world economic problems using course material\nCommunicate economic ideas clearly in writing and discussion\nUse data and quantitative methods to support economic arguments"
+  },
+  {
+    "objectID": "docs/courses/econ2110g/syllabus/index.html#required-materials",
+    "href": "docs/courses/econ2110g/syllabus/index.html#required-materials",
+    "title": "Principles of Macroeconomics",
+    "section": "Required Materials",
+    "text": "Required Materials\n\nCourse notes (provided on website)\nR and RStudio (free, open source)\nQuarto (free, open source)\nTextbook(s): TBD (to be announced)"
+  },
+  {
+    "objectID": "docs/courses/econ2110g/syllabus/index.html#course-requirements-grading",
+    "href": "docs/courses/econ2110g/syllabus/index.html#course-requirements-grading",
+    "title": "Principles of Macroeconomics",
+    "section": "Course Requirements & Grading",
+    "text": "Course Requirements & Grading\n\n\n\nAssessment\nWeight\nDetails\n\n\n\n\nParticipation\n10%\nClass attendance and discussion\n\n\nProblem Sets\n30%\nWeekly or bi-weekly assignments\n\n\nMidterm Exam\n20%\nIn-class, covering first half\n\n\nFinal Project\n40%\nResearch project or paper (due last week)\n\n\n\nGrading Scale:\n\nA: 90-100%\nB: 80-89%\nC: 70-79%\nD: 60-69%\nF: &lt;60%"
+  },
+  {
+    "objectID": "docs/courses/econ2110g/syllabus/index.html#course-policies",
+    "href": "docs/courses/econ2110g/syllabus/index.html#course-policies",
+    "title": "Principles of Macroeconomics",
+    "section": "Course Policies",
+    "text": "Course Policies\n\nAttendance\n\nRegular attendance is expected\nNotify instructor in advance if you must miss class\nMore than 3 unexcused absences may affect your grade\n\n\n\nLate Work\n\nProblem sets: -10% per day late (max 3 days)\nFinal project: No submissions accepted after last day of class\n\n\n\nAcademic Integrity\n\nAll work must be your own\nProper citations required for any sources used\nSee NMSU Student Code of Conduct: https://studenthandbook.nmsu.edu/\n\n\n\nAccessibility & Accommodations\n\nNMSU is committed to providing accommodations for students with disabilities\nDisability Services: (575) 646-6840\nRegister at least 2 weeks before needing accommodations\n\n\n\nClass Conduct\n\nBe respectful to classmates and instructor\nArrive on time; mute notifications during class\nNo smartphones or laptops without instructor permission (unless necessary for accessibility or taking notes)"
+  },
+  {
+    "objectID": "docs/courses/econ2110g/syllabus/index.html#course-content-overview",
+    "href": "docs/courses/econ2110g/syllabus/index.html#course-content-overview",
+    "title": "Principles of Macroeconomics",
+    "section": "Course Content Overview",
+    "text": "Course Content Overview\nThis course is structured around key topics, with lectures, discussions, and hands-on problem solving.\n\nWeekly Structure\n\nLectures: Concept introduction and discussion\nAssignments: Reinforce learning through practice\nOffice Hours: Ask questions and get feedback"
+  },
+  {
+    "objectID": "docs/courses/econ2110g/syllabus/index.html#tentative-course-schedule",
+    "href": "docs/courses/econ2110g/syllabus/index.html#tentative-course-schedule",
+    "title": "Principles of Macroeconomics",
+    "section": "Tentative Course Schedule",
+    "text": "Tentative Course Schedule\n\n\n\nWeek\nTopics\nAssignments\n\n\n\n\n1\nCourse overview; [Topic 1]\nRead Chapter 1\n\n\n2\n[Topic 2]; [Topic 3]\nProblem Set 1 due\n\n\n3\n[Topic 4]\nRead Chapter 2\n\n\n4\nReview & Midterm Prep\nMidterm exam\n\n\n5-14\n[Topics 5-15]\nProblem Sets 2-8 due\n\n\n15\nFinal project presentations\nFinal Project due\n\n\n\nSchedule subject to change at instructor’s discretion"
+  },
+  {
+    "objectID": "docs/courses/econ2110g/syllabus/index.html#course-resources",
+    "href": "docs/courses/econ2110g/syllabus/index.html#course-resources",
+    "title": "Principles of Macroeconomics",
+    "section": "Course Resources",
+    "text": "Course Resources\n\nGetting Help\n\nOffice Hours: Monday - Thursday 1:30 pm - 2:30 pm: By Appointment (or by appointment)\nEmail: cmdownes@nmsu.edu\nResponse Time: Typically within 24 hours\n\n\n\nTechnical Resources\n\nR Documentation: https://www.r-project.org/\nQuarto Guides: https://quarto.org/docs/guide/\nRStudio IDE: https://www.rstudio.com/\n\n\n\nWriting & Support\n\nNMSU Writing Center: https://nmsu.edu/writingcenter/\nTutoring Services: https://nmsu.edu/tutoring/\n\n\n\nLast updated: 2026-02-17 16:54:46 MST Course materials version: 1.0"
+  },
+  {
+    "objectID": "docs/courses/econ2110g/resources/index.html",
+    "href": "docs/courses/econ2110g/resources/index.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Content for resources coming soon.\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/courses/econ2110g/resources/index.html#resources",
+    "href": "docs/courses/econ2110g/resources/index.html#resources",
+    "title": "Resources",
+    "section": "",
+    "text": "Content for resources coming soon.\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/courses/econ2110g/information/index.html",
+    "href": "docs/courses/econ2110g/information/index.html",
+    "title": "Information",
+    "section": "",
+    "text": "Content for information coming soon.\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/courses/econ2110g/information/index.html#information",
+    "href": "docs/courses/econ2110g/information/index.html#information",
+    "title": "Information",
+    "section": "",
+    "text": "Content for information coming soon.\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About The Teaching GOAT",
+    "section": "",
+    "text": "The Teaching GOAT (Generated Online Academic Teaching) is an automated system for creating and managing economics course materials at New Mexico State University.\n\n\nThe Teaching GOAT is a modern, reproducible course management platform built with:\n\nQuarto – Reproducible documents combining narrative and code\nR – Statistical computing and automation\nGitHub – Version control and collaborative development\nBootstrap – Responsive web design framework\n\n\n\n\n✨ Automated Course Generation - Generates syllabi, schedules, and course materials from configuration files - Consistent formatting across all courses - Version-controlled content with full Git history\n📚 Organized Course Structure - Each course has dedicated sections for lectures, assignments, and resources - Student-friendly navigation with clear course hierarchies - Mobile-responsive design for all devices\n🔄 Reproducible & Maintainable - All content generated from R scripts and configuration data - Easy to update and redeploy - Transparent build process\n🌐 Publicly Accessible - Hosted on GitHub Pages for free, permanent access - All materials publicly available - Searchable course navigation\n\n\n\nEach course includes:\n\nSyllabus – Course policies, requirements, and learning outcomes\nSchedule – Week-by-week topics, readings, and due dates\nLectures – Lecture notes, slides, and supplementary materials\nWorksheets – Practice problems and problem sets\nResources – Additional readings, datasets, and tools\n\n\n\n\nFrontend: - Quarto rendering to static HTML - Bootstrap-based responsive design - Lux theme for professional appearance\nBackend: - R automation scripts for content generation - CSV-based course configuration - GitHub Actions for continuous deployment\nHosting: - GitHub Pages for static site hosting - Custom domain support available - Automatic HTTPS/SSL\n\n\n\nDr. Meghan Downes teaches economics at New Mexico State University. Her research and teaching focus on monetary economics, financial systems, and economic policy.\nContact Information: - Email: cmdownes@nmsu.edu - Office Hours: By appointment - GitHub: meghandownes\n\n\n\nFor Students: 1. Find your course in the course list 2. Review the syllabus and schedule 3. Access lecture materials and assignments 4. Submit work through Canvas or GitHub as directed\nFor Instructors: 1. Clone the repository: https://github.com/meghandownes/the-teaching-goat 2. Modify the data/courses.csv to add your courses 3. Run the build script: Rscript scripts/07-build.R 4. Preview with quarto preview 5. Deploy with quarto publish\n\n\n\nThe complete source code for this site is available on GitHub:\nmeghandownes/the-teaching-goat\nAll materials are licensed under the MIT License. Feel free to fork, modify, and adapt for your own teaching.\n\n\n\nThis site does not collect personal information. Analytics are handled securely and do not track individual users.\n\nNo cookies or tracking pixels\nNo third-party data collection\nAll content publicly accessible\nStudent work submissions through Canvas (separate, secured platform)\n\n\n\n\nFor questions about course content: - Email: cmdownes@nmsu.edu - Canvas: Check your course Canvas site for direct messaging\nFor technical issues with this site: - GitHub Issues: Report a bug - Pull Requests: Suggest improvements\n\nThe Teaching GOAT © 2026 Dr. Meghan Downes, New Mexico State University\nBuilt with Quarto, R, and GitHub"
+  },
+  {
+    "objectID": "about.html#about-the-teaching-goat",
+    "href": "about.html#about-the-teaching-goat",
+    "title": "About The Teaching GOAT",
+    "section": "",
+    "text": "The Teaching GOAT (Generated Online Academic Teaching) is an automated system for creating and managing economics course materials at New Mexico State University.\n\n\nThe Teaching GOAT is a modern, reproducible course management platform built with:\n\nQuarto – Reproducible documents combining narrative and code\nR – Statistical computing and automation\nGitHub – Version control and collaborative development\nBootstrap – Responsive web design framework\n\n\n\n\n✨ Automated Course Generation - Generates syllabi, schedules, and course materials from configuration files - Consistent formatting across all courses - Version-controlled content with full Git history\n📚 Organized Course Structure - Each course has dedicated sections for lectures, assignments, and resources - Student-friendly navigation with clear course hierarchies - Mobile-responsive design for all devices\n🔄 Reproducible & Maintainable - All content generated from R scripts and configuration data - Easy to update and redeploy - Transparent build process\n🌐 Publicly Accessible - Hosted on GitHub Pages for free, permanent access - All materials publicly available - Searchable course navigation\n\n\n\nEach course includes:\n\nSyllabus – Course policies, requirements, and learning outcomes\nSchedule – Week-by-week topics, readings, and due dates\nLectures – Lecture notes, slides, and supplementary materials\nWorksheets – Practice problems and problem sets\nResources – Additional readings, datasets, and tools\n\n\n\n\nFrontend: - Quarto rendering to static HTML - Bootstrap-based responsive design - Lux theme for professional appearance\nBackend: - R automation scripts for content generation - CSV-based course configuration - GitHub Actions for continuous deployment\nHosting: - GitHub Pages for static site hosting - Custom domain support available - Automatic HTTPS/SSL\n\n\n\nDr. Meghan Downes teaches economics at New Mexico State University. Her research and teaching focus on monetary economics, financial systems, and economic policy.\nContact Information: - Email: cmdownes@nmsu.edu - Office Hours: By appointment - GitHub: meghandownes\n\n\n\nFor Students: 1. Find your course in the course list 2. Review the syllabus and schedule 3. Access lecture materials and assignments 4. Submit work through Canvas or GitHub as directed\nFor Instructors: 1. Clone the repository: https://github.com/meghandownes/the-teaching-goat 2. Modify the data/courses.csv to add your courses 3. Run the build script: Rscript scripts/07-build.R 4. Preview with quarto preview 5. Deploy with quarto publish\n\n\n\nThe complete source code for this site is available on GitHub:\nmeghandownes/the-teaching-goat\nAll materials are licensed under the MIT License. Feel free to fork, modify, and adapt for your own teaching.\n\n\n\nThis site does not collect personal information. Analytics are handled securely and do not track individual users.\n\nNo cookies or tracking pixels\nNo third-party data collection\nAll content publicly accessible\nStudent work submissions through Canvas (separate, secured platform)\n\n\n\n\nFor questions about course content: - Email: cmdownes@nmsu.edu - Canvas: Check your course Canvas site for direct messaging\nFor technical issues with this site: - GitHub Issues: Report a bug - Pull Requests: Suggest improvements\n\nThe Teaching GOAT © 2026 Dr. Meghan Downes, New Mexico State University\nBuilt with Quarto, R, and GitHub"
+  },
+  {
+    "objectID": "docs/courses/econ2110g/index.html",
+    "href": "docs/courses/econ2110g/index.html",
+    "title": "Principles of Macroeconomics",
+    "section": "",
+    "text": "Welcome to ECON2110G! This is your central hub for all course materials.\n\n\n\n\n\n\nSyllabus\nSchedule\nBack to All Courses\n\n\n\n\n\nInformation\nLectures\nWorksheets\nResources"
+  },
+  {
+    "objectID": "docs/courses/econ2110g/index.html#econ2110g",
+    "href": "docs/courses/econ2110g/index.html#econ2110g",
+    "title": "Principles of Macroeconomics",
+    "section": "",
+    "text": "Welcome to ECON2110G! This is your central hub for all course materials.\n\n\n\n\n\n\nSyllabus\nSchedule\nBack to All Courses\n\n\n\n\n\nInformation\nLectures\nWorksheets\nResources"
+  },
+  {
+    "objectID": "docs/courses/econ2110g/lectures/index.html",
+    "href": "docs/courses/econ2110g/lectures/index.html",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture materials are available at: View All Lectures\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/courses/econ2110g/lectures/index.html#lecture-slides",
+    "href": "docs/courses/econ2110g/lectures/index.html#lecture-slides",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture materials are available at: View All Lectures\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/courses/econ2110g/schedule/index.html",
+    "href": "docs/courses/econ2110g/schedule/index.html",
+    "title": "Course Schedule",
+    "section": "",
+    "text": "Semester: Spring 2026 Dates: January 21 – May 15, 2026\nDuration: 16.2857142857143 weeks\nBelow is the planned schedule for this course. Topics and due dates are subject to change."
+  },
+  {
+    "objectID": "docs/courses/econ2110g/schedule/index.html#principles-of-macroeconomics---course-schedule",
+    "href": "docs/courses/econ2110g/schedule/index.html#principles-of-macroeconomics---course-schedule",
+    "title": "Course Schedule",
+    "section": "",
+    "text": "Semester: Spring 2026 Dates: January 21 – May 15, 2026\nDuration: 16.2857142857143 weeks\nBelow is the planned schedule for this course. Topics and due dates are subject to change."
+  },
+  {
+    "objectID": "docs/courses/econ2110g/schedule/index.html#week-by-week-schedule",
+    "href": "docs/courses/econ2110g/schedule/index.html#week-by-week-schedule",
+    "title": "Course Schedule",
+    "section": "Week-by-Week Schedule",
+    "text": "Week-by-Week Schedule\n\n\n\nWeek\nDates\nTopics\nDue\n\n\n\n\n1\nJan 21 – Jan 27\nTopic 1\n—\n\n\n2\nJan 28 – Feb 03\nTopic 2\n—\n\n\n3\nFeb 04 – Feb 10\nTopic 3\n—\n\n\n4\nFeb 11 – Feb 17\nTopic 4\n—\n\n\n5\nFeb 18 – Feb 24\nTopic 5\n—\n\n\n6\nFeb 25 – Mar 03\nTopic 6\n—\n\n\n7\nMar 04 – Mar 10\nTopic 7\n—\n\n\n8\nMar 11 – Mar 17\nTopic 8\n—\n\n\n9\nMar 18 – Mar 24\nTopic 9\n—\n\n\n10\nMar 25 – Mar 31\nTopic 10\n—\n\n\n11\nApr 01 – Apr 07\nTopic 11\n—\n\n\n12\nApr 08 – Apr 14\nTopic 12\n—\n\n\n13\nApr 15 – Apr 21\nTopic 13\n—\n\n\n14\nApr 22 – Apr 28\nTopic 14\n—\n\n\n15\nApr 29 – May 05\nTopic 15\n—\n\n\n16\nMay 06 – May 12\nTopic 16\n—"
+  },
+  {
+    "objectID": "docs/courses/econ2110g/schedule/index.html#important-dates",
+    "href": "docs/courses/econ2110g/schedule/index.html#important-dates",
+    "title": "Course Schedule",
+    "section": "Important Dates",
+    "text": "Important Dates\n\nStart Date: See above\nMidterm: Typically Week 7-8\nFinal Project Due: Last week of semester\nNo Class: Check university calendar for holidays"
+  },
+  {
+    "objectID": "docs/courses/econ2110g/schedule/index.html#how-to-use-this-schedule",
+    "href": "docs/courses/econ2110g/schedule/index.html#how-to-use-this-schedule",
+    "title": "Course Schedule",
+    "section": "How to Use This Schedule",
+    "text": "How to Use This Schedule\n\nCheck weekly: Before each class, review what’s coming up\nPlan ahead: Start assignments early, don’t wait until due date\nTrack changes: Check website for any schedule updates\n\n\n\nLast updated: 2026-02-17 16:54:46 MST Course materials version: 1.0"
+  },
+  {
+    "objectID": "docs/courses/econ2110g/worksheets/index.html",
+    "href": "docs/courses/econ2110g/worksheets/index.html",
+    "title": "Worksheets",
+    "section": "",
+    "text": "Content for worksheets coming soon.\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/courses/econ2110g/worksheets/index.html#worksheets",
+    "href": "docs/courses/econ2110g/worksheets/index.html#worksheets",
+    "title": "Worksheets",
+    "section": "",
+    "text": "Content for worksheets coming soon.\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/courses/econ2120g/information/index.html",
+    "href": "docs/courses/econ2120g/information/index.html",
+    "title": "Information",
+    "section": "",
+    "text": "Content for information coming soon.\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/courses/econ2120g/information/index.html#information",
+    "href": "docs/courses/econ2120g/information/index.html#information",
+    "title": "Information",
+    "section": "",
+    "text": "Content for information coming soon.\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/courses/econ2120g/resources/index.html",
+    "href": "docs/courses/econ2120g/resources/index.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Content for resources coming soon.\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/courses/econ2120g/resources/index.html#resources",
+    "href": "docs/courses/econ2120g/resources/index.html#resources",
+    "title": "Resources",
+    "section": "",
+    "text": "Content for resources coming soon.\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/courses/econ2120g/syllabus/index.html",
+    "href": "docs/courses/econ2120g/syllabus/index.html",
+    "title": "Principles of Microeconomics",
+    "section": "",
+    "text": "Attribute\nDetails\n\n\n\n\nCourse Code\nECON2120G-M02\n\n\nTitle\nPrinciples of Microeconomics\n\n\nSemester\nSpring 2026\n\n\nCredits\n3\n\n\nMeeting Times\nTue/Thu 12:00 PM - 1:15 PM\n\n\nLocation\nDOM106\n\n\nDates\nJanuary 21 – May 15, 2026\n\n\nInstructor\nDr. Meghan Downes\n\n\nEmail\ncmdownes@nmsu.edu\n\n\nOffice Hours\nMonday - Thursday 1:30 pm - 2:30 pm: By Appointment"
+  },
+  {
+    "objectID": "docs/courses/econ2120g/syllabus/index.html#course-information",
+    "href": "docs/courses/econ2120g/syllabus/index.html#course-information",
+    "title": "Principles of Microeconomics",
+    "section": "",
+    "text": "Attribute\nDetails\n\n\n\n\nCourse Code\nECON2120G-M02\n\n\nTitle\nPrinciples of Microeconomics\n\n\nSemester\nSpring 2026\n\n\nCredits\n3\n\n\nMeeting Times\nTue/Thu 12:00 PM - 1:15 PM\n\n\nLocation\nDOM106\n\n\nDates\nJanuary 21 – May 15, 2026\n\n\nInstructor\nDr. Meghan Downes\n\n\nEmail\ncmdownes@nmsu.edu\n\n\nOffice Hours\nMonday - Thursday 1:30 pm - 2:30 pm: By Appointment"
+  },
+  {
+    "objectID": "docs/courses/econ2120g/syllabus/index.html#course-description",
+    "href": "docs/courses/econ2120g/syllabus/index.html#course-description",
+    "title": "Principles of Microeconomics",
+    "section": "Course Description",
+    "text": "Course Description\nECON 2120G. Microeconomics Principles\n3 Credits (3)\nThis course will provide a broad overview of microeconomics. Microeconomics is the study of issues specific to households, firms, or industries with an emphasis on the role of markets. Topics discussed will include household and firm behavior, demand and supply,government intervention, market structures, and the efficient allocation of resources."
+  },
+  {
+    "objectID": "docs/courses/econ2120g/syllabus/index.html#learning-outcomes",
+    "href": "docs/courses/econ2120g/syllabus/index.html#learning-outcomes",
+    "title": "Principles of Microeconomics",
+    "section": "Learning Outcomes",
+    "text": "Learning Outcomes\nAfter completing this course, you will be able to:\n\nUnderstand and apply key concepts in principles of microeconomics\nAnalyze real-world economic problems using course material\nCommunicate economic ideas clearly in writing and discussion\nUse data and quantitative methods to support economic arguments"
+  },
+  {
+    "objectID": "docs/courses/econ2120g/syllabus/index.html#required-materials",
+    "href": "docs/courses/econ2120g/syllabus/index.html#required-materials",
+    "title": "Principles of Microeconomics",
+    "section": "Required Materials",
+    "text": "Required Materials\n\nCourse notes (provided on website)\nR and RStudio (free, open source)\nQuarto (free, open source)\nTextbook(s): TBD (to be announced)"
+  },
+  {
+    "objectID": "docs/courses/econ2120g/syllabus/index.html#course-requirements-grading",
+    "href": "docs/courses/econ2120g/syllabus/index.html#course-requirements-grading",
+    "title": "Principles of Microeconomics",
+    "section": "Course Requirements & Grading",
+    "text": "Course Requirements & Grading\n\n\n\nAssessment\nWeight\nDetails\n\n\n\n\nParticipation\n10%\nClass attendance and discussion\n\n\nProblem Sets\n30%\nWeekly or bi-weekly assignments\n\n\nMidterm Exam\n20%\nIn-class, covering first half\n\n\nFinal Project\n40%\nResearch project or paper (due last week)\n\n\n\nGrading Scale:\n\nA: 90-100%\nB: 80-89%\nC: 70-79%\nD: 60-69%\nF: &lt;60%"
+  },
+  {
+    "objectID": "docs/courses/econ2120g/syllabus/index.html#course-policies",
+    "href": "docs/courses/econ2120g/syllabus/index.html#course-policies",
+    "title": "Principles of Microeconomics",
+    "section": "Course Policies",
+    "text": "Course Policies\n\nAttendance\n\nRegular attendance is expected\nNotify instructor in advance if you must miss class\nMore than 3 unexcused absences may affect your grade\n\n\n\nLate Work\n\nProblem sets: -10% per day late (max 3 days)\nFinal project: No submissions accepted after last day of class\n\n\n\nAcademic Integrity\n\nAll work must be your own\nProper citations required for any sources used\nSee NMSU Student Code of Conduct: https://studenthandbook.nmsu.edu/\n\n\n\nAccessibility & Accommodations\n\nNMSU is committed to providing accommodations for students with disabilities\nDisability Services: (575) 646-6840\nRegister at least 2 weeks before needing accommodations\n\n\n\nClass Conduct\n\nBe respectful to classmates and instructor\nArrive on time; mute notifications during class\nNo smartphones or laptops without instructor permission (unless necessary for accessibility or taking notes)"
+  },
+  {
+    "objectID": "docs/courses/econ2120g/syllabus/index.html#course-content-overview",
+    "href": "docs/courses/econ2120g/syllabus/index.html#course-content-overview",
+    "title": "Principles of Microeconomics",
+    "section": "Course Content Overview",
+    "text": "Course Content Overview\nThis course is structured around key topics, with lectures, discussions, and hands-on problem solving.\n\nWeekly Structure\n\nLectures: Concept introduction and discussion\nAssignments: Reinforce learning through practice\nOffice Hours: Ask questions and get feedback"
+  },
+  {
+    "objectID": "docs/courses/econ2120g/syllabus/index.html#tentative-course-schedule",
+    "href": "docs/courses/econ2120g/syllabus/index.html#tentative-course-schedule",
+    "title": "Principles of Microeconomics",
+    "section": "Tentative Course Schedule",
+    "text": "Tentative Course Schedule\n\n\n\nWeek\nTopics\nAssignments\n\n\n\n\n1\nCourse overview; [Topic 1]\nRead Chapter 1\n\n\n2\n[Topic 2]; [Topic 3]\nProblem Set 1 due\n\n\n3\n[Topic 4]\nRead Chapter 2\n\n\n4\nReview & Midterm Prep\nMidterm exam\n\n\n5-14\n[Topics 5-15]\nProblem Sets 2-8 due\n\n\n15\nFinal project presentations\nFinal Project due\n\n\n\nSchedule subject to change at instructor’s discretion"
+  },
+  {
+    "objectID": "docs/courses/econ2120g/syllabus/index.html#course-resources",
+    "href": "docs/courses/econ2120g/syllabus/index.html#course-resources",
+    "title": "Principles of Microeconomics",
+    "section": "Course Resources",
+    "text": "Course Resources\n\nGetting Help\n\nOffice Hours: Monday - Thursday 1:30 pm - 2:30 pm: By Appointment (or by appointment)\nEmail: cmdownes@nmsu.edu\nResponse Time: Typically within 24 hours\n\n\n\nTechnical Resources\n\nR Documentation: https://www.r-project.org/\nQuarto Guides: https://quarto.org/docs/guide/\nRStudio IDE: https://www.rstudio.com/\n\n\n\nWriting & Support\n\nNMSU Writing Center: https://nmsu.edu/writingcenter/\nTutoring Services: https://nmsu.edu/tutoring/\n\n\n\nLast updated: 2026-02-17 16:54:46 MST Course materials version: 1.0"
+  },
+  {
+    "objectID": "docs/courses/econ304/index.html",
+    "href": "docs/courses/econ304/index.html",
+    "title": "The Economics of Money and Banking",
+    "section": "",
+    "text": "Welcome to ECON304! This is your central hub for all course materials.\n\n\n\n\n\n\nSyllabus\nSchedule\nBack to All Courses\n\n\n\n\n\nInformation\nLectures\nWorksheets\nResources"
+  },
+  {
+    "objectID": "docs/courses/econ304/index.html#econ304",
+    "href": "docs/courses/econ304/index.html#econ304",
+    "title": "The Economics of Money and Banking",
+    "section": "",
+    "text": "Welcome to ECON304! This is your central hub for all course materials.\n\n\n\n\n\n\nSyllabus\nSchedule\nBack to All Courses\n\n\n\n\n\nInformation\nLectures\nWorksheets\nResources"
+  },
+  {
+    "objectID": "docs/courses/econ304/lectures/index.html",
+    "href": "docs/courses/econ304/lectures/index.html",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture materials are available at: View All Lectures\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/courses/econ304/lectures/index.html#lecture-slides",
+    "href": "docs/courses/econ304/lectures/index.html#lecture-slides",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture materials are available at: View All Lectures\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/courses/econ304/schedule/index.html",
+    "href": "docs/courses/econ304/schedule/index.html",
+    "title": "Course Schedule",
+    "section": "",
+    "text": "Semester: Spring 2026 Dates: January 21 – May 15, 2026\nDuration: 16.2857142857143 weeks\nBelow is the planned schedule for this course. Topics and due dates are subject to change."
+  },
+  {
+    "objectID": "docs/courses/econ304/schedule/index.html#the-economics-of-money-and-banking---course-schedule",
+    "href": "docs/courses/econ304/schedule/index.html#the-economics-of-money-and-banking---course-schedule",
+    "title": "Course Schedule",
+    "section": "",
+    "text": "Semester: Spring 2026 Dates: January 21 – May 15, 2026\nDuration: 16.2857142857143 weeks\nBelow is the planned schedule for this course. Topics and due dates are subject to change."
+  },
+  {
+    "objectID": "docs/courses/econ304/schedule/index.html#week-by-week-schedule",
+    "href": "docs/courses/econ304/schedule/index.html#week-by-week-schedule",
+    "title": "Course Schedule",
+    "section": "Week-by-Week Schedule",
+    "text": "Week-by-Week Schedule\n\n\n\nWeek\nDates\nTopics\nDue\n\n\n\n\n1\nJan 21 – Jan 27\nTopic 1\n—\n\n\n2\nJan 28 – Feb 03\nTopic 2\n—\n\n\n3\nFeb 04 – Feb 10\nTopic 3\n—\n\n\n4\nFeb 11 – Feb 17\nTopic 4\n—\n\n\n5\nFeb 18 – Feb 24\nTopic 5\n—\n\n\n6\nFeb 25 – Mar 03\nTopic 6\n—\n\n\n7\nMar 04 – Mar 10\nTopic 7\n—\n\n\n8\nMar 11 – Mar 17\nTopic 8\n—\n\n\n9\nMar 18 – Mar 24\nTopic 9\n—\n\n\n10\nMar 25 – Mar 31\nTopic 10\n—\n\n\n11\nApr 01 – Apr 07\nTopic 11\n—\n\n\n12\nApr 08 – Apr 14\nTopic 12\n—\n\n\n13\nApr 15 – Apr 21\nTopic 13\n—\n\n\n14\nApr 22 – Apr 28\nTopic 14\n—\n\n\n15\nApr 29 – May 05\nTopic 15\n—\n\n\n16\nMay 06 – May 12\nTopic 16\n—"
+  },
+  {
+    "objectID": "docs/courses/econ304/schedule/index.html#important-dates",
+    "href": "docs/courses/econ304/schedule/index.html#important-dates",
+    "title": "Course Schedule",
+    "section": "Important Dates",
+    "text": "Important Dates\n\nStart Date: See above\nMidterm: Typically Week 7-8\nFinal Project Due: Last week of semester\nNo Class: Check university calendar for holidays"
+  },
+  {
+    "objectID": "docs/courses/econ304/schedule/index.html#how-to-use-this-schedule",
+    "href": "docs/courses/econ304/schedule/index.html#how-to-use-this-schedule",
+    "title": "Course Schedule",
+    "section": "How to Use This Schedule",
+    "text": "How to Use This Schedule\n\nCheck weekly: Before each class, review what’s coming up\nPlan ahead: Start assignments early, don’t wait until due date\nTrack changes: Check website for any schedule updates\n\n\n\nLast updated: 2026-02-17 16:54:46 MST Course materials version: 1.0"
+  },
+  {
+    "objectID": "docs/courses/econ304/worksheets/index.html",
+    "href": "docs/courses/econ304/worksheets/index.html",
+    "title": "Worksheets",
+    "section": "",
+    "text": "Content for worksheets coming soon.\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/courses/econ304/worksheets/index.html#worksheets",
+    "href": "docs/courses/econ304/worksheets/index.html#worksheets",
+    "title": "Worksheets",
+    "section": "",
+    "text": "Content for worksheets coming soon.\n\n\nSyllabus\nSchedule\nCourse Home"
+  },
+  {
+    "objectID": "docs/index.html",
+    "href": "docs/index.html",
+    "title": "Documentation Hub",
+    "section": "",
+    "text": "Welcome to The Teaching GOAT documentation hub.\n\n\nAccess syllabi, schedules, lectures, and resources for all courses."
+  },
+  {
+    "objectID": "docs/index.html#documentation-course-materials",
+    "href": "docs/index.html#documentation-course-materials",
+    "title": "Documentation Hub",
+    "section": "",
+    "text": "Welcome to The Teaching GOAT documentation hub.\n\n\nAccess syllabi, schedules, lectures, and resources for all courses."
+  },
+  {
+    "objectID": "resources/index.html",
+    "href": "resources/index.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Shared resources across all economics courses.\n\nData Sources\nR & Statistics\nLectures"
+  },
+  {
+    "objectID": "resources/index.html#teaching-resources",
+    "href": "resources/index.html#teaching-resources",
+    "title": "Resources",
+    "section": "",
+    "text": "Shared resources across all economics courses.\n\nData Sources\nR & Statistics\nLectures"
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "",
+    "text": "In 2025, the United States has a total GDP (PPP) of about $30.6 trillion, China leads the world at $41.0 trillion, and Norway — a country of just 5.5 million people — punches far above its weight. But GDP alone is misleading. When we adjust for population, prices, and inflation, a radically different picture emerges.\nThis lecture uses three countries — the United States, China, and Norway — as a running comparison to explore:\n\nHow we measure economic output (nominal → real → per capita → PPP)\nWhy growth rates matter more than levels\nWhat institutions and ideas drive long-run growth (Cowen & Tabarrok, Chs. 7–8)"
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#nominal-gdp",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#nominal-gdp",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "2.1 Nominal GDP",
+    "text": "2.1 Nominal GDP\nNominal GDP is the total value of all final goods and services produced in an economy, measured in current prices for a given year.\n\\[\n\\text{Nominal GDP} = \\sum_{i=1}^{n} P_i \\times Q_i \\tag{1}\n\\]\nwhere \\(P_i\\) is the current price of good \\(i\\) and \\(Q_i\\) is the quantity produced.\nProblem: Nominal GDP rises when prices rise, even if output doesn’t change. If prices doubled and production stayed flat, nominal GDP would double — but the country isn’t actually richer. We need to strip out inflation."
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#real-gdp-adjusting-for-inflation",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#real-gdp-adjusting-for-inflation",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "2.2 Real GDP: Adjusting for Inflation",
+    "text": "2.2 Real GDP: Adjusting for Inflation\nReal GDP removes the effect of price changes by using a GDP deflator — a price index that measures the overall price level relative to a base year.\n\\[\n\\text{Real GDP} = \\frac{\\text{Nominal GDP}}{\\text{GDP Deflator} / 100} \\tag{2}\n\\]\nAlternatively, if the deflator is expressed as a decimal multiplier:\n\\[\n\\text{Real GDP} = \\frac{\\text{Nominal GDP}}{1 + d} \\tag{3}\n\\]\nwhere \\(d\\) is the inflation rate captured by the deflator.\n\n\nCode\n# Example: US Nominal GDP and deflator\nnominal_gdp &lt;- 29168  # billions, approximate 2024\ndeflator &lt;- 123.5     # base year = 2017 = 100\n\nreal_gdp &lt;- nominal_gdp / (deflator / 100)\n\ntibble(\n  Measure = c(\"Nominal GDP (2024)\", \"GDP Deflator (2017 base)\", \"Real GDP (2017 dollars)\"),\n  Value = c(paste0(\"$\", format(nominal_gdp, big.mark = \",\"), \" B\"),\n            deflator,\n            paste0(\"$\", format(round(real_gdp), big.mark = \",\"), \" B\"))\n) %&gt;%\n  kable(caption = \"Converting Nominal to Real GDP: United States\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE)\n\n\n\nConverting Nominal to Real GDP: United States\n\n\nMeasure\nValue\n\n\n\n\nNominal GDP (2024)\n$29,168 B\n\n\nGDP Deflator (2017 base)\n123.5\n\n\nReal GDP (2017 dollars)\n$23,618 B\n\n\n\n\n\n\n\n\n\n\n\nWhy Real GDP Matters\n\n\n\nBetween 2000 and 2024, US nominal GDP roughly tripled. But much of that was inflation. Real GDP roughly doubled — still impressive, but a very different story. Always use real GDP for comparisons across time."
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#per-capita-gdp-adjusting-for-population",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#per-capita-gdp-adjusting-for-population",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "2.3 Per Capita GDP: Adjusting for Population",
+    "text": "2.3 Per Capita GDP: Adjusting for Population\nA country with 1.4 billion people and $18 trillion in GDP is not richer per person than a country with 340 million people and $29 trillion. To compare living standards, divide by population.\n\\[\n\\text{GDP per capita} = \\frac{\\text{GDP}}{\\text{Population}} \\tag{4}\n\\]\nFor real GDP per capita:\n\\[\n\\text{Real GDP per capita} = \\frac{\\text{Real GDP}}{\\text{Population}} \\tag{5}\n\\]\n\n\nCode\ncountries &lt;- tibble(\n  Country = c(\"United States\", \"China\", \"Norway\"),\n  `Nominal GDP ($B)` = c(29168, 18533, 579),\n  Population_M = c(340, 1425, 5.5),\n  Deflator = c(123.5, 115.0, 120.0)\n) %&gt;%\n  mutate(\n    `Real GDP ($B)` = round(`Nominal GDP ($B)` / (Deflator / 100)),\n    `Nominal per Capita` = round(`Nominal GDP ($B)` * 1e3 / Population_M),\n    `Real per Capita` = round(`Real GDP ($B)` * 1e3 / Population_M)\n  )\n\ncountries %&gt;%\n  transmute(\n    Country,\n    `Nominal GDP` = paste0(\"$\", format(`Nominal GDP ($B)`, big.mark = \",\"), \" B\"),\n    `Population` = paste0(Population_M, \" M\"),\n    `Nominal per Capita` = dollar(`Nominal per Capita`),\n    `Real per Capita (2017$)` = dollar(`Real per Capita`)\n  ) %&gt;%\n  kable(align = \"lrrrr\",\n        caption = \"GDP per Capita: US vs. China vs. Norway (approx. 2024)\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE)\n\n\n\nGDP per Capita: US vs. China vs. Norway (approx. 2024)\n\n\nCountry\nNominal GDP\nPopulation\nNominal per Capita\nReal per Capita (2017$)\n\n\n\n\nUnited States\n$29,168 B\n340 M\n$85,788\n$69,465\n\n\nChina\n$18,533 B\n1425 M\n$13,006\n$11,309\n\n\nNorway\n$ 579 B\n5.5 M\n$105,273\n$87,636\n\n\n\n\n\n\n\n\n\n\n\nThe China Paradox\n\n\n\nChina has the largest economy in the world by PPP, but its GDP per capita is roughly 1/5th of Norway’s and 1/6th of the US. Total GDP measures the size of the economy. Per capita GDP measures the standard of living of individuals. These are fundamentally different questions."
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#purchasing-power-parity-ppp",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#purchasing-power-parity-ppp",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "2.4 Purchasing Power Parity (PPP)",
+    "text": "2.4 Purchasing Power Parity (PPP)\nEven after adjusting for inflation and population, comparing across countries using market exchange rates is misleading. A haircut costs $25 in Las Cruces but ¥30 (about $4) in rural China. If a Chinese worker earns $13,000 per year in nominal terms, that money buys far more stuff in China than it would in the US.\nPurchasing Power Parity adjusts for these price differences by using a hypothetical “international dollar” — a currency that has the same purchasing power everywhere.\n\\[\n\\text{GDP}_{PPP} = \\text{GDP}_{\\text{local currency}} \\times \\frac{\\text{PPP conversion factor}}{\\text{Market exchange rate}} \\tag{6}\n\\]\nOr more intuitively:\n\\[\n\\text{GDP per capita (PPP)} = \\frac{\\text{GDP (PPP)}}{\\text{Population}} \\tag{7}\n\\]\n\n\nCode\nppp_data &lt;- tibble(\n  Country = c(\"United States\", \"China\", \"Norway\"),\n  `Nominal per Capita (USD)` = c(85780, 13000, 105240),\n  `PPP per Capita (Int$)` = c(85780, 24500, 92600),\n  `PPP Multiplier` = c(1.00, 1.88, 0.88)\n)\n\nppp_data %&gt;%\n  mutate(\n    `Nominal per Capita (USD)` = dollar(`Nominal per Capita (USD)`),\n    `PPP per Capita (Int$)` = dollar(`PPP per Capita (Int$)`),\n    `PPP Multiplier` = paste0(format(`PPP Multiplier`, nsmall = 2), \"x\")\n  ) %&gt;%\n  kable(align = \"lrrr\",\n        caption = \"Nominal vs. PPP-Adjusted GDP per Capita (approx. 2024)\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE)\n\n\n\nNominal vs. PPP-Adjusted GDP per Capita (approx. 2024)\n\n\nCountry\nNominal per Capita (USD)\nPPP per Capita (Int$)\nPPP Multiplier\n\n\n\n\nUnited States\n$85,780\n$85,780\n1.00x\n\n\nChina\n$13,000\n$24,500\n1.88x\n\n\nNorway\n$105,240\n$92,600\n0.88x\n\n\n\n\n\n\n\n\n\n\n\nWhen to Use Which Measure\n\n\n\n\n\n\n\n\n\n\nQuestion\nUse This\n\n\n\n\nHow big is the economy?\nNominal GDP\n\n\nIs it growing over time?\nReal GDP\n\n\nHow well off are people?\nReal GDP per capita\n\n\nComparing living standards across countries?\nReal GDP per capita, PPP"
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#the-complete-conversion-pipeline",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#the-complete-conversion-pipeline",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "2.5 The Complete Conversion Pipeline",
+    "text": "2.5 The Complete Conversion Pipeline\nPutting it all together, here’s the full chain from raw output to a meaningful cross-country comparison:\n\\[\n\\text{Nominal GDP} \\xrightarrow{\\div \\text{Deflator}} \\text{Real GDP} \\xrightarrow{\\div \\text{Population}} \\text{Real GDP per Capita} \\xrightarrow{\\times \\text{PPP adj.}} \\text{Real GDP per Capita (PPP)} \\tag{8}\n\\]\n\n\nCode\npipeline &lt;- tibble(\n  Step = c(\"1. Nominal GDP\", \"2. ÷ GDP Deflator\", \"3. ÷ Population\", \"4. × PPP Adjustment\"),\n  `What It Removes` = c(\"(Raw measure)\", \"Inflation\", \"Size differences\", \"Price-level differences\"),\n  `US Example` = c(\"$29.2 T\", \"$23.6 T (2017$)\", \"$69,400\", \"$85,780\"),\n  `China Example` = c(\"$18.5 T\", \"$16.1 T (2017$)\", \"$11,300\", \"$24,500\"),\n  `Norway Example` = c(\"$579 B\", \"$483 B (2017$)\", \"$87,700\", \"$92,600\")\n)\n\npipeline %&gt;%\n  kable(align = \"llrrr\",\n        caption = \"The GDP Conversion Pipeline\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE) %&gt;%\n  row_spec(4, bold = TRUE, background = \"#f0f9e8\")\n\n\n\nThe GDP Conversion Pipeline\n\n\nStep\nWhat It Removes\nUS Example\nChina Example\nNorway Example\n\n\n\n\n1. Nominal GDP\n(Raw measure)\n$29.2 T\n$18.5 T\n$579 B\n\n\n2. ÷ GDP Deflator\nInflation\n$23.6 T (2017$)\n$16.1 T (2017$)\n$483 B (2017$)\n\n\n3. ÷ Population\nSize differences\n$69,400\n$11,300\n$87,700\n\n\n4. × PPP Adjustment\nPrice-level differences\n$85,780\n$24,500\n$92,600"
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#measuring-growth",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#measuring-growth",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "3.1 Measuring Growth",
+    "text": "3.1 Measuring Growth\nEconomic growth is measured as the percent change in real GDP per capita:\n\\[\ng_t = \\frac{y_t - y_{t-1}}{y_{t-1}} \\times 100 \\tag{9}\n\\]\nwhere \\(g_t\\) is the growth rate and \\(y_t\\) is real GDP per capita in year \\(t\\).\n\n\nCode\n# China growth example\ny_2023 &lt;- 21600\ny_2024 &lt;- 22700\n\ng_china &lt;- (y_2024 - y_2023) / y_2023 * 100\n\ncat(\"China PPP per capita growth ≈\", round(g_china, 1), \"%\")\n\n\nChina PPP per capita growth ≈ 5.1 %"
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#the-rule-of-70",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#the-rule-of-70",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "3.2 The Rule of 70",
+    "text": "3.2 The Rule of 70\nSmall differences in growth rates produce enormous differences over time because of compounding. The Rule of 70 tells you how long it takes for a variable to double:\n\\[\n\\text{Doubling Time (years)} = \\frac{70}{\\text{Annual Growth Rate (\\%)}} \\tag{10}\n\\]\n\n\nCode\ngrowth_rates &lt;- tibble(\n  Country = c(\"United States\", \"China\", \"Norway\"),\n  `Approx. Growth Rate (%)` = c(2.0, 5.0, 1.5),\n) %&gt;%\n  mutate(\n    `Doubling Time (years)` = round(70 / `Approx. Growth Rate (%)`, 1),\n    `GDP per Capita in 35 years (multiple)` = round((1 + `Approx. Growth Rate (%)`/100)^35, 2)\n  )\n\ngrowth_rates %&gt;%\n  mutate(`GDP per Capita in 35 years (multiple)` = paste0(`GDP per Capita in 35 years (multiple)`, \"x\")) %&gt;%\n  kable(align = \"lrrr\",\n        caption = \"The Rule of 70: Growth Rates and Doubling Times\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE)\n\n\n\nThe Rule of 70: Growth Rates and Doubling Times\n\n\nCountry\nApprox. Growth Rate (%)\nDoubling Time (years)\nGDP per Capita in 35 years (multiple)\n\n\n\n\nUnited States\n2.0\n35.0\n2x\n\n\nChina\n5.0\n14.0\n5.52x\n\n\nNorway\n1.5\n46.7\n1.68x\n\n\n\n\n\n\n\n\n\n\n\nWhy Growth Rates Are Everything\n\n\n\nAt 2% growth, the US doubles its living standard every 35 years. At 5% growth, China doubles every 14 years. This is why China went from one of the poorest countries to the world’s largest economy (PPP) in just four decades. Compound growth is the most powerful force in economics."
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#compounding-the-fv-formula-applied-to-gdp",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#compounding-the-fv-formula-applied-to-gdp",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "3.3 Compounding: The FV Formula Applied to GDP",
+    "text": "3.3 Compounding: The FV Formula Applied to GDP\nThe same Future Value formula from our Tesla lecture applies here. If a country’s real GDP per capita is \\(y_0\\) today and it grows at rate \\(g\\) per year:\n\\[\ny_n = y_0 \\times (1 + g)^n \\tag{11}\n\\]\n\n\nCode\nyears_ahead &lt;- c(10, 20, 35, 50)\n\nprojections &lt;- expand_grid(\n  Country = c(\"United States\", \"China\", \"Norway\"),\n  Years = years_ahead\n) %&gt;%\n  mutate(\n    y0 = case_when(\n      Country == \"United States\" ~ 85780,\n      Country == \"China\" ~ 24500,\n      Country == \"Norway\" ~ 92600\n    ),\n    g = case_when(\n      Country == \"United States\" ~ 0.02,\n      Country == \"China\" ~ 0.05,\n      Country == \"Norway\" ~ 0.015\n    ),\n    `Projected PPP per Capita` = round(y0 * (1 + g)^Years)\n  )\n\nprojections %&gt;%\n  mutate(`Projected PPP per Capita` = dollar(`Projected PPP per Capita`)) %&gt;%\n  pivot_wider(names_from = Years, values_from = `Projected PPP per Capita`,\n              names_prefix = \"Year \") %&gt;%\n  select(-y0, -g) %&gt;%\n  kable(align = \"lrrrr\",\n        caption = \"Projected GDP per Capita (PPP) at Current Growth Rates\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE)\n\n\n\nProjected GDP per Capita (PPP) at Current Growth Rates\n\n\nCountry\nYear 10\nYear 20\nYear 35\nYear 50\n\n\n\n\nUnited States\n$104,565\n$127,465\n$171,551\n$230,884\n\n\nChina\n$39,908\n$65,006\n$135,142\n$280,951\n\n\nNorway\n$107,466\n$124,719\n$155,927\n$194,945\n\n\n\n\n\n\n\n\n\n\n\nConvergence Alert\n\n\n\nAt these growth rates, China’s GDP per capita would surpass Norway’s in roughly 30 years and approach the US level in about 35. But will China maintain 5% growth? The Solow model says no — diminishing returns to capital will slow it down as China moves from catch-up to cutting-edge growth."
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#the-golden-age-19501973",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#the-golden-age-19501973",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "4.1 The Golden Age (1950–1973)",
+    "text": "4.1 The Golden Age (1950–1973)\nThe period after WWII was one of the greatest economic expansions in history. Average global growth hit 4.8% per year — a pace never seen before or since.\n\n\nCode\npostwar &lt;- tibble(\n  Country = c(\"United States\", \"China\", \"Norway\",\n              \"Japan\", \"Germany\", \"United Kingdom\"),\n  `Growth Rate 1950–1973 (%)` = c(3.93, 4.90, 4.06,\n                                    9.29, 5.68, 2.93),\n  `Growth Rate 1973–2000 (%)` = c(2.99, 7.50, 3.35,\n                                    2.97, 2.01, 2.18),\n  `Growth Rate 2000–2024 (%)` = c(1.80, 8.20, 1.30,\n                                    0.70, 1.10, 1.40)\n)\n\npostwar %&gt;%\n  kable(align = \"lrrr\",\n        caption = \"Average Annual GDP Growth Rates by Era\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE) %&gt;%\n  row_spec(which(postwar$Country %in% c(\"United States\", \"China\", \"Norway\")),\n           bold = TRUE, background = \"#f0f9e8\")\n\n\n\nAverage Annual GDP Growth Rates by Era\n\n\nCountry\nGrowth Rate 1950–1973 (%)\nGrowth Rate 1973–2000 (%)\nGrowth Rate 2000–2024 (%)\n\n\n\n\nUnited States\n3.93\n2.99\n1.8\n\n\nChina\n4.90\n7.50\n8.2\n\n\nNorway\n4.06\n3.35\n1.3\n\n\nJapan\n9.29\n2.97\n0.7\n\n\nGermany\n5.68\n2.01\n1.1\n\n\nUnited Kingdom\n2.93\n2.18\n1.4"
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#the-us-story-slow-and-steady-wins-the-race",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#the-us-story-slow-and-steady-wins-the-race",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "4.2 The US Story: Slow and Steady Wins the Race",
+    "text": "4.2 The US Story: Slow and Steady Wins the Race\nThe United States never had the fastest growth rate in any era. Its power comes from consistency — roughly 2–4% growth sustained over more than 200 years. From 1950 to 1975, US GDP went from $228 billion to $1.7 trillion, and by 1975 the US represented about 35% of world industrial output.\nThe US advantage: strong institutions, rule of law, property rights, deep capital markets, and a culture of innovation. These are exactly the factors Cowen & Tabarrok identify as the foundations of wealth."
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#the-china-story-the-greatest-catch-up-in-history",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#the-china-story-the-greatest-catch-up-in-history",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "4.3 The China Story: The Greatest Catch-Up in History",
+    "text": "4.3 The China Story: The Greatest Catch-Up in History\nIn 1950, China’s GDP per capita was roughly comparable to sub-Saharan Africa. After Mao’s death and Deng Xiaoping’s reforms in 1978, China began the most dramatic economic transformation in recorded history:\n\nSwitched from communal to individual farming → food production increased 50%\nOpened to foreign trade and investment\nInvested massively in physical capital (factories, infrastructure, cities)\nGrowth averaged nearly 10% per year for three decades\n\nBy 2020, China’s total GDP (PPP) surpassed the United States. But per capita, China is still roughly where the US was in the early 2000s.\n\n\nCode\nchina_trajectory &lt;- tibble(\n  Year = c(1950, 1978, 1990, 2000, 2010, 2020, 2024),\n  `China GDP/capita (PPP, 2017$)` = c(637, 1517, 2982, 4500, 10200, 17200, 24500),\n  `US GDP/capita (PPP, 2017$)` = c(15241, 25368, 35762, 44700, 49300, 55800, 85780),\n  `China as % of US` = NA\n) %&gt;%\n  mutate(`China as % of US` = paste0(round(`China GDP/capita (PPP, 2017$)` /\n                                             `US GDP/capita (PPP, 2017$)` * 100, 1), \"%\"))\n\nchina_trajectory %&gt;%\n  mutate(across(contains(\"GDP\"), ~dollar(.))) %&gt;%\n  kable(align = \"rrrr\",\n        caption = \"China's Catch-Up: GDP per Capita Relative to the US\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE)\n\n\n\nChina's Catch-Up: GDP per Capita Relative to the US\n\n\nYear\nChina GDP/capita (PPP, 2017$)\nUS GDP/capita (PPP, 2017$)\nChina as % of US\n\n\n\n\n1950\n$637\n$15,241\n4.2%\n\n\n1978\n$1,517\n$25,368\n6%\n\n\n1990\n$2,982\n$35,762\n8.3%\n\n\n2000\n$4,500\n$44,700\n10.1%\n\n\n2010\n$10,200\n$49,300\n20.7%\n\n\n2020\n$17,200\n$55,800\n30.8%\n\n\n2024\n$24,500\n$85,780\n28.6%"
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#the-norway-story-small-rich-and-institutional",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#the-norway-story-small-rich-and-institutional",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "4.4 The Norway Story: Small, Rich, and Institutional",
+    "text": "4.4 The Norway Story: Small, Rich, and Institutional\nNorway offers a fascinating counterpoint. With just 5.5 million people, it has:\n\nGDP per capita that rivals or exceeds the US\nA sovereign wealth fund (the Government Pension Fund Global) worth over $1.7 trillion — funded by North Sea oil\nWorld-class institutions: low corruption, strong property rights, high trust\n\nNorway’s growth rate (1.5–4%) has never been spectacular. But like the US, it has been consistent, backed by institutions that the textbook describes as essential: property rights, honest government, political stability, a dependable legal system, and competitive markets.\n\n\nCode\nnorway_comp &lt;- tibble(\n  Metric = c(\"GDP per Capita (Nominal)\", \"GDP per Capita (PPP)\",\n             \"Population\", \"Sovereign Wealth Fund\",\n             \"Transparency Intl. Rank\", \"Post-WWII Avg. Growth\"),\n  `Norway` = c(\"$105,240\", \"$92,600\", \"5.5 M\", \"$1.7 T\",\n               \"Top 5 (least corrupt)\", \"~3.5%\"),\n  `United States` = c(\"$85,780\", \"$85,780\", \"340 M\", \"N/A\",\n                       \"~25th\", \"~3.0%\"),\n  `China` = c(\"$13,000\", \"$24,500\", \"1,425 M\", \"$1.3 T (CIC)\",\n              \"~80th\", \"~6.5% (post-1978)\")\n)\n\nnorway_comp %&gt;%\n  kable(align = \"lrrr\",\n        caption = \"Norway vs. US vs. China: Key Indicators\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE)\n\n\n\nNorway vs. US vs. China: Key Indicators\n\n\nMetric\nNorway\nUnited States\nChina\n\n\n\n\nGDP per Capita (Nominal)\n$105,240\n$85,780\n$13,000\n\n\nGDP per Capita (PPP)\n$92,600\n$85,780\n$24,500\n\n\nPopulation\n5.5 M\n340 M\n1,425 M\n\n\nSovereign Wealth Fund\n$1.7 T\nN/A\n$1.3 T (CIC)\n\n\nTransparency Intl. Rank\nTop 5 (least corrupt)\n~25th\n~80th\n\n\nPost-WWII Avg. Growth\n~3.5%\n~3.0%\n~6.5% (post-1978)"
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#capital-accumulation-and-diminishing-returns",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#capital-accumulation-and-diminishing-returns",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "5.1 Capital Accumulation and Diminishing Returns",
+    "text": "5.1 Capital Accumulation and Diminishing Returns\nThe Solow model explains why catch-up growth eventually slows. The production function is:\n\\[\nY = F(A, K, eL) \\tag{12}\n\\]\nwhere \\(Y\\) = output, \\(A\\) = ideas/technology, \\(K\\) = physical capital, \\(e\\) = education (human capital), and \\(L\\) = labor.\nIf we hold \\(A\\), \\(e\\), and \\(L\\) constant, output depends only on capital:\n\\[\nY = \\sqrt{K} \\tag{13}\n\\]\nThe key insight: diminishing marginal returns to capital. The first factory in a poor country is incredibly productive. The 10,000th factory adds much less.\n\n\nCode\ncapital_data &lt;- tibble(\n  K = seq(0, 500, by = 25)\n) %&gt;%\n  mutate(\n    Y = sqrt(K),\n    MPK = ifelse(K &gt; 0, 1 / (2 * sqrt(K)), NA)\n  )\n\n# Show the key values\ncapital_data %&gt;%\n  filter(K %in% c(1, 25, 100, 225, 400)) %&gt;%\n  mutate(\n    `Capital (K)` = K,\n    `Output (Y = √K)` = round(Y, 2),\n    `MPK (additional output per unit K)` = round(MPK, 4)\n  ) %&gt;%\n  select(-K, -Y, -MPK) %&gt;%\n  kable(align = \"rrr\",\n        caption = \"Diminishing Returns: More Capital → Less Additional Output\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE)\n\n\n\nDiminishing Returns: More Capital → Less Additional Output\n\n\nCapital (K)\nOutput (Y = √K)\nMPK (additional output per unit K)\n\n\n\n\n25\n5\n0.1000\n\n\n100\n10\n0.0500\n\n\n225\n15\n0.0333\n\n\n400\n20\n0.0250"
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#the-steady-state",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#the-steady-state",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "5.2 The Steady State",
+    "text": "5.2 The Steady State\nIn the Solow model, capital grows when investment &gt; depreciation and shrinks when depreciation &gt; investment.\n\\[\nK_{t+1} = K_t + \\text{Investment}_t - \\text{Depreciation}_t \\tag{14}\n\\]\n\\[\n\\text{Investment} = \\gamma \\times Y \\tag{15}\n\\]\n\\[\n\\text{Depreciation} = \\delta \\times K \\tag{16}\n\\]\nwhere \\(\\gamma\\) = investment rate (fraction of output invested) and \\(\\delta\\) = depreciation rate.\nSteady state occurs when investment exactly replaces depreciation:\n\\[\n\\gamma \\times Y = \\delta \\times K \\tag{17}\n\\]\nAt this point, the capital stock stops growing, and so does output. Capital accumulation alone cannot explain long-run growth.\n\n\nCode\n# Simulate the Solow model\ngamma &lt;- 0.30  # investment rate\ndelta &lt;- 0.02  # depreciation rate\n\nsolow_sim &lt;- tibble(Period = 0:100) %&gt;%\n  mutate(K = NA_real_, Y = NA_real_, Investment = NA_real_, Depreciation = NA_real_)\n\nsolow_sim$K[1] &lt;- 10  # start with very little capital (like China in 1978)\nsolow_sim$Y[1] &lt;- sqrt(10)\nsolow_sim$Investment[1] &lt;- gamma * solow_sim$Y[1]\nsolow_sim$Depreciation[1] &lt;- delta * solow_sim$K[1]\n\nfor (t in 2:nrow(solow_sim)) {\n  solow_sim$K[t] &lt;- solow_sim$K[t-1] + solow_sim$Investment[t-1] - solow_sim$Depreciation[t-1]\n  solow_sim$Y[t] &lt;- sqrt(solow_sim$K[t])\n  solow_sim$Investment[t] &lt;- gamma * solow_sim$Y[t]\n  solow_sim$Depreciation[t] &lt;- delta * solow_sim$K[t]\n}\n\n# Show key periods\nsolow_sim %&gt;%\n  filter(Period %in% c(0, 5, 10, 20, 40, 60, 80, 100)) %&gt;%\n  mutate(across(c(K, Y, Investment, Depreciation), ~round(., 2))) %&gt;%\n  mutate(\n    `Growth (I &gt; D?)` = ifelse(Investment &gt; Depreciation + 0.01, \"✅ Growing\",\n                                ifelse(abs(Investment - Depreciation) &lt; 0.01, \"⚖️ Steady State\",\n                                       \"📉 Shrinking\"))\n  ) %&gt;%\n  kable(align = \"rrrrrr\",\n        caption = \"Solow Model Simulation: From Poor to Steady State\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\", \"condensed\"), full_width = FALSE)\n\n\n\nSolow Model Simulation: From Poor to Steady State\n\n\nPeriod\nK\nY\nInvestment\nDepreciation\nGrowth (I &gt; D?)\n\n\n\n\n0\n10.00\n3.16\n0.95\n0.20\n✅ Growing|\n\n\n5\n13.94\n3.73\n1.12\n0.28\n✅ Growing|\n\n\n10\n18.30\n4.28\n1.28\n0.37\n✅ Growing|\n\n\n20\n28.01\n5.29\n1.59\n0.56\n✅ Growing|\n\n\n40\n49.69\n7.05\n2.11\n0.99\n✅ Growing|\n\n\n60\n72.09\n8.49\n2.55\n1.44\n✅ Growing|\n\n\n80\n93.55\n9.67\n2.90\n1.87\n✅ Growing|\n\n\n100\n113.22\n10.64\n3.19\n2.26\n✅ Growing|"
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#applying-the-solow-model-china-vs.-us",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#applying-the-solow-model-china-vs.-us",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "5.3 Applying the Solow Model: China vs. US",
+    "text": "5.3 Applying the Solow Model: China vs. US\n\n\nCode\nsolow_countries &lt;- tibble(\n  Concept = c(\"Where on the curve?\",\n              \"Marginal product of capital\",\n              \"Type of growth\",\n              \"Growth rate trend\",\n              \"Key growth driver\",\n              \"Prediction\"),\n  China = c(\"Below steady state (catching up)\",\n            \"High — each new factory adds a lot\",\n            \"Catch-up growth (capital accumulation)\",\n            \"Will slow as K increases\",\n            \"Investment, imitation, trade openness\",\n            \"Growth will converge toward US rates\"),\n  `United States` = c(\"Near or at steady state\",\n                       \"Low — already capital-rich\",\n                       \"Cutting-edge growth (new ideas)\",\n                       \"Steady 1.5–2.5% long-run\",\n                       \"R&D, innovation, institutions\",\n                       \"Sustained growth only through ideas (A)\")\n)\n\nsolow_countries %&gt;%\n  kable(align = \"lll\",\n        caption = \"Solow Model: China (Catching Up) vs. US (Cutting Edge)\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE) %&gt;%\n  column_spec(1, bold = TRUE)\n\n\n\nSolow Model: China (Catching Up) vs. US (Cutting Edge)\n\n\nConcept\nChina\nUnited States\n\n\n\n\nWhere on the curve?\nBelow steady state (catching up)\nNear or at steady state\n\n\nMarginal product of capital\nHigh — each new factory adds a lot\nLow — already capital-rich\n\n\nType of growth\nCatch-up growth (capital accumulation)\nCutting-edge growth (new ideas)\n\n\nGrowth rate trend\nWill slow as K increases\nSteady 1.5–2.5% long-run\n\n\nKey growth driver\nInvestment, imitation, trade openness\nR&D, innovation, institutions\n\n\nPrediction\nGrowth will converge toward US rates\nSustained growth only through ideas (A)"
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#why-capital-isnt-enough",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#why-capital-isnt-enough",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "6.1 Why Capital Isn’t Enough",
+    "text": "6.1 Why Capital Isn’t Enough\nThe Solow model’s most important prediction: capital accumulation alone cannot explain long-run growth. The US has been growing for 200+ years — that can’t be diminishing-returns capital accumulation. It must be something else.\nThat something is ideas (\\(A\\) in the production function).\n\\[\nY = A \\times F(K, eL) \\tag{18}\n\\]\nAn increase in \\(A\\) shifts the entire production function upward — you get more output from the same capital and labor. A modern computer has roughly the same silicon as one from 2005, but it’s enormously more productive. The difference is ideas."
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#ideas-are-non-rivalrous",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#ideas-are-non-rivalrous",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "6.2 Ideas Are Non-Rivalrous",
+    "text": "6.2 Ideas Are Non-Rivalrous\nIdeas are fundamentally different from physical goods:\n\n\n\n\n\n\n\n\nProperty\nPhysical Capital (a tractor)\nIdeas (the wheel)\n\n\n\n\nRivalrous?\nYes — if I use it, you can’t\nNo — your use doesn’t diminish mine\n\n\nDepreciates?\nYes — wears out over time\nNo — once discovered, persists forever\n\n\nShareable?\nExpensive to duplicate\nNearly free to share\n\n\nReturns?\nDiminishing\nPotentially increasing\n\n\n\nThis non-rivalry is why ideas are the only factor that can sustain long-run growth. But it creates a problem: if ideas are free to copy, why would anyone invest in creating them?"
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#the-patent-trade-off",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#the-patent-trade-off",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "6.3 The Patent Trade-Off",
+    "text": "6.3 The Patent Trade-Off\nPatents create a temporary monopoly (typically 20 years) to incentivize R&D. But monopoly power raises prices and slows the spread of ideas. This is one of the trickiest trade-offs in economic policy.\nNorway and the US both have strong intellectual property systems. China has historically been weaker on IP protection, which makes it easier to catch up (copy existing ideas) but harder to innovate at the frontier."
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#institutions-that-drive-innovation",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#institutions-that-drive-innovation",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "6.4 Institutions That Drive Innovation",
+    "text": "6.4 Institutions That Drive Innovation\nThe textbook identifies the key institutions:\n\nProperty rights — if your invention will be stolen, why invent?\nHonest government — corruption is a tax on entrepreneurs\nPolitical stability — investors need predictable rules\nDependable legal system — contracts must be enforceable\nCompetitive and open markets — trade expands the market for ideas\n\n\n\nCode\ninst_data &lt;- tibble(\n  Institution = c(\"Property Rights\", \"Corruption (TI Rank, lower = cleaner)\",\n                   \"Ease of Business\", \"R&D as % of GDP\", \"Patent Applications (annual)\"),\n  `United States` = c(\"Strong\", \"~25th\", \"High\", \"3.5%\", \"~600,000\"),\n  China = c(\"Improving\", \"~80th\", \"Moderate\", \"2.6%\", \"~1,600,000\"),\n  Norway = c(\"Very Strong\", \"~4th\", \"Very High\", \"2.3%\", \"~2,000\")\n)\n\ninst_data %&gt;%\n  kable(align = \"lrrr\",\n        caption = \"Institutional Comparison\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE)\n\n\n\nInstitutional Comparison\n\n\nInstitution\nUnited States\nChina\nNorway\n\n\n\n\nProperty Rights\nStrong\nImproving\nVery Strong\n\n\nCorruption (TI Rank, lower = cleaner)\n~25th\n~80th\n~4th\n\n\nEase of Business\nHigh\nModerate\nVery High\n\n\nR&D as % of GDP\n3.5%\n2.6%\n2.3%\n\n\nPatent Applications (annual)\n~600,000\n~1,600,000\n~2,000"
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#what-it-means",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#what-it-means",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "7.1 What It Means",
+    "text": "7.1 What It Means\nConditional convergence is the tendency — among countries with similar institutions — for poorer countries to grow faster than richer ones. This is exactly what the Solow model predicts: countries far below their steady state grow fast (high MPK), while countries near steady state grow slowly.\nAmong OECD countries (which share broadly similar institutions), this pattern holds almost perfectly: the poorest members in 1960 grew fastest over the next 40 years."
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#chinas-convergence-question",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#chinas-convergence-question",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "7.2 China’s Convergence Question",
+    "text": "7.2 China’s Convergence Question\nChina’s growth fits the catch-up story perfectly — but the “conditional” part matters. Convergence only happens if a country has the institutions to sustain it. China has invested heavily in capital and education, but faces challenges:\n\nPoor banking system (state-directed lending, shadow banking)\nLimited rule of law\nAging population (demographic headwind)\nTransition from imitation to innovation is hard\n\nThe Solow model predicts China’s growth will slow as it approaches its steady state. The question is whether institutional reforms will raise that steady state — or whether it will plateau below US levels."
+  },
+  {
+    "objectID": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#norways-lesson",
+    "href": "resources/lectures/econ2110g/wealth-of-nations-lecture.html#norways-lesson",
+    "title": "The Wealth of Nations and Economic Growth",
+    "section": "7.3 Norway’s Lesson",
+    "text": "7.3 Norway’s Lesson\nNorway shows that you don’t need fast growth to be rich. You need consistent growth backed by excellent institutions. Norway grew at 4% during the post-war boom, slowed to 1.5–3% since, and is still one of the wealthiest countries per capita on Earth. The sovereign wealth fund — investing oil revenues rather than spending them — is an institutional innovation in itself."
+  },
+  {
+    "objectID": "resources/lectures/econ2120g/index.html",
+    "href": "resources/lectures/econ2120g/index.html",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture materials for ECON2120G.\nEach lecture renders as a self-contained HTML page with interactive code, graphs, and practice problems.\n← Back to Course Home\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nConsumer Choice: A Pirate’s Guide to Utility Theory\n\n\nJan 1, 2026\n\n\n\n\n\n\nNo matching items\n Back to top"
+  },
+  {
+    "objectID": "resources/lectures/econ304/tvm-tesla-lecture.html",
+    "href": "resources/lectures/econ304/tvm-tesla-lecture.html",
+    "title": "Time Value of Money: Buying a Tesla",
+    "section": "",
+    "text": "You’ve found your dream car: a 2023 Tesla Model X Plaid in black with a white interior, listed at $65,000. Before you sign anything, you need to understand exactly what this purchase will cost you — not just the sticker price, but the total cost of borrowing over time.\nThis is the time value of money in action. A dollar today is worth more than a dollar tomorrow, because today’s dollar can earn interest. When you borrow money, the lender charges you for the privilege of using their dollars now and paying them back later.\n\n\n\n\n\nItem\nAmount\n\n\n\n\nVehicle price\n$65,000.00\n\n\nDown payment\n$2,500.00\n\n\nShipping fee\n$500.00\n\n\nNM Motor Vehicle Excise Tax (4%)\n$2,600.00\n\n\nTitle fee\n$10.00\n\n\nRegistration (1-year, heavy vehicle)\n$62.00\n\n\nTotal purchase cost\n$68,172.00\n\n\nLess: down payment\n−$2,500.00\n\n\nAmount financed (loan principal)\n$65,672.00\n\n\n\n\n\n\n\n\n\nNew Mexico Vehicle Fees\n\n\n\nNew Mexico charges a 4% Motor Vehicle Excise Tax on the sale price (not the full GRT). Title is $10. Registration for a heavy passenger vehicle (the Model X Plaid weighs ~5,185 lbs) runs about $62/year. There is no separate “sales tax” on vehicles — the excise tax replaces it.\n\n\n\n\n\nWe’ll work through every calculation twice:\n\n\n\n\n\n\n\n\nScenario\nAnnual Rate\nWhy?\n\n\n\n\nScenario A\n10.00%\nEasy mental math — matches Mishkin’s textbook examples\n\n\nScenario B\n7.48%\nRealistic rate for a 750 credit score on a used car (Q3 2025 data: prime borrowers average ~7.43–9.65% on used vehicles)"
+  },
+  {
+    "objectID": "resources/lectures/econ304/tvm-tesla-lecture.html#the-deal",
+    "href": "resources/lectures/econ304/tvm-tesla-lecture.html#the-deal",
+    "title": "Time Value of Money: Buying a Tesla",
+    "section": "",
+    "text": "Item\nAmount\n\n\n\n\nVehicle price\n$65,000.00\n\n\nDown payment\n$2,500.00\n\n\nShipping fee\n$500.00\n\n\nNM Motor Vehicle Excise Tax (4%)\n$2,600.00\n\n\nTitle fee\n$10.00\n\n\nRegistration (1-year, heavy vehicle)\n$62.00\n\n\nTotal purchase cost\n$68,172.00\n\n\nLess: down payment\n−$2,500.00\n\n\nAmount financed (loan principal)\n$65,672.00\n\n\n\n\n\n\n\n\n\nNew Mexico Vehicle Fees\n\n\n\nNew Mexico charges a 4% Motor Vehicle Excise Tax on the sale price (not the full GRT). Title is $10. Registration for a heavy passenger vehicle (the Model X Plaid weighs ~5,185 lbs) runs about $62/year. There is no separate “sales tax” on vehicles — the excise tax replaces it."
+  },
+  {
+    "objectID": "resources/lectures/econ304/tvm-tesla-lecture.html#two-interest-rate-scenarios",
+    "href": "resources/lectures/econ304/tvm-tesla-lecture.html#two-interest-rate-scenarios",
+    "title": "Time Value of Money: Buying a Tesla",
+    "section": "",
+    "text": "We’ll work through every calculation twice:\n\n\n\n\n\n\n\n\nScenario\nAnnual Rate\nWhy?\n\n\n\n\nScenario A\n10.00%\nEasy mental math — matches Mishkin’s textbook examples\n\n\nScenario B\n7.48%\nRealistic rate for a 750 credit score on a used car (Q3 2025 data: prime borrowers average ~7.43–9.65% on used vehicles)"
+  },
+  {
+    "objectID": "resources/lectures/econ304/tvm-tesla-lecture.html#future-value-fv",
+    "href": "resources/lectures/econ304/tvm-tesla-lecture.html#future-value-fv",
+    "title": "Time Value of Money: Buying a Tesla",
+    "section": "2.1 Future Value (FV)",
+    "text": "2.1 Future Value (FV)\nQuestion: If I invest $65,672 today, what will it be worth in \\(n\\) years at interest rate \\(i\\)?\n\\[\nFV = PV \\times (1 + i)^{n} \\tag{1}\n\\]\nwhere:\n\n\\(FV\\) = future value (what you’ll have/owe at the end)\n\\(PV\\) = present value (the amount today)\n\\(i\\) = interest rate per period (as a decimal)\n\\(n\\) = number of compounding periods\n\n\n\nCode\nPV &lt;- 65672\ni_easy &lt;- 0.10\ni_real &lt;- 0.0748\nn_5 &lt;- 5\nn_7 &lt;- 7\n\nFV_easy_5 &lt;- PV * (1 + i_easy)^n_5\nFV_easy_7 &lt;- PV * (1 + i_easy)^n_7\nFV_real_5 &lt;- PV * (1 + i_real)^n_5\nFV_real_7 &lt;- PV * (1 + i_real)^n_7\n\ntibble(\n  Scenario = c(\"10% / 5-year\", \"10% / 7-year\", \"7.48% / 5-year\", \"7.48% / 7-year\"),\n  `PV (Loan)` = scales::dollar(PV),\n  Rate = c(\"10.00%\", \"10.00%\", \"7.48%\", \"7.48%\"),\n  Years = c(5, 7, 5, 7),\n  `FV (Total Owed if No Payments)` = scales::dollar(c(FV_easy_5, FV_easy_7, FV_real_5, FV_real_7))\n) %&gt;%\n  kable(align = \"lrrrr\", caption = \"Future Value of $65,672 at Different Rates and Terms\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE)\n\n\n\nFuture Value of $65,672 at Different Rates and Terms\n\n\nScenario\nPV (Loan)\nRate\nYears\nFV (Total Owed if No Payments)\n\n\n\n\n10% / 5-year\n$65,672\n10.00%\n5\n$105,765\n\n\n10% / 7-year\n$65,672\n10.00%\n7\n$127,976\n\n\n7.48% / 5-year\n$65,672\n7.48%\n5\n$94,193\n\n\n7.48% / 7-year\n$65,672\n7.48%\n7\n$108,811\n\n\n\n\n\n\n\n\n\n\n\nKey Insight\n\n\n\nAt 10% for 7 years, your $65,672 loan would balloon to $127,976 if you made no payments. That’s the raw power of compound interest working against you as a borrower."
+  },
+  {
+    "objectID": "resources/lectures/econ304/tvm-tesla-lecture.html#present-value-pv",
+    "href": "resources/lectures/econ304/tvm-tesla-lecture.html#present-value-pv",
+    "title": "Time Value of Money: Buying a Tesla",
+    "section": "2.2 Present Value (PV)",
+    "text": "2.2 Present Value (PV)\nQuestion: What is a future payment worth today? This is the inverse of FV.\n\\[\nPV = \\frac{FV}{(1 + i)^{n}} \\tag{2}\n\\]\nThis is exactly what Mishkin means when he says “a dollar paid to you one year from now is less valuable than a dollar paid to you today.” The denominator \\((1+i)^n\\) is the discount factor — it shrinks the future value back to today’s dollars.\n\n\nCode\n# What is a $100,000 payment 5 years from now worth today?\nFV_example &lt;- 100000\n\nPV_easy &lt;- FV_example / (1 + i_easy)^n_5\nPV_real &lt;- FV_example / (1 + i_real)^n_5\n\ntibble(\n  Scenario = c(\"At 10%\", \"At 7.48%\"),\n  `Future Payment` = scales::dollar(FV_example),\n  `Years Away` = 5,\n  `Present Value Today` = scales::dollar(c(PV_easy, PV_real)),\n  `You \"Lose\"` = scales::dollar(FV_example - c(PV_easy, PV_real))\n) %&gt;%\n  kable(align = \"lrrrr\",\n        caption = \"Present Value of $100,000 Received in 5 Years\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE)\n\n\n\nPresent Value of $100,000 Received in 5 Years\n\n\nScenario\nFuture Payment\nYears Away\nPresent Value Today\nYou \"Lose\"\n\n\n\n\nAt 10%\n$100,000\n5\n$62,092.13\n$37,907.87\n\n\nAt 7.48%\n$100,000\n5\n$69,720.70\n$30,279.30"
+  },
+  {
+    "objectID": "resources/lectures/econ304/tvm-tesla-lecture.html#payment-pmt-the-fixed-payment-loan-formula",
+    "href": "resources/lectures/econ304/tvm-tesla-lecture.html#payment-pmt-the-fixed-payment-loan-formula",
+    "title": "Time Value of Money: Buying a Tesla",
+    "section": "2.3 Payment (PMT) — The Fixed-Payment Loan Formula",
+    "text": "2.3 Payment (PMT) — The Fixed-Payment Loan Formula\nThis is the formula that actually determines your monthly car payment. It comes from the fixed-payment loan equation in Mishkin Chapter 4:\n\\[\nPMT = PV \\times \\frac{i}{1 - (1 + i)^{-n}} \\tag{3}\n\\]\nwhere:\n\n\\(PMT\\) = fixed payment per period\n\\(PV\\) = loan principal (amount financed)\n\\(i\\) = interest rate per period (monthly rate if paying monthly)\n\\(n\\) = total number of payments (months if paying monthly)\n\n\n\n\n\n\n\nAnnuity Connection\n\n\n\nThis is the annuity formula rearranged. The loan is the present value of all your future payments, discounted at the interest rate. The lender is buying an annuity (your stream of payments) and paying you the lump sum now."
+  },
+  {
+    "objectID": "resources/lectures/econ304/tvm-tesla-lecture.html#time-conversion",
+    "href": "resources/lectures/econ304/tvm-tesla-lecture.html#time-conversion",
+    "title": "Time Value of Money: Buying a Tesla",
+    "section": "3.1 Time Conversion",
+    "text": "3.1 Time Conversion\n\\[\nn_{\\text{months}} = n_{\\text{years}} \\times 12 \\tag{4}\n\\]\n\\[\nn_{\\text{years}} = \\frac{n_{\\text{months}}}{12} \\tag{5}\n\\]\n\n\n\nLoan Term\nYears\nMonths\n\n\n\n\n5-year loan\n5\n60\n\n\n7-year loan\n7\n84"
+  },
+  {
+    "objectID": "resources/lectures/econ304/tvm-tesla-lecture.html#interest-rate-conversion",
+    "href": "resources/lectures/econ304/tvm-tesla-lecture.html#interest-rate-conversion",
+    "title": "Time Value of Money: Buying a Tesla",
+    "section": "3.2 Interest Rate Conversion",
+    "text": "3.2 Interest Rate Conversion\nAnnual Percentage Rate (APR) to monthly rate:\n\\[\ni_{\\text{monthly}} = \\frac{i_{\\text{annual}}}{12} \\tag{6}\n\\]\nTo go back:\n\\[\ni_{\\text{annual}} = i_{\\text{monthly}} \\times 12 \\tag{7}\n\\]\n\n\nCode\ntibble(\n  Scenario = c(\"Scenario A (easy math)\", \"Scenario B (realistic)\"),\n  `Annual Rate` = c(\"10.00%\", \"7.48%\"),\n  `Monthly Rate` = paste0(round(c(0.10/12, 0.0748/12) * 100, 4), \"%\"),\n  `Monthly Rate (decimal)` = round(c(0.10/12, 0.0748/12), 6)\n) %&gt;%\n  kable(align = \"lrrr\",\n        caption = \"Annual to Monthly Rate Conversion\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE)\n\n\n\nAnnual to Monthly Rate Conversion\n\n\nScenario\nAnnual Rate\nMonthly Rate\nMonthly Rate (decimal)\n\n\n\n\nScenario A (easy math)\n10.00%\n0.8333%\n0.008333\n\n\nScenario B (realistic)\n7.48%\n0.6233%\n0.006233\n\n\n\n\n\n\n\n\n\n\n\nCommon Mistake\n\n\n\nStudents frequently forget to convert the annual rate to monthly before plugging into the PMT formula. If you use \\(i = 0.10\\) instead of \\(i = 0.10/12 = 0.00833\\), your payment will be wildly wrong."
+  },
+  {
+    "objectID": "resources/lectures/econ304/tvm-tesla-lecture.html#how-amortization-works",
+    "href": "resources/lectures/econ304/tvm-tesla-lecture.html#how-amortization-works",
+    "title": "Time Value of Money: Buying a Tesla",
+    "section": "7.1 How Amortization Works",
+    "text": "7.1 How Amortization Works\nEach month:\n\nInterest portion = Remaining Balance × Monthly Rate\nPrincipal portion = Payment − Interest Portion\nNew Balance = Old Balance − Principal Portion\n\n\\[\n\\text{Interest}_t = \\text{Balance}_{t-1} \\times i_{\\text{monthly}} \\tag{8}\n\\]\n\\[\n\\text{Principal}_t = PMT - \\text{Interest}_t \\tag{9}\n\\]\n\\[\n\\text{Balance}_t = \\text{Balance}_{t-1} - \\text{Principal}_t \\tag{10}\n\\]\n\n\nCode\nbuild_amortization &lt;- function(pv, annual_rate, years, label) {\n  monthly_rate &lt;- annual_rate / 12\n  n_months &lt;- years * 12\n  pmt &lt;- pv * (monthly_rate / (1 - (1 + monthly_rate)^(-n_months)))\n\n  balance &lt;- pv\n  schedule &lt;- tibble(\n    Month = integer(),\n    Payment = numeric(),\n    Interest = numeric(),\n    Principal = numeric(),\n    Balance = numeric()\n  )\n\n  for (m in 1:n_months) {\n    interest &lt;- balance * monthly_rate\n    principal &lt;- pmt - interest\n    balance &lt;- balance - principal\n\n    schedule &lt;- schedule %&gt;% add_row(\n      Month = m,\n      Payment = round(pmt, 2),\n      Interest = round(interest, 2),\n      Principal = round(principal, 2),\n      Balance = round(max(balance, 0), 2)\n    )\n  }\n\n  schedule$Scenario &lt;- label\n  return(schedule)\n}"
+  },
+  {
+    "objectID": "resources/lectures/econ304/tvm-tesla-lecture.html#scenario-a-10-apr-5-year-loan-60-months",
+    "href": "resources/lectures/econ304/tvm-tesla-lecture.html#scenario-a-10-apr-5-year-loan-60-months",
+    "title": "Time Value of Money: Buying a Tesla",
+    "section": "7.2 Scenario A: 10% APR — 5-Year Loan (60 Months)",
+    "text": "7.2 Scenario A: 10% APR — 5-Year Loan (60 Months)\n\n\nCode\namort_A5 &lt;- build_amortization(loan_amount, 0.10, 5, \"10% / 5-Year\")\n\n# Show first 6, last 6, and yearly summaries\nbind_rows(\n  amort_A5 %&gt;% slice(1:6) ,\n  tibble(Month = NA, Payment = NA, Interest = NA,\n         Principal = NA, Balance = NA, Scenario = \"...\"),\n  amort_A5 %&gt;% slice(55:60)\n) %&gt;%\n  select(-Scenario) %&gt;%\n  mutate(across(where(is.numeric) & !matches(\"Month\"),\n                ~ifelse(is.na(.), \"...\", scales::dollar(.)))) %&gt;%\n  mutate(Month = ifelse(is.na(Month), \"...\", as.character(Month))) %&gt;%\n  kable(align = \"rrrrr\",\n        caption = \"Amortization: 10% APR, 60 Months\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\", \"condensed\"),\n                full_width = FALSE, font_size = 13)\n\n\n\nAmortization: 10% APR, 60 Months\n\n\nMonth\nPayment\nInterest\nPrincipal\nBalance\n\n\n\n\n1\n$1,395.34\n$547.27\n$848.07\n$64,823.93\n\n\n2\n$1,395.34\n$540.20\n$855.14\n$63,968.79\n\n\n3\n$1,395.34\n$533.07\n$862.26\n$63,106.53\n\n\n4\n$1,395.34\n$525.89\n$869.45\n$62,237.08\n\n\n5\n$1,395.34\n$518.64\n$876.69\n$61,360.39\n\n\n6\n$1,395.34\n$511.34\n$884.00\n$60,476.39\n\n\n...\n...\n...\n...\n...\n\n\n55\n$1,395.34\n$67.78\n$1,327.56\n$6,805.60\n\n\n56\n$1,395.34\n$56.71\n$1,338.62\n$5,466.98\n\n\n57\n$1,395.34\n$45.56\n$1,349.78\n$4,117.20\n\n\n58\n$1,395.34\n$34.31\n$1,361.03\n$2,756.17\n\n\n59\n$1,395.34\n$22.97\n$1,372.37\n$1,383.80\n\n\n60\n$1,395.34\n$11.53\n$1,383.80\n$0.00\n\n\n\n\n\n\n\nCode\namort_A5 %&gt;%\n  mutate(Year = ceiling(Month / 12)) %&gt;%\n  group_by(Year) %&gt;%\n  summarise(\n    `Total Payments` = scales::dollar(sum(Payment)),\n    `Total Interest` = scales::dollar(sum(Interest)),\n    `Total Principal` = scales::dollar(sum(Principal)),\n    `End Balance` = scales::dollar(last(Balance)),\n    .groups = \"drop\"\n  ) %&gt;%\n  kable(align = \"rrrrr\",\n        caption = \"Annual Summary: 10% APR, 5-Year Loan\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE)\n\n\n\nAnnual Summary: 10% APR, 5-Year Loan\n\n\nYear\nTotal Payments\nTotal Interest\nTotal Principal\nEnd Balance\n\n\n\n\n1\n$16,744.08\n$6,087.56\n$10,656.47\n$55,015.53\n\n\n2\n$16,744.08\n$4,971.69\n$11,772.33\n$43,243.18\n\n\n3\n$16,744.08\n$3,738.98\n$13,005.07\n$30,238.12\n\n\n4\n$16,744.08\n$2,377.16\n$14,366.86\n$15,871.26\n\n\n5\n$16,744.08\n$872.77\n$15,871.27\n$0"
+  },
+  {
+    "objectID": "resources/lectures/econ304/tvm-tesla-lecture.html#scenario-a-10-apr-7-year-loan-84-months",
+    "href": "resources/lectures/econ304/tvm-tesla-lecture.html#scenario-a-10-apr-7-year-loan-84-months",
+    "title": "Time Value of Money: Buying a Tesla",
+    "section": "7.3 Scenario A: 10% APR — 7-Year Loan (84 Months)",
+    "text": "7.3 Scenario A: 10% APR — 7-Year Loan (84 Months)\n\n\nCode\namort_A7 &lt;- build_amortization(loan_amount, 0.10, 7, \"10% / 7-Year\")\n\nbind_rows(\n  amort_A7 %&gt;% slice(1:6),\n  tibble(Month = NA, Payment = NA, Interest = NA,\n         Principal = NA, Balance = NA, Scenario = \"...\"),\n  amort_A7 %&gt;% slice(79:84)\n) %&gt;%\n  select(-Scenario) %&gt;%\n  mutate(across(where(is.numeric) & !matches(\"Month\"),\n                ~ifelse(is.na(.), \"...\", scales::dollar(.)))) %&gt;%\n  mutate(Month = ifelse(is.na(Month), \"...\", as.character(Month))) %&gt;%\n  kable(align = \"rrrrr\",\n        caption = \"Amortization: 10% APR, 84 Months\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\", \"condensed\"),\n                full_width = FALSE, font_size = 13)\n\n\n\nAmortization: 10% APR, 84 Months\n\n\nMonth\nPayment\nInterest\nPrincipal\nBalance\n\n\n\n\n1\n$1,090.23\n$547.27\n$542.97\n$65,129.03\n\n\n2\n$1,090.23\n$542.74\n$547.49\n$64,581.54\n\n\n3\n$1,090.23\n$538.18\n$552.05\n$64,029.49\n\n\n4\n$1,090.23\n$533.58\n$556.65\n$63,472.84\n\n\n5\n$1,090.23\n$528.94\n$561.29\n$62,911.54\n\n\n6\n$1,090.23\n$524.26\n$565.97\n$62,345.57\n\n\n...\n...\n...\n...\n...\n\n\n79\n$1,090.23\n$52.96\n$1,037.28\n$5,317.49\n\n\n80\n$1,090.23\n$44.31\n$1,045.92\n$4,271.57\n\n\n81\n$1,090.23\n$35.60\n$1,054.64\n$3,216.93\n\n\n82\n$1,090.23\n$26.81\n$1,063.43\n$2,153.51\n\n\n83\n$1,090.23\n$17.95\n$1,072.29\n$1,081.22\n\n\n84\n$1,090.23\n$9.01\n$1,081.22\n$0.00\n\n\n\n\n\n\n\nCode\namort_A7 %&gt;%\n  mutate(Year = ceiling(Month / 12)) %&gt;%\n  group_by(Year) %&gt;%\n  summarise(\n    `Total Payments` = scales::dollar(sum(Payment)),\n    `Total Interest` = scales::dollar(sum(Interest)),\n    `Total Principal` = scales::dollar(sum(Principal)),\n    `End Balance` = scales::dollar(last(Balance)),\n    .groups = \"drop\"\n  ) %&gt;%\n  kable(align = \"rrrrr\",\n        caption = \"Annual Summary: 10% APR, 7-Year Loan\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE)\n\n\n\nAnnual Summary: 10% APR, 7-Year Loan\n\n\nYear\nTotal Payments\nTotal Interest\nTotal Principal\nEnd Balance\n\n\n\n\n1\n$13,082.76\n$6,260.12\n$6,822.67\n$58,849.32\n\n\n2\n$13,082.76\n$5,545.70\n$7,537.09\n$51,312.22\n\n\n3\n$13,082.76\n$4,756.48\n$8,326.34\n$42,985.88\n\n\n4\n$13,082.76\n$3,884.59\n$9,198.22\n$33,787.67\n\n\n5\n$13,082.76\n$2,921.40\n$10,161.37\n$23,626.28\n\n\n6\n$13,082.76\n$1,857.39\n$11,225.44\n$12,400.86\n\n\n7\n$13,082.76\n$681.94\n$12,400.87\n$0"
+  },
+  {
+    "objectID": "resources/lectures/econ304/tvm-tesla-lecture.html#scenario-b-7.48-apr-5-year-loan-60-months",
+    "href": "resources/lectures/econ304/tvm-tesla-lecture.html#scenario-b-7.48-apr-5-year-loan-60-months",
+    "title": "Time Value of Money: Buying a Tesla",
+    "section": "7.4 Scenario B: 7.48% APR — 5-Year Loan (60 Months)",
+    "text": "7.4 Scenario B: 7.48% APR — 5-Year Loan (60 Months)\n\n\nCode\namort_B5 &lt;- build_amortization(loan_amount, 0.0748, 5, \"7.48% / 5-Year\")\n\nbind_rows(\n  amort_B5 %&gt;% slice(1:6),\n  tibble(Month = NA, Payment = NA, Interest = NA,\n         Principal = NA, Balance = NA, Scenario = \"...\"),\n  amort_B5 %&gt;% slice(55:60)\n) %&gt;%\n  select(-Scenario) %&gt;%\n  mutate(across(where(is.numeric) & !matches(\"Month\"),\n                ~ifelse(is.na(.), \"...\", scales::dollar(.)))) %&gt;%\n  mutate(Month = ifelse(is.na(Month), \"...\", as.character(Month))) %&gt;%\n  kable(align = \"rrrrr\",\n        caption = \"Amortization: 7.48% APR, 60 Months\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\", \"condensed\"),\n                full_width = FALSE, font_size = 13)\n\n\n\nAmortization: 7.48% APR, 60 Months\n\n\nMonth\nPayment\nInterest\nPrincipal\nBalance\n\n\n\n\n1\n$1,315.31\n$409.36\n$905.95\n$64,766.05\n\n\n2\n$1,315.31\n$403.71\n$911.60\n$63,854.45\n\n\n3\n$1,315.31\n$398.03\n$917.28\n$62,937.17\n\n\n4\n$1,315.31\n$392.31\n$923.00\n$62,014.17\n\n\n5\n$1,315.31\n$386.55\n$928.75\n$61,085.41\n\n\n6\n$1,315.31\n$380.77\n$934.54\n$60,150.87\n\n\n...\n...\n...\n...\n...\n\n\n55\n$1,315.31\n$48.14\n$1,267.17\n$6,455.33\n\n\n56\n$1,315.31\n$40.24\n$1,275.07\n$5,180.26\n\n\n57\n$1,315.31\n$32.29\n$1,283.02\n$3,897.24\n\n\n58\n$1,315.31\n$24.29\n$1,291.02\n$2,606.22\n\n\n59\n$1,315.31\n$16.25\n$1,299.06\n$1,307.16\n\n\n60\n$1,315.31\n$8.15\n$1,307.16\n$0.00\n\n\n\n\n\n\n\nCode\namort_B5 %&gt;%\n  mutate(Year = ceiling(Month / 12)) %&gt;%\n  group_by(Year) %&gt;%\n  summarise(\n    `Total Payments` = scales::dollar(sum(Payment)),\n    `Total Interest` = scales::dollar(sum(Interest)),\n    `Total Principal` = scales::dollar(sum(Principal)),\n    `End Balance` = scales::dollar(last(Balance)),\n    .groups = \"drop\"\n  ) %&gt;%\n  kable(align = \"rrrrr\",\n        caption = \"Annual Summary: 7.48% APR, 5-Year Loan\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE)\n\n\n\nAnnual Summary: 7.48% APR, 5-Year Loan\n\n\nYear\nTotal Payments\nTotal Interest\nTotal Principal\nEnd Balance\n\n\n\n\n1\n$15,783.72\n$4,531.71\n$11,251.98\n$54,420.01\n\n\n2\n$15,783.72\n$3,660.58\n$12,123.10\n$42,296.90\n\n\n3\n$15,783.72\n$2,722.04\n$13,061.67\n$29,235.24\n\n\n4\n$15,783.72\n$1,710.82\n$14,072.88\n$15,162.37\n\n\n5\n$15,783.72\n$621.34\n$15,162.38\n$0"
+  },
+  {
+    "objectID": "resources/lectures/econ304/tvm-tesla-lecture.html#scenario-b-7.48-apr-7-year-loan-84-months",
+    "href": "resources/lectures/econ304/tvm-tesla-lecture.html#scenario-b-7.48-apr-7-year-loan-84-months",
+    "title": "Time Value of Money: Buying a Tesla",
+    "section": "7.5 Scenario B: 7.48% APR — 7-Year Loan (84 Months)",
+    "text": "7.5 Scenario B: 7.48% APR — 7-Year Loan (84 Months)\n\n\nCode\namort_B7 &lt;- build_amortization(loan_amount, 0.0748, 7, \"7.48% / 7-Year\")\n\nbind_rows(\n  amort_B7 %&gt;% slice(1:6),\n  tibble(Month = NA, Payment = NA, Interest = NA,\n         Principal = NA, Balance = NA, Scenario = \"...\"),\n  amort_B7 %&gt;% slice(79:84)\n) %&gt;%\n  select(-Scenario) %&gt;%\n  mutate(across(where(is.numeric) & !matches(\"Month\"),\n                ~ifelse(is.na(.), \"...\", scales::dollar(.)))) %&gt;%\n  mutate(Month = ifelse(is.na(Month), \"...\", as.character(Month))) %&gt;%\n  kable(align = \"rrrrr\",\n        caption = \"Amortization: 7.48% APR, 84 Months\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\", \"condensed\"),\n                full_width = FALSE, font_size = 13)\n\n\n\nAmortization: 7.48% APR, 84 Months\n\n\nMonth\nPayment\nInterest\nPrincipal\nBalance\n\n\n\n\n1\n$1,006.65\n$409.36\n$597.29\n$65,074.71\n\n\n2\n$1,006.65\n$405.63\n$601.01\n$64,473.69\n\n\n3\n$1,006.65\n$401.89\n$604.76\n$63,868.93\n\n\n4\n$1,006.65\n$398.12\n$608.53\n$63,260.40\n\n\n5\n$1,006.65\n$394.32\n$612.32\n$62,648.08\n\n\n6\n$1,006.65\n$390.51\n$616.14\n$62,031.94\n\n\n...\n...\n...\n...\n...\n\n\n79\n$1,006.65\n$36.84\n$969.81\n$4,940.47\n\n\n80\n$1,006.65\n$30.80\n$975.85\n$3,964.61\n\n\n81\n$1,006.65\n$24.71\n$981.93\n$2,982.68\n\n\n82\n$1,006.65\n$18.59\n$988.06\n$1,994.63\n\n\n83\n$1,006.65\n$12.43\n$994.21\n$1,000.41\n\n\n84\n$1,006.65\n$6.24\n$1,000.41\n$0.00\n\n\n\n\n\n\n\nCode\namort_B7 %&gt;%\n  mutate(Year = ceiling(Month / 12)) %&gt;%\n  group_by(Year) %&gt;%\n  summarise(\n    `Total Payments` = scales::dollar(sum(Payment)),\n    `Total Interest` = scales::dollar(sum(Interest)),\n    `Total Principal` = scales::dollar(sum(Principal)),\n    `End Balance` = scales::dollar(last(Balance)),\n    .groups = \"drop\"\n  ) %&gt;%\n  kable(align = \"rrrrr\",\n        caption = \"Annual Summary: 7.48% APR, 7-Year Loan\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE)\n\n\n\nAnnual Summary: 7.48% APR, 7-Year Loan\n\n\nYear\nTotal Payments\nTotal Interest\nTotal Principal\nEnd Balance\n\n\n\n\n1\n$12,079.80\n$4,661.37\n$7,418.39\n$58,253.60\n\n\n2\n$12,079.80\n$4,087.04\n$7,992.71\n$50,260.87\n\n\n3\n$12,079.80\n$3,468.24\n$8,611.52\n$41,649.36\n\n\n4\n$12,079.80\n$2,801.57\n$9,278.19\n$32,371.16\n\n\n5\n$12,079.80\n$2,083.26\n$9,996.50\n$22,374.66\n\n\n6\n$12,079.80\n$1,309.34\n$10,770.41\n$11,604.24\n\n\n7\n$12,079.80\n$475.52\n$11,604.24\n$0"
+  },
+  {
+    "objectID": "resources/lectures/econ304/tvm-tesla-lecture.html#the-fixed-payment-loan-ch.-4",
+    "href": "resources/lectures/econ304/tvm-tesla-lecture.html#the-fixed-payment-loan-ch.-4",
+    "title": "Time Value of Money: Buying a Tesla",
+    "section": "10.1 The Fixed-Payment Loan (Ch. 4)",
+    "text": "10.1 The Fixed-Payment Loan (Ch. 4)\nYour auto loan is a fixed-payment loan — one of the four credit market instruments Mishkin describes. The loan value equals the present value of all future payments:\n\\[\nLV = \\frac{FP}{(1+i)} + \\frac{FP}{(1+i)^2} + \\frac{FP}{(1+i)^3} + \\cdots + \\frac{FP}{(1+i)^n} \\tag{11}\n\\]\nwhere \\(LV\\) = loan value, \\(FP\\) = fixed payment, \\(i\\) = interest rate, \\(n\\) = number of periods.\nThis is exactly the annuity present value formula. When we solve for \\(FP\\) (the payment), we get Equation (3) from earlier. The lender’s perspective: they’re buying a stream of your future payments at a price equal to the loan amount."
+  },
+  {
+    "objectID": "resources/lectures/econ304/tvm-tesla-lecture.html#the-inverse-relationship-ch.-45",
+    "href": "resources/lectures/econ304/tvm-tesla-lecture.html#the-inverse-relationship-ch.-45",
+    "title": "Time Value of Money: Buying a Tesla",
+    "section": "10.2 The Inverse Relationship (Ch. 4–5)",
+    "text": "10.2 The Inverse Relationship (Ch. 4–5)\nMishkin’s key insight: price and yield move inversely. For your auto loan:\n\nIf market rates drop after you lock in at 10%, your loan becomes expensive relative to new loans — you’re overpaying (an incentive to refinance)\nIf market rates rise, your locked-in rate looks like a bargain\n\nThis is the same inverse relationship that governs bond prices."
+  },
+  {
+    "objectID": "resources/lectures/econ304/tvm-tesla-lecture.html#interest-rate-risk",
+    "href": "resources/lectures/econ304/tvm-tesla-lecture.html#interest-rate-risk",
+    "title": "Time Value of Money: Buying a Tesla",
+    "section": "10.3 Interest Rate Risk",
+    "text": "10.3 Interest Rate Risk\nIf you took the 7-year loan at 7.48% and rates drop to 5% after two years, you face a decision: refinance (pay closing costs, get lower rate) or keep paying. This is interest-rate risk applied to consumer finance — the same concept Mishkin discusses for bonds, just in your driveway."
+  }
+]

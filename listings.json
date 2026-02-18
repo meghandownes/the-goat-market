@@ -1,0 +1,20 @@
+[
+  {
+    "listing": "/resources/lectures/econ304/index.html",
+    "items": [
+      "/resources/lectures/econ304/tvm-tesla-lecture.html"
+    ]
+  },
+  {
+    "listing": "/resources/lectures/econ2110g/index.html",
+    "items": [
+      "/resources/lectures/econ2110g/wealth-of-nations-lecture.html"
+    ]
+  },
+  {
+    "listing": "/resources/lectures/econ2120g/index.html",
+    "items": [
+      "/resources/lectures/econ2120g/ch25-utility-lecture.html"
+    ]
+  }
+]
